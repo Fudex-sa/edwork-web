@@ -1,0 +1,25 @@
+@import '../../../../assets/styles/common/colors';
+
+.button {
+  margin: 0 10px;
+  background: $blue;
+  border-color: $blue;
+  color: #fff;
+
+  &:focus,
+  &:hover,
+  &:active {
+    color: #fff;
+    background-color: lighten($blue, 5%);
+    border-color: lighten($blue, 5%);
+  }
+
+  &.full_width {
+    flex: 1;
+    margin: 0;
+  }
+}
+
+// .button_txt {
+//   font-size: ;
+// }

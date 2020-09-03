@@ -1,0 +1,121 @@
+.container {
+  position: relative;
+  display: flex;
+  align-self: stretch;
+  flex: 1;
+  height: calc(100vh - 190px);
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f7f8f8;
+    z-index: -1;
+  }
+
+  & > div {
+    // margin-top: 25px;
+  }
+
+  .board {
+    flex: 0.8;
+    // background: #fff;
+    // border-top-left-radius: 15px;
+    // border-top-right-radius: 15px;
+
+    &_content {
+      display: flex;
+      // background: #000;
+      height: 100%;
+
+      .left_side,
+      .content {
+        overflow-y: auto;
+        height: calc(100vh - 65px - 25px - 100px);
+      }
+
+      .left_side {
+        flex: 0.25;
+        border-right: 1px solid rgba(#000, 0.15);
+
+        .search {
+          border-bottom: 1px solid #00000029;
+          margin: 0 8px 10px 8px;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          position: relative;
+
+          .selected_all {
+            background: #9538ff;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            animation-name: moveToBotttom;
+            animation-duration: 0.5s;
+
+            @keyframes moveToBotttom {
+              from {
+                transform: translateY(-100%);
+                opacity: 0;
+              }
+              to {
+                transform: translateY(0);
+                opacity: 1;
+              }
+            }
+
+            & > button {
+              border: none;
+              color: #fff;
+              background: transparent;
+              cursor: pointer;
+              font-size: 15px;
+            }
+          }
+
+          .search_wrapper {
+            background: #fff;
+            margin: 0 20px;
+            height: 30px;
+            border-radius: 30px;
+            overflow: hidden;
+            width: 100%;
+            display: flex;
+            align-items: center;
+
+            input {
+              border: none;
+              outline: none;
+              flex: 1;
+              padding: 0 15px;
+              height: 100%;
+            }
+
+            .saerch_btn {
+              outline: none;
+              width: 25px;
+              height: 25px;
+              border-radius: 50%;
+              border: none;
+              color: #fff;
+              font-size: 11px;
+              background: #000;
+              margin: 0 3px;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}

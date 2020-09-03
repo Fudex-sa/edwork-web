@@ -1,0 +1,261 @@
+key,en,ar
+landing.header.login,Company login,دخول الشركات
+landing.header.title,Hire by yourself with less time,وظف بنفسك ، وبأقل وقت
+landing.header.description,Start with us for FREE,إبدأ معنا مجانا
+landing.header.button.create,Post a job,اعلن عن وظيفة
+landing.header.button.sub_text,,
+landing.header.made_with,MADE WITH LOVE,صنع بحب 
+landing.header.made_from,in Saudi ARABIA,في السعودية
+landing.header.jobs_available,"To apply on jobs, download our app",للتقديم على الوظائف ، حمل تطبيقنا
+landing.section.title.trust,Customers who TRUSTED us,العملاء الذين وثقوا بنا
+landing.section.title.why,Why to post on Fursatak app ?,لماذا تعلن على تطبيق فرصتك ؟
+landing.section.features.title.easy_to_use,Easy to use,سهل الاستخدام
+landing.section.features.title.videos,See the candidiates,رؤية المرشحين
+landing.section.features.title.effictive,Filter efficiently,تصفية بكفاءة عالية
+landing.section.features.title.co_workers,Invite co-workers,قم بدعوة زملائك
+landing.section.features.title.privacy,Privacy,الخصوصية
+landing.section.features.title.website,Get a website,أحصل على موقع الكتروني
+landing.section.features.title.people_around,People around you,مرشحين بالقرب منك
+landing.section.features.title.redirect_link,Redirect to link,التوجيه الى رابط
+landing.section.features.description.easy_to_use,"We offer you a verity of powerful tools to sort, filter, evaluate and hire fit candidates easily.",نوفر مجموعة من الأدوات الفعالة للفرز ، والتصفية ، وتقيم وتوظيف المرشحين المناسبين بسهولة.
+landing.section.features.description.videos,"Now, you are able see real persons and analyse their personality and test their skills and knowledge.",الآن ، بإستطاعتك مشاهدة اشخاص حقيقيين وتحليل شخصياتهم واختبار مهاراتهم ومعرفتهم.
+landing.section.features.description.effictive,"Filter-out unwanted applications, using built-in criteria such as age, gender ..etc. Or, build your own evaluation questions.",فلترة الطلبات الغير مرغوب بها عن طريق معايير مثل العمر أو الجنس ..إلخ. أو يمكنك بناء أسئلتك الخاصة للتقييم.
+landing.section.features.description.co_workers,We realized that team collaboration in companies leads to successful hiring process. Here you are !,ندرك ان نجاح عملية التوظيف في الشركات مرهونة بتعاون فريق العمل داخل الشرك. إليك ذلك !
+landing.section.features.description.privacy,Your business and candidates data is highly confidencial. Only you can see it.,بياناتك منشأتك والمتقدمين على الوظائف التي تطرحها  في سرية تامة ، أنت وحدك من يستطيع مشاهدتها.
+landing.section.features.description.website,Need to build a career page for your campany and integrate it with your website ? here you go !,هل تود بناء صفحة توظيف خاصة لشرتك ودمجها مع الموقع الإلكتروني ؟ تفضل !
+landing.section.features.description.people_around,See people near to your business first. We know this highly matters to you and to them !,شاهد الأشخاص القريبين من مقرك أولا. نعلم ان ذلك مهم بالنسبة لك ولهم !
+landing.section.features.description.redirect_link,"Having your own career website ? No problem , post on our app and let applicants go to your website.",لديك موقع توظيف خاص بك ؟ لامشكلة ، اعلن عن وظيفة على تطبيقنا واجعل المتقدمين يذهبون الى موقعك.
+landing.footer.about,"“Fursatak” is trademark owned by Education by Work co. and officially registered with Ministry of Commerce in Kingdom of Saudi Arabia with a CR#2053115777
+
+","""فرصتك"" هي علامة تجارية مملوكة لمؤسسة التعلم بالعمل للموارد البشرية ومسجلة رسميا بوزاة التجارة بالمملكة العربية السعودية بسجل تجاري رقم 2053115777"
+landing.footer.vision_title,Our vision,رؤيتنا
+landing.footer.vision,We aspire to be the #1 digital platform in human resources (HR) in Kingdom of Saudi Arabia & take the standards to the next level.,نطمح لأن نكون المنصة الرقمية رقم 1 في المملكة العربية السعودية في مجال الموارد البشرية وأن نرتقي بالمعايير إلى مستوى أعلى.
+landing.footer.links.privacy,Privacy policy,سياسة الخصوصية
+landing.footer.links.terms,Terms of use,شروط الاستخدام 
+landing.footer.links.faq,FAQ,الأسئلة الشائعة
+landing.footer.copyright,© 2020 Fursatak - All Rights Reserved,© جميع الحقوق محفوظه - فرصتك 2020
+,,
+login.forget_password,Forget password ?,هل نسيت كلمة المرور؟
+forget_password.title,Forget Password,نسيت كلمة السر
+,,
+header.have_account,Do you have an account?,هل لديك حساب ؟
+heder.dont_have_account,Don’t have an account?,ليس لديك حساب ؟
+header.registration,Register now,قم بالتسجيل الآن
+header.login,Login,تسجيل الدخول
+,,
+registration.company_data_title,Enter company data,قم بإدخال بيانات الشركه
+registration.personal_date_title,Enter autherized person data,قم بإدخال بياناتك الشخص المفوض
+,,
+dashboard.plan.my_job.name,Job posts,إعلانات الوظائف
+dashboard.plan.my_job.description,"View, add & manage your job posts","استعراض, اضافه وإدارة اعلاناتك الوظيفية"
+dashboard.plan.membership.name,Your website,موقعك الإلكتروني
+dashboard.plan.membership.description,"View and manage your website. you can update logo, change colors & more",مشاهدة وإدارة موقعك الإلكتروني. يمكنك تحديث الشعار الخاص بشركتك و تغيير الألوان والكثير من الخصائص الاخرى.
+dashboard.plan.coworkers.name,Co-workers,زملاء العمل
+dashboard.plan.coworkers.description,"Invite, delete and change permissions of co-workers",قم بدعوة أو حذف أو تغيير الصلاحيات الممنوحة لزملاء العمل.
+dashboard.plan.settings.name,Settings,الإعدادات
+dashboard.plan.settings.description,"Modify company profile, membership, users, password, ... and more !",قم بالتعديل على ملف الشركة أو نوع العضوية أو المستخدمين أو كلمة المرور ... والمزيد !
+dashboard.plan.upgrade.name,Upgrade your account,قم بترقيه حسابك
+dashboard.plan.upgrade.description,"Get a career website, invite co-workers and enjoy unlimited premium features with no extra costs.","أحصل موقع إلكتروني للتوظيف, وأدعوا زملائك بالعمل معك و استمتع بالمميزات المدفوعة بدون تكاليف اضافية."
+dashboard.activate_user_email,Please check your email for activation,من فضلك تحقق من رابط التفعيل المرسل على  بريدك الالكتروني
+dashboard.good_afternoon,Good afternoon,مساء الخير 
+dashboard.good_evening,Good evening,مساء الخير 
+dashboard.good_morning,Good morning,صباح الخير
+dashboard.click_to_buy,Click here to buy,اضغط هنا للشراء
+dashboard.pro_account_expire_date,Will expire after {{expireDays}} days,سيتم انتهاء الاشتراك بعد {{expireDays}} يوم
+,,
+settings.menu.membership,Membership & Subscriptions,العضوية والإشتراكات
+settings.menu.company_profile,Company profile,حساب الشركة
+settings.menu.user_profile,User profile (you),حساب المستخدم (أنت)
+settings.menu.password,Change password,تغيير كلمة المرور
+settings.membership.free,Free,مجانا
+settings.membership.pro,Professional,احترافي
+settings.current_membership_text,Your current membership is,عضويتك الحاليه هي 
+,,
+job.search,Search ...,بحث
+job.tab_head.title,Job title,المسمى الوظيفي
+job.tab_head.date,Date,التاريخ
+job.tab_head.status,Status,الحالة
+job.tab_head.applications,Applications,الطلبات
+job.tab_head.action,Take action,اتخاذ اجراء
+job.tab_head.note,write a note (Only seen by you),أكتب ملاحظة (تظهر لك فقط)
+job.add_job.step1.title,Start posting on Fursatak APP,إبدأ بالاعلان على تطبيق فرصتك
+job.add_job.step1.description,How to apply on the job ?,كيف يمكن التقديم على الوظيفة ؟
+job.add_job.step3.title,"See videos, Sort, Filter, Evaluate and Get more information about candidates",تسجيل فيديو ، فرز ، تقييم ، فلترة والحصول على المزيد من البيانات عن المرشحين
+job.add_job.step3.description,Add more tools to enhance hiring process 👍,قم بإضافة المزيد من الأدوات لتحسين عملية التوظيف 👍
+job.add_job.step4.title,One last step to finish,تبقى خطوة واحدة
+job.add_job.step4.description,Setup added tools,قم باعداد الأدوات التي تم اضافتها
+job.add_job.step4.section_title.basic,,
+job.add_job.step4.section_title.tools,,
+job.add_job.type.app.title,Via Fursatak app,عن طريق تطبيق فرصتك
+job.add_job.type.app.desc,"We recommend this option. You will get a control panel and tools to Sort, Filter, Evaluate. You can choose the most fit candidiase easily.",ننصح بهذا الخيار، سوف تحصل على لوحة تحكم لإدارة الطلبات مع ادوات للفرز والفلترة والتقييم ويمكنك بكل سهولة اختيار المرشحين الأنسب.
+job.add_job.type.email.title,Via email,عن طريق البريد الالكتروني
+job.add_job.type.email.desc,Be aware that your email will be publicly visible to let candidates send their application. Pick this choice if you want to.,كن على علم بأن بريدك الإلكتروني سيكون مرئيًا للجميع للسماح للمرشحين بإرسال طلباتهم. اختر هذا الاختيار إذا كنت تريد ذلك.
+job.add_job.type.link.title,Via link,عن طريق رابط
+job.add_job.type.link.desc,Ideal for companies who have their online recruitment system. Choose this option to direct application the the job post link on your website.,مناسب للشركات التي لديها نظام الكتروني للتوظيف. اختر هذا الخيار لتوجيه طلبات التقديم على الرابط الخاص بالإعلان الوظيفي الخاص بالتقديم.
+job.add_job.start_with,Starts with,تبدأ بـ
+job.add_job.video.title,Video uploading tool,أداه ارفاق الفيديو
+job.add_job.video.description,"With this tool, you are able request videos of real persons and analyse their personality and test their skills and knowledge.",باستخدام هذه الأداة ، يمكنك طلب مقاطع فيديو لأشخاص حقيقيين وتحليل شخصيتهم واختبار مهاراتهم ومعرفتهم.
+job.add_job.evaluation.title,Evaluation tool,أداة التقييم
+job.add_job.evaluation.description,"Use this tool to evaluate any skill or knowledge in a scle from 0 to 5. Examples: Level of English, Leadership skill, Using MS Excel …etc. Plus, filter by minimum score you assigned.",استخدم هذه الأداه لتقييم اي مهارة أو معرفة بمقياس من 0 الى 5. مثلا : مستوى اللغة الانجليزية ، مهارات القيادة ، استخدام برنامج الاكسل ... الخ. كذلك يمكن تصفية النتائج بناء على النقاط الأدنى المقبولة والتي تحددتها انت.
+job.add_job.selection.title,Selection tool,أداة الاختيار
+job.add_job.selection.description,"Ask questions with one selection allowed or multiple. Examples: Yes/No, Selecting profissional certificates, making a personal test or technical quiz …etc. Also, apply filters based on answers.","قم بطرح الأسئله اختيار متعدد أو اختيار واحد. مثلا : نعم/لا , اختيار الشهادات الاحترافيه أو اعداد اختبارات شخصيه أو اختبارات فنية... الخ. كما يمكنك تصفية المرشحين بناء على اجاباتهم."
+job.add_job.people_nearby.title,People nearby,الأشخاص القريبين
+job.add_job.people_nearby.description,"Show applicant close to your company or a specific city, or cities first.",أظهر المتقدمين القريبين من مقر شركتك أو مدينة محددة أو عددة مدن أولا.
+job.add_job.people_nearby.sub_title,"Show applicant close to your company or a specific city, or cities first.",أظهر المتقدمين القريبين من مقر شركتك أو مدينة محددة أو عددة مدن أولا.
+job.add_job.filter.age.value,Age,العمر
+job.add_job.filter.gender.value,Gender,الجنس
+job.add_job.filter.nationality.value,Nationality,الجنسية
+job.add_job.filter.lvl_education.value,Level of education,مستوى التعليم
+job.add_job.filter.univeristy.value,University,الجامعة
+job.add_job.filter.students.value,Show students only,قم بإظهار الطلاب فقط
+job.add_job.filter.age.btween,btween,بين
+job.add_job.filter.age.and,and,و
+job.add_job.filter.gender.is,is,يكون
+job.add_job.filter.nationality.is_any_of,Is any of,اي من
+job.add_job.filter.lvl_education.is_min,is mimimum,كحد ادنى
+job.add_job.filter.students.value,Candidates must be students to be approved on this job,يجب على المتقدمين أن يكونون طلاب حتى يتم قبولهم على هذه الوظيفة
+job.add_job.people_nearby.placeholder,Select city,قم باختيار مدينه 
+job.add_job.people_nearby.plus,Plus,بالاضافة
+job.add_job.people_nearby.km_around,KM around,كيلو متر حوله
+job.add_job.questionnaire.title,Selection tool,أداة الاستبيان
+job.add_job.questionnaire.description,"Ask questions with one selection allowed or multiple. Examples: Yes/No, Selecting profissional certificates, making a personal test or technical quiz …etc. Also, apply filters based on answers.","قم بطرح الأسئله اختيار متعدد أو اختيار واحد. مثلا : نعم/لا , اختيار الشهادات الاحترافيه أو اعداد اختبارات شخصيه أو اختبارات فنية... الخ. كما يمكنك تصفية المرشحين بناء على اجاباتهم."
+job.add_job.questionnaire.question_placeholder,Type the question here ...,قم بكتابة السؤال هنا...
+job.add_job.questionnaire.options_placeholder,Option,خيار
+job.add_job.questionnaire.options_head.answer,Answer,الجواب
+job.add_job.questionnaire.options_head.approved_answer,Approved answer,الإجابة المقبولة
+job.add_job.questionnaire.options_head.remove,Remove,حذف
+job.add_job.questionnaire.multiple_select,Allow multiple select,السماح بالاختيار المتعدد
+job.add_job.questionnaire.candidate_lastone,"To pass, candidate must select at last one approved answer",للتأهل، يجب على المتقدم اختيار جواب مقبول واحد على الأقل.
+job.add_job.questionnaire.candidate_selectall,"To pass, candidate must select all approved answer",للتأهل، يجب على المتقدم اختيار جميع الإجابات المقبولة.
+job.add_job.selection.title,,
+job.add_job.selection.description,,
+job.add_job.selection.minimum_score,Minimum accepted score,أقل نتيجه مقبوله
+job.add_job.video.title,Video uploading tool,أداه ارفاق الفيديو
+job.add_job.video.description,"Want to see your candidates ?Ask them to record a video + write some instructions to them explaining what you want them to say. Note that , maximum 5 min is allowed.",تود رؤية المرشحين ؟ قم بطلب تسجيل فيديو خاص بهم + أكتب تعليمات لشرح ماذا تود منهم. مع ملاحظة ان الحد الأعلى للفيديو هو 5 دقائق
+,,
+job.detail.deselect_all,Deselect all,الغاء اختيار الكل
+job.detail.select_all,Select all,أختيار الكل
+job.detail.category.all_candidates,All candidates,جميع المتقديمن
+job.detail.category.your_list,Your list,قائمتك
+job.detail.category.non_filtered,All candidates - Smart filter not activated,جميع المتقديمن - لم يتم تنشيط الفلترة الذكية
+job.detail.category.qualifield,Qualified - Smart filter,المؤهلي - فلتر ذكي
+job.detail.category.not_qualified,Not qualified - Smart filter,غير مؤهل - فلتر ذكي
+job.detail.category.add_new_list,Add new list,اضافة قائمة جديدة
+job.detail.move_to,Move to:,نقل إلى:
+job.detail.quick_contact,Quick communication:,تواصل سريع
+job.detail.send_email,Send email to {{email}},ارسال بريد الكتروني الى {{email}}
+job.detail.basic_filter,Candidate specification,مواصفات المرشح
+job.detail.feedback,Results,النتائج
+job.detail.evaluation,Evaluation,تقييم
+job.detail.checklist,Questionnaire,قائمه مهام
+job.detail.cover_letter,Cover letter,خطاب تقديمي
+job.detail.file_head.preview,Preview,معاينه
+job.detail.file_head.attach,Attachments,المرفقات
+job.detail.file_head.download,Download,تحميل
+,,
+user_plan.options.free.only_extra,Only pay for extra services,فقط ، ادفع للخدمات الاضافية
+user_plan.options.days,{{day}} days,{{day}} أيام
+user_plan.options.free.extra_fees,Extra fees (Optional),رسوم اضافيه (حسب الاختيار)
+user_plan.options.free.price_start,Pricing starts with {{price}} SAR,الاسعار تبدأ من {{price}} ريال سعودي
+user_plan.options.per_year,per year,لمدة 12 شهر
+user_plan.values.posting,Unlimited number of job posts,عدد غير محدود من الإعلانات الوظيفية
+user_plan.values.period,Period of post,مده الاعلان
+user_plan.values.company_page,Building your company career page,بناء موقع توظيف خاص لشركتك
+user_plan.values.co_workers,Inviting Co-workers,قم بدعوه زملاءك
+user_plan.values.comment_app,Ability to comment on applications and CVs,القدره على كتابه الملاحظات على الطلبات الواردة والسير الذاتية
+user_plan.values.hr_tools,"More tools: Online videos, Sort, Filter, Evaluate and Get more information about candidates",أدوات اضافية : فيديو اونلان ، فرز ، تقييم ، فلترة والحصول على المزيد من البيانات عن المرشحين
+,,
+verify.verify_mobile_title,Verify your mobile,قم بتوثيق رقم الجوال 
+verify.proofing_document_title,Upload Proofing Documents,قم برفع المستندات الداعمة
+verify.add_document,Add document,اضافة مستند
+,,
+modal.apply.title,Apply,تقديم
+modal.apply.step1.title,Downoad “Fursatak” app,"قم بتحميل تطبيق "" فرصتك"""
+modal.apply.step2.title,Enter this link,قم بادخال هذا الرابط
+modal.custom_category.title,Add custom category,اضافة تصنيف مخصص
+modal.add_address.title,Add company address,قم باضافه عنوان الشركه
+,,
+input.email.label,Email,البريد الالكتروني
+input.email.placeholder,Email,البريد الالكتروني
+input.password.label,Password,كلمة المرور
+input.password.placeholder,Password,كلمة المرور
+input.re_password.label,Repeat password,اعادة كلمة المرور
+input.re_password.placeholder,Repeat password,اعادة كلمة المرور
+input.input.avatar_placeholder,Upload company logo,رفع شعار الشركه
+input.input.company_name.label,Company name,اسم الشركه
+input.input.company_name.placeholder,Copany name,اسم الشركه
+input.input.web_site.label,Website (optional),الموقع الالكتروني (اختياري)
+input.input.web_site.placeholder,Website (optional),الموقع الالكتروني (اختياري)
+input.business_field.label,Field of business,مجال العمل
+input.business_field.placeholder,Field of business,مجال العمل
+input.number_employer.label,Size of Company,حجم الشركة
+input.number_employer.placeholder,How many employees working with you ?,كم عدد الموظفين الذين يعملون معك ؟
+input.about_business.label,Tell us about your business (company profile),أخبرنا عن نشاطك (الملف التعريفي للشركة)
+input.about_business.placeholder,Tell us about your business (company profile),أخبرنا عن نشاطك (الملف التعريفي للشركة)
+input.first_name.label,Your first name,الاسم الاول
+input.first_name.placeholder,Your first name,الاسم الاول
+input.last_name.label,Your last name,اسم العائله
+input.last_name.placeholder,Your last name,اسم العائله
+input.position.label,Your position at {{companyName}},مسماك الوظيفي لدى {{companyName}}
+input.position.placeholder,Your position at {{companyName}},مسماك الوظيفي لدى {{companyName}}
+input.mobile.label,Mobile number,رقم الجوال
+input.mobile.placeholder,Mobile number,رقم الجوال
+input.add_job.email_title,Type the email,أكتب البريد الالكتروني
+input.add_job.email_subtitle,That candidates can send their CV’s to,لإستقبال السير الذاتية عليه
+input.add_job.link_title,Type the link,اكتب الرابط
+input.add_job.link_subtitle,That candidates can go and apply,لتحويل المتقدمين اليه
+input.add_job.job_title,Job title,المسمى الوظيفي
+input.add_job.job_subtitle,"(Such as : Accountant , Safety Engineer , or Marketing Manager )","(مثال: صيدلي ,مهندس سلامه او مدير مبيعات ..الخ) "
+input.add_job.job_category,Category of the job,تصنيف الوظيفة
+input.add_job.job_hiring_date,Expected hiring date,تاريخ التوظيف المتوقع 
+input.add_job.job_hiring_date_subtitle,"If you are not sure pick maximum date. Remember, candidates need to know how long they going to wait !",اذا لم تكن متاكدا من التاريخ ، اختر اقصى تاريخ متوقع. تذكر أن : المتقدمين يريدون معرفه فتره انتظارهم للحصول على الرد !
+input.add_job.online_job.label,Online,أونلاين
+input.add_job.job_type,Type of contract,نوع العقد
+input.add_job.job_hrdf_support,Is this job supported by HRDF (Taqat) ?,هل هذه الوظيفة مدعومة من صندوق هدف (طاقات) ؟
+input.add_job.job_salary,Salary,الراتب
+input.add_job.job_salary_subtitle,"(You can write somthing like: 6000-8000 SAR , Negotiable or 50 SAR/hour)",(تستطيع كتابه مبلغ مثل 6000-8000 ريال سعودي او 50 ريال سعودي/ ساعه او قابل للتفاوض)
+input.add_job.location,Location of work,موقع العمل
+input.add_job.basic_filter.placeholder,Select filter,اختر فلتر
+input.mobile_number_for_smscode.label,Phone,الهاتف 
+input.mobile_number_for_smscode.placeholder,Enter your mobile number,قم بكتابه رقم جوالك
+input.custom_category.name.label,Category name,اسم التصنيف
+input.custom_category.name.placeholder,Category name,اسم التصنيف
+input.custom_category.category_type.label,Category type,نوع التصنيف
+input.custom_category.category_type.placeholder,Select category type,قم باختيار نوع التصنيف
+input.add_address.region.placeholder,Select region,اختر المنظقه 
+input.add_address.governorate.placeholder,Select city,اختر المدينة
+input.add_address.address.label,Address,العنوان
+input.add_address.address.placeholder,Type address,نوع العنوان 
+,,
+button.login,Login,تسجيل دخول 
+button.reset,Reset,اعاده ضبط
+button.goto_main,Go to main page,اذهب الى الصفحه الرئيسيه
+button.goto_login,Go to login,اذهب الى تسجيل الدخول
+button.update,Update,تحديث
+button.resend,Resend,اعاده ارسال
+button.registration,Registration,تسجيل
+button.extend_subscription,Extend subsicription,تمديد الاشتراك
+button.buy_now,Buy it now,قم بالشراء الان
+button.see_features,See features,انظر الى المزايا
+button.logout,Log out,تسجيل الخروج
+button.add_new_post,Add new post,قم باضافه اعلان جديد 
+button.next,Next Step,الخطوه التاليه
+button.prev,Previous Step,الخطوه السابقه
+button.new_location,Add a new location,قم باضافه عنوان جديد
+button.add,Add,اضافه
+button.remove,Remove,حذف
+button.add_more,Add more,اضافه المزيد
+button.add_other_options,Add other options,اضافه خيارات اخرى
+button.add_job,Add job,اضافه وظيفه
+button.select_all,Select All,اختيار الكل
+button.unselect_all,Unselect All,إلغاء اختيار الكال
+button.current_plan,Current plan,الخطه الحاليه
+button.choose_plan,Choose this plan,اختر هذه الخطة
+button.resend_email,Resend email,اعاده ارسال البريد الالكتروني
+button.send_code,Send code,ارسال الرمز
+button.send_again,Send again,اعاده ارسال
+button.done,Done,تم
+button.copy,Copy,نسخ
+button.apply,Apply,تقديم
+button.new_category,Add new category,اضافه تصنيف جديد
+button.add_address,Add address,اضافه عنوان

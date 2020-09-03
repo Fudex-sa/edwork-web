@@ -1,0 +1,2 @@
+export const GET_INITAIL_PAYMENT = 'pay/GET_INITAIL_PAYMENT';
+export const CHECK_PAYMENT = 'pay/CHECK_PAYMENT';

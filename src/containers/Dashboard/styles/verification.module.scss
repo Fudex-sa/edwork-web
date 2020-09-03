@@ -1,0 +1,114 @@
+.container {
+  width: 30%;
+  margin: 40px auto;
+
+  .button_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .sms_code {
+    // animation
+  }
+
+  .re_send {
+    display: flex;
+    justify-content: center;
+
+    button {
+      border: none;
+      outline: none;
+      background: transparent;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.1s ease-in;
+
+      svg {
+        margin-right: 10px;
+      }
+
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+  }
+}
+
+.files {
+  margin: 40px 0;
+  border: 1px solid #00000030;
+  position: relative;
+  height: 50px;
+  border-radius: 5px;
+  background: #f3f3f3;
+  transition: 0.2s ease-in;
+
+  &:hover {
+    background: darken($color: #f3f3f3, $amount: 2%);
+  }
+
+  .placeholder {
+    font-family: 'SF Pro Display Bold';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    margin: 0;
+    text-align: center;
+    line-height: 50px;
+    text-transform: uppercase;
+    font-size: 15px;
+    color: #333;
+
+    svg {
+      color: #0091ff;
+      margin-right: 10px;
+      font-size: 15px;
+    }
+  }
+
+  input {
+    outline: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 3;
+    cursor: pointer;
+  }
+}
+
+.files_container {
+  .file_item {
+    display: flex;
+    border: 1px solid #f3f3f3;
+    padding: 10px 15px;
+    border-radius: 5px;
+    align-items: center;
+    margin-bottom: 10px;
+
+    span {
+      flex: 1;
+    }
+
+    .actions {
+      padding-left: 25px;
+      button {
+        outline: none;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        color: #333;
+        transition: 0.1s ease-in;
+
+        &:hover {
+          color: #dd2c00;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  background: #0091ff;
+  padding: 0 7%;
+  border-bottom: 1px solid #fff;
+
+  p {
+    margin: 0;
+    flex: 1;
+    color: #fff;
+  }
+}
