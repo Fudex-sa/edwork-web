@@ -1,0 +1,257 @@
+@import '../../../../assets/styles/common/colors';
+
+.input {
+  border-color: transparent;
+  border-bottom-color: rgba($gray, 0.4);
+  border-radius: 0;
+  padding: 10px 0;
+
+  &:hover,
+  &:focus {
+    border-color: transparent;
+    border-bottom-color: $blue;
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.input_wrapper {
+  margin-top: 15px;
+  flex: 1;
+
+  &.margin_none {
+    margin: 0;
+  }
+
+  .label {
+    // font-family: 'SF Pro Display reg';
+    font-size: 11px;
+    color: rgba(51, 51, 51, 0.2);
+    margin: 0;
+    // padding-left: 10px;
+    opacity: 0;
+    transition: 0.2s ease-in;
+
+    &.labelShow {
+      opacity: 1;
+    }
+  }
+
+  .addition_label {
+    display: inline-block;
+    margin: 5px 0;
+    padding-left: 10px;
+  }
+}
+
+.input_container {
+  // width: 50%;
+  // margin: 20px auto;
+
+  &.file {
+    [class*='avatar-uploader'] {
+      display: flex;
+      justify-content: center;
+    }
+    [class*='ant-upload-select'] {
+      border-radius: 50%;
+      width: 140px;
+      height: 140px;
+      overflow: hidden;
+
+      &:hover {
+        border-color: $blue;
+      }
+    }
+  }
+}
+
+.radio {
+  margin: 5px 0;
+  .item {
+    display: block;
+    padding-bottom: 10px;
+  }
+
+  [class*='ant-radio-checked'] > [class*='ant-radio-inner'] {
+    border-color: #1bcbff;
+    &::after {
+      background-color: #1bcbff;
+    }
+  }
+
+  // [class*="ant-radio-input"]:focus + [class*="ant-radio-inner"] {
+  //   border-color: #02aeae;
+  //   box-shadow: 0 0 0 3px rgba(2, 174, 174, 0.08);
+  // }
+}
+
+.checkbox {
+  [class='ant-checkbox-group'] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  [class*='ant-checkbox-group-item'] {
+    padding: 5px 0;
+  }
+
+  // [class*="ant-checkbox-checked"] > [class*="ant-checkbox-inner"] {
+  //   background-color: #02aeae;
+  //   border-color: #02aeae;
+  // }
+
+  // [class*="ant-checkbox-input"]:focus + [class*="ant-checkbox-inner"] {
+  //   border-color: #02aeae;
+  // }
+}
+
+// ====== Job add Input ========
+.jobadd_input_wrapper {
+  // background: #f00;
+  margin-bottom: 30px;
+
+  .label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    margin: 0;
+    line-height: 1;
+    opacity: 1;
+  }
+
+  .sub_label {
+    color: #606f76;
+    margin-bottom: 5px;
+    line-height: 1.4;
+  }
+
+  .input_jobadd,
+  .input_base_wrapper {
+    border: none;
+    background-color: #fff;
+    border-radius: 5px;
+    height: 40px;
+    padding: 10px;
+  }
+
+  .input_datepicker {
+    padding: 0;
+
+    [class*='ant-picker'] {
+      // border: none;
+      // width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      border-color: transparent;
+
+      input {
+        flex: 1;
+      }
+
+      &:hover {
+        border-color: transparent;
+      }
+    }
+  }
+
+  .input_select {
+    padding: 0;
+    display: flex;
+    & > [class*='ant-select'] {
+      flex: 1;
+
+      [class*='ant-select-selector'] {
+        border-color: transparent !important;
+        border-radius: 5px;
+      }
+
+      [class*='ant-select-selector'],
+      [class*='ant-select-selection-search-input'] {
+        height: 40px;
+      }
+
+      [class*='ant-select-selection-placeholder'],
+      [class*='ant-select-selection-item'] {
+        line-height: 40px;
+      }
+    }
+  }
+}
+
+.location_list_wrapper {
+  position: relative;
+
+  .select_all {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #606f76;
+    cursor: pointer;
+    transition: 0.1s ease-in;
+
+    &:hover {
+      color: #1bcbff;
+    }
+  }
+
+  .add_location {
+    color: #0091ff;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-weight: normal;
+
+    &:lang(ar) {
+      margin-left: 0;
+      margin-right: 10px;
+    }
+  }
+
+  .location_list {
+    max-height: 150px;
+    margin-top: 20px;
+    overflow-y: auto;
+
+    [class*='ant-checkbox-checked']::after {
+      height: auto;
+    }
+
+    [class*='ant-checkbox-group'] {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 5px 0;
+
+      [class*='ant-checkbox-group-item'] {
+        width: calc(33.3% - 6px);
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+
+        &:nth-child(3n) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+.richEditor {
+  background: #fff;
+  border-radius: 5px;
+
+  [class*='ql-toolbar'] {
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+  }
+
+  [class*='ql-editor'],
+  [class*='ql-container'] {
+    border: none !important;
+    min-height: 150px;
+  }
+}

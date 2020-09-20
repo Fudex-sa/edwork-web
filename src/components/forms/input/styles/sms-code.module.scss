@@ -1,0 +1,24 @@
+.content_sms_code {
+  display: flex;
+  margin: 20px 0;
+  width: 100% !important;
+  align-items: center;
+  justify-content: center;
+
+  input {
+    font-family: 'SF Pro Display Regular';
+    border-radius: 6px;
+    margin: 10px;
+    width: 55px !important;
+    height: 55px !important;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-right-color: rgba(0, 0, 0, 0.15) !important;
+    background: #efefef;
+
+    &:focus {
+      caret-color: #000;
+      border: 1px solid #0091ff;
+      border-right-color: #0091ff !important;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.content {
+  width: 70%;
+  margin: 25px auto;
+}
+
+.button_wrapper {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+
+  .btn {
+    margin: 0;
+  }
+}

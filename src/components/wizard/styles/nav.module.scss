@@ -1,0 +1,44 @@
+.nav {
+  display: flex;
+  // margin: 20px 0;
+}
+
+.dot {
+  color: #000;
+  display: flex;
+  flex: 1;
+  height: 8px;
+  position: relative;
+  background: #0091ff;
+
+  &:first-child::before {
+    opacity: 0;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 83%;
+    height: 4px;
+    background: #02aeae;
+    top: 17.5px;
+    left: 0;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+
+  &.active {
+    color: #000;
+    background: #0091ff;
+
+    &::before,
+    .dot_body {
+      background: #0091ff;
+    }
+
+    & ~ .dot::before,
+    & ~ .dot {
+      background: transparent;
+    }
+  }
+}

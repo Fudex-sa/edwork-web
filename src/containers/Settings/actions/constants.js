@@ -1,0 +1,1 @@
+export const UPDATE_ACCOUNT_DATA = "settings/UPDATE_ACCOUNT_DATA";

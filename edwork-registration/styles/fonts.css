@@ -1,0 +1,46 @@
+@font-face {
+  font-family: "SF Pro Display Bold";
+  src: url("../assets/fonts/SF-PRO-Display-Bold.eot"); /* IE9*/
+  src: url("../assets/fonts/SF-PRO-Display-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../assets/fonts/SF-PRO-Display-Bold.woff2")
+      format("woff2"),
+    /* chrome、firefox */ url("../assets/fonts/SF-PRO-Display-Bold.woff")
+      format("woff"),
+    /* chrome、firefox */ url("../assets/fonts/SF-PRO-Display-Bold.ttf")
+      format("truetype"),
+    /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+      url("../assets/fonts/SF-PRO-Display-Bold.svg#SF Pro Display Bold")
+      format("svg"); /* iOS 4.1- */
+}
+
+@font-face {
+  font-family: "SF Pro Display Regular";
+  src: url("../assets/fonts/SF-PRO-Display-Regular.eot"); /* IE9*/
+  src: url("../assets/fonts/SF-PRO-Display-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../assets/fonts/SF-PRO-Display-Regular.woff2")
+      format("woff2"),
+    /* chrome、firefox */ url("../assets/fonts/SF-PRO-Display-Regular.woff")
+      format("woff"),
+    /* chrome、firefox */ url("../assets/fonts/SF-PRO-Display-Regular.ttf")
+      format("truetype"),
+    /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+      url("../assets/fonts/SF-PRO-Display-Regular.svg#SF Pro Display Regular")
+      format("svg"); /* iOS 4.1- */
+}
+
+@font-face {
+  font-family: "JannaLT-Regular";
+  src: url("//db.onlinewebfonts.com/t/dee436f274c410c23fc3de43367ef1ae.eot");
+  src: url("//db.onlinewebfonts.com/t/dee436f274c410c23fc3de43367ef1ae.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/dee436f274c410c23fc3de43367ef1ae.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/dee436f274c410c23fc3de43367ef1ae.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/dee436f274c410c23fc3de43367ef1ae.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/dee436f274c410c23fc3de43367ef1ae.svg#JannaLT-Regular")
+      format("svg");
+}

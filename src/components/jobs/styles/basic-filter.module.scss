@@ -1,0 +1,82 @@
+.basic_filter {
+  background: #fff;
+  border-radius: 15px;
+  width: 90%;
+  margin: auto;
+  padding: 20px 50px 30px 50px;
+
+  .filter {
+    display: flex;
+    margin-bottom: 25px;
+    position: relative;
+
+    .cell {
+      display: flex;
+      margin-right: 20px;
+      align-items: center;
+      justify-content: center;
+
+      [class*='input_input_wrapper'] {
+        margin-top: 0;
+      }
+
+      & > span {
+        text-align: center;
+      }
+
+      &:first-child {
+        width: 30%;
+
+        & ~ div {
+          flex: 1;
+        }
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .remove {
+      flex: initial !important;
+      width: 40px;
+      color: #f00;
+      font-size: 16px;
+      padding: 5px 10px;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      // display: inline-block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      transform: translateX(-100%);
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .add_filter {
+    background: #0091ff;
+    color: #fff;
+    border: none;
+    padding: 5px 25px;
+    margin-top: 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    outline: none;
+    margin-top: 20px;
+    transition: 0.2s ease-in;
+    font-size: 16px;
+
+    &:hover {
+      background: darken(#0091ff, 5%);
+    }
+  }
+}

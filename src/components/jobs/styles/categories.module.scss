@@ -1,0 +1,68 @@
+.categories {
+  flex: 0.2;
+  overflow-y: auto;
+
+  .wrapper {
+    margin: 30px 30px 0 30px;
+    color: #000000;
+    font-family: 'SF Pro Display Light';
+
+    .section_title {
+      color: #00000080;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0px;
+
+      &.green {
+        color: #22c932;
+      }
+      &.yellow {
+        color: #ff9300;
+      }
+      &.red {
+        color: #f82b60;
+      }
+    }
+
+    .item {
+      background: transparent;
+      border-radius: 10px;
+      padding: 8px 25px;
+      transition: 0.15s ease-in;
+      cursor: pointer;
+      margin-bottom: 5px;
+
+      &:hover,
+      &.active {
+        background: #cfd3d5;
+      }
+
+      &.green {
+        color: #22c932;
+      }
+      &.yellow {
+        color: #ff9300;
+      }
+      &.red {
+        color: #f82b60;
+      }
+    }
+
+    .new_filter {
+      input {
+        width: 100%;
+        border: none;
+        outline: none;
+        background: #cfd3d5;
+        padding: 8px 25px;
+        border-radius: 10px;
+      }
+    }
+
+    .add_item {
+      color: #606f76;
+      padding: 8px 25px;
+      cursor: pointer;
+    }
+  }
+}

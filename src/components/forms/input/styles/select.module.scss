@@ -1,0 +1,34 @@
+@import '../../../../assets/styles/common/colors';
+
+.select {
+  width: 100%;
+  border-color: transparent;
+
+  & > [class='ant-select-selector'] {
+    border-color: transparent !important;
+    padding: 0 !important;
+    height: 44px !important;
+    border-bottom: 1px solid rgba($gray, 0.4) !important;
+
+    & > [class='ant-select-selection-placeholder'],
+    & > [class='ant-select-selection-item'] {
+      line-height: 44px !important;
+    }
+  }
+
+  &[class*='ant-select-focused'] {
+    border-color: transparent !important;
+    box-shadow: none;
+  }
+
+  &[class*='ant-select-multiple'] {
+    & [class='ant-select-selection-placeholder'],
+    & [class='ant-select-selection-item'] {
+      line-height: 24px !important;
+    }
+
+    & [class='ant-select-selector'] {
+      height: auto !important;
+    }
+  }
+}

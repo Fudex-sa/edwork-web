@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(-1453 -770)" data-name="Group 2925">
+<g transform="translate(1453 770)" fill="none" stroke="#000" data-name="Rectangle 2793">
+<rect width="20" height="20" rx="3" stroke="none"/>
+<rect x=".5" y=".5" width="19" height="19" rx="2.5" fill="none"/>
+</g>
+<path transform="translate(1455 770.06)" d="M5.562,16.549.24,11.227a.819.819,0,0,1,0-1.158L1.4,8.911a.819.819,0,0,1,1.158,0L6.141,12.5,13.82,4.817a.819.819,0,0,1,1.158,0l1.158,1.158a.819.819,0,0,1,0,1.158L6.72,16.549A.819.819,0,0,1,5.562,16.549Z" fill="#1bcbff" data-name="Icon awesome-check"/>
+</g>
+</svg>

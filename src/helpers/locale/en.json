@@ -1,0 +1,426 @@
+{
+  "landing": {
+    "header": {
+      "login": "Company login",
+      "title": "smartly",
+      "description": "No more annoying emails or building google forms. Post a job on Fursatak app , manage candidates , sort, filter and pick the right one.",
+      "button": {
+        "create": "Start Hiring",
+        "sub_text": "See pricing"
+      },
+      "made_with": "MADE WITH LOVE",
+      "made_from": "in Saudi ARABIA",
+      "jobs_available": "Jobs are available on our app"
+    },
+    "section": {
+      "title": {
+        "trust": "Customers who TRUSTED us",
+        "why": "FEATURES OF FURSTAK",
+        "try": "Try our services"
+      },
+      "features": {
+        "title": {
+          "easy_to_use": "Easy to use",
+          "videos": "See the candidiates",
+          "effictive": "Filter efficiently",
+          "co_workers": "Invite co-workers",
+          "privacy": "Privacy",
+          "website": "Get a website",
+          "people_around": "People around you",
+          "redirect_link": "Redirect to link",
+          "interview": "interviews scheduling",
+          "and_more": "And More..."
+        },
+        "description": {
+          "easy_to_use": "Fursatak team made everything you need that are simple but powerful.",
+          "videos": "Now, you are able see real persons and analyse their personality and test their skills and knowledge.",
+          "effictive": "Filter-out unwanted applications, using built-in criteria such as age, gender, experience ..etc.",
+          "co_workers": "We realized that team collaboration in companies leads to successful hiring process. Here you are !",
+          "privacy": "Your business and candidates data is highly confidencial. Only you can see it.",
+          "website": "Need to build a career page for your campany and integrate it with your website ? here you go !",
+          "people_around": "Using sorting tool, you can see prople neaby your orgazation first.",
+          "redirect_link": "Having your own career website ? No problem , post on our app and let applicants go to your website.",
+          "interview": "Invite potential candidates for interview (personally/ online), and see or edit you schedule"
+        }
+      }
+    },
+    "footer": {
+      "about": "“Fursatak” is trademark owned by Education by Work co. and officially registered with Ministry of Commerce in Kingdom of Saudi Arabia with a CR#2053115777\n\n",
+      "vision_title": "Our vision",
+      "vision": "We aspire to be the #1 digital platform in human resources (HR) in Kingdom of Saudi Arabia & take the standards to the next level.",
+      "links": {
+        "privacy": "Privacy policy",
+        "terms": "Terms of use",
+        "faq": "FAQ"
+      },
+      "copyright": "© 2020 Fursatak - All Rights Reserved"
+    }
+  },
+  "": "",
+  "login": {
+    "forget_password": "Forget password ?"
+  },
+  "forget_password": {
+    "title": "Forget Password"
+  },
+  "header": {
+    "have_account": "Do you have an account?",
+    "registration": "Register now",
+    "login": "Login"
+  },
+  "heder": {
+    "dont_have_account": "Don’t have an account?"
+  },
+  "registration": {
+    "company_data_title": "Enter company data",
+    "personal_date_title": "Enter autherized person data"
+  },
+  "dashboard": {
+    "plan": {
+      "my_job": {
+        "name": "Job posts",
+        "description": "View, add & manage your job posts"
+      },
+      "membership": {
+        "name": "Your website",
+        "description": "View and manage your website. you can update logo, change colors & more"
+      },
+      "coworkers": {
+        "name": "Co-workers",
+        "description": "Invite, delete and change permissions of co-workers"
+      },
+      "settings": {
+        "name": "Settings",
+        "description": "Modify company profile, membership, users, password, ... and more !"
+      },
+      "upgrade": {
+        "name": "Upgrade your account",
+        "description": "Get a career website, invite co-workers and enjoy unlimited premium features with no extra costs."
+      }
+    },
+    "activate_user_email": "Please check your email for activation",
+    "good_afternoon": "Good afternoon",
+    "good_evening": "Good evening",
+    "good_morning": "Good morning",
+    "click_to_buy": "Click here to buy",
+    "pro_account_expire_date": "Will expire after {{expireDays}} days"
+  },
+  "settings": {
+    "menu": {
+      "membership": "Membership & Subscriptions",
+      "company_profile": "Company profile",
+      "user_profile": "User profile (you)",
+      "password": "Change password"
+    },
+    "membership": {
+      "free": "Free",
+      "pro": "Professional"
+    },
+    "current_membership_text": "Your current membership is"
+  },
+  "job": {
+    "search": "Search ...",
+    "tab_head": {
+      "title": "Job title",
+      "date": "Date",
+      "status": "Status",
+      "applications": "Applications",
+      "action": "Take action",
+      "note": "Note (Only seen by you)",
+      "city": "City",
+      "expiresOn": "Expires on"
+    },
+    "add_job": {
+      "step1": {
+        "title": "Start posting on Fursatak APP",
+        "description": "How to apply on the job ?"
+      },
+      "step3": {
+        "title": "See videos, Sort, Filter, Evaluate and Get more information about candidates",
+        "description": "Add more tools to enhance hiring process 👍"
+      },
+      "step4": {
+        "title": "One last step to finish",
+        "description": "Setup added tools",
+        "section_title": {
+          "basic": "",
+          "tools": ""
+        }
+      },
+      "type": {
+        "app": {
+          "title": "Via Fursatak app",
+          "desc": "We recommend this option. You will get a control panel and tools to Sort, Filter, Evaluate. You can choose the most fit candidiase easily."
+        },
+        "email": {
+          "title": "Via email",
+          "desc": "Be aware that your email will be publicly visible to let candidates send their application. Pick this choice if you want to."
+        },
+        "link": {
+          "title": "Via link",
+          "desc": "Ideal for companies who have their online recruitment system. Choose this option to direct application the the job post link on your website."
+        }
+      },
+      "start_with": "Starts with",
+      "video": {
+        "title": "Video uploading tool",
+        "description": "Want to see your candidates ?Ask them to record a video + write some instructions to them explaining what you want them to say. Note that , maximum 5 min is allowed."
+      },
+      "evaluation": {
+        "title": "Evaluation tool",
+        "description": "Use this tool to evaluate any skill or knowledge in a scle from 0 to 5. Examples: Level of English, Leadership skill, Using MS Excel …etc. Plus, filter by minimum score you assigned."
+      },
+      "selection": {
+        "title": "",
+        "description": "",
+        "minimum_score": "Minimum accepted score"
+      },
+      "people_nearby": {
+        "title": "People nearby",
+        "description": "Show applicant close to your company or a specific city, or cities first.",
+        "sub_title": "Show applicant close to your company or a specific city, or cities first.",
+        "placeholder": "Select city",
+        "plus": "Plus",
+        "km_around": "KM around"
+      },
+      "filter": {
+        "age": {
+          "value": "Age",
+          "btween": "btween",
+          "and": "and"
+        },
+        "gender": {
+          "value": "Gender",
+          "is": "is"
+        },
+        "nationality": {
+          "value": "Nationality",
+          "is_any_of": "Is any of"
+        },
+        "lvl_education": {
+          "value": "Level of education",
+          "is_min": "is mimimum"
+        },
+        "univeristy": {
+          "value": "University"
+        },
+        "students": {
+          "value": "Candidates must be students to be approved on this job"
+        }
+      },
+      "questionnaire": {
+        "title": "Selection tool",
+        "description": "Ask questions with one selection allowed or multiple. Examples: Yes/No, Selecting profissional certificates, making a personal test or technical quiz …etc. Also, apply filters based on answers.",
+        "question_placeholder": "Type the question here ...",
+        "options_placeholder": "Option",
+        "options_head": {
+          "answer": "Answer",
+          "approved_answer": "Approved answer",
+          "remove": "Remove"
+        },
+        "multiple_select": "Allow multiple select",
+        "candidate_lastone": "To pass, candidate must select at last one approved answer",
+        "candidate_selectall": "To pass, candidate must select all approved answer"
+      }
+    },
+    "detail": {
+      "deselect_all": "Deselect all",
+      "select_all": "Select all",
+      "category": {
+        "all_candidates": "All candidates",
+        "your_list": "Your list",
+        "non_filtered": "All candidates - Smart filter not activated",
+        "qualifield": "Qualified - Smart filter",
+        "not_qualified": "Not qualified - Smart filter",
+        "add_new_list": "Add new list"
+      },
+      "move_to": "Move to:",
+      "quick_contact": "Quick communication:",
+      "send_email": "Send email to {{email}}",
+      "basic_filter": "Candidate specification",
+      "feedback": "Results",
+      "evaluation": "Evaluation",
+      "checklist": "Questionnaire",
+      "cover_letter": "Cover letter",
+      "file_head": {
+        "preview": "Preview",
+        "attach": "Attachments",
+        "download": "Download"
+      }
+    }
+  },
+  "user_plan": {
+    "options": {
+      "free": {
+        "only_extra": "Only pay for extra services",
+        "extra_fees": "Extra fees (Optional)",
+        "price_start": "Pricing starts with {{price}} SAR"
+      },
+      "days": "{{day}} days",
+      "per_year": "per year"
+    },
+    "values": {
+      "posting": "Unlimited number of job posts",
+      "period": "Period of post",
+      "company_page": "Building your company career page",
+      "co_workers": "Inviting Co-workers",
+      "comment_app": "Ability to comment on applications and CVs",
+      "hr_tools": "More tools: Online videos, Sort, Filter, Evaluate and Get more information about candidates"
+    }
+  },
+  "verify": {
+    "verify_mobile_title": "Verify your mobile",
+    "proofing_document_title": "Upload Proofing Documents",
+    "add_document": "Add document"
+  },
+  "modal": {
+    "apply": {
+      "title": "Apply",
+      "step1": {
+        "title": "Downoad “Fursatak” app"
+      },
+      "step2": {
+        "title": "Enter this link"
+      }
+    },
+    "custom_category": {
+      "title": "Add custom category"
+    },
+    "add_address": {
+      "title": "Add company address"
+    }
+  },
+  "input": {
+    "email": {
+      "label": "Email",
+      "placeholder": "Email"
+    },
+    "password": {
+      "label": "Password",
+      "placeholder": "Password"
+    },
+    "re_password": {
+      "label": "Repeat password",
+      "placeholder": "Repeat password"
+    },
+    "avatar_placeholder": "Upload company logo",
+    "company_name": {
+      "label": "Company name",
+      "placeholder": "Copany name"
+    },
+    "web_site": {
+      "label": "Website (optional)",
+      "placeholder": "Website (optional)"
+    },
+    "business_field": {
+      "label": "Field of business",
+      "placeholder": "Field of business"
+    },
+    "number_employer": {
+      "label": "Size of Company",
+      "placeholder": "How many employees working with you ?"
+    },
+    "about_business": {
+      "label": "Tell us about your business (company profile)",
+      "placeholder": "Tell us about your business (company profile)"
+    },
+    "first_name": {
+      "label": "Your first name",
+      "placeholder": "Your first name"
+    },
+    "last_name": {
+      "label": "Your last name",
+      "placeholder": "Your last name"
+    },
+    "position": {
+      "label": "Your position at {{companyName}}",
+      "placeholder": "Your position at {{companyName}}"
+    },
+    "mobile": {
+      "label": "Mobile number",
+      "placeholder": "Mobile number"
+    },
+    "add_job": {
+      "email_title": "Type the email",
+      "email_subtitle": "That candidates can send their CV’s to",
+      "link_title": "Type the link",
+      "link_subtitle": "That candidates can go and apply",
+      "job_title": "Job title",
+      "job_subtitle": "(Such as : Accountant , Safety Engineer , or Marketing Manager )",
+      "job_category": "Category of the job",
+      "job_hiring_date": "Expected hiring date",
+      "job_hiring_date_subtitle": "If you are not sure pick maximum date. Remember, candidates need to know how long they going to wait !",
+      "online_job": {
+        "label": "Online"
+      },
+      "job_type": "Type of contract",
+      "job_hrdf_support": "Is this job supported by HRDF (Taqat) ?",
+      "job_salary": "Salary",
+      "job_salary_subtitle": "(You can write somthing like: 6000-8000 SAR , Negotiable or 50 SAR/hour)",
+      "location": "Location of work",
+      "basic_filter": {
+        "placeholder": "Select filter"
+      }
+    },
+    "mobile_number_for_smscode": {
+      "label": "Phone",
+      "placeholder": "Enter your mobile number"
+    },
+    "custom_category": {
+      "name": {
+        "label": "Category name",
+        "placeholder": "Category name"
+      },
+      "category_type": {
+        "label": "Category type",
+        "placeholder": "Select category type"
+      }
+    },
+    "add_address": {
+      "region": {
+        "placeholder": "Select region"
+      },
+      "governorate": {
+        "placeholder": "Select city"
+      },
+      "address": {
+        "label": "Address",
+        "placeholder": "Type address"
+      }
+    }
+  },
+  "button": {
+    "login": "Login",
+    "reset": "Reset",
+    "goto_main": "Go to main page",
+    "goto_login": "Go to login",
+    "update": "Update",
+    "resend": "Resend",
+    "registration": "Registration",
+    "extend_subscription": "Extend subsicription",
+    "buy_now": "Buy it now",
+    "see_features": "See features",
+    "logout": "Log out",
+    "add_new_post": "Add new post",
+    "next": "Next Step",
+    "prev": "Previous Step",
+    "new_location": "Add a new location",
+    "add": "Add",
+    "remove": "Remove",
+    "add_more": "Add more",
+    "add_other_options": "Add other options",
+    "add_job": "Add job",
+    "select_all": "Select All",
+    "unselect_all": "Unselect All",
+    "current_plan": "Current plan",
+    "choose_plan": "Choose this plan",
+    "resend_email": "Resend email",
+    "send_code": "Send code",
+    "send_again": "Send again",
+    "done": "Done",
+    "copy": "Copy",
+    "apply": "Apply",
+    "new_category": "Add new category",
+    "add_address": "Add address"
+  }
+}

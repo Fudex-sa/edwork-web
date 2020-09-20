@@ -1,0 +1,18 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "convert": "i18n-csv2json-cli --from lang.csv --to locales --format"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "excel-to-json-iternational": "^1.1.0"
+  },
+  "dependencies": {
+    "i18n-csv2json-cli": "^1.0.2"
+  }
+}

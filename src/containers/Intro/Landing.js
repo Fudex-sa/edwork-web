@@ -19,12 +19,12 @@ import HuaweiStore from "~assets/imgs/landing/huawei-app-store@2x.png";
 import GooglePlay from "~assets/imgs/landing/googleplay-store@2x.png";
 import AppStore from "~assets/imgs/landing/appstore@2x.png";
 import Thumblike from "~assets/imgs/landing/thumb-like.svg";
-import HearthIcon from "~assets/imgs/landing/heart-icon.svg";
-
+import TitleUnderline from "~assets/imgs/landing/title-underline.svg";
 import Flag from "~assets/imgs/landing/flag.png";
 
 import Easytouse from "~assets/imgs/landing/easytouse.svg";
 import SeeVideo from "~assets/imgs/landing/seevideo.svg";
+import Clock from "~assets/imgs/landing/clock.svg";
 import EffectiveFilter from "~assets/imgs/landing/effective-filter.svg";
 import CoWorkers from "~assets/imgs/landing/co-workers.svg";
 import Privacy from "~assets/imgs/landing/privacy.svg";
@@ -103,14 +103,57 @@ class Landing extends Component {
 
             {/* right side */}
             <div className={styles.right}>
-              <h2 className={styles.head_title}>
-                {t("landing.header.title")} <img src={Thumblike} alt='' />
-              </h2>
+              {lang === "en" && (
+                <div className={styles.head_title_section}>
+                  <h2 className={styles.head_title}>
+                    Hire <span>{t("landing.header.title")}</span> with less time
+                    <img src={Thumblike} alt='' />
+                  </h2>
+                  <img className={styles.under_line} src={TitleUnderline} alt='' />
+                </div>
+              )}
+              {lang === "ar" && (
+                <h2 className={styles.head_title}>
+                  {t("landing.header.title")}
+                  <img src={Thumblike} alt='' />
+                </h2>
+              )}
               <p className={styles.desc}>{t("landing.header.description")}</p>
-              <button type='button' className={styles.create_account}>
-                {t("landing.header.button.create")}
-              </button>
-              <p className={styles.price}>{t("landing.header.button.sub_text")}</p>
+              {lang === "en" && (
+                <>
+                  <Link to='/registration'>
+                    <button type='button' className={styles.create_account}>
+                      {t("landing.header.button.create")}
+                      <FontAwesomeIcon
+                        className={styles.arrow}
+                        icon={["fas", "arrow-right"]}
+                      />
+                    </button>
+                  </Link>
+
+                  <Link to='/registration/plan' className={styles.price}>
+                    {t("landing.header.button.sub_text")}
+                  </Link>
+                </>
+              )}
+
+              {lang === "ar" && (
+                <>
+                  <Link to='/registration'>
+                    <button type='button' className={styles.create_account}>
+                      {t("landing.header.button.create")}
+                      <FontAwesomeIcon
+                        className={styles.arrow}
+                        icon={["fas", "arrow-left"]}
+                      />
+                    </button>
+                  </Link>
+
+                  <Link to='/registration/plan' className={styles.price}>
+                    {t("landing.header.button.sub_text")}
+                  </Link>
+                </>
+              )}
             </div>
 
             {/* made with love in SA */}
@@ -123,6 +166,17 @@ class Landing extends Component {
             </div>
           </div>
         </div>
+
+        {/* presentation video section */}
+        <div className={styles.vidoSection}>
+          <video controls>
+            <source src='mov_bbb.mp4' type='video/mp4' />
+            <source src='mov_bbb.ogg' type='video/ogg' />
+            Your browser does not support HTML video.
+          </video>
+        </div>
+
+        {/* partners section */}
         <div className={styles.partners}>
           <h2 className={styles.section_title}>{t("landing.section.title.trust")}</h2>
           <div className={classnames(styles.partner_list, styles.container)}>
@@ -135,7 +189,16 @@ class Landing extends Component {
               </div>
             ))}
           </div>
+          {/* try out services button */}
+          <Link to='/registration'>
+            <button type='button' className={styles.try_services}>
+              {t("landing.section.title.try")}
+              <FontAwesomeIcon className={styles.arrow} icon={["fas", "arrow-right"]} />
+            </button>
+          </Link>
         </div>
+
+        {/* feautures section */}
         <div className={styles.features}>
           <h2 className={styles.section_title}>{t("landing.section.title.why")}</h2>
           <div className={classnames(styles.items, styles.container)}>
@@ -146,10 +209,10 @@ class Landing extends Component {
                 description: t("landing.section.features.description.easy_to_use")
               },
               {
-                title: t("landing.section.features.title.videos"),
-                iconWrapperStyle: { padding: "15px 0" },
-                icon: SeeVideo,
-                description: t("landing.section.features.description.videos")
+                title: t("landing.section.features.title.people_around"),
+                iconWrapperStyle: { padding: "10px 0" },
+                icon: PeopleLocation,
+                description: t("landing.section.features.description.people_around")
               },
               {
                 title: t("landing.section.features.title.effictive"),
@@ -158,32 +221,14 @@ class Landing extends Component {
                 description: t("landing.section.features.description.effictive")
               },
               {
-                title: t("landing.section.features.title.co_workers"),
-                iconWrapperStyle: { padding: "15px 0" },
-                icon: CoWorkers,
-                description: t("landing.section.features.description.co_workers")
-              },
-              {
                 title: t("landing.section.features.title.privacy"),
                 icon: Privacy,
                 description: t("landing.section.features.description.privacy")
               },
               {
-                title: t("landing.section.features.title.website"),
+                title: t("landing.section.features.title.interview"),
                 icon: SiteWidget,
-                description: t("landing.section.features.description.website")
-              },
-              {
-                title: t("landing.section.features.title.people_around"),
-                iconWrapperStyle: { padding: "10px 0" },
-                icon: PeopleLocation,
-                description: t("landing.section.features.description.people_around")
-              },
-              {
-                title: t("landing.section.features.title.redirect_link"),
-                iconWrapperStyle: { padding: "10px 0" },
-                icon: RedirectLink,
-                description: t("landing.section.features.description.redirect_link")
+                description: t("landing.section.features.description.interview")
               }
             ].map((item, index) => (
               <div className={styles.item} key={index}>
@@ -194,13 +239,51 @@ class Landing extends Component {
                 <p className={styles.desc}>{item.description}</p>
               </div>
             ))}
+
+            <div className={styles.item}>
+              <div>{t("landing.section.features.title.and_more")}</div>
+            </div>
           </div>
         </div>
+
+        {/* Footer section */}
         <div className={styles.footer}>
           <div className={styles.container}>
+            {/* social media */}
+            <div className={styles.copyright}>
+              <div className={styles.right}>
+                <div className={styles.social}>
+                  <div className={styles.socialItem}>
+                    <a href='#'>
+                      <FontAwesomeIcon icon={["fab", "snapchat-ghost"]} />
+                    </a>
+                  </div>
+
+                  <div className={styles.socialItem}>
+                    <a href='#'>
+                      <FontAwesomeIcon icon={["fab", "twitter"]} />
+                    </a>
+                  </div>
+                  <div className={styles.socialItem}>
+                    <a href='#'>
+                      <FontAwesomeIcon icon={["fab", "instagram"]} />
+                    </a>
+                  </div>
+                  <div className={styles.socialItem}>
+                    <a href='#'>
+                      <FontAwesomeIcon icon={["fab", "telegram-plane"]} />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* logo */}
             <div className={styles.logo}>
               <img src={Logo} alt='logo' />
             </div>
+
+            {/* about */}
             <div className={styles.about}>
               <p>{t("landing.footer.about")}</p>
               <h4>{t("landing.footer.vision_title")}</h4>
@@ -215,40 +298,6 @@ class Landing extends Component {
                 <a href='#'>{t("landing.footer.links.privacy")}</a>
                 <a href='#'>{t("landing.footer.links.terms")}</a>
                 <a href='#'>{t("landing.footer.links.faq")}</a>
-              </div>
-              <div className={styles.right}>
-                <a href='#'>
-                  <FontAwesomeIcon icon={["fas", "envelope"]} />
-                  info@fursatak.app
-                </a>
-                <a href='#'>
-                  <FontAwesomeIcon icon={["fas", "phone-alt"]} />
-                  0503117234‬
-                </a>
-
-                <div className={styles.social}>
-                  <a href='#'>
-                    <FontAwesomeIcon icon={["fab", "whatsapp"]} />
-                  </a>
-                  <a href='#'>
-                    <FontAwesomeIcon icon={["fab", "tiktok"]} />
-                  </a>
-                  <a href='#'>
-                    <FontAwesomeIcon icon={["fab", "linkedin"]} />
-                  </a>
-                  <a href='#'>
-                    <FontAwesomeIcon icon={["fab", "snapchat-ghost"]} />
-                  </a>
-                  <a href='#'>
-                    <FontAwesomeIcon icon={["fab", "twitter"]} />
-                  </a>
-                  <a href='#'>
-                    <FontAwesomeIcon icon={["fab", "instagram"]} />
-                  </a>
-                  <a href='#'>
-                    <FontAwesomeIcon icon={["fab", "telegram-plane"]} />
-                  </a>
-                </div>
               </div>
             </div>
           </div>
