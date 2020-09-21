@@ -20,10 +20,10 @@ import logout from "../../containers/Auth/actions/logout";
 
 const LoginView = ({ actions, userData, t, history }) => {
   const isProUser = userData.Company?.plan;
-  const startPlan = userData.Company?.plan_started_at;
-  const endPlan = userData.Company?.plan_finished_at;
+  const startPlan = moment(userData.Company?.plan_started_at);
+  const endPlan = moment(userData.Company?.plan_finished_at);
 
-  const daysLeft = moment(endPlan).diff(startPlan, "days");
+  const daysLeft = endPlan.diff(moment(), "days");
 
   const goToPay = () => {
     history.push("/registration/plan");
