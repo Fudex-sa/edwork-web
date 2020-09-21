@@ -49,6 +49,10 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
+    @include mobile {
+      height: 110%;
+    }
   }
 
   @include large-desktop {
@@ -81,6 +85,17 @@
       height: 250px;
       align-items: flex-start;
       padding-top: 50px;
+    }
+
+    .log_in {
+      @include mobile {
+        margin-right: auto;
+
+        &:lang(ar) {
+          margin-left: auto;
+        }
+      }
+
     }
 
     span {
@@ -189,10 +204,11 @@
         align-items: flex-start;
       }
 
-      .mobile {
+      .mobile_wrapper {
         height: 68vh;
         display: flex;
         justify-content: center;
+        position: relative;
 
         @include tablet {
           position: absolute;
@@ -209,12 +225,46 @@
           height: 320px;
         }
 
+        .card {
+          position: absolute;
+          top: 55px;
+          right: 10%;
+          width: 18rem;
+
+          &:lang(ar) {
+            right: 30% !important;
+          }
+
+          @include tablet {
+            top: 40px;
+            right: 11%;
+            width: 13rem;
+
+            &:lang(ar) {
+              right: 30% !important;
+            }
+          }
+
+          @include mobile {
+            top: 40px;
+            left: 10px;
+            width: 12rem;
+
+            &:lang(ar) {
+              right: -30% !important;
+            }
+          }
+        }
+
+        /* 
         &>img {
           height: 90%;
-        }
+        } */
       }
 
       .store_links {
+        margin-top: 20px;
+
         @include tablet {
           display: flex;
           flex-direction: column;
@@ -350,6 +400,7 @@
       margin: 0 15px;
     }
 
+    /************** right side ***********/
     .right {
       width: 60%;
       padding-top: 50px;
@@ -380,9 +431,9 @@
           font-size: 2.5rem;
           margin-bottom: 0;
 
+
           @include mobile {
-            width: 80%;
-            font-size: 40px;
+            font-size: 41px;
           }
 
           span {
@@ -392,11 +443,25 @@
           img {
             width: 30px;
             margin-left: 10px;
+
+            &:lang(ar) {
+              width: 30px;
+              margin-right: 10px;
+              -moz-transform: scale(-1, 1);
+              -o-transform: scale(-1, 1);
+              -webkit-transform: scale(-1, 1);
+              transform: scale(-1, 1);
+            }
           }
         }
 
         .under_line {
           width: 67%;
+
+          @include mobile {
+            width: 85%;
+            vertical-align: none;
+          }
         }
       }
 
@@ -413,7 +478,7 @@
         border: none;
         outline: none;
         color: #fff;
-        height: 50px;
+        height: 40px;
         padding: 0 65px;
         border-radius: 25px;
         cursor: pointer;
@@ -463,6 +528,7 @@
 
       @include tablet {
         bottom: 55vh;
+        right: 0 !important;
 
         &:lang(ar) {
           right: 0;
@@ -472,17 +538,16 @@
 
       @include mobile {
         bottom: 45vh;
-        right: -10%;
+        right: -19%;
+        font-size: 12px;
 
         &:lang(ar) {
-          right: 0;
-          left: auto;
+          right: -15%;
         }
       }
 
       p {
         margin: 0;
-        font-size: 14px;
 
         &:nth-child(1) {
           font-size: 0.8em;
@@ -496,8 +561,7 @@
       }
 
       img {
-        width: 35px;
-        height: 35px;
+        height: 30px;
         margin-right: 15px;
 
         &:lang(ar) {
@@ -516,6 +580,11 @@
   width: 70%;
   margin: 0 auto;
   margin-top: 100px;
+
+  @include mobile {
+    margin-top: 10px;
+    width: 90%;
+  }
 
   video {
     width: 100%;
@@ -578,7 +647,8 @@
     border: none;
     outline: none;
     color: #fff;
-    height: 50px;
+    height: 40px;
+    text-align: center;
     padding: 0 65px;
     border-radius: 25px;
     cursor: pointer;
@@ -603,6 +673,11 @@
   background: transparent linear-gradient(180deg, #f8f8f8 0%, #ffffff 100%) 0% 0% no-repeat padding-box;
   padding: 30px 15%;
 
+  @include mobile {
+    width: 100%;
+    padding: 0;
+  }
+
   .section_title {
     @include mobile {
       font-size: 19px;
@@ -614,8 +689,6 @@
     display: flex;
     flex-wrap: wrap;
 
-
-
     .item {
       width: 33.3333%;
       padding: 35px;
@@ -624,8 +697,13 @@
       align-items: center;
       word-break: break-word;
 
-      svg {
-        color: #0091FF;
+      @include tablet {
+        width: 50%;
+      }
+
+      @include mobile {
+        width: 50%;
+        padding: 20px;
       }
 
       &:last-child {
@@ -645,14 +723,6 @@
 
       }
 
-      @include tablet {
-        width: 50%;
-      }
-
-      @include mobile {
-        width: 50%;
-      }
-
       .icon {
         width: 50%;
         display: flex;
@@ -661,7 +731,7 @@
         margin-bottom: 20px;
 
         @include mobile {
-          height: 40px;
+          height: 30px;
         }
 
         img {
@@ -683,7 +753,7 @@
         }
 
         @include mobile {
-          font-size: 10px;
+          font-size: 9px;
         }
       }
 

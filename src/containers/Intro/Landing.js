@@ -5,6 +5,7 @@ import { bindActionCreators } from "redux";
 import { withNamespaces } from "react-i18next";
 import { languageOptions } from "~configs/languageOptions";
 import styles from "./styles/landing.module.scss";
+import { CSSTransition } from "react-transition-group";
 
 // Components
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,7 +15,10 @@ import { Link } from "react-router-dom";
 import Logo from "~assets/imgs/logo_landing.svg";
 import Signin from "~assets/imgs/landing/sign-in.svg";
 import ArrowJobAvailable from "~assets/imgs/landing/arrow-jobavailable.svg";
-import Mobile from "~assets/imgs/landing/phone@2x.png";
+import Mobile from "~assets/imgs/landing/iphone.svg";
+import MobileAr from "~assets/imgs/landing/iphone-AR.svg";
+import Card from "~assets/imgs/landing/Floating-card.svg";
+import CardAr from "~assets/imgs/landing/Floating-card-AR.svg";
 import HuaweiStore from "~assets/imgs/landing/huawei-app-store@2x.png";
 import GooglePlay from "~assets/imgs/landing/googleplay-store@2x.png";
 import AppStore from "~assets/imgs/landing/appstore@2x.png";
@@ -28,7 +32,6 @@ import Clock from "~assets/imgs/landing/clock.svg";
 import EffectiveFilter from "~assets/imgs/landing/effective-filter.svg";
 import CoWorkers from "~assets/imgs/landing/co-workers.svg";
 import Privacy from "~assets/imgs/landing/privacy.svg";
-import SiteWidget from "~assets/imgs/landing/site-widget.svg";
 import PeopleLocation from "~assets/imgs/landing/people-location.svg";
 import RedirectLink from "~assets/imgs/landing/redirect-link.svg";
 import Rubber from "~assets/imgs/landing/rubber.svg";
@@ -49,7 +52,7 @@ class Landing extends Component {
         <div className={styles.header}>
           {/* landing page head */}
           <div className={classnames(styles.head, styles.container)}>
-            <a href='/login'>
+            <a className={styles.log_in} href='/login'>
               <img src={Signin} alt='signin-icon' /> {t("landing.header.login")}
             </a>
 
@@ -76,9 +79,44 @@ class Landing extends Component {
           <div className={styles.presentation}>
             {/* left side */}
             <div className={styles.left}>
-              <div className={styles.mobile}>
-                <img src={Mobile} alt='mobile wireframe' />
-              </div>
+              {/* mobile shape */}
+              {lang === "en" && (
+                <div className={styles.mobile_wrapper}>
+                  <img
+                    src={Mobile}
+                    className={styles.iphone}
+                    alt='mobile wireframe'
+                    data-aos='zoom-in'
+                  />
+
+                  <img
+                    src={Card}
+                    className={styles.card}
+                    alt='mobile wireframe'
+                    data-aos='slide-left'
+                  />
+                </div>
+              )}
+
+              {/* mobile shape */}
+              {lang === "ar" && (
+                <div className={styles.mobile_wrapper}>
+                  <img
+                    src={MobileAr}
+                    className={styles.iphone}
+                    alt='mobile wireframe'
+                    data-aos='zoom-in'
+                  />
+                  <img
+                    src={CardAr}
+                    className={styles.card}
+                    alt='mobile wireframe'
+                    data-aos='slide-right'
+                  />
+                </div>
+              )}
+
+              {/* download our app */}
               <div className={styles.store_links}>
                 <div className={styles.our_app_text}>
                   <span>
@@ -113,12 +151,17 @@ class Landing extends Component {
                 </div>
               )}
               {lang === "ar" && (
-                <h2 className={styles.head_title}>
-                  {t("landing.header.title")}
-                  <img src={Thumblike} alt='' />
-                </h2>
+                <div className={styles.head_title_section}>
+                  <h2 className={styles.head_title}>
+                    {t("landing.header.title")}
+                    <img src={Thumblike} alt='' />
+                  </h2>
+                  <img className={styles.under_line} src={TitleUnderline} alt='' />
+                </div>
               )}
               <p className={styles.desc}>{t("landing.header.description")}</p>
+
+              {/* start hiring button */}
               {lang === "en" && (
                 <>
                   <Link to='/registration'>
@@ -181,7 +224,7 @@ class Landing extends Component {
           <h2 className={styles.section_title}>{t("landing.section.title.trust")}</h2>
           <div className={classnames(styles.partner_list, styles.container)}>
             {[0, 0, 0, 0, 0, 0, 0, 0].map((item, index) => (
-              <div className={styles.item}>
+              <div className={styles.item} data-aos='flip-up'>
                 <img
                   src='https://cdn.vox-cdn.com/thumbor/VSSwGPlTwiV0AY5zL9Afu7KGpno=/0x28:640x388/1600x900/cdn.vox-cdn.com/assets/1311169/mslogo.jpg'
                   alt='partner image'
@@ -201,7 +244,7 @@ class Landing extends Component {
         {/* feautures section */}
         <div className={styles.features}>
           <h2 className={styles.section_title}>{t("landing.section.title.why")}</h2>
-          <div className={classnames(styles.items, styles.container)}>
+          <div className={classnames(styles.items)}>
             {[
               {
                 title: t("landing.section.features.title.easy_to_use"),
@@ -210,13 +253,11 @@ class Landing extends Component {
               },
               {
                 title: t("landing.section.features.title.people_around"),
-                iconWrapperStyle: { padding: "10px 0" },
                 icon: PeopleLocation,
                 description: t("landing.section.features.description.people_around")
               },
               {
                 title: t("landing.section.features.title.effictive"),
-                iconWrapperStyle: { padding: "15px 0" },
                 icon: EffectiveFilter,
                 description: t("landing.section.features.description.effictive")
               },
@@ -227,7 +268,7 @@ class Landing extends Component {
               },
               {
                 title: t("landing.section.features.title.interview"),
-                icon: SiteWidget,
+                icon: CoWorkers,
                 description: t("landing.section.features.description.interview")
               }
             ].map((item, index) => (

@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css"; // You can also use <link> for styles
 
 // HOC
 import PrivateRoute from "~hoc/PrivateRoute";
@@ -26,6 +28,13 @@ import MyWebsite from "~containers/Dashboard/MyWebsite";
 import VerificationCompany from "~containers/Dashboard/VerificationCompany";
 
 function App() {
+  // This finction to imit AOS library
+  useEffect(() => {
+    AOS.init({
+      duration: 1500
+    });
+  });
+
   return (
     <>
       <Switch>
