@@ -243,6 +243,7 @@
       "checklist": "Questionnaire",
       "cover_letter": "Cover letter",
       "file_head": {
+        "cv": "CV",
         "preview": "Preview",
         "attach": "Attachments",
         "download": "Download"

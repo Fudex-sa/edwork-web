@@ -5,8 +5,8 @@ import { show } from "redux-modal";
 import { message as notify, Popover } from "antd";
 import classnames from "classnames";
 import { withNamespaces } from "react-i18next";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Scrollbars } from "react-custom-scrollbars";
 
 // Styles
 import styles from "./styles/job-detail.module.scss";
@@ -141,7 +141,6 @@ class JobDetail extends Component {
         notify.error(message);
       }
     });
-    console.warn(data);
   };
 
   componentDidMount() {
@@ -209,6 +208,8 @@ class JobDetail extends Component {
                         </button>
                       </div>
                     )}
+
+                    {/* Search bar */}
                     <div className={styles.search_wrapper}>
                       <input
                         type='search'
@@ -225,6 +226,8 @@ class JobDetail extends Component {
                       </button>
                     </div>
                   </div>
+
+                  {/* filter and sort */}
                   <div className={styles.filter_sort}>
                     <Popover trigger='click'>
                       <span className={styles.sort}>
@@ -240,23 +243,28 @@ class JobDetail extends Component {
                     </span>
                     <span className={styles.passed}>Passed</span>
                   </div>
-                  {jobCandidate
-                    .filter(({ User }) => User.name.indexOf(search) !== -1)
-                    .map(item => (
-                      <CandidateItem
-                        key={item.id}
-                        item={item}
-                        checkedUsers={jobDetailData.checkedUsers}
-                        selected={jobDetailData.selectedUser}
-                        onSelect={this.handleSelecteCandidate}
-                        onCheckUser={this.handleChangeCheckdUser}
-                      />
-                    ))}
+
+                  <Scrollbars autoHide>
+                    {/* job candidates */}
+                    {jobCandidate
+                      .filter(({ User }) => User.name.indexOf(search) !== -1)
+                      .map(item => (
+                        <CandidateItem
+                          key={item.id}
+                          item={item}
+                          checkedUsers={jobDetailData.checkedUsers}
+                          selected={jobDetailData.selectedUser}
+                          onSelect={this.handleSelecteCandidate}
+                          onCheckUser={this.handleChangeCheckdUser}
+                        />
+                      ))}
+                  </Scrollbars>
                 </div>
 
                 <JobDetailContentUser
                   isLoading={isLoadingCandidateDetail}
                   selected={jobDetailData.selectedUser}
+                  candidatesNumber={jobCandidate}
                 />
 
                 <div>Comments</div>

@@ -8,6 +8,16 @@
     margin: 0;
   }
 
+  .message {
+    border-bottom: 1px dashed #2b5af8;
+    color: #2b5af8;
+    width: 50%;
+    margin: 0 auto;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 30px;
+  }
+
   .profile {
     display: flex;
     margin-bottom: 30px;
@@ -43,25 +53,24 @@
 
             p {
               &:first-child {
-                font-family: 'SF Pro Display Bold';
+                font-family: "SF Pro Display Bold";
                 font-size: 18px;
                 margin-bottom: 10px;
                 color: #000;
               }
 
-              color: #ADADAD;
+              color: #adadad;
               font-size: 12px;
             }
-
           }
 
           .quick_action {
-            color: #2B5AF8;
+            color: #2b5af8;
             margin-left: auto;
             font-size: 13px;
 
             a {
-              color: #2B5AF8;
+              color: #2b5af8;
             }
 
             .phone {
@@ -129,7 +138,7 @@
         margin-bottom: 10px;
 
         span {
-          font-family: 'SF Pro Display Light';
+          font-family: "SF Pro Display Light";
           font-weight: normal;
         }
       }
@@ -213,7 +222,6 @@
   // ===
 
   .documents {
-
     .row_head,
     .row {
       display: flex;
@@ -241,11 +249,12 @@
 
       a {
         color: #000;
+        text-decoration: none;
       }
     }
 
     .row_head {
-      text-decoration: underline;
+      font-size: 17px;
     }
 
     .row {

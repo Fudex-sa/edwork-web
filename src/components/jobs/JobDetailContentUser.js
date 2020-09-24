@@ -5,6 +5,8 @@ import styles from "./styles/job-detail-content-user.module.scss";
 import classnames from "classnames";
 import { withNamespaces } from "react-i18next";
 import { Popover } from "antd";
+import PdfViewer from "./PdfViewer";
+import { Scrollbars } from "react-custom-scrollbars";
 
 // Assets
 import SingleSelect from "~assets/imgs/single-select.svg";
@@ -14,42 +16,43 @@ import LoadingWrapper from "../common/LoadingWrapper";
 
 class JobDetailContentUser extends Component {
   state = {
-    pdfLinks: []
+    pdfLinks: [],
+    numPages: null,
+    pageNumber: 1
   };
 
-  handleChangePreviewPdf = (item, status) => {
-    const { pdfLinks } = this.state;
-    const cpPdfLinks = pdfLinks.slice();
-    const findItem = pdfLinks.indexOf(item.url);
-
-    if (status) {
-      cpPdfLinks.push(item.url);
-    } else {
-      cpPdfLinks.splice(findItem, 1);
-    }
-
-    this.setState({
-      pdfLinks: cpPdfLinks
-    });
-  };
+  /* handle pdf viewer */
+  onDocumentLoadSuccess({ numPages }) {
+    this.setState({ numPages });
+  }
 
   render() {
-    const { selected, isLoading, t } = this.props;
+    const { selected, candidatesNumber, isLoading, t } = this.props;
     const { pdfLinks } = this.state;
     const user = selected?.user || {};
     const post = selected?.post || {};
     const userAge = moment().diff(moment(user.birthday), "years");
+
+    if (candidatesNumber < 1)
+      return (
+        <div className={styles.content}>
+          <LoadingWrapper isLoading={isLoading}> </LoadingWrapper>
+          <div className={styles.message}>No candidates yet</div>
+        </div>
+      );
+
     if (!selected)
       return (
         <div className={styles.content}>
           <LoadingWrapper isLoading={isLoading}> </LoadingWrapper>
+          <div className={styles.message}>Please Select a candidate</div>
         </div>
       );
 
     return (
-      <div className={styles.content}>
-        <LoadingWrapper isLoading={isLoading}>
-          <>
+      <Scrollbars>
+        <div className={styles.content}>
+          <LoadingWrapper isLoading={isLoading}>
             <div className={styles.profile}>
               {/* all the user info */}
               <div className={styles.candidate_info}>
@@ -265,46 +268,14 @@ class JobDetailContentUser extends Component {
             </div>
             <div className={styles.documents}>
               <div className={styles.row_head}>
-                <p>{t("job.detail.file_head.preview")}</p>
-                <p>{t("job.detail.file_head.attach")}</p>
-                <p>{t("job.detail.file_head.download")}</p>
+                <p>{t("job.detail.file_head.cv")}</p>
               </div>
-              {user.PostUsers[0] &&
-                user.PostUsers[0].attachments.map((document, index) => (
-                  <div className={styles.row} key={index}>
-                    <p>
-                      <input
-                        type='checkbox'
-                        // checked={''}
-                        onChange={({ target }) => {
-                          this.handleChangePreviewPdf(document, target.checked);
-                          console.warn(target.checked);
-                        }}
-                      />
-                    </p>
-                    <p>{document.name}</p>
-                    <p>
-                      <a href={document.url} target='_blank'>
-                        <FontAwesomeIcon icon={["fas", "download"]} />
-                      </a>
-                    </p>
-                  </div>
-                ))}
 
-              {pdfLinks.map(item => (
-                <div style={{ marginBottom: 30, height: "60vh" }}>
-                  <iframe
-                    src={item}
-                    height='100%'
-                    width='100%'
-                    frameBorder='none'
-                    title={item.name}></iframe>
-                </div>
-              ))}
+              <PdfViewer file={user.PostUsers[0].attachments} />
             </div>
-          </>
-        </LoadingWrapper>
-      </div>
+          </LoadingWrapper>
+        </div>
+      </Scrollbars>
     );
   }
 }
