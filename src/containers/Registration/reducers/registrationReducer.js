@@ -63,7 +63,8 @@ const registrationReducer = (state = initialState, { type, payload }) => {
         tempToken: payload.token,
       };
     case `${CREATE_COMPANY}_FAIL`:
-      return { ...state, createCompanyLoading: 0 };
+    //  return { ...state, createCompanyLoading: 0 };
+    console.log(...state)
 
     default:
       return state;
