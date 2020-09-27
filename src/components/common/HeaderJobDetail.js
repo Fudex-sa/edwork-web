@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import styles from './styles/header.module.scss';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import classnames from 'classnames';
+import React, { Component } from "react";
+import styles from "./styles/header.module.scss";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import classnames from "classnames";
 import {
   AuditOutlined,
   MailOutlined,
@@ -10,17 +10,17 @@ import {
   RedoOutlined,
   FormOutlined,
   UploadOutlined,
-  ShareAltOutlined,
-} from '@ant-design/icons';
+  ShareAltOutlined
+} from "@ant-design/icons";
 
 // Assets
-import Logo from '~assets/imgs/logo_white_blue.svg';
+import Logo from "~assets/imgs/logo_white_blue.svg";
 
 // Actions
-import logout from '../../containers/Auth/actions/logout';
-import { Dropdown, Button, Menu, Tooltip, Switch } from 'antd';
+import logout from "../../containers/Auth/actions/logout";
+import { Dropdown, Button, Menu, Tooltip, Switch } from "antd";
 
-const Actions = (props) => {
+const Actions = props => {
   const { items = [] } = props;
   return (
     <div className={styles.cell_actions}>
@@ -38,13 +38,12 @@ const Actions = (props) => {
 const jobList = (data, jobId) => (
   <Menu>
     {data
-      .filter((item) => item.id !== parseInt(jobId))
-      .map((item) => (
+      .filter(item => item.id !== parseInt(jobId))
+      .map(item => (
         <Menu.Item key={item.id}>
           <a
-            rel="noopener noreferrer"
-            href={window.location.origin + '/job/detail/' + item.id}
-          >
+            rel='noopener noreferrer'
+            href={window.location.origin + "/job/detail/" + item.id}>
             {item.title}
           </a>
         </Menu.Item>
@@ -53,7 +52,7 @@ const jobList = (data, jobId) => (
 );
 
 class HeaderJobDetail extends Component {
-  logout = (e) => {
+  logout = e => {
     const { userActions } = this.props;
     e.preventDefault();
     userActions.logout();
@@ -65,8 +64,8 @@ class HeaderJobDetail extends Component {
       <div className={classnames(styles.header, styles.white)}>
         <div className={styles.container}>
           <div className={styles.logo_container}>
-            <a href="/" className={styles.logo}>
-              <img src={Logo} alt="logo" />
+            <a href='/' className={styles.logo}>
+              <img src={Logo} alt='logo' />
             </a>
           </div>
           <div className={styles.nav_container}>
@@ -88,16 +87,12 @@ class HeaderJobDetail extends Component {
             <div className={styles.job_selection}>
               <Dropdown
                 overlay={jobList(data, jobId)}
-                placement="bottomLeft"
-                trigger={['click']}
-              >
+                placement='bottomLeft'
+                trigger={["click"]}>
                 {/* <Button>bottomLeft</Button> */}
                 <div className={styles.dropdown}>
                   <span>
-                    {
-                      data.filter((item) => item.id === parseInt(jobId))[0]
-                        ?.title
-                    }
+                    {data.filter(item => item.id === parseInt(jobId))[0]?.title}
                   </span>
                   <span className={styles.dropdown_icon}>
                     <DownOutlined />
@@ -144,12 +139,12 @@ class HeaderJobDetail extends Component {
   }
 }
 
-const mapStateToProps = (store) => ({
-  userData: store.auth.user,
+const mapStateToProps = store => ({
+  userData: store.auth.user
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  userActions: bindActionCreators({ logout }, dispatch),
+const mapDispatchToProps = dispatch => ({
+  userActions: bindActionCreators({ logout }, dispatch)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderJobDetail);

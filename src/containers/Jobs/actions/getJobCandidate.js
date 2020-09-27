@@ -1,15 +1,15 @@
-import createApiActions from '~helpers/createApiActions';
-import { GET_JOB_CANDIDATE } from './constants';
+import createApiActions from "~helpers/createApiActions";
+import { GET_JOB_CANDIDATE } from "./constants";
 
 const getJobCandidate = (data, options = {}) =>
   createApiActions({
     type: GET_JOB_CANDIDATE,
-    url: '/post/detail/users',
+    url: "/post/detail/users",
     requestOption: {
-      method: 'post',
+      method: "post"
     },
     success: options.success,
-    fail: options.fail,
+    fail: options.fail
   })(data, true);
 
 export default getJobCandidate;

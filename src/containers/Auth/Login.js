@@ -25,7 +25,6 @@ class Login extends Component {
     // password: 'anri1991',
     email: '',
     password: '',
-    emailError:''
   };
 
   handleChangeRoute = (routeName) => {
@@ -33,35 +32,17 @@ class Login extends Component {
     history.push(routeName);
   };
 
-  validate=()=>{
-    let emailError=''
-    if(!this.state.email.includes('@')){
-      emailError='Invalid email'
-    }
-    if (emailError) {
-      this.setState({emailError:emailError}) 
-         return false
-    }
-    return true
-
-  }
-
   onSubmit = () => {
-    const isValid=this.validate()
-    if(isValid){
-      const { history, authActions } = this.props;
-      authActions.authCompany(this.state, {
-        success: (response) => {
-          history.replace('/dashboard');
-        },
-        fail: (response) => {
-          const { message } = response;
-          notify.error(message);
-        },
-      });
-    }
- 
-  
+    const { history, authActions } = this.props;
+    authActions.authCompany(this.state, {
+      success: (response) => {
+        history.replace('/dashboard');
+      },
+      fail: (response) => {
+        const { message } = response;
+        notify.error(message);
+      },
+    });
   };
 
   changeLang = (lang) => {
@@ -98,7 +79,7 @@ class Login extends Component {
           <FormWrapper>
             <div className={inputStyles.input_container}>
               <Input
-                
+                type="email"
                 value={email}
                 label={t('input.email.label')}
                 placeholder={t('input.email.placeholder')}
@@ -108,7 +89,6 @@ class Login extends Component {
                   })
                 }
               />
-             {this.state.emailError? <div style={{color:"red",fontSize:"12"}}>{this.state.emailError}</div>:null}
             </div>
             <div className={inputStyles.input_container}>
               <Input

@@ -1,12 +1,121 @@
+.jobsListPage {
+  background-color: #f4f6f7;
+
+  /* company info and welcome user */
+  .company_wrapper {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: -25px auto 20px auto;
+  }
+
+  .company_logo {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 100%;
+      max-height: 100%;
+
+      &.noavatar {
+        width: 50%;
+        margin: auto;
+        display: block;
+      }
+    }
+  }
+
+  .company_name {
+    margin-top: -20px;
+    color: #3e3e3e;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 17px;
+      margin-right: 10px;
+    }
+  }
+
+
+  /* pagination */
+  ul {
+    text-align: center;
+    padding: 30px 0;
+    color: #0091FF;
+
+    svg {
+      font-size: 15px;
+    }
+
+    button,
+    li {
+      border: unset;
+      background-color: unset;
+      color: #0091FF;
+      font-weight: 700;
+
+      a,
+      button {
+        color: #0091FF;
+        border: unset !important;
+        background-color: unset !important;
+
+      }
+    }
+  }
+
+  /* dashboard Footer */
+  .dashboard_footer {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 7%;
+    display: flex;
+
+    svg {
+      margin-right: 5px;
+    }
+
+    .right {
+      margin-left: auto;
+
+      .phone {
+        margin-left: 15px;
+      }
+    }
+
+    .left {
+      .youtube {
+        svg {
+          color: #EA3323;
+          font-size: 27px;
+        }
+
+        span {
+          line-height: 27px;
+          vertical-align: top;
+        }
+      }
+    }
+
+  }
+}
+
 .container {
   width: 85%;
-  margin: 40px auto;
+  margin: 40px auto 0 auto;
 
   .head {
     display: flex;
     margin-bottom: 20px;
 
-    & > div {
+    &>div {
       flex: 1;
       display: flex;
       align-items: center;
@@ -46,14 +155,14 @@
         input {
           flex: 1;
           border: none;
-          font-size: 13px;
+          font-size: 18px;
           padding: 0 8px;
           outline: none;
           line-height: $container-height;
         }
 
         button {
-          background: #323232;
+          background: #0091FF;
           border: none;
           outline: none;
           color: #fff;
@@ -72,5 +181,7 @@
         }
       }
     }
+
+
   }
 }

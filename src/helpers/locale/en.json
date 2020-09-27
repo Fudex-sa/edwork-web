@@ -2,20 +2,21 @@
   "landing": {
     "header": {
       "login": "Company login",
-      "title": "Hire by yourself with less time",
-      "description": "Start with us for FREE",
+      "title": "smartly",
+      "description": "No more annoying emails or building google forms. Post a job on Fursatak app , manage candidates , sort, filter and pick the right one.",
       "button": {
-        "create": "Post a job",
-        "sub_text": ""
+        "create": "Start Hiring",
+        "sub_text": "See pricing"
       },
       "made_with": "MADE WITH LOVE",
       "made_from": "in Saudi ARABIA",
-      "jobs_available": "To apply on jobs, download our app"
+      "jobs_available": "Jobs are available on our app"
     },
     "section": {
       "title": {
         "trust": "Customers who TRUSTED us",
-        "why": "Why to post on Fursatak app ?"
+        "why": "FEATURES OF FURSTAK",
+        "try": "Try our services"
       },
       "features": {
         "title": {
@@ -26,17 +27,20 @@
           "privacy": "Privacy",
           "website": "Get a website",
           "people_around": "People around you",
-          "redirect_link": "Redirect to link"
+          "redirect_link": "Redirect to link",
+          "interview": "interviews scheduling",
+          "and_more": "And More..."
         },
         "description": {
-          "easy_to_use": "We offer you a verity of powerful tools to sort, filter, evaluate and hire fit candidates easily.",
+          "easy_to_use": "Fursatak team made everything you need that are simple but powerful.",
           "videos": "Now, you are able see real persons and analyse their personality and test their skills and knowledge.",
-          "effictive": "Filter-out unwanted applications, using built-in criteria such as age, gender ..etc. Or, build your own evaluation questions.",
+          "effictive": "Filter-out unwanted applications, using built-in criteria such as age, gender, experience ..etc.",
           "co_workers": "We realized that team collaboration in companies leads to successful hiring process. Here you are !",
           "privacy": "Your business and candidates data is highly confidencial. Only you can see it.",
           "website": "Need to build a career page for your campany and integrate it with your website ? here you go !",
-          "people_around": "See people near to your business first. We know this highly matters to you and to them !",
-          "redirect_link": "Having your own career website ? No problem , post on our app and let applicants go to your website."
+          "people_around": "Using sorting tool, you can see prople neaby your orgazation first.",
+          "redirect_link": "Having your own career website ? No problem , post on our app and let applicants go to your website.",
+          "interview": "Invite potential candidates for interview (personally/ online), and see or edit you schedule"
         }
       }
     },
@@ -122,7 +126,9 @@
       "status": "Status",
       "applications": "Applications",
       "action": "Take action",
-      "note": "write a note (Only seen by you)"
+      "note": "Note (Only seen by you)",
+      "city": "City",
+      "expiresOn": "Expires on"
     },
     "add_job": {
       "step1": {

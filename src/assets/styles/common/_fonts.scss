@@ -1,32 +1,33 @@
 @font-face {
   font-family: 'SF Pro Display Bold';
-  src: url('../../fonts/SF-PRO-Display-Bold.eot'); /* IE9*/
-  src: url('../../fonts/SF-PRO-Display-Bold.eot?#iefix')
-      format('embedded-opentype'),
-    /* IE6-IE8 */ url('../../fonts/SF-PRO-Display-Bold.woff2') format('woff2'),
-    /* chrome、firefox */ url('../../fonts/SF-PRO-Display-Bold.woff')
-      format('woff'),
-    /* chrome、firefox */ url('../../fonts/SF-PRO-Display-Bold.ttf')
-      format('truetype'),
+  src: url('../../fonts/SF-PRO-Display-Bold.eot');
+  /* IE9*/
+  src: url('../../fonts/SF-PRO-Display-Bold.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */
+    url('../../fonts/SF-PRO-Display-Bold.woff2') format('woff2'),
+    /* chrome、firefox */
+    url('../../fonts/SF-PRO-Display-Bold.woff') format('woff'),
+    /* chrome、firefox */
+    url('../../fonts/SF-PRO-Display-Bold.ttf') format('truetype'),
     /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-      url('../../fonts/SF-PRO-Display-Bold.svg#SF Pro Display Bold')
-      format('svg'); /* iOS 4.1- */
+    url('../../fonts/SF-PRO-Display-Bold.svg#SF Pro Display Bold') format('svg');
+  /* iOS 4.1- */
 }
 
 @font-face {
   font-family: 'SF Pro Display Regular';
-  src: url('../../fonts/SF-PRO-Display-Regular.eot'); /* IE9*/
-  src: url('../../fonts/SF-PRO-Display-Regular.eot?#iefix')
-      format('embedded-opentype'),
-    /* IE6-IE8 */ url('../../fonts/SF-PRO-Display-Regular.woff2')
-      format('woff2'),
-    /* chrome、firefox */ url('../../fonts/SF-PRO-Display-Regular.woff')
-      format('woff'),
-    /* chrome、firefox */ url('../../fonts/SF-PRO-Display-Regular.ttf')
-      format('truetype'),
+  src: url('../../fonts/SF-PRO-Display-Regular.eot');
+  /* IE9*/
+  src: url('../../fonts/SF-PRO-Display-Regular.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */
+    url('../../fonts/SF-PRO-Display-Regular.woff2') format('woff2'),
+    /* chrome、firefox */
+    url('../../fonts/SF-PRO-Display-Regular.woff') format('woff'),
+    /* chrome、firefox */
+    url('../../fonts/SF-PRO-Display-Regular.ttf') format('truetype'),
     /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-      url('../../fonts/SF-PRO-Display-Regular.svg#SF Pro Display Regular')
-      format('svg'); /* iOS 4.1- */
+    url('../../fonts/SF-PRO-Display-Regular.svg#SF Pro Display Regular') format('svg');
+  /* iOS 4.1- */
 }
 
 @font-face {
@@ -35,6 +36,14 @@
     url('../../fonts/SFProDisplay-Light.woff') format('woff'),
     url('../../fonts/SFProDisplay-Light.ttf') format('truetype'),
     url('../../fonts/SFProDisplay-Light.svg#SFProDisplay-Light') format('svg');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Rounded';
+  src: url('../../fonts/SF-Pro-Rounded-Semibold.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;

@@ -30,43 +30,17 @@ class Registration extends Component {
 
   onSubmit = () => {
     const { registrationData, registrationActions } = this.props;
-    const { email = '', password = '', rePassword = '', companyName = '', businesField='',mobile='',positionCompany='' ,firstName='',lastName=''} = registrationData;
+    console.warn(registrationData);
+    const { email = '', password = '', rePassword = '' } = registrationData;
 
     const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (companyName === '') {
-      notifi.error('Company name is required')
-      return
-    }
-    if( businesField===''){
-      notifi.error('Please enter business field');
-      return;
-    }
-
-    if( firstName===''){
-      notifi.error('Please enter your first Name');
-      return;
-    }
-    if( lastName===''){
-      notifi.error('Please enter your last Name');
-      return;
-    }
-    if( positionCompany===''){
-      notifi.error('Please enter your position at the company');
-      return;
-    }
-
-    if( mobile===''){
-      notifi.error('Please enter your phone number');
-      return;
-    }
-
     if (!email.match(mailformat)) {
       notifi.error('Please enter correct email');
       return;
     }
 
     if (password !== rePassword) {
-      notifi.error('Password doesn\'t match');
+      notifi.error('Please use in a password above 6 symbols');
       return;
     }
 
@@ -75,44 +49,37 @@ class Registration extends Component {
       return;
     }
 
+    const data = new FormData();
 
-    if ((companyName !== '') && (email.match(mailformat)) && (password === rePassword) &&( password.length > 6)&&(businesField!=='')&&(positionCompany!=='')&&(mobile!=='')) {
-      const data = new FormData();
+    data.append('logo', registrationData.companyLogo?.file || null);
+    data.append('name', registrationData.companyName);
+    data.append('website', registrationData.webSite);
+    data.append('business_field', registrationData.businesField);
+    data.append('employees', registrationData.employerNumber);
+    data.append('description', registrationData.aboutBusines);
+    data.append('first_name', registrationData.firstName);
+    data.append('last_name', registrationData.lastName);
+    data.append('position', registrationData.positionCompany);
+    data.append('mobile', registrationData.mobile);
+    data.append('email', email);
+    data.append('password', password);
 
-      data.append('logo', registrationData.companyLogo?.file || null);
-      data.append('name', registrationData.companyName);
-      data.append('website', registrationData.webSite);
-      data.append('business_field', registrationData.businesField);
-      data.append('employees', registrationData.employerNumber);
-      data.append('description', registrationData.aboutBusines);
-      data.append('first_name', registrationData.firstName);
-      data.append('last_name', registrationData.lastName);
-      data.append('position', registrationData.positionCompany);
-      data.append('mobile', registrationData.mobile);
-      data.append('email', email);
-      data.append('password', password);
+    registrationActions.createCompany(data, {
+      success: (response) => {
+        const { history } = this.props;
+        const { message, data } = response;
+        notifi.success(message);
+        sessionStorage.setItem('authToken', data.token);
 
-      registrationActions.createCompany(data, {
-        success: (response) => {
-          const { history } = this.props;
-          const { message, data } = response;
-          notifi.success(message);
-          sessionStorage.setItem('authToken', data.token);
-
-          history.replace('/registration/plan');
-          registrationActions.setRegistrationData(null);
-        },
-        fail: (response) => {
-          const { message } = response;
-          console.log(response)
-          notifi.error(message);
-        },
-      });
-    };
-  }
-
-
-
+        history.replace('/registration/plan');
+        registrationActions.setRegistrationData(null);
+      },
+      fail: (response) => {
+        const { message } = response;
+        notifi.error(message);
+      },
+    });
+  };
 
   render() {
     const {
@@ -140,7 +107,7 @@ class Registration extends Component {
       <div>
         <HeaderDark />
         <div className={styles.container}>
-          <FormWrapper title={t('Enter company data')}>
+          <FormWrapper title={t('input.company_data_title')}>
             <div
               className={classnames(
                 inputStyles.input_container,
@@ -169,8 +136,6 @@ class Registration extends Component {
                     companyName: el.target.value,
                   });
                 }}
-                rules={{ required: true }}
-
               />
             </div>
             {/* ========= */}
@@ -281,6 +246,7 @@ class Registration extends Component {
             {/* ========= */}
             <Input
               value={email}
+              type="email"
               label={t('input.email.label')}
               placeholder={t('input.email.placeholder')}
               onChange={(el) => {

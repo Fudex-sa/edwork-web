@@ -1,17 +1,17 @@
-import React, { PureComponent } from 'react';
-import { Tooltip } from 'antd';
+import React, { PureComponent } from "react";
+import { Tooltip } from "antd";
 import {
   ArrowsAltOutlined,
   RedoOutlined,
   FormOutlined,
-  DeleteOutlined,
-} from '@ant-design/icons';
-import classnames from 'classnames';
-import moment from 'moment';
+  DeleteOutlined
+} from "@ant-design/icons";
+import classnames from "classnames";
+import moment from "moment";
 
-import styles from './styles/job-list.module.scss';
+import styles from "./styles/job-list.module.scss";
 
-const Actions = (props) => {
+const Actions = props => {
   const { items = [] } = props;
   return (
     <div className={styles.cell_actions}>
@@ -19,14 +19,13 @@ const Actions = (props) => {
         <div
           key={index}
           className={classnames(styles.action, {
-            [styles.red]: item.type === 'red',
-            [styles.orange]: item.type === 'orange',
-            [styles.blue]: item.type === 'blue',
-            [styles.black]: item.type === 'black',
-            [styles.disable]: item.type === 'disable',
+            [styles.red]: item.type === "red",
+            [styles.orange]: item.type === "orange",
+            [styles.blue]: item.type === "blue",
+            [styles.black]: item.type === "black",
+            [styles.disable]: item.type === "disable"
           })}
-          onClick={item.action}
-        >
+          onClick={item.action}>
           <item.Icon />
           <span>{item.title}</span>
         </div>
@@ -38,6 +37,9 @@ const Actions = (props) => {
 export default class JobsList extends PureComponent {
   render() {
     const { headTitles, data, actions } = this.props;
+
+    console.warn(data);
+
     return (
       <div className={styles.job_list}>
         {headTitles && (
@@ -47,9 +49,8 @@ export default class JobsList extends PureComponent {
                 key={index}
                 className={classnames(styles.cell, {
                   [styles.cell_size_2]: index === 0 || index === 4,
-                  [styles.text_center]: index !== 0,
-                })}
-              >
+                  [styles.text_center]: index !== 0
+                })}>
                 {item}
               </div>
             ))}
@@ -59,58 +60,29 @@ export default class JobsList extends PureComponent {
           <div key={job.id} className={classnames(styles.row)}>
             {[
               <span
-                style={{ cursor: 'pointer' }}
+                className={styles.job_title}
                 onClick={() => {
                   actions.goToJobDetail(job.id);
-                }}
-              >
+                }}>
                 {job.title}
               </span>,
-              moment(job.created_at).format('DD/MM/YYYY'),
-              0,
-              0,
-              <Actions
-                items={[
-                  {
-                    type: 'blue',
-                    title: 'Open',
-                    Icon: ArrowsAltOutlined,
-                    action: () => {
-                      actions.goToJobDetail(job.id);
-                    },
-                  },
-                  {
-                    type: 'orange',
-                    title: 'Re-post',
-                    Icon: RedoOutlined,
-                    action: () => {},
-                  },
-                  // {
-                  //   title: 'Edit',
-                  //   Icon: FormOutlined,
-                  //   action: () => {},
-                  // },
-                  {
-                    type: 'red',
-                    title: 'Delete',
-                    Icon: DeleteOutlined,
-                    action: () => {},
-                  },
-                ]}
-              />,
-              0,
+              job.active ? "Open" : "Close",
+              job.Addresses && job.Addresses.length > 0
+                ? job.Addresses[0].Governorate.name.en
+                : "Not set",
+              moment(job.expected_hiring_date).format("ll"),
+              job.PostUsers.length,
+              <input type='text' placeholder='Type a note...' />
             ].map((item, index) => (
               <div
                 key={index}
                 className={classnames(styles.cell, {
+                  [styles.open]: item === "Open",
+                  [styles.close]: item === "Close",
                   [styles.cell_size_2]: index === 0 || index === 4,
                   [styles.text_overflow]: index === 0,
-                  [styles.text_center]: index !== 0,
-                })}
-              >
-                {/* {index === 0 && (
-                  
-                )} */}
+                  [styles.text_center]: index !== 0
+                })}>
                 {item}
               </div>
             ))}

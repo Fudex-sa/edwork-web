@@ -1,25 +1,27 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { message as notify } from 'antd';
-import StepWizard from 'react-step-wizard';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { message as notify } from "antd";
+import StepWizard from "react-step-wizard";
 
 // Styles
-import styles from './styles/addJob.module.scss';
+import styles from "./styles/addJob.module.scss";
 
 // Components
-import HeaderDark from '~components/common/HeaderDark';
-import { Nav } from '~components/wizard';
-import { Step1, Step2, Step3, Step4 } from './addJobSteps';
+import HeaderDark from "~components/common/HeaderDark";
+import { Nav } from "~components/wizard";
+import { Step1, Step2, Step3, Step4 } from "./addJobSteps";
 
 // Actions
-import getJobTypes from './actions/getJobTypes';
-import createJob from './actions/createJob';
+import getJobTypes from "./actions/getJobTypes";
+import createJob from "./actions/createJob";
 
 class AddJob extends Component {
   render() {
+    console.log(this.props);
+
     const { history, addJobData, userData } = this.props;
-    const isForApplicaiton = addJobData?.type === 'easy';
+    const isForApplicaiton = addJobData?.type === "easy";
     const hasUserPro = userData?.Company?.plan;
     return (
       <div>
@@ -32,24 +34,17 @@ class AddJob extends Component {
             // onStepChange={this.onStepChange}
             initialStep={0}
             nav={
-              <Nav
-                setTitle={[
-                  'Post details',
-                  'General post settings',
-                  'Job quizz',
-                ]}
-              />
+              <Nav setTitle={["Post details", "General post settings", "Job quizz"]} />
             }
-            instance={(instance) => {
+            instance={instance => {
               this.setState({
-                wizardRef: instance,
+                wizardRef: instance
               });
-            }}
-          >
-            <Step1 hashKey="step1" />
-            <Step2 hashKey="step2" />
-            {isForApplicaiton && !hasUserPro && <Step3 hashKey="step3" />}
-            {isForApplicaiton && <Step4 hashKey="step4" history={history} />}
+            }}>
+            <Step1 hashKey='step1' />
+            <Step2 hashKey='step2' />
+            {isForApplicaiton && !hasUserPro && <Step3 hashKey='step3' />}
+            {isForApplicaiton && <Step4 hashKey='step4' history={history} />}
           </StepWizard>
         </div>
       </div>
@@ -57,16 +52,16 @@ class AddJob extends Component {
   }
 }
 
-const mapStateToProps = (store) => ({
+const mapStateToProps = store => ({
   userData: store.auth.user,
   createJobLoading: store.jobs.createJobLoading,
   jobTypesLoading: store.jobs.jobTypesLoading,
   jobTypesList: store.jobs.jobTypesList,
-  addJobData: store.jobs.addJobData,
+  addJobData: store.jobs.addJobData
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  jobActions: bindActionCreators({ getJobTypes, createJob }, dispatch),
+const mapDispatchToProps = dispatch => ({
+  jobActions: bindActionCreators({ getJobTypes, createJob }, dispatch)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddJob);

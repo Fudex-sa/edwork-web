@@ -5,7 +5,7 @@ import {
   INVITE_ADMIN_USER,
   FORGET_PASSWORD,
   UPDATE_PASSWORD,
-  ACTIVATE_USER,
+  ACTIVATE_USER
 } from "../actions/constants";
 
 const initialState = {
@@ -15,7 +15,7 @@ const initialState = {
   inviteUserLoading: 0,
   forgetPasswordLoading: 0,
   updatePasswordLoading: 0,
-  activateUserLoading: 1,
+  activateUserLoading: 1
 };
 
 const userReducer = (state = initialState, { payload, type }) => {
@@ -25,7 +25,7 @@ const userReducer = (state = initialState, { payload, type }) => {
     case `${RESEND_VALIDATION}_SUCCESS`:
       return {
         ...state,
-        resendValidationLoading: 0,
+        resendValidationLoading: 0
       };
     case `${RESEND_VALIDATION}_FAIL`:
       return { ...state, resendValidationLoading: 0 };
@@ -36,7 +36,7 @@ const userReducer = (state = initialState, { payload, type }) => {
     case `${BLOCK_USER}_SUCCESS`:
       return {
         ...state,
-        blockUserLoading: 0,
+        blockUserLoading: 0
       };
     case `${BLOCK_USER}_FAIL`:
       return { ...state, blockUserLoading: 0 };
@@ -47,7 +47,7 @@ const userReducer = (state = initialState, { payload, type }) => {
     case `${UNBLOCK_USER}_SUCCESS`:
       return {
         ...state,
-        unblockUserLoading: 0,
+        unblockUserLoading: 0
       };
     case `${UNBLOCK_USER}_FAIL`:
       return { ...state, unblockUserLoading: 0 };
@@ -58,7 +58,7 @@ const userReducer = (state = initialState, { payload, type }) => {
     case `${INVITE_ADMIN_USER}_SUCCESS`:
       return {
         ...state,
-        inviteUserLoading: 0,
+        inviteUserLoading: 0
       };
     case `${INVITE_ADMIN_USER}_FAIL`:
       return { ...state, inviteUserLoading: 0 };
@@ -69,7 +69,7 @@ const userReducer = (state = initialState, { payload, type }) => {
     case `${FORGET_PASSWORD}_SUCCESS`:
       return {
         ...state,
-        forgetPasswordLoading: 0,
+        forgetPasswordLoading: 0
       };
     case `${FORGET_PASSWORD}_FAIL`:
       return { ...state, forgetPasswordLoading: 0 };
@@ -80,7 +80,7 @@ const userReducer = (state = initialState, { payload, type }) => {
     case `${UPDATE_PASSWORD}_SUCCESS`:
       return {
         ...state,
-        updatePasswordLoading: 0,
+        updatePasswordLoading: 0
       };
     case `${UPDATE_PASSWORD}_FAIL`:
       return { ...state, updatePasswordLoading: 0 };
@@ -91,7 +91,7 @@ const userReducer = (state = initialState, { payload, type }) => {
     case `${ACTIVATE_USER}_SUCCESS`:
       return {
         ...state,
-        activateUserLoading: 0,
+        activateUserLoading: 0
       };
     case `${ACTIVATE_USER}_FAIL`:
       return { ...state, activateUserLoading: 0 };

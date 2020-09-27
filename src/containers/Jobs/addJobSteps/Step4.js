@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { message as notify } from 'antd';
-import moment from 'moment';
-import { withNamespaces } from 'react-i18next';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { message as notify } from "antd";
+import moment from "moment";
+import { withNamespaces } from "react-i18next";
 
 // Styles
-import styles from '../styles/addJob.module.scss';
+import styles from "../styles/addJob.module.scss";
 
 // Components
-import { WizardNavigation } from '~components/wizard';
+import { WizardNavigation } from "~components/wizard";
 import {
   QuizzType,
   ChooseQuestion,
@@ -17,20 +17,20 @@ import {
   DiscussionQuestion,
   EvaluationQuestion,
   VideoQuestion,
-  LocationQuestion,
-} from '~components/jobs';
-import BasicFilter from '~components/jobs/BasicFilter';
+  LocationQuestion
+} from "~components/jobs";
+import BasicFilter from "~components/jobs/BasicFilter";
 
 // Actions
-import getJobTypes from '../actions/getJobTypes';
-import createJob from '../actions/createJob';
-import createQuizzOption from '../actions/createQuizzOption';
-import removeQuizzOption from '../actions/removeQuizzOption';
-import setQuizzOption from '../actions/setQuizzOption';
-import setJobAddData from '../actions/setJobAddData';
-import getUniversityList from '../actions/getUniversityList';
-import getNationalityList from '../actions/getNationalityList';
-import getGovernorateList from '../actions/getGovernorateList';
+import getJobTypes from "../actions/getJobTypes";
+import createJob from "../actions/createJob";
+import createQuizzOption from "../actions/createQuizzOption";
+import removeQuizzOption from "../actions/removeQuizzOption";
+import setQuizzOption from "../actions/setQuizzOption";
+import setJobAddData from "../actions/setJobAddData";
+import getUniversityList from "../actions/getUniversityList";
+import getNationalityList from "../actions/getNationalityList";
+import getGovernorateList from "../actions/getGovernorateList";
 
 class Step4 extends Component {
   state = { isLoadingSubmit: 0 };
@@ -56,7 +56,7 @@ class Step4 extends Component {
     const hasUserPro = userData?.Company?.plan;
     if (hasUserPro) {
       jobActions.setJobAddData({
-        features: ['video-recording', 'evaluation', 'choose', 'location'],
+        features: ["video-recording", "evaluation", "choose", "location"]
       });
     }
 
@@ -72,14 +72,14 @@ class Step4 extends Component {
       category,
       description,
       salary,
-      address,
+      location,
       supportHRDF,
       postingType,
       email,
       link,
       features,
       hiringDate,
-      jobType,
+      jobType
     } = addJobData;
 
     const questions = {
@@ -93,32 +93,32 @@ class Step4 extends Component {
         natinality: [],
         education: [],
         university: [],
-        student_only: false,
-      },
+        student_only: false
+      }
     };
 
     const filterTypes = [
-      t('job.add_job.filter.age.value'),
-      t('job.add_job.filter.gender.value'),
-      t('job.add_job.filter.nationality.value'),
-      t('job.add_job.filter.lvl_education.value'),
-      t('job.add_job.filter.univeristy.value'),
-      t('job.add_job.filter.students.value'),
+      t("job.add_job.filter.age.value"),
+      t("job.add_job.filter.gender.value"),
+      t("job.add_job.filter.nationality.value"),
+      t("job.add_job.filter.lvl_education.value"),
+      t("job.add_job.filter.univeristy.value"),
+      t("job.add_job.filter.students.value")
     ];
 
-    quizzOptions.basicFilter.forEach((item) => {
+    quizzOptions.basicFilter.forEach(item => {
       const { filters } = questions;
       switch (item.filterType) {
         case filterTypes[0]: // Age
           filters.age = {
             from: item.btweenFrom,
-            to: item.btweenTo,
+            to: item.btweenTo
           };
           break;
 
         case filterTypes[1]: // Gender
           filters.gender = {
-            value: item.gender,
+            value: item.gender
           };
           break;
         case filterTypes[2]: // Nationality
@@ -139,46 +139,46 @@ class Step4 extends Component {
       }
     });
 
-    quizzOptions.choose.forEach((item) => {
-      questions['questionnaire'].push({
+    quizzOptions.choose.forEach(item => {
+      questions["questionnaire"].push({
         question: item.question,
         allow_multiple: !!item.isMultiChoose,
         select_at_least_one: !!item.isLastOne,
         select_all: !!item.isAllAnswer,
-        answers: item.options.map((answerOption) => ({
+        answers: item.options.map(answerOption => ({
           answer: answerOption.text,
-          is_correct: !!answerOption.isCorrect,
-        })),
+          is_correct: !!answerOption.isCorrect
+        }))
       });
     });
 
-    quizzOptions.multiple.forEach((item) => {
-      questions['questionnaire'].push({
+    quizzOptions.multiple.forEach(item => {
+      questions["questionnaire"].push({
         question: item.question,
         allow_multiple: !!item.isMultiChoose,
         select_at_least_one: !!item.isLastOne,
         select_all: !!item.isAllAnswer,
-        answers: item.options.map((answerOption) => ({
+        answers: item.options.map(answerOption => ({
           answer: answerOption.text,
-          is_correct: !!answerOption.isCorrect,
-        })),
+          is_correct: !!answerOption.isCorrect
+        }))
       });
     });
 
-    quizzOptions['video-recording'].forEach((item) => {
-      questions['video'].push({
-        question: item.question,
+    quizzOptions["video-recording"].forEach(item => {
+      questions["video"].push({
+        question: item.question
       });
     });
 
-    quizzOptions.location.forEach((item) => {
-      questions['location'].push(item);
+    quizzOptions.location.forEach(item => {
+      questions["location"].push(item);
     });
 
-    quizzOptions.evaluation.forEach((item) => {
-      questions['evaluation'].push({
+    quizzOptions.evaluation.forEach(item => {
+      questions["evaluation"].push({
         question: item.question,
-        min_rate: item.evaluation,
+        min_rate: item.evaluation
       });
     });
 
@@ -190,15 +190,15 @@ class Step4 extends Component {
     //   })
     // }
 
-    const tools = features.map((item) => {
+    const tools = features.map(item => {
       switch (item) {
-        case 'video-recording':
+        case "video-recording":
           return 1;
-        case 'evaluation':
+        case "evaluation":
           return 2;
-        case 'choose':
+        case "choose":
           return 3;
-        case 'location':
+        case "location":
           return 4;
 
         default:
@@ -212,29 +212,27 @@ class Step4 extends Component {
       category_id: category,
       email: email,
       link: link,
-      expected_hiring_date: moment(hiringDate).format('YYYY-MM-DD'),
+      expected_hiring_date: moment(hiringDate).format("YYYY-MM-DD"),
       hrdf: supportHRDF,
       salary: salary,
       description,
-      // address: address.map((item) => item.id),
+      address: location.map(item => item.id),
       questions,
       tools,
-      type: jobType,
+      type: jobType
     };
 
-    // console.warn(data, this.props);
-
     jobActions.createJob(data, {
-      success: (response) => {
+      success: response => {
         const { message } = response;
         notify.success(message);
         jobActions.setJobAddData(null);
-        history.push('/jobs');
+        history.push("/jobs");
       },
-      fail: (response) => {
+      fail: response => {
         const { message } = response;
         notify.error(message);
-      },
+      }
     });
 
     // this.setState({ isLoadingSubmit: 1 }, () => {
@@ -257,31 +255,31 @@ class Step4 extends Component {
       nationalityList,
       degreeList,
       governorateList,
-      t,
+      t
     } = this.props;
     const { features = [] } = addJobData;
 
     const selectedFeatures = {
-      choose: features.indexOf('choose') !== -1,
-      multiple: features.indexOf('choose') !== -1,
-      location: features.indexOf('location') !== -1,
-      evaluation: features.indexOf('evaluation') !== -1,
-      'video-recording': features.indexOf('video-recording') !== -1,
+      choose: features.indexOf("choose") !== -1,
+      multiple: features.indexOf("choose") !== -1,
+      location: features.indexOf("location") !== -1,
+      evaluation: features.indexOf("evaluation") !== -1,
+      "video-recording": features.indexOf("video-recording") !== -1
     };
 
     return (
       <div className={styles.container}>
         <div className={styles.section_title}>
-          <h2>{t('job.add_job.step4.title')}</h2>
-          <h3>{t('job.add_job.step4.description')}</h3>
+          <h2>{t("job.add_job.step4.title")}</h2>
+          <h3>{t("job.add_job.step4.description")}</h3>
         </div>
 
         <h2 className={styles.section_title}>
-          {t('job.add_job.step4.section_title.basic')}
+          {t("job.add_job.step4.section_title.basic")}
         </h2>
 
         <BasicFilter
-          type="basicFilter"
+          type='basicFilter'
           items={quizzOptions.basicFilter}
           remove={this.handleRemoveOption}
           onChange={this.handleChangeOption}
@@ -293,13 +291,13 @@ class Step4 extends Component {
 
         {!!features.length && (
           <h2 className={styles.section_title}>
-            {t('job.add_job.step4.section_title.tools')}
+            {t("job.add_job.step4.section_title.tools")}
           </h2>
         )}
 
         {selectedFeatures.location && (
           <LocationQuestion
-            type="location"
+            type='location'
             items={quizzOptions.location}
             remove={this.handleRemoveOption}
             onChange={this.handleChangeOption}
@@ -310,7 +308,7 @@ class Step4 extends Component {
 
         {selectedFeatures.choose && (
           <ChooseQuestion
-            type="choose"
+            type='choose'
             items={quizzOptions.choose}
             remove={this.handleRemoveOption}
             onChange={this.handleChangeOption}
@@ -320,7 +318,7 @@ class Step4 extends Component {
 
         {selectedFeatures.evaluation && (
           <EvaluationQuestion
-            type="evaluation"
+            type='evaluation'
             items={quizzOptions.evaluation}
             remove={this.handleRemoveOption}
             onChange={this.handleChangeOption}
@@ -328,10 +326,10 @@ class Step4 extends Component {
           />
         )}
 
-        {selectedFeatures['video-recording'] && (
+        {selectedFeatures["video-recording"] && (
           <VideoQuestion
-            type="video-recording"
-            items={quizzOptions['video-recording']}
+            type='video-recording'
+            items={quizzOptions["video-recording"]}
             remove={this.handleRemoveOption}
             onChange={this.handleChangeOption}
             addQuestion={this.handleAddOptions}
@@ -340,7 +338,7 @@ class Step4 extends Component {
 
         <WizardNavigation
           isLoadingSubmit={createJobLoading}
-          finishBtnText={t('button.add_job')}
+          finishBtnText={t("button.add_job")}
           options={this.props}
           onSubmit={this.onSubmit}
         />
@@ -349,7 +347,7 @@ class Step4 extends Component {
   }
 }
 
-const mapStateToProps = (store) => ({
+const mapStateToProps = store => ({
   userData: store.auth.user,
   createJobLoading: store.jobs.createJobLoading,
   jobTypesLoading: store.jobs.jobTypesLoading,
@@ -363,10 +361,10 @@ const mapStateToProps = (store) => ({
   governorateListLoading: store.jobs.governorateListLoading,
   governorateList: store.jobs.governorateList,
   degreeListLoading: store.jobs.degreeListLoading,
-  degreeList: store.jobs.degreeList,
+  degreeList: store.jobs.degreeList
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   jobActions: bindActionCreators(
     {
       getJobTypes,
@@ -377,13 +375,10 @@ const mapDispatchToProps = (dispatch) => ({
       setJobAddData,
       getUniversityList,
       getNationalityList,
-      getGovernorateList,
+      getGovernorateList
     },
     dispatch
-  ),
+  )
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withNamespaces()(Step4));
+export default connect(mapStateToProps, mapDispatchToProps)(withNamespaces()(Step4));

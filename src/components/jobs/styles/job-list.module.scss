@@ -15,11 +15,37 @@
 
   .row {
     display: flex;
-    background: #fff;
+    border: unset !important;
     transition: background 0.2s ease-in-out;
+    padding: 2px 10px;
+    padding-right: 15px;
+
+    .job_title {
+      cursor: pointer;
+      font-weight: 600;
+      text-transform: capitalize;
+
+    }
+
+    .open {
+      color: #22C932;
+    }
+
+    .close {
+      color: #F82B60;
+    }
+
+    &:nth-child(even) {
+      background: #fff;
+    }
+
+    input {
+      border: unset;
+      background-color: unset;
+    }
 
     &:hover {
-      // background: #fff1d1;
+      background: #1BCBFF;
 
       .cell {
         .cell_actions {
@@ -31,24 +57,23 @@
     }
 
     &.row_head {
-      background: #606f76;
-
       .cell {
-        border: 1px solid #9f9f9f;
+        border: none;
         border-right: none;
-        color: #fff;
+        color: #0091FF !important;
+        font-family: 'SF Pro Display Regular';
+        font-weight: 600;
 
         &:last-child {
-          border-right: 1px solid #9f9f9f;
+          border-right: none;
         }
       }
     }
 
     .cell {
       width: 16%;
-      // border-left: 1px solid #9f9f9f;
       padding: 5px;
-      border: 1px solid #9f9f9f;
+      border: none;
       border-right: none;
       border-top: none;
       position: relative;
@@ -65,7 +90,7 @@
       }
 
       &:last-child {
-        border-right: 1px solid #9f9f9f;
+        border-right: none;
       }
 
       &_size_2 {
@@ -94,15 +119,19 @@
           &.red {
             color: #f82b60;
           }
+
           &.orange {
             color: #ff9b38;
           }
+
           &.blue {
             color: #38a3ff;
           }
+
           &.black {
             color: #000;
           }
+
           &.disable {
             color: #cfd3d5;
           }

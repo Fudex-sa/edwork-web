@@ -1,68 +1,83 @@
-import React, { Component } from 'react';
-import styles from './styles/header.module.scss';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { withNamespaces } from 'react-i18next';
-import { NavLink } from 'react-router-dom';
-import UserPlanText from './UserPlanText';
-import moment from 'moment';
+import React, { Component } from "react";
+import styles from "./styles/header.module.scss";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { withNamespaces } from "react-i18next";
+import { Link, NavLink } from "react-router-dom";
+import UserPlanText from "./UserPlanText";
+import moment from "moment";
+import { withRouter } from "react-router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Progress } from "antd";
+import "./styles/header.module.scss";
 
 // Assets
-import LogoWhiteBlue from '~assets/imgs/logo_white_blue.svg';
-import GiftIcon from '~assets/imgs/gift.svg';
+import LogoWhiteBlue from "~assets/imgs/logo_white_blue.svg";
+import GiftIcon from "~assets/imgs/gift.svg";
 
 // Actions
-import logout from '../../containers/Auth/actions/logout';
+import logout from "../../containers/Auth/actions/logout";
 
-const LoginView = ({ actions, userData, t }) => {
+const LoginView = ({ actions, userData, t, history }) => {
   const isProUser = userData.Company?.plan;
-  const startPlan = userData.Company?.plan_started_at;
-  const endPlan = userData.Company?.plan_finished_at;
+  const startPlan = moment(userData.Company?.plan_started_at);
+  const endPlan = moment(userData.Company?.plan_finished_at);
+
+  const daysLeft = endPlan.diff(moment(), "days");
+
+  const goToPay = () => {
+    history.push("/registration/plan");
+  };
 
   return (
     <div className={styles.actions}>
-      <div className={styles.plan_wrapper}>
-        <UserPlanText
-          isPro={isProUser}
-          expireDays={moment(endPlan).diff(startPlan, 'days')}
+      <div
+        className={styles.plan_wrapper}
+        onClick={() => {
+          if (!isProUser) goToPay();
+        }}>
+        <FontAwesomeIcon icon={["fas", "infinity"]} /> <span>Unlimited Posts</span>
+        <Progress
+          className={styles.progressBar}
+          percent={(100 / 14) * daysLeft}
+          status='normal'
+          showInfo={false}
         />
+        <div className={styles.days_left}>{daysLeft} Days left</div>
       </div>
 
-      {/* <div className={styles.balance}>
-        <span className={styles.icon}>
-          <img src={GiftIcon} alt="gift icon" />
-        </span>
-        <div className={styles.info}>
-          <p>Gift Balance</p>
-          <p className={styles.balance_text}>0 SAR</p>
-        </div>
-      </div> */}
+      <div className={styles.signOut} onClick={actions.logout}>
+        <FontAwesomeIcon icon={["fas", "sign-out-alt"]} />
+        <div>Logout</div>
+      </div>
 
-      <a href="#logout" className={styles.logout} onClick={actions.logout}>
-        {t('button.logout')}
-      </a>
+      <div className={styles.settings}>
+        <Link to='/settings'>
+          <FontAwesomeIcon icon={["fas", "cog"]} />
+          <div>Settings</div>
+        </Link>
+      </div>
     </div>
   );
 };
 
 class HeaderDark extends Component {
-  logout = (e) => {
+  logout = e => {
     const { userActions } = this.props;
     e.preventDefault();
     userActions.logout();
   };
 
   render() {
-    const { userData, t } = this.props;
-    const hasRegistration =
-      window.location.pathname.indexOf('/registration') !== -1;
+    const { userData, t, history } = this.props;
+    const hasRegistration = window.location.pathname.indexOf("/registration") !== -1;
 
     return (
       <div className={styles.header}>
         <div className={styles.container}>
           <div className={styles.logo_container}>
-            <a href="/" className={styles.logo}>
-              <img src={LogoWhiteBlue} alt="logo" />
+            <a href='/' className={styles.logo}>
+              <img src={LogoWhiteBlue} alt='logo' />
             </a>
           </div>
           <div className={styles.nav_container}>
@@ -70,9 +85,10 @@ class HeaderDark extends Component {
               <LoginView
                 userData={userData}
                 actions={{
-                  logout: this.logout,
+                  logout: this.logout
                 }}
                 t={t}
+                history={history}
               />
             ) : (
               <div>
@@ -80,17 +96,14 @@ class HeaderDark extends Component {
                   <span className={styles.spec_text}>
                     {/* Registration is coming soon */}
                     {hasRegistration
-                      ? t('header.have_account')
-                      : t('heder.dont_have_account')}
+                      ? t("header.have_account")
+                      : t("heder.dont_have_account")}
                   </span>
                 )}
                 <NavLink
                   className={styles.button_nav}
-                  to={hasRegistration ? '/login' : '/registration'}
-                >
-                  {hasRegistration
-                    ? t('header.login')
-                    : t('header.registration')}
+                  to={hasRegistration ? "/login" : "/registration"}>
+                  {hasRegistration ? t("header.login") : t("header.registration")}
                 </NavLink>
               </div>
             )}
@@ -101,15 +114,15 @@ class HeaderDark extends Component {
   }
 }
 
-const mapStateToProps = (store) => ({
-  userData: store.auth.user,
+const mapStateToProps = store => ({
+  userData: store.auth.user
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  userActions: bindActionCreators({ logout }, dispatch),
+const mapDispatchToProps = dispatch => ({
+  userActions: bindActionCreators({ logout }, dispatch)
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withNamespaces()(HeaderDark));
+)(withRouter(withNamespaces()(HeaderDark)));
