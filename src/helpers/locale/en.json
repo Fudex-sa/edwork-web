@@ -236,13 +236,14 @@
       },
       "move_to": "Move to:",
       "quick_contact": "Quick communication:",
-      "send_email": "Send email to {{email}}",
+      "send_email": "Send email {{email}}",
       "basic_filter": "Candidate specification",
       "feedback": "Results",
       "evaluation": "Evaluation",
       "checklist": "Questionnaire",
       "cover_letter": "Cover letter",
       "file_head": {
+        "cv": "CV",
         "preview": "Preview",
         "attach": "Attachments",
         "download": "Download"

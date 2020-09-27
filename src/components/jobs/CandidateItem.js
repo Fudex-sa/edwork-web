@@ -1,11 +1,11 @@
-import React, { PureComponent } from 'react';
-import classnames from 'classnames';
-import styles from './styles/candidate.module.scss';
-import { StarOutlined } from '@ant-design/icons';
-import moment from 'moment';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { PureComponent } from "react";
+import classnames from "classnames";
+import styles from "./styles/candidate.module.scss";
+import { StarOutlined } from "@ant-design/icons";
+import moment from "moment";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const queryString = require('query-string');
+const queryString = require("query-string");
 
 export default class CandidateItem extends PureComponent {
   handleChangeSelectUser = () => {
@@ -16,15 +16,12 @@ export default class CandidateItem extends PureComponent {
 
   render() {
     const { item, selected = {}, onCheckUser, checkedUsers = [] } = this.props;
-    const checkedUsersIds = checkedUsers.map((item) => item.id);
+    const checkedUsersIds = checkedUsers.map(item => item.id);
     const user = item?.User || {};
 
     return (
-      <div
-        className={styles.item}
-        onClick={() => this.handleChangeSelectUser()}
-      >
-        <input
+      <div className={styles.item} onClick={() => this.handleChangeSelectUser()}>
+        {/* <input
           type="checkbox"
           className={styles.select_item}
           checked={checkedUsersIds.includes(user.id)}
@@ -32,12 +29,11 @@ export default class CandidateItem extends PureComponent {
             e.stopPropagation();
             onCheckUser(user);
           }}
-        />
+        /> */}
         <div
           className={classnames(styles.wrapper, {
-            [styles.active]: user.id === selected?.user?.id,
-          })}
-        >
+            [styles.active]: user.id === selected?.user?.id
+          })}>
           <div className={styles.info}>
             {/* <p className={styles.date}>Today</p> */}
             <p className={styles.name}>
@@ -47,11 +43,12 @@ export default class CandidateItem extends PureComponent {
               })}
             /> */}
               {user.name}
+              <FontAwesomeIcon icon={["fas", "comment-alt"]} />
             </p>
             <p className={styles.message_text}>
-              {`${user.Nationality?.name['en']} , ${
-                user.Governorate?.name['en']
-              }, ${moment().diff(moment(user.birthday), 'years')} years old`}
+              {`${user.Nationality?.name["en"]} , ${
+                user.Governorate?.name["en"]
+              }, ${moment().diff(moment(user.birthday), "years")} years old`}
             </p>
           </div>
           <div className={styles.actions}>

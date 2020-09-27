@@ -5,7 +5,6 @@ import { bindActionCreators } from "redux";
 import { withNamespaces } from "react-i18next";
 import { languageOptions } from "~configs/languageOptions";
 import styles from "./styles/landing.module.scss";
-import { CSSTransition } from "react-transition-group";
 
 // Components
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

@@ -1,10 +1,10 @@
-import React, { PureComponent } from 'react';
-import styles from './styles/detail-header.module.scss';
-import { Dropdown, Menu } from 'antd';
-import classnames from 'classnames';
-import { SwapOutlined, SearchOutlined, DownOutlined } from '@ant-design/icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { withNamespaces } from 'react-i18next';
+import React, { PureComponent } from "react";
+import styles from "./styles/detail-header.module.scss";
+import { Dropdown, Menu } from "antd";
+import classnames from "classnames";
+import { SwapOutlined, SearchOutlined, DownOutlined } from "@ant-design/icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { withNamespaces } from "react-i18next";
 
 class DetailHeader extends PureComponent {
   render() {
@@ -13,28 +13,33 @@ class DetailHeader extends PureComponent {
       onMoveUserToCategory,
       checkedUsers = [],
       customCategories = [],
-      t,
+      jobCandidate,
+      t
     } = this.props;
     return (
       <div className={styles.head}>
-        {selected && (
+        {/*  {selected && (
           <div className={styles.quick_action}>
-            <span>{t('job.detail.quick_contact')}</span>
+            <span>{t("job.detail.quick_contact")}</span>
             <span className={styles.phone}>
-              <FontAwesomeIcon icon={['fas', 'phone-alt']} />{' '}
-              {selected?.user?.phone}
+              <FontAwesomeIcon icon={["fas", "phone-alt"]} /> {selected?.user?.phone}
             </span>
-            <a
-              href={`mailto:${selected?.user?.email}`}
-              className={styles.actions}
-            >
-              <FontAwesomeIcon icon={['fas', 'envelope']} />
-              <span>
-                {t('job.detail.send_email', { email: selected?.user?.name })}
-              </span>
+            <a href={`mailto:${selected?.user?.email}`} className={styles.actions}>
+              <FontAwesomeIcon icon={["fas", "envelope"]} />
+              <span>{t("job.detail.send_email", { email: selected?.user?.name })}</span>
             </a>
           </div>
-        )}
+        )} */}
+        <span>
+          {jobCandidate.length === 1
+            ? jobCandidate.length + " Application"
+            : jobCandidate.length > 1
+            ? jobCandidate.length + " Applications"
+            : "No Applications yet"}
+        </span>
+
+        <span>Application details</span>
+        <span>Internal comments</span>
 
         {/* <div className={styles.search}>
           <div className={styles.wrapper}>
@@ -45,7 +50,7 @@ class DetailHeader extends PureComponent {
               <SearchOutlined />
             </span>
           </div>
-        </div> */}
+        </div> 
 
         {/* <div className={styles.actions}>
           <div className={classnames(styles.tag, styles.green)}>Plan A</div>
@@ -57,10 +62,10 @@ class DetailHeader extends PureComponent {
               <DownOutlined />
             </div>
           </Dropdown>
-        </div> */}
+        </div> 
 
         <div className={styles.rigth_side}>
-          {/* <div className={styles.additional_button}>
+           <div className={styles.additional_button}>
             <Dropdown overlay={sortMenu} trigger={['click']}>
               <div>
                 <span className={styles.icon}>
@@ -71,44 +76,41 @@ class DetailHeader extends PureComponent {
             </Dropdown>
           </div> */}
 
-          {!!checkedUsers.length && (
+        {/*  {!!checkedUsers.length && (
             <div className={styles.quick_action}>
-              <span>{t('job.detail.move_to')}</span>
+              <span>{t("job.detail.move_to")}</span>
 
               <button
                 className={classnames(styles.actions, styles.green)}
                 onClick={() => {
                   const data = {
-                    folder: 'good',
-                    folder_type: 'good',
+                    folder: "good",
+                    folder_type: "good"
                   };
                   onMoveUserToCategory(data);
-                }}
-              >
+                }}>
                 <span>Good</span>
               </button>
               <button
                 className={classnames(styles.actions, styles.orange)}
                 onClick={() => {
                   const data = {
-                    folder: 'maybe',
-                    folder_type: 'maybe',
+                    folder: "maybe",
+                    folder_type: "maybe"
                   };
                   onMoveUserToCategory(data);
-                }}
-              >
+                }}>
                 <span>Maybe</span>
               </button>
               <button
                 className={classnames(styles.actions, styles.red)}
                 onClick={() => {
                   const data = {
-                    folder: 'rejected',
-                    folder_type: 'rejected',
+                    folder: "rejected",
+                    folder_type: "rejected"
                   };
                   onMoveUserToCategory(data);
-                }}
-              >
+                }}>
                 <span>Rejected</span>
               </button>
 
@@ -116,35 +118,33 @@ class DetailHeader extends PureComponent {
                 <Dropdown
                   overlay={
                     <Menu>
-                      {customCategories.map((item) => (
+                      {customCategories.map(item => (
                         <Menu.Item
                           key={item.id}
                           onClick={() => {
                             const data = {
                               folder: item.name,
-                              folder_type: item.type,
+                              folder_type: item.type
                             };
                             onMoveUserToCategory(data);
-                          }}
-                        >
+                          }}>
                           <div>{item.name}</div>
                         </Menu.Item>
                       ))}
                     </Menu>
                   }
-                  trigger={['click']}
-                >
+                  trigger={["click"]}>
                   <div className={styles.actions}>
                     <span>Other</span>
-                    <FontAwesomeIcon icon={['fas', 'sort-down']} />
+                    <FontAwesomeIcon icon={["fas", "sort-down"]} />
                   </div>
                 </Dropdown>
               )}
             </div>
-          )}
+          )} 
         </div>
 
-        {/* <div className={styles.tools_dropdown}>
+         <div className={styles.tools_dropdown}>
           <Dropdown overlay={sortMenu} trigger={['click']}>
             <div
               className={classnames(

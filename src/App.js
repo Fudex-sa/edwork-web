@@ -28,7 +28,7 @@ import MyWebsite from "~containers/Dashboard/MyWebsite";
 import VerificationCompany from "~containers/Dashboard/VerificationCompany";
 
 function App() {
-  // This finction to imit AOS library
+  // This function to imit AOS library which creates animation in the landing page
   useEffect(() => {
     AOS.init({
       duration: 1500
