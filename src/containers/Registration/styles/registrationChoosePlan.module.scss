@@ -1,0 +1,111 @@
+.headerimg{
+  margin-left: 30px;
+  @media (min-width:401px) and (max-width:600px) {
+    margin-left: 160px;
+  }
+  @media (max-width:400px){
+    margin-left: 100px;
+  }
+  
+}
+.price {
+  color: #c6c6c6;
+  margin:35px auto
+}
+.jobpost {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+  padding:15px 8px;
+  .SAR {
+    color: #9e9e9e;
+    text-align: center;
+  }
+  .SARspan{
+font-size: 18px;
+margin-bottom: 5px;
+  }
+  @media (max-width:600px) {
+    padding:5px 8px;
+    margin-bottom: 20px;
+  }
+  .jobpostheader2{
+    color:#0091FF;
+    text-align: center;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+.jobpostheader3{
+  color:#9538FF;
+  text-align: center;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+}
+.items{
+  margin:15px 0px 10px 10px;
+  display: flex;
+  // justify-content: space-between;
+  align-items: flex-start;
+  .truemark{
+    color:#54C8C8;
+    margin-right: 8px;
+    margin-top: 5px;
+  }
+  @media (max-width:1000px) {
+    margin:0px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  &:lang(ar) {
+    direction: ltr;
+    align-items: flex-end;
+    justify-content: space-between;
+}  }
+ 
+
+.leftcontainer{
+  background-Color:#1BCBFF;
+  display:flex;
+  flex-Direction:column;
+  justify-content: center;
+  align-items:flex-start;
+  color:#FFF;
+  margin-left:30px;
+   &:lang(ar) {
+    align-items:flex-end;
+  }
+}
+
+
+
+
+.freeheader{
+  color:#fff
+}
+.create_account {
+  background: #fff;
+  border: none;
+  outline: none;
+  color: #333;
+  height: 40px;
+  padding: 0 50px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 20px;
+  transition: 0.1s ease-in;
+ font-weight: bold;
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  @media (min-width:401px) and (max-width:1000px) {
+padding:0px 35px;
+
+  }
+}

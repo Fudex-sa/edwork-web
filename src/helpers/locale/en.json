@@ -423,5 +423,8 @@
     "apply": "Apply",
     "new_category": "Add new category",
     "add_address": "Add address"
+  },
+  "choosePlan":{
+    "price":"Pricng"
   }
 }
