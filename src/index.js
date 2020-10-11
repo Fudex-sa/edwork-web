@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import 'normalize.css';
 import 'antd/dist/antd.css';
 import './assets/styles/main.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import { Route } from 'react-router-dom';
