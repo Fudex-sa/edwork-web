@@ -57,19 +57,19 @@ const freePlanActions = (t) => [
     redirect: '/jobs',
     icon: JobIcon,
   },
-  {
-    name: t('dashboard.plan.upgrade.name'),
-    subName: t('dashboard.plan.upgrade.description'),
-    redirect: '/registration/plan',
-    // icon: DashboardIcon,
-    IconComponent: () => <UserPlanText expireHide text="Profesional" />,
-  },
-  {
-    name: t('dashboard.plan.settings.name'),
-    subName: t('dashboard.plan.settings.description'),
-    redirect: '/settings',
-    icon: SettingsIcon,
-  },
+  // {
+  //   name: t('dashboard.plan.upgrade.name'),
+  //   subName: t('dashboard.plan.upgrade.description'),
+  //   redirect: '/registration/plan',
+  //   // icon: DashboardIcon,
+  //   IconComponent: () => <UserPlanText expireHide text="Profesional" />,
+  // },
+  // {
+  //   name: t('dashboard.plan.settings.name'),
+  //   subName: t('dashboard.plan.settings.description'),
+  //   redirect: '/settings',
+  //   icon: SettingsIcon,
+  // },
 ];
 
 class Dashboard extends Component {

@@ -160,7 +160,7 @@ import { withNamespaces } from "react-i18next";
 import Group from "../../assets/imgs/Group 2633.svg";
 class RegistrationChoosePlan extends Component {
   render() {
-    const { lang, t } = this.props;
+    // const { lang, t } = this.props;
 console.log('myprops',this.props);
     return (
       <section className={styles.section}>
@@ -174,7 +174,7 @@ console.log('myprops',this.props);
                 className="row"
                 style={{ marginTop: "35px", marginBottom: "35px" }}
               >
-                <h1 className={styles.price}>{t("choosePlan.price")}</h1>
+                <h1 className={styles.price}>Pricing</h1>
               </div>
               <div className="row">
                 <div className="col-md-3 col-sm-9 m-auto">
