@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import styles from "./styles/landingDemo.module.scss";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Logo from "~assets/imgs/Group 3274.svg";
 import iphone from "~assets/imgs/iphone.svg";
 import Thumblike from "~assets/imgs/Path 808.svg";
@@ -12,17 +13,21 @@ class LandingDemo extends Component {
     return (
       <section className="landingDemo">
         <div className="container">
-          <div className="row">
+
+          <div className="row mb-3">
             <div className="col-md-9 col-sm-12"></div>
             <div className="col-md-3 col-sm-12 mt-5 logodiv">
               <div className={styles.logocontainer}>
-                <img src={Logo} alt="logo" />
+                <img src={Logo} alt="logo" className="text-center"/>
+
                 <div className={styles.logospan}>إطلاق تجريبى</div>
               </div>
             </div>
           </div>
           <div className="row mb-5">
-            <div className="col-md-3 col-sm-12 text-center myColumn">
+            <div className="col-md-3 col-sm-12 text-center"
+           >
+
               <img src={iphone} alt="iphone" className={styles.iphoneimg} />
               {/* <span className={styles.iphonespan}>قريباً إطلاق التطبيق</span> */}
               <div className={styles.imgPar}>
@@ -45,12 +50,13 @@ class LandingDemo extends Component {
                 أعلن عن وظيفة | افرز و وفلتر | أختر الأنسب واتمم عملية التوظيف
               </p>
               <div className={styles.routes}>
-                <Link to="/">
+              <a href="https://sites.google.com/view/fursatak-jobs">
                   <button type="button" className={styles.showOpportunity}>
                     استعراض الفرص
                   </button>
-                </Link>{" "}
-                <Link to="/">
+                </a>{" "}
+                <a href="https://airtable.com/shrsvOP1B9iS8EnKc">
+
                   <button type="button" className={styles.create_account}>
                     <FontAwesomeIcon
                       className={styles.arrow}
@@ -58,7 +64,8 @@ class LandingDemo extends Component {
                     />
                     أبدأ بالتوظيف
                   </button>
-                </Link>
+
+                </a>
               </div>
             </div>
             <div className="col-md-3 col-sm-12"></div>

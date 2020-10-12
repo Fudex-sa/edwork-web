@@ -39,6 +39,7 @@ function App() {
   return (
     <>
       <Switch>
+      <Route exact path='/demo' component={LandingDemo} />
         <PublicRoute exact path='/' component={Landing} />
         <PublicRoute exact path='/demo' component={LandingDemo} />
         <PublicRoute exact path='/login' component={Login} />
