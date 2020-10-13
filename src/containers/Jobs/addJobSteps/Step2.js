@@ -80,10 +80,10 @@ class Step2 extends Component {
       supportHRDF,
     } = addJobData;
 
-    if (jobType === undefined) {
-      notify.error('Please fill all field');
-      return;
-    }
+    // if (jobType === undefined) {
+    //   notify.error('Please fill all field');
+    //   return;
+    // }
     if (!title) {
       notify.error('Please fill all field');
       return;
@@ -92,14 +92,14 @@ class Step2 extends Component {
       notify.error('Please fill all field');
       return;
     }
-    if (!hiringDate) {
-      notify.error('Please fill all field');
-      return;
-    }
-    if (supportHRDF === undefined) {
-      notify.error('Please fill all field');
-      return;
-    }
+    // if (!hiringDate) {
+    //   notify.error('Please fill all field');
+    //   return;
+    // }
+    // if (supportHRDF === undefined) {
+    //   notify.error('Please fill all field');
+    //   return;
+    // }
 
     // jobActions.setJobAddData({ ...this.state });
 
@@ -193,7 +193,7 @@ class Step2 extends Component {
                 }}
               />
             </div>
-            <div className={styles.input_container}>
+            {/* <div className={styles.input_container}>
               <SelectAddJob
                 label={t('input.add_job.job_category')}
                 options={categoryOptions}
@@ -203,8 +203,8 @@ class Step2 extends Component {
                   this.handleChangeValue('category', value);
                 }}
               />
-            </div>
-            <div className={styles.input_container}>
+            </div> */}
+            {/* <div className={styles.input_container}>
               <DatePickerAddJob
                 value={addJobData.hiringDate}
                 label={t('input.add_job.job_hiring_date')}
@@ -213,7 +213,7 @@ class Step2 extends Component {
                   this.handleChangeValue('hiringDate', value);
                 }}
               />
-            </div>
+            </div> */}
             <div className={styles.input_container}>
               <RadioAddJob
                 value={addJobData.jobType}
@@ -224,7 +224,8 @@ class Step2 extends Component {
                 }}
               />
             </div>
-            <div className={styles.input_container}>
+            
+            {/* <div className={styles.input_container}>
               <RadioAddJob
                 value={addJobData.supportHRDF}
                 label={t('input.add_job.job_hrdf_support')}
@@ -233,7 +234,7 @@ class Step2 extends Component {
                   this.handleChangeValue('supportHRDF', target.value);
                 }}
               />
-            </div>
+            </div> */}
             <div className={styles.input_container}>
               <InputAddJob
                 value={addJobData.salary}
@@ -245,7 +246,7 @@ class Step2 extends Component {
               />
             </div>
 
-            <div className={styles.input_container}>
+            {/* <div className={styles.input_container}>
               <Toggle
                 label={t('input.add_job.online_job.label')}
                 checked={addJobData.online}
@@ -256,7 +257,7 @@ class Step2 extends Component {
                   }
                 }}
               />
-            </div>
+            </div> */}
 
             {!addJobData.online && (
               <div className={styles.input_container}>

@@ -19,3 +19,6 @@ export const CLEAR_JOB_DATA = 'job/CLEAR_JOB_DATA';
 export const GET_CANDIDATE_DETAIL = 'job/GET_CANDIDATE_DETAIL';
 export const SET_JOB_DETAIL_DATA = 'job/SET_JOB_DETAIL_DATA';
 export const CLEAR_JOB_DETAIL_DATA = 'job/CLEAR_JOB_DETAIL_DATA';
+export const UPDATE_POST = 'UPDATE_POST';
+export const STOP_POST = 'STOP_POST';
+
