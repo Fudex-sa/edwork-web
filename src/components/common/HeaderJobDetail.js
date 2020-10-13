@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import classnames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { message as notify } from 'antd';
 import {
   AuditOutlined,
   MailOutlined,
@@ -21,6 +21,7 @@ import Logo from "~assets/imgs/logo_white_blue.svg";
 // Actions
 import logout from "../../containers/Auth/actions/logout";
 import { Dropdown, Button, Menu, Tooltip, Switch } from "antd";
+import stopPost from "../../containers/Jobs/actions/stopPost";
 
 const Actions = (props) => {
   const { items = [] } = props;
@@ -123,7 +124,22 @@ class HeaderJobDetail extends Component {
                 <FontAwesomeIcon icon="undo" className={styles.iconstyle} />
                 <span className={styles.spanoption}>Re-post</span>
               </button>
-              <button className={styles.containerOption}>
+              <button className={styles.containerOption}
+              onClick={()=>{
+                this.props.userActions.stopPost({
+                  "id":jobId
+              },{
+                success: (response) => {
+                  const { message } = response;
+                  notify.success(message);
+                },
+                fail: (response) => {
+                  const { message } = response;
+                  notify.error(message);
+                },
+              })
+              }}
+              >
                 <FontAwesomeIcon
                   icon="stop-circle"
                   className={styles.iconstyle}
@@ -176,7 +192,8 @@ const mapStateToProps = (store) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  userActions: bindActionCreators({ logout }, dispatch),
+  userActions: bindActionCreators({ logout,stopPost }, dispatch),
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderJobDetail);
