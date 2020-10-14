@@ -21,8 +21,8 @@ import { setLocale } from '~helpers/locale/actions';
 
 class Login extends Component {
   state = {
-    email: 'anrioboladze@gmail.com',
-    password: 'anri1991',
+    email: 'samman4@gmail.com',
+    password: '123456789',
     // email: '',
     // password: '',
   };

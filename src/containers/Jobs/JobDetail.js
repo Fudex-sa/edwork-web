@@ -27,6 +27,7 @@ import getJobsList from "./actions/getJobsList";
 import AddCustomCategory from "./AddCustomCategory";
 import getCustomCategories from "./actions/getCustomCategories";
 import createCustomCategory from "./actions/createCustomCategory";
+import stopPost from './actions/stopPost'
 import userMoveToCategory from "./actions/userMoveToCategory";
 
 const queryString = require("query-string");
@@ -303,7 +304,7 @@ const mapDispatchToProps = dispatch => ({
       setJobDetailData,
       getCandidateDetail,
       getCustomCategories,
-      userMoveToCategory
+      userMoveToCategory,
     },
     dispatch
   ),

@@ -108,11 +108,11 @@ class Dashboard extends Component {
       <div>
         <HeaderDark />
         <div className={styles.wrapper}>
-          <ActivateUser
+          {/* <ActivateUser
             status={userData.active}
             isLoading={resendValidationLoading}
             onResend={this.handleResendEmailValidation}
-          />
+          /> */}
           <VerifyCompany
             status={companyData.verified || !userData.active}
             onClick={this.handleVerifyCompany}

@@ -72,6 +72,7 @@ export default class JobsList extends PureComponent {
                 : "Not set",
               moment(job.expected_hiring_date).format("ll"),
               job.PostUsers.length,
+              job.note ? job.note :
               <input type='text' placeholder='Type a note...' />
             ].map((item, index) => (
               <div

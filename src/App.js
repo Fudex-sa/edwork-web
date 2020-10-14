@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch,Router } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css"; // You can also use <link> for styles
 
@@ -27,6 +27,7 @@ import Pay from "~containers/Pay/Pay";
 import CheckPayment from "~containers/Pay/CheckPayment";
 import MyWebsite from "~containers/Dashboard/MyWebsite";
 import VerificationCompany from "~containers/Dashboard/VerificationCompany";
+import history from './history';
 
 function App() {
   // This function to imit AOS library which creates animation in the landing page
@@ -38,6 +39,8 @@ function App() {
 
   return (
     <>
+          <Router history={history}>
+
       <Switch>
       <Route exact path='/demo' component={LandingDemo} />
         <PublicRoute exact path='/' component={Landing} />
@@ -50,18 +53,19 @@ function App() {
         <PublicRoute exact path='/registration/plan' component={RegistrationChoosePlan} />
         <Route exact path='/pay' component={Pay} />
         <Route exact path='/check-status' component={CheckPayment} />
-        <PrivateRoute path='/dashboard' component={Dashboard} />
+        <PrivateRoute path='/dashboard' component={Job} />
         <PrivateRoute path='/membership' component={Membership} />
         <PrivateRoute path='/coworkers' component={CoWorkers} />
         <PrivateRoute path='/settings' component={Settings} />
         <PrivateRoute path='/my-website' component={MyWebsite} />
         <Route path='/iframe/:id' component={MyWebsite} />
         <PrivateRoute path='/verification' component={VerificationCompany} />
-        <PrivateRoute exact path='/jobs' component={Job} />
+        {/* <PrivateRoute exact path='/jobs' component={Job} /> */}
         <PrivateRoute exact path='/jobs/add' component={AddJob} />
         <PrivateRoute exact path='/job/detail/:id' component={JobDetail} />
         <Route path='' component={() => <h2>not found</h2>} />
       </Switch>
+      </Router>
     </>
   );
 }

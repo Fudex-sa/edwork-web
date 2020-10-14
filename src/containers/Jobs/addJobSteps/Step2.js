@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import moment from "moment";
 import { show } from 'redux-modal';
 import { message as notify, Checkbox as CheckboxAd } from 'antd';
 import { withNamespaces } from 'react-i18next';
@@ -32,7 +33,7 @@ import setJobAddData from '../actions/setJobAddData';
 import getJobCategory from '../actions/getJobCategory';
 
 const initialState = {
-  jobType: undefined,
+  jobType: "",
   email: '',
   link: '',
   title: '',
@@ -53,8 +54,7 @@ class Step2 extends Component {
   };
 
   handleChangeValue = (name, value) => {
-    const { jobActions } = this.props;
-
+    const { jobActions,addJobData } = this.props;
     jobActions.setJobAddData({
       [name]: value,
     });
@@ -68,46 +68,66 @@ class Step2 extends Component {
   }
 
   onSubmit = () => {
-    const { jobActions, nextStep, addJobData } = this.props;
-    const {
-      location,
-      email,
-      link,
-      jobType,
-      title,
-      salary,
-      hiringDate,
-      supportHRDF,
-    } = addJobData;
-
-    if (jobType === undefined) {
-      notify.error('Please fill all field');
-      return;
-    }
-    if (!title) {
-      notify.error('Please fill all field');
-      return;
-    }
-    if (!salary) {
-      notify.error('Please fill all field');
-      return;
-    }
-    if (!hiringDate) {
-      notify.error('Please fill all field');
-      return;
-    }
-    if (supportHRDF === undefined) {
-      notify.error('Please fill all field');
-      return;
-    }
+    const { quizzOptions, jobActions, addJobData, history, t } = this.props;
+    // const {jobType, email, link, title, salary, hiringDate, supportHRDF, location} = this.state
+    const { category, description, postingType, features, jobType, email, link, title, salary, hiringDate, supportHRDF, location } = addJobData;
+    // if (jobType === undefined) {
+    //   notify.error('Please fill all field');
+    //   return;
+    // }
+    // if (!title) {
+    //   notify.error('Please fill all field');
+    //   return;
+    // }
+    // if (!salary) {
+    //   notify.error('Please fill all field');
+    //   return;
+    // }
+    // if (!hiringDate) {
+    //   notify.error('Please fill all field');
+    //   return;
+    // }
+    // if (supportHRDF === undefined) {
+    //   notify.error('Please fill all field');
+    //   return;
+    // }
 
     // jobActions.setJobAddData({ ...this.state });
 
-    if (addJobData?.type !== 'easy') {
-      alert('Add job'); //TODO: make request for other type
-    } else {
-      nextStep();
-    }
+
+    const data = {
+      general_type: "easy",
+      title,
+      category_id: category,
+      email: email,
+      link: link,
+      expected_hiring_date: moment(hiringDate).format("YYYY-MM-DD"),
+      hrdf: supportHRDF,
+      salary: salary,
+      description,
+      address: location.map(item => item.id),
+      // questions,
+      type: jobType
+    };
+
+    jobActions.createJob(data, {
+      success: response => {
+        const { message } = response;
+        notify.success(message);
+        jobActions.setJobAddData(null);
+        history.push("/dashboard");
+      },
+      fail: response => {
+        const { message } = response;
+        notify.error(message);
+      }
+    });
+
+    // if (addJobData?.type !== 'easy') {
+    //   alert('Add job'); //TODO: make request for other type
+    // } else {
+    //   nextStep();
+    // }
   };
 
   render() {
@@ -193,7 +213,7 @@ class Step2 extends Component {
                 }}
               />
             </div>
-            <div className={styles.input_container}>
+            {/* <div className={styles.input_container}>
               <SelectAddJob
                 label={t('input.add_job.job_category')}
                 options={categoryOptions}
@@ -203,8 +223,8 @@ class Step2 extends Component {
                   this.handleChangeValue('category', value);
                 }}
               />
-            </div>
-            <div className={styles.input_container}>
+            </div> */}
+            {/* <div className={styles.input_container}>
               <DatePickerAddJob
                 value={addJobData.hiringDate}
                 label={t('input.add_job.job_hiring_date')}
@@ -213,7 +233,7 @@ class Step2 extends Component {
                   this.handleChangeValue('hiringDate', value);
                 }}
               />
-            </div>
+            </div> */}
             <div className={styles.input_container}>
               <RadioAddJob
                 value={addJobData.jobType}
@@ -224,7 +244,8 @@ class Step2 extends Component {
                 }}
               />
             </div>
-            <div className={styles.input_container}>
+            
+            {/* <div className={styles.input_container}>
               <RadioAddJob
                 value={addJobData.supportHRDF}
                 label={t('input.add_job.job_hrdf_support')}
@@ -233,7 +254,7 @@ class Step2 extends Component {
                   this.handleChangeValue('supportHRDF', target.value);
                 }}
               />
-            </div>
+            </div> */}
             <div className={styles.input_container}>
               <InputAddJob
                 value={addJobData.salary}
@@ -245,7 +266,7 @@ class Step2 extends Component {
               />
             </div>
 
-            <div className={styles.input_container}>
+            {/* <div className={styles.input_container}>
               <Toggle
                 label={t('input.add_job.online_job.label')}
                 checked={addJobData.online}
@@ -256,7 +277,7 @@ class Step2 extends Component {
                   }
                 }}
               />
-            </div>
+            </div> */}
 
             {!addJobData.online && (
               <div className={styles.input_container}>

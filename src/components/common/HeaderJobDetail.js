@@ -3,6 +3,9 @@ import styles from "./styles/header.module.scss";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import classnames from "classnames";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { message as notify } from 'antd';
+import history from '../../history'
 import {
   AuditOutlined,
   MailOutlined,
@@ -10,7 +13,7 @@ import {
   RedoOutlined,
   FormOutlined,
   UploadOutlined,
-  ShareAltOutlined
+  ShareAltOutlined,
 } from "@ant-design/icons";
 
 // Assets
@@ -19,8 +22,9 @@ import Logo from "~assets/imgs/logo_white_blue.svg";
 // Actions
 import logout from "../../containers/Auth/actions/logout";
 import { Dropdown, Button, Menu, Tooltip, Switch } from "antd";
+import stopPost from "../../containers/Jobs/actions/stopPost";
 
-const Actions = props => {
+const Actions = (props) => {
   const { items = [] } = props;
   return (
     <div className={styles.cell_actions}>
@@ -38,12 +42,13 @@ const Actions = props => {
 const jobList = (data, jobId) => (
   <Menu>
     {data
-      .filter(item => item.id !== parseInt(jobId))
-      .map(item => (
+      .filter((item) => item.id !== parseInt(jobId))
+      .map((item) => (
         <Menu.Item key={item.id}>
           <a
-            rel='noopener noreferrer'
-            href={window.location.origin + "/job/detail/" + item.id}>
+            rel="noopener noreferrer"
+            href={window.location.origin + "/job/detail/" + item.id}
+          >
             {item.title}
           </a>
         </Menu.Item>
@@ -52,7 +57,7 @@ const jobList = (data, jobId) => (
 );
 
 class HeaderJobDetail extends Component {
-  logout = e => {
+  logout = (e) => {
     const { userActions } = this.props;
     e.preventDefault();
     userActions.logout();
@@ -64,8 +69,8 @@ class HeaderJobDetail extends Component {
       <div className={classnames(styles.header, styles.white)}>
         <div className={styles.container}>
           <div className={styles.logo_container}>
-            <a href='/' className={styles.logo}>
-              <img src={Logo} alt='logo' />
+            <a href="/" className={styles.logo}>
+              <img src={Logo} alt="logo" />
             </a>
           </div>
           <div className={styles.nav_container}>
@@ -87,18 +92,70 @@ class HeaderJobDetail extends Component {
             <div className={styles.job_selection}>
               <Dropdown
                 overlay={jobList(data, jobId)}
-                placement='bottomLeft'
-                trigger={["click"]}>
+                placement="bottomLeft"
+                trigger={["click"]}
+              >
                 {/* <Button>bottomLeft</Button> */}
                 <div className={styles.dropdown}>
                   <span>
-                    {data.filter(item => item.id === parseInt(jobId))[0]?.title}
+                    {
+                      data.filter((item) => item.id === parseInt(jobId))[0]
+                        ?.title
+                    }
                   </span>
                   <span className={styles.dropdown_icon}>
                     <DownOutlined />
                   </span>
                 </div>
               </Dropdown>
+            </div>
+            <div className={styles.alloptions}>
+              <button className={styles.containerOption}>
+                <FontAwesomeIcon
+                  icon="external-link-square-alt"
+                  className={styles.iconstyle}
+                />
+                <span className={styles.spanoption}>Share apply link</span>
+              </button>
+              <button className={styles.containerOption}
+              onClick={()=>{
+                history.push('/jobs/add')
+              }}
+              >
+                <FontAwesomeIcon icon="edit" className={styles.iconstyle} />
+                <span className={styles.spanoption}>Edit post</span>
+              </button>
+              <button className={styles.containerOption}
+                    onClick={()=>{
+                      history.push('/jobs/add')
+                    }}
+              >
+                <FontAwesomeIcon icon="undo" className={styles.iconstyle} />
+                <span className={styles.spanoption}>Re-post</span>
+              </button>
+              <button className={styles.containerOption}
+              onClick={()=>{
+                this.props.userActions.stopPost({
+                  "id":jobId
+              },{
+                success: (response) => {
+                  const { message } = response;
+                  notify.success(message);
+                },
+                fail: (response) => {
+                  const { message } = response;
+                  notify.error(message);
+                },
+              })
+              }}
+              >
+                <FontAwesomeIcon
+                  icon="stop-circle"
+                  className={styles.iconstyle}
+                  color="#F82B60"
+                />
+                <span className={styles.stopspan}>Stop</span>
+              </button>
             </div>
 
             {/* <div className={styles.actions}>
@@ -139,12 +196,13 @@ class HeaderJobDetail extends Component {
   }
 }
 
-const mapStateToProps = store => ({
-  userData: store.auth.user
+const mapStateToProps = (store) => ({
+  userData: store.auth.user,
 });
 
-const mapDispatchToProps = dispatch => ({
-  userActions: bindActionCreators({ logout }, dispatch)
+const mapDispatchToProps = (dispatch) => ({
+  userActions: bindActionCreators({ logout,stopPost }, dispatch),
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderJobDetail);
