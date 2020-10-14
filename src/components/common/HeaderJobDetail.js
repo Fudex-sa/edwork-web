@@ -5,6 +5,7 @@ import { bindActionCreators } from "redux";
 import classnames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { message as notify } from 'antd';
+import history from '../../history'
 import {
   AuditOutlined,
   MailOutlined,
@@ -116,11 +117,19 @@ class HeaderJobDetail extends Component {
                 />
                 <span className={styles.spanoption}>Share apply link</span>
               </button>
-              <button className={styles.containerOption}>
+              <button className={styles.containerOption}
+              onClick={()=>{
+                history.push('/jobs/add')
+              }}
+              >
                 <FontAwesomeIcon icon="edit" className={styles.iconstyle} />
                 <span className={styles.spanoption}>Edit post</span>
               </button>
-              <button className={styles.containerOption}>
+              <button className={styles.containerOption}
+                    onClick={()=>{
+                      history.push('/jobs/add')
+                    }}
+              >
                 <FontAwesomeIcon icon="undo" className={styles.iconstyle} />
                 <span className={styles.spanoption}>Re-post</span>
               </button>
