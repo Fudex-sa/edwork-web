@@ -18,7 +18,6 @@ import createJob from "./actions/createJob";
 
 class AddJob extends Component {
   render() {
-    console.log(this.props);
 
     const { history, addJobData, userData } = this.props;
     const isForApplicaiton = addJobData?.type === "easy";
@@ -29,7 +28,7 @@ class AddJob extends Component {
         <div className={styles.head}>{/* <h1>Add Job</h1> */}</div>
 
         <div className={styles.step_container}>
-          <StepWizard
+          {/* <StepWizard
             isHashEnabled={true}
             // onStepChange={this.onStepChange}
             initialStep={0}
@@ -40,12 +39,12 @@ class AddJob extends Component {
               this.setState({
                 wizardRef: instance
               });
-            }}>
-            <Step1 hashKey='step1' />
-            <Step2 hashKey='step2' />
-            {isForApplicaiton && !hasUserPro && <Step3 hashKey='step3' />}
-            {isForApplicaiton && <Step4 hashKey='step4' history={history} />}
-          </StepWizard>
+            }}> */}
+            {/* <Step1 hashKey='step1' /> */}
+            <Step2 history={history}/>
+            {/* {isForApplicaiton && !hasUserPro && <Step3 hashKey='step3' />} */}
+            {/* {isForApplicaiton && <Step4 hashKey='step4' history={history} />} */}
+          {/* </StepWizard> */}
         </div>
       </div>
     );

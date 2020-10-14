@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import moment from "moment";
 import { show } from 'redux-modal';
 import { message as notify, Checkbox as CheckboxAd } from 'antd';
 import { withNamespaces } from 'react-i18next';
@@ -32,7 +33,7 @@ import setJobAddData from '../actions/setJobAddData';
 import getJobCategory from '../actions/getJobCategory';
 
 const initialState = {
-  jobType: undefined,
+  jobType: "",
   email: '',
   link: '',
   title: '',
@@ -53,8 +54,7 @@ class Step2 extends Component {
   };
 
   handleChangeValue = (name, value) => {
-    const { jobActions } = this.props;
-
+    const { jobActions,addJobData } = this.props;
     jobActions.setJobAddData({
       [name]: value,
     });
@@ -68,30 +68,21 @@ class Step2 extends Component {
   }
 
   onSubmit = () => {
-    const { jobActions, nextStep, addJobData } = this.props;
-    const {
-      location,
-      email,
-      link,
-      jobType,
-      title,
-      salary,
-      hiringDate,
-      supportHRDF,
-    } = addJobData;
-
+    const { quizzOptions, jobActions, addJobData, history, t } = this.props;
+    // const {jobType, email, link, title, salary, hiringDate, supportHRDF, location} = this.state
+    const { category, description, postingType, features, jobType, email, link, title, salary, hiringDate, supportHRDF, location } = addJobData;
     // if (jobType === undefined) {
     //   notify.error('Please fill all field');
     //   return;
     // }
-    if (!title) {
-      notify.error('Please fill all field');
-      return;
-    }
-    if (!salary) {
-      notify.error('Please fill all field');
-      return;
-    }
+    // if (!title) {
+    //   notify.error('Please fill all field');
+    //   return;
+    // }
+    // if (!salary) {
+    //   notify.error('Please fill all field');
+    //   return;
+    // }
     // if (!hiringDate) {
     //   notify.error('Please fill all field');
     //   return;
@@ -103,11 +94,40 @@ class Step2 extends Component {
 
     // jobActions.setJobAddData({ ...this.state });
 
-    if (addJobData?.type !== 'easy') {
-      alert('Add job'); //TODO: make request for other type
-    } else {
-      nextStep();
-    }
+
+    const data = {
+      general_type: "easy",
+      title,
+      category_id: category,
+      email: email,
+      link: link,
+      expected_hiring_date: moment(hiringDate).format("YYYY-MM-DD"),
+      hrdf: supportHRDF,
+      salary: salary,
+      description,
+      address: location.map(item => item.id),
+      // questions,
+      type: jobType
+    };
+
+    jobActions.createJob(data, {
+      success: response => {
+        const { message } = response;
+        notify.success(message);
+        jobActions.setJobAddData(null);
+        history.push("/dashboard");
+      },
+      fail: response => {
+        const { message } = response;
+        notify.error(message);
+      }
+    });
+
+    // if (addJobData?.type !== 'easy') {
+    //   alert('Add job'); //TODO: make request for other type
+    // } else {
+    //   nextStep();
+    // }
   };
 
   render() {
