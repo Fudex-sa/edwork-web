@@ -9,10 +9,10 @@ const authCompany = (data, options = {}) =>
     requestOption: {
       method: 'post',
     },
-    success: (response) => {
-      const storage = extractSession();
+    success: async (response) => {
+      const storage = await extractSession();
       storage.auth = response.data;
-      saveSession(storage);
+      await saveSession(storage);
 
       if (options.success) options.success(response);
     },
