@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import axios from 'axios'
 import { bindActionCreators } from "redux";
 import { message as notify } from "antd";
 import StepWizard from "react-step-wizard";
@@ -15,13 +16,29 @@ import { Step1, Step2, Step3, Step4 } from "./addJobSteps";
 // Actions
 import getJobTypes from "./actions/getJobTypes";
 import createJob from "./actions/createJob";
-
+import getPostDetails from './actions/getPostDetails'
 class AddJob extends Component {
+  state={
+data:{}
+  }
+  // componentDidMount(){
+  //   if(this.props.location?.state?.id){
+  //    this.props.postActions.getPostDetails(this.props.location.state.id).then(res=>{})
+  //   //  .then(res=>this.setState({
+  //   //    data:res.data
+  //   //  })
+     
+  //   //  )
+  //   //  alert('data',this.state.data)
+  //    console.log('id',this.props.location.state.id)
+  //   }
+  // }
   render() {
-
-    const { history, addJobData, userData } = this.props;
+    const { history, addJobData, userData} = this.props;
     const isForApplicaiton = addJobData?.type === "easy";
     const hasUserPro = userData?.Company?.plan;
+
+
     return (
       <div>
         <HeaderDark />
@@ -60,7 +77,8 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  jobActions: bindActionCreators({ getJobTypes, createJob }, dispatch)
+  jobActions: bindActionCreators({ getJobTypes, createJob }, dispatch),
+  postActions:bindActionCreators({getPostDetails},dispatch)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddJob);

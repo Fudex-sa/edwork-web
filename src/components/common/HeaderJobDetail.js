@@ -1,9 +1,15 @@
 import React, { Component } from "react";
 import styles from "./styles/header.module.scss";
 import { connect } from "react-redux";
+import {Link} from 'react-router-dom'
 import { bindActionCreators } from "redux";
 import classnames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import stopImage from '~assets/imgs/Path 560.png';
+import repostImage from '../../assets/imgs/Path 562.png';
+import editImage from '../../assets/imgs/Icon feather-edit.png';
+import shareLink from '../../assets/imgs/Path 765.png';
+
 import { message as notify } from 'antd';
 import history from '../../history'
 import {
@@ -111,10 +117,8 @@ class HeaderJobDetail extends Component {
             </div>
             <div className={styles.alloptions}>
               <button className={styles.containerOption}>
-                <FontAwesomeIcon
-                  icon="external-link-square-alt"
-                  className={styles.iconstyle}
-                />
+              <img src={shareLink} alt="shareLink" style={{width:'16px',height:'17px'}}  className={styles.iconstyle}/>
+
                 <span className={styles.spanoption}>Share apply link</span>
               </button>
               <button className={styles.containerOption}
@@ -122,15 +126,17 @@ class HeaderJobDetail extends Component {
                 history.push('/jobs/add')
               }}
               >
-                <FontAwesomeIcon icon="edit" className={styles.iconstyle} />
+                <img src={editImage} alt="editimage" style={{width:'16px',height:'17px'}}  className={styles.iconstyle}/>
                 <span className={styles.spanoption}>Edit post</span>
               </button>
               <button className={styles.containerOption}
                     onClick={()=>{
-                      history.push('/jobs/add')
-                    }}
+                      history.push({
+                        pathname: '/jobs/add',
+                        state: { id:this.props.postId }
+                      })                    }}
               >
-                <FontAwesomeIcon icon="undo" className={styles.iconstyle} />
+                <img src={repostImage} alt="repostimage" style={{width:'16px',height:'17px'}}  className={styles.iconstyle}/>
                 <span className={styles.spanoption}>Re-post</span>
               </button>
               <button className={styles.containerOption}
@@ -149,11 +155,8 @@ class HeaderJobDetail extends Component {
               })
               }}
               >
-                <FontAwesomeIcon
-                  icon="stop-circle"
-                  className={styles.iconstyle}
-                  color="#F82B60"
-                />
+                <img src={stopImage} alt="stopimage" style={{width:'16px',height:'17px'}}  className={styles.iconstyle}/>
+                {/* <img src={editImage} alt="stop image"/> */}
                 <span className={styles.stopspan}>Stop</span>
               </button>
             </div>

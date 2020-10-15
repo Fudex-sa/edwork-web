@@ -150,6 +150,7 @@ class Job extends Component {
                 t("job.tab_head.applications"),
                 t("job.tab_head.note")
               ]}
+              // jobId={}
               data={jobsList}
               actions={{
                 goToJobDetail: this.goToJobDetail

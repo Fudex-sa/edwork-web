@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Button as ButtonAnt } from 'antd';
 import styles from './styles/button.module.scss';
 import classnames from 'classnames';
-
 export default class Button extends Component {
   render() {
     const {
@@ -11,6 +10,7 @@ export default class Button extends Component {
       type = 'button',
       onClick,
       text,
+      icon,
       classStyle,
       danger,
       fullWidth,

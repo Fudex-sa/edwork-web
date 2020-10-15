@@ -7,7 +7,7 @@ import classnames from "classnames";
 import { withNamespaces } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Scrollbars } from "react-custom-scrollbars";
-
+import getPostDetails from '../Jobs/actions/getPostDetails'
 // Styles
 import styles from "./styles/job-detail.module.scss";
 
@@ -34,7 +34,8 @@ const queryString = require("query-string");
 
 class JobDetail extends Component {
   state = {
-    search: ""
+    search: "",
+    data:{}
   };
 
   /* handle select one candidate under a job and fetches his data */
@@ -149,6 +150,7 @@ class JobDetail extends Component {
     this.handleGetCandidate();
     jobsActions.getJobsList();
     jobDetailActions.getCustomCategories({ job_id: match?.params?.id });
+      this.setState({data: this.props.postActions.getPostDetails(match?.params?.id)})
   }
 
   componentWillUnmount() {
@@ -179,7 +181,7 @@ class JobDetail extends Component {
 
     return (
       <div>
-        <HeaderJobDetail data={jobsList} jobId={match?.params?.id} />
+        <HeaderJobDetail data={jobsList} jobId={match?.params?.id} postId={match?.params?.id} postDetails={this.state.data}/>
         <LoadingWrapper isLoading={isLoadingJobCandidate}>
           <DetailHeader
             selected={jobDetailData.selectedUser}
@@ -309,7 +311,9 @@ const mapDispatchToProps = dispatch => ({
     dispatch
   ),
   jobsActions: bindActionCreators({ getJobsList }, dispatch),
-  modalActions: bindActionCreators({ show }, dispatch)
+  modalActions: bindActionCreators({ show }, dispatch),
+  postActions:bindActionCreators({getPostDetails},dispatch)
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withNamespaces()(JobDetail));

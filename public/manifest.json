@@ -1,6 +1,13 @@
 {
   "short_name": "Fursatak",
   "name": "Fursatak",
+  "lang": "en",
+  "background_color": "#00aae7",
+  "theme_color": "#00aae7",
+  "dir": "ltr",
+  "display": "standalone",
+  "orientation": "any",
+  "start_url":"/",
   "icons": [
     {
       "src": "favicon.ico",
@@ -17,9 +24,6 @@
       "type": "image/png",
       "sizes": "512x512"
     }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  ]
+
 }

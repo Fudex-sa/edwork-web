@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg data-name="Group 2994" viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
-<g fill="none" stroke="#0091ff" stroke-width="2">
-<rect width="120" height="90" stroke="none"/>
-<rect x="1" y="1" width="118" height="88" fill="none"/>
-</g>
-<circle transform="translate(25 22)" cx="16.5" cy="16.5" r="16.5" fill="#0091ff" opacity=".25" data-name="Ellipse 68"/>
-<path transform="translate(43 36)" d="M28.85,31.422H18.722l5.33,12.983a1.774,1.774,0,0,1-.9,2.291l-4.694,2.046a1.689,1.689,0,0,1-2.228-.927L11.165,35.486,2.891,44A1.689,1.689,0,0,1,0,42.769V1.747A1.689,1.689,0,0,1,2.891.52L30.044,28.449A1.75,1.75,0,0,1,28.85,31.422Z" fill="#0091ff" data-name="Icon awesome-mouse-pointer"/>
-</svg>

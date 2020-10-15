@@ -1,4 +1,7 @@
 import React, { PureComponent } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { withNamespaces } from "react-i18next";
 import { Tooltip } from "antd";
 import {
   ArrowsAltOutlined,
@@ -8,11 +11,12 @@ import {
 } from "@ant-design/icons";
 import classnames from "classnames";
 import moment from "moment";
-
+import postNote from '../../containers/Jobs/actions/postNote'
 import styles from "./styles/job-list.module.scss";
 
 const Actions = props => {
   const { items = [] } = props;
+  const {postNote}=props
   return (
     <div className={styles.cell_actions}>
       {items.map((item, index) => (
@@ -34,9 +38,10 @@ const Actions = props => {
   );
 };
 
-export default class JobsList extends PureComponent {
+ class JobsList extends PureComponent {
+
   render() {
-    const { headTitles, data, actions } = this.props;
+    const { headTitles, data, actions,jobId } = this.props;
 
     console.warn(data);
 
@@ -73,7 +78,15 @@ export default class JobsList extends PureComponent {
               moment(job.expected_hiring_date).format("ll"),
               job.PostUsers.length,
               job.note ? job.note :
-              <input type='text' placeholder='Type a note...' />
+              <input type='text' placeholder='Type a note...'
+              onBlur={(e)=>{
+                alert('hi')
+                this.props.noteaActions.postNote({
+                  "id":job.id,
+                "note":e.target.value,
+              }
+              )}}
+              />
             ].map((item, index) => (
               <div
                 key={index}
@@ -110,3 +123,10 @@ export default class JobsList extends PureComponent {
     );
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+  noteaActions: bindActionCreators({ postNote }, dispatch)
+});
+
+export default connect(state=>state, mapDispatchToProps)(withNamespaces()(JobsList));
+

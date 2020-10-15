@@ -21,4 +21,6 @@ export const SET_JOB_DETAIL_DATA = 'job/SET_JOB_DETAIL_DATA';
 export const CLEAR_JOB_DETAIL_DATA = 'job/CLEAR_JOB_DETAIL_DATA';
 export const UPDATE_POST = 'UPDATE_POST';
 export const STOP_POST = 'STOP_POST';
+export const POST_NOTE = 'POST_NOTE';
+export const POST_DETAILS = 'POST_DETAILS';
 
