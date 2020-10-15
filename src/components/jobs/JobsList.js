@@ -72,7 +72,7 @@ const Actions = props => {
                 {job.title}
               </span>,
               job.active ? "Open" : "Close",
-              job.Addresses && job.Addresses.length > 0
+              job.Addresses && job.Addresses.length && job.Addresses[0].Governorate > 0
                 ? job.Addresses[0].Governorate.name.en
                 : "Not set",
               moment(job.expected_hiring_date).format("ll"),

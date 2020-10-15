@@ -6,6 +6,7 @@ import { show } from "redux-modal";
 import { message as notify, Checkbox as CheckboxAd } from "antd";
 import { withNamespaces } from "react-i18next";
 import classnames from "classnames";
+import { Button } from '~components/forms';
 
 // Styles
 import styles from "../styles/addJob.module.scss";
@@ -170,6 +171,7 @@ class Step2 extends Component {
       jobCategories,
       t,
       lang,
+      isLoadingSubmit
     } = this.props;
 
     const jobTypesOptions = jobTypesList.map((item) => ({
@@ -338,12 +340,16 @@ class Step2 extends Component {
               jobActions.getCompanyAddress();
             }}
           />
+          <div className={styles.add_job}>
           <WizardNavigation
             finishBtnText={t("button.add_job")}
             options={this.props}
             onSubmit={this.onSubmit}
+            
           />
+          </div>
         </LoadingWrapper>
+        
       </div>
     );
   }

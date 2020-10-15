@@ -46,7 +46,7 @@ const LoginView = ({ actions, userData, t, history }) => {
         <div className={styles.days_left}>{daysLeft} Days left</div>
       </div>
 
-      <div className={styles.signOut} onClick={actions.logout}>
+      <div className={styles.signOut} onClick={actions.logout }>
         <FontAwesomeIcon icon={["fas", "sign-out-alt"]} />
         <div>Logout</div>
       </div>
@@ -63,8 +63,9 @@ const LoginView = ({ actions, userData, t, history }) => {
 
 class HeaderDark extends Component {
   logout = e => {
-    const { userActions } = this.props;
+    const { userActions,history } = this.props;
     e.preventDefault();
+    history.push("/login");
     userActions.logout();
   };
 
