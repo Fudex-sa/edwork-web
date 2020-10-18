@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import stopImage from '~assets/imgs/Path 560.png';
 import repostImage from '../../assets/imgs/Path 562.png';
 import editImage from '../../assets/imgs/Icon feather-edit.png';
-import shareLink from '../../assets/imgs/Path 765.png';
+import shareLink from '../../assets/imgs/Path 561.png';
 
 import { message as notify } from 'antd';
 import history from '../../history'
@@ -121,20 +121,22 @@ class HeaderJobDetail extends Component {
 
                 <span className={styles.spanoption}>Share apply link</span>
               </button>
+              <Link to={"/jobs/add/"+jobId}>
               <button className={styles.containerOption}
-              onClick={()=>{
-                history.push('/jobs/add')
-              }}
+              // onClick={()=>{
+              //   history.push('/jobs/add')
+              // }}
               >
                 <img src={editImage} alt="editimage" style={{width:'16px',height:'17px'}}  className={styles.iconstyle}/>
                 <span className={styles.spanoption}>Edit post</span>
               </button>
+              </Link>
               <button className={styles.containerOption}
-                    onClick={()=>{
-                      history.push({
-                        pathname: '/jobs/add',
-                        state: { id:this.props.postId }
-                      })                    }}
+                    // onClick={()=>{
+                    //   history.push({
+                    //     pathname: '/jobs/add/'+this.props.postId,
+                    //     // state: { id:this.props.postId }
+                    //   })                    }}
               >
                 <img src={repostImage} alt="repostimage" style={{width:'16px',height:'17px'}}  className={styles.iconstyle}/>
                 <span className={styles.spanoption}>Re-post</span>

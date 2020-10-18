@@ -70,7 +70,6 @@ class Registration extends Component {
         const { message, data } = response;
         notifi.success(message);
         sessionStorage.setItem('authToken', data.token);
-
         history.replace('/registration/plan');
         registrationActions.setRegistrationData(null);
       },
@@ -107,7 +106,7 @@ class Registration extends Component {
       <div>
         <HeaderDark />
         <div className={styles.container}>
-          <FormWrapper title={t('input.company_data_title')}>
+          <FormWrapper title={t('Company information')}>
             <div
               className={classnames(
                 inputStyles.input_container,

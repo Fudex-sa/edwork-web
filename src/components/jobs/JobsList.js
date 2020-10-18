@@ -39,8 +39,20 @@ const Actions = props => {
 };
 
  class JobsList extends PureComponent {
+   constructor(){
+     super();
+    this.state={
+      isShowNote:false,
+      note:''
+    }
+   }
+
+  showNote=(note)=>{
+this.setState({isShowNote:!this.state.isShowNote,note})
+  }
 
   render() {
+
     const { headTitles, data, actions,jobId } = this.props;
 
     console.warn(data);
@@ -77,10 +89,12 @@ const Actions = props => {
                 : "Not set",
               moment(job.expected_hiring_date).format("ll"),
               job.PostUsers.length,
-              job.note ? job.note :
-              <input type='text' placeholder='Type a note...'
+              job.note ?     <span
+              className={styles.note}>
+              {job.note}
+            </span>:
+              <input type='text' placeholder='Type a note...' className={styles.note1}
               onBlur={(e)=>{
-                alert('hi')
                 this.props.noteaActions.postNote({
                   "id":job.id,
                 "note":e.target.value,

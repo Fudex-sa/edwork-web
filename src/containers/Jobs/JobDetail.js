@@ -8,6 +8,7 @@ import { withNamespaces } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Scrollbars } from "react-custom-scrollbars";
 import getPostDetails from '../Jobs/actions/getPostDetails'
+import setJobDetailData from './actions/setJobDetailData'
 // Styles
 import styles from "./styles/job-detail.module.scss";
 
@@ -21,7 +22,6 @@ import JobDetailContentUser from "~components/jobs/JobDetailContentUser";
 
 // Actions
 import getJobCandidate from "./actions/getJobCandidate";
-import setJobDetailData from "./actions/setJobDetailData";
 import getCandidateDetail from "./actions/getCandidateDetail";
 import getJobsList from "./actions/getJobsList";
 import AddCustomCategory from "./AddCustomCategory";
@@ -296,7 +296,9 @@ const mapStateToProps = store => ({
   jobsList: store.jobs.jobsList,
 
   isLoadingCustomCategories: store.jobs.isLoadingCustomCategories,
-  customCategories: store.jobs.customCategories
+  customCategories: store.jobs.customCategories,
+  jobDetailData:store.jobs.jobDetailData
+
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -312,7 +314,7 @@ const mapDispatchToProps = dispatch => ({
   ),
   jobsActions: bindActionCreators({ getJobsList }, dispatch),
   modalActions: bindActionCreators({ show }, dispatch),
-  postActions:bindActionCreators({getPostDetails},dispatch)
+  postActions:bindActionCreators({getPostDetails},dispatch),
 
 });
 

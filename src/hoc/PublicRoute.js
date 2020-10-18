@@ -20,6 +20,7 @@ class PublicRoute extends React.Component {
   componentDidUpdate = (prevProps, prevState) => {
     const { authenticated, redirectToPage } = this.props;
     if (prevProps.authenticated !== authenticated) {
+      console.log('-============================================')
       redirectToPage("/dashboard");
     }
   };

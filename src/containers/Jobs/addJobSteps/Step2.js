@@ -6,8 +6,9 @@ import { show } from "redux-modal";
 import { message as notify, Checkbox as CheckboxAd } from "antd";
 import { withNamespaces } from "react-i18next";
 import classnames from "classnames";
-import { Button } from '~components/forms';
-
+import { Dropdown } from "react-bootstrap";
+import { Button } from "~components/forms";
+import BodyImg from "../../../assets/imgs/Body.png";
 // Styles
 import styles from "../styles/addJob.module.scss";
 
@@ -27,7 +28,7 @@ import LoadingWrapper from "~components/common/LoadingWrapper";
 // Actions
 import getJobTypes from "../actions/getJobTypes";
 import createJob from "../actions/createJob";
-import  WizardNavigation  from "~components/wizard/WizardNavigation";
+import WizardNavigation from "~components/wizard/WizardNavigation";
 import AddAddressModal from "../../Registration/AddAddressModal";
 import getCompanyAddress from "../actions/getCompanyAddress";
 import setJobAddData from "../actions/setJobAddData";
@@ -50,8 +51,8 @@ class Step2 extends Component {
   // };
   constructor() {
     super();
-    this.state = {    ...initialState};
-    // this.handleChecked = this.handleChecked.bind(this);  set this, because you need get methods from CheckBox 
+    this.state = { ...initialState };
+    // this.handleChecked = this.handleChecked.bind(this);  set this, because you need get methods from CheckBox
   }
   // handleChecked () {
   //   this.setState({isChecked: !this.state.isChecked});
@@ -69,10 +70,14 @@ class Step2 extends Component {
   };
 
   componentDidMount() {
-    const { jobActions } = this.props;
+    const { jobActions, jobDetails } = this.props;
+    console.log('==============',this.props)
     jobActions.getJobTypes();
     jobActions.getCompanyAddress();
     jobActions.getJobCategory();
+    if (jobDetails) {
+      this.handleChangeValue("title", jobDetails.value);
+    }
   }
 
   onSubmit = () => {
@@ -97,15 +102,15 @@ class Step2 extends Component {
     //   return;
     // }
     if (!title) {
-      notify.error('Please fill the title field');
+      notify.error("Please fill the title field");
       return;
     }
     if (!salary) {
-      notify.error('Please fill the salary field');
+      notify.error("Please fill the salary field");
       return;
     }
     if (!location) {
-      notify.error('Please fill the location field');
+      notify.error("Please fill the location field");
       return;
     }
 
@@ -171,7 +176,7 @@ class Step2 extends Component {
       jobCategories,
       t,
       lang,
-      isLoadingSubmit
+      isLoadingSubmit,
     } = this.props;
 
     const jobTypesOptions = jobTypesList.map((item) => ({
@@ -266,6 +271,54 @@ class Step2 extends Component {
                 }}
               />
             </div>
+            <div className={styles.dropdowncontainer}>
+              <div className="dropdownwithspan">
+                <span className={styles.dropdownspan}>Minimum Experience</span>
+                <Dropdown>
+                  <Dropdown.Toggle
+                    id="dropdown-basic"
+                    style={{
+                      backgroundColor: "#fff",
+                      borderColor: "#fff",
+                      color: "#333",
+                      width: "195px",
+                    }}
+                  >
+                    pick from the list
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="#/action-1">0</Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">from 1 to 3</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">from 3 to 5</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </div>
+              <div className={styles.dropdownwithspan}>
+                <span>Minimum Education</span>
+                <Dropdown>
+                  <Dropdown.Toggle
+                    id="dropdown-basic"
+                    style={{
+                      backgroundColor: "#fff",
+                      borderColor: "#fff",
+                      color: "#333",
+                      width: "195px",
+                    }}
+                  >
+                    pick from the list
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="#/action-1">
+                      high education
+                    </Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">M.A.</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">PhD</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </div>
+            </div>
 
             {/* <div className={styles.input_container}>
               <RadioAddJob
@@ -302,23 +355,23 @@ class Step2 extends Component {
             </div> */}
 
             {/* {!addJobData.online && ( */}
-              <div className={styles.input_container}>
-                <LocationList
-                  options={companyAdressessOptions}
-                  value={
-                    addJobData.location
-                      ? addJobData.location.map((item) => item.label)
-                      : []
-                  }
-                  addAddress={this.showAddAddressModal}
-                  onChange={(value) => {
-                    this.handleChangeValue("location", value);
-                  }}
-                  onCheckAll={(value) => {
-                    this.handleChangeValue("location", value);
-                  }}
-                />
-              </div>
+            <div className={styles.input_container}>
+              <LocationList
+                options={companyAdressessOptions}
+                value={
+                  addJobData.location
+                    ? addJobData.location.map((item) => item.label)
+                    : []
+                }
+                addAddress={this.showAddAddressModal}
+                onChange={(value) => {
+                  this.handleChangeValue("location", value);
+                }}
+                onCheckAll={(value) => {
+                  this.handleChangeValue("location", value);
+                }}
+              />
+            </div>
             {/* )} */}
 
             <div className={styles.input_container} dir="ltr">
@@ -331,8 +384,14 @@ class Step2 extends Component {
             </div>
           </div>
           <div className={styles.terms}>
-              <input id="field_terms" type="checkbox" required={true} name="terms" className={styles.termsCheckbox}/>
-             <span> Applicants must submit a cover letter </span>
+            <input
+              id="field_terms"
+              type="checkbox"
+              required={true}
+              name="terms"
+              className={styles.termsCheckbox}
+            />
+            <span> Applicants must submit a cover letter </span>
           </div>
           <AddAddressModal
             submitCb={() => {
@@ -341,15 +400,23 @@ class Step2 extends Component {
             }}
           />
           <div className={styles.add_job}>
-          <WizardNavigation
-            finishBtnText={t("button.add_job")}
-            options={this.props}
-            onSubmit={this.onSubmit}
-            
-          />
+            <WizardNavigation
+              finishBtnText={t("button.add_job")}
+              options={this.props}
+              onSubmit={this.onSubmit}
+            />
           </div>
         </LoadingWrapper>
-        
+        <img
+          src={BodyImg}
+          alt="body"
+          style={{
+            position: "absolute",
+            bottom: "5px",
+            left: "340px",
+            height: "60px",
+          }}
+        />
       </div>
     );
   }
