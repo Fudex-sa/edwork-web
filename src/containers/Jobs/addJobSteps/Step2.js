@@ -13,21 +13,15 @@ import BodyImg from "../../../assets/imgs/Body.png";
 import styles from "../styles/addJob.module.scss";
 
 // Components
-import {
-  InputAddJob,
-  RadioAddJob,
-  DatePickerAddJob,
-  LocationList,
-  RichEditor,
-  SelectAddJob,
-  Toggle,
-} from "~components/forms";
+import { InputAddJob, RadioAddJob, DatePickerAddJob, LocationList, RichEditor, SelectAddJob, Toggle } from "~components/forms";
 import Feature from "~components/jobs/Feature";
 import LoadingWrapper from "~components/common/LoadingWrapper";
 
 // Actions
 import getJobTypes from "../actions/getJobTypes";
 import createJob from "../actions/createJob";
+import editJob from "../actions/editJob";
+import getPostDetails from "../actions/getPostDetails";
 import WizardNavigation from "~components/wizard/WizardNavigation";
 import AddAddressModal from "../../Registration/AddAddressModal";
 import getCompanyAddress from "../actions/getCompanyAddress";
@@ -43,6 +37,7 @@ const initialState = {
   hiringDate: undefined,
   supportHRDF: undefined,
   location: [],
+  jobId: null,
 };
 
 class Step2 extends Component {
@@ -69,34 +64,39 @@ class Step2 extends Component {
     });
   };
 
-  componentDidMount() {
-    const { jobActions, jobDetails } = this.props;
-    console.log('==============',this.props)
+  async componentDidMount() {
+    const { jobActions, jobDetails, match } = this.props;
+    console.log("matchmatchmatchmatchmatchmatchmatchmatchmatchmatchmatch");
+    console.log(match);
     jobActions.getJobTypes();
     jobActions.getCompanyAddress();
     jobActions.getJobCategory();
-    if (jobDetails) {
-      this.handleChangeValue("title", jobDetails.value);
+    if (match?.params?.id) {
+      await this.getJobsData(match, jobDetails);
+      //
     }
   }
+
+  getJobsData = async (match, jobDetails) => {
+    await jobDetails.getPostDetails(match?.params?.id, {
+      success: (response) => {
+        const { title, TypeId, salary, description, id } = response.data;
+        this.handleChangeValue("title", title);
+        this.handleChangeValue("jobType", TypeId);
+        this.handleChangeValue("salary", salary);
+        this.handleChangeValue("description", description);
+        this.setState({ jobType: TypeId, title, salary, description, jobId: id });
+      },
+      fail: (response) => {
+        console.log(response);
+      },
+    });
+  };
 
   onSubmit = () => {
     const { quizzOptions, jobActions, addJobData, history, t } = this.props;
     // const {jobType, email, link, title, salary, hiringDate, supportHRDF, location} = this.state
-    const {
-      category,
-      description,
-      postingType,
-      features,
-      jobType,
-      email,
-      link,
-      title,
-      salary,
-      hiringDate,
-      supportHRDF,
-      location,
-    } = addJobData;
+    const { category, description, postingType, features, jobType, email, link, title, salary, hiringDate, supportHRDF, location } = addJobData;
     // if (jobType === undefined) {
     //   notify.error('Please fill all field');
     //   return;
@@ -156,28 +156,38 @@ class Step2 extends Component {
     // }
   };
 
-  render() {
-    const {
-      location,
-      jobType,
-      email,
-      link,
+  editJob = () => {
+    const { quizzOptions, jobActions, addJobData, history, t } = this.props;
+    const { jobId } = this.state;
+    // const {jobType, email, link, title, salary, hiringDate, supportHRDF, location} = this.state
+    console.log(addJobData);
+    const { description, jobType, title, salary, location } = addJobData;
+    const data = {
       title,
       salary,
-      hiringDate,
-      supportHRDF,
-    } = this.state;
-    const {
-      addJobData = {},
-      jobTypesList,
-      companyAddressLoading,
-      companyAddressList,
-      isLoadingjobCategories,
-      jobCategories,
-      t,
-      lang,
-      isLoadingSubmit,
-    } = this.props;
+      description,
+      jobType,
+      id: jobId,
+    };
+    if (location) data.location = location.map((item) => item.id);
+
+    jobActions.editJob(data, {
+      success: (response) => {
+        const { message } = response;
+        notify.success(message);
+        jobActions.setJobAddData(null);
+        history.push("/dashboard");
+      },
+      fail: (response) => {
+        const { message } = response;
+        notify.error(message);
+      },
+    });
+  };
+
+  render() {
+    const { location, jobType, email, link, title, salary, hiringDate, supportHRDF } = this.state;
+    const { addJobData = {}, jobTypesList, companyAddressLoading, companyAddressList, isLoadingjobCategories, jobCategories, t, lang, isLoadingSubmit, match } = this.props;
 
     const jobTypesOptions = jobTypesList.map((item) => ({
       label: item.name[lang],
@@ -202,9 +212,7 @@ class Step2 extends Component {
 
     return (
       <div className={styles.container}>
-        <LoadingWrapper
-          isLoading={companyAddressLoading || isLoadingjobCategories}
-        >
+        <LoadingWrapper isLoading={companyAddressLoading || isLoadingjobCategories}>
           <div className={classnames(styles.content_small_center)}>
             <div className={styles.input_container}>
               {addJobData.postingType?.id === 1 && (
@@ -310,9 +318,7 @@ class Step2 extends Component {
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">
-                      high education
-                    </Dropdown.Item>
+                    <Dropdown.Item href="#/action-1">high education</Dropdown.Item>
                     <Dropdown.Item href="#/action-2">M.A.</Dropdown.Item>
                     <Dropdown.Item href="#/action-3">PhD</Dropdown.Item>
                   </Dropdown.Menu>
@@ -358,11 +364,7 @@ class Step2 extends Component {
             <div className={styles.input_container}>
               <LocationList
                 options={companyAdressessOptions}
-                value={
-                  addJobData.location
-                    ? addJobData.location.map((item) => item.label)
-                    : []
-                }
+                value={addJobData.location ? addJobData.location.map((item) => item.label) : []}
                 addAddress={this.showAddAddressModal}
                 onChange={(value) => {
                   this.handleChangeValue("location", value);
@@ -384,13 +386,7 @@ class Step2 extends Component {
             </div>
           </div>
           <div className={styles.terms}>
-            <input
-              id="field_terms"
-              type="checkbox"
-              required={true}
-              name="terms"
-              className={styles.termsCheckbox}
-            />
+            <input id="field_terms" type="checkbox" required={true} name="terms" className={styles.termsCheckbox} />
             <span> Applicants must submit a cover letter </span>
           </div>
           <AddAddressModal
@@ -400,11 +396,13 @@ class Step2 extends Component {
             }}
           />
           <div className={styles.add_job}>
-            <WizardNavigation
-              finishBtnText={t("button.add_job")}
-              options={this.props}
-              onSubmit={this.onSubmit}
-            />
+            {match?.params?.id && match.path.includes("edit") ? (
+              <WizardNavigation finishBtnText={t("button.edit_job")} options={this.props} onSubmit={this.editJob} />
+            ) : match?.params?.id && match.path.includes("repost") ? (
+              <WizardNavigation finishBtnText={t("button.repost_job")} options={this.props} onSubmit={this.onSubmit} />
+            ) : (
+              <WizardNavigation finishBtnText={t("button.add_job")} options={this.props} onSubmit={this.onSubmit} />
+            )}
           </div>
         </LoadingWrapper>
         <img
@@ -428,7 +426,7 @@ const mapStateToProps = (store) => ({
   jobTypesLoading: store.jobs.jobTypesLoading,
   jobTypesList: store.jobs.jobTypesList,
   addJobData: store.jobs.addJobData,
-
+  jobDetailData: store.jobs.jobDetailData,
   companyAddressLoading: store.jobs.companyAddressLoading,
   companyAddressList: store.jobs.companyAddressList,
   isLoadingjobCategories: store.jobs.isLoadingjobCategories,
@@ -445,13 +443,12 @@ const mapDispatchToProps = (dispatch) => ({
       getCompanyAddress,
       setJobAddData,
       getJobCategory,
+      editJob,
     },
     dispatch
   ),
+  jobDetails: bindActionCreators({ getPostDetails }, dispatch),
   modalActions: bindActionCreators({ show }, dispatch), //TODO: move to separate func
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withNamespaces()(Step2));
+export default connect(mapStateToProps, mapDispatchToProps)(withNamespaces()(Step2));

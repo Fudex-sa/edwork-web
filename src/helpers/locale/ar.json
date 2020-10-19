@@ -411,6 +411,8 @@
     "add_more": "اضافه المزيد",
     "add_other_options": "اضافه خيارات اخرى",
     "add_job": "اضافه وظيفه",
+    "edit_job": "تعديل الوظيفه",
+    "repost_job": "اعادة نشر الوظيفة",
     "select_all": "اختيار الكل",
     "unselect_all": "إلغاء اختيار الكال",
     "current_plan": "الخطه الحاليه",
@@ -424,7 +426,7 @@
     "new_category": "اضافه تصنيف جديد",
     "add_address": "اضافه عنوان"
   },
-  "choosePlan":{
-    "price":"السعر"
+  "choosePlan": {
+    "price": "السعر"
   }
 }

@@ -1,10 +1,10 @@
 import createApiActions from '~helpers/createApiActions';
-import { POST_DETAILS } from './constants';
+import { SET_JOB_DETAIL_DATA } from './constants';
 
 const getPostDetails = (id, options = {}) =>
   createApiActions({
-    type: POST_DETAILS,
-    url: `company/post/${id}`,
+    type: SET_JOB_DETAIL_DATA,
+    url: `/company/post/${id}`,
     requestOption: {
       method: 'get',
     },

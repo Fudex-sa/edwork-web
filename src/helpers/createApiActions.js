@@ -7,7 +7,6 @@ function createApiActions({ url, type, requestOption, payloadOptions, fail, succ
     };
 
     if (token) data.token = token;
-
     dispatch({
       type: `${type}_SUCCESS`,
       ...data

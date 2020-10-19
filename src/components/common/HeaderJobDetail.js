@@ -121,26 +121,18 @@ class HeaderJobDetail extends Component {
 
                 <span className={styles.spanoption}>Share apply link</span>
               </button>
-              <Link to={"/jobs/add/"+jobId}>
-              <button className={styles.containerOption}
-              // onClick={()=>{
-              //   history.push('/jobs/add')
-              // }}
-              >
+              <Link to={"/jobs/edit/"+jobId}>
+              <button className={styles.containerOption}>
                 <img src={editImage} alt="editimage" style={{width:'16px',height:'17px'}}  className={styles.iconstyle}/>
                 <span className={styles.spanoption}>Edit post</span>
               </button>
               </Link>
-              <button className={styles.containerOption}
-                    // onClick={()=>{
-                    //   history.push({
-                    //     pathname: '/jobs/add/'+this.props.postId,
-                    //     // state: { id:this.props.postId }
-                    //   })                    }}
-              >
-                <img src={repostImage} alt="repostimage" style={{width:'16px',height:'17px'}}  className={styles.iconstyle}/>
-                <span className={styles.spanoption}>Re-post</span>
-              </button>
+              <Link to={"/jobs/repost/"+jobId}>
+                <button className={styles.containerOption}>
+                  <img src={repostImage} alt="repostimage" style={{width:'16px',height:'17px'}}  className={styles.iconstyle}/>
+                  <span className={styles.spanoption}>Re-post</span>
+                </button>
+              </Link>
               <button className={styles.containerOption}
               onClick={()=>{
                 this.props.userActions.stopPost({

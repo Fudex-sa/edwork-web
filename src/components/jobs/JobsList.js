@@ -3,20 +3,15 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { withNamespaces } from "react-i18next";
 import { Tooltip } from "antd";
-import {
-  ArrowsAltOutlined,
-  RedoOutlined,
-  FormOutlined,
-  DeleteOutlined
-} from "@ant-design/icons";
+import { ArrowsAltOutlined, RedoOutlined, FormOutlined, DeleteOutlined } from "@ant-design/icons";
 import classnames from "classnames";
 import moment from "moment";
-import postNote from '../../containers/Jobs/actions/postNote'
+import postNote from "../../containers/Jobs/actions/postNote";
 import styles from "./styles/job-list.module.scss";
 
-const Actions = props => {
+const Actions = (props) => {
   const { items = [] } = props;
-  const {postNote}=props
+  const { postNote } = props;
   return (
     <div className={styles.cell_actions}>
       {items.map((item, index) => (
@@ -27,9 +22,10 @@ const Actions = props => {
             [styles.orange]: item.type === "orange",
             [styles.blue]: item.type === "blue",
             [styles.black]: item.type === "black",
-            [styles.disable]: item.type === "disable"
+            [styles.disable]: item.type === "disable",
           })}
-          onClick={item.action}>
+          onClick={item.action}
+        >
           <item.Icon />
           <span>{item.title}</span>
         </div>
@@ -38,25 +34,10 @@ const Actions = props => {
   );
 };
 
- class JobsList extends PureComponent {
-   constructor(){
-     super();
-    this.state={
-      isShowNote:false,
-      note:''
-    }
-   }
-
-  showNote=(note)=>{
-this.setState({isShowNote:!this.state.isShowNote,note})
-  }
-
+class JobsList extends PureComponent {
   render() {
-
-    const { headTitles, data, actions,jobId } = this.props;
-
+    const { headTitles, data, actions, jobId } = this.props;
     console.warn(data);
-
     return (
       <div className={styles.job_list}>
         {headTitles && (
@@ -66,8 +47,9 @@ this.setState({isShowNote:!this.state.isShowNote,note})
                 key={index}
                 className={classnames(styles.cell, {
                   [styles.cell_size_2]: index === 0 || index === 4,
-                  [styles.text_center]: index !== 0
-                })}>
+                  [styles.text_center]: index !== 0,
+                })}
+              >
                 {item}
               </div>
             ))}
@@ -80,27 +62,29 @@ this.setState({isShowNote:!this.state.isShowNote,note})
                 className={styles.job_title}
                 onClick={() => {
                   actions.goToJobDetail(job.id);
-                }}>
+                }}
+              >
                 {job.title}
               </span>,
               job.active ? "Open" : "Close",
-              job.Addresses && job.Addresses.length && job.Addresses[0].Governorate > 0
-                ? job.Addresses[0].Governorate.name.en
-                : "Not set",
+              job.Addresses && job.Addresses.length && job.Addresses[0].Governorate > 0 ? job.Addresses[0].Governorate.name.en : "Not set",
               moment(job.expected_hiring_date).format("ll"),
               job.PostUsers.length,
-              job.note ?     <span
-              className={styles.note}>
-              {job.note}
-            </span>:
-              <input type='text' placeholder='Type a note...' className={styles.note1}
-              onBlur={(e)=>{
-                this.props.noteaActions.postNote({
-                  "id":job.id,
-                "note":e.target.value,
-              }
-              )}}
-              />
+              job.note ? (
+                <span className={styles.note}>{job.note}</span>
+              ) : (
+                <input
+                  type="text"
+                  placeholder="Type a note..."
+                  className={styles.note1}
+                  onBlur={(e) => {
+                    this.props.noteaActions.postNote({
+                      id: job.id,
+                      note: e.target.value,
+                    });
+                  }}
+                />
+              ),
             ].map((item, index) => (
               <div
                 key={index}
@@ -109,8 +93,9 @@ this.setState({isShowNote:!this.state.isShowNote,note})
                   [styles.close]: item === "Close",
                   [styles.cell_size_2]: index === 0 || index === 4,
                   [styles.text_overflow]: index === 0,
-                  [styles.text_center]: index !== 0
-                })}>
+                  [styles.text_center]: index !== 0,
+                })}
+              >
                 {item}
               </div>
             ))}
@@ -138,9 +123,8 @@ this.setState({isShowNote:!this.state.isShowNote,note})
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  noteaActions: bindActionCreators({ postNote }, dispatch)
+const mapDispatchToProps = (dispatch) => ({
+  noteaActions: bindActionCreators({ postNote }, dispatch),
 });
 
-export default connect(state=>state, mapDispatchToProps)(withNamespaces()(JobsList));
-
+export default connect((state) => state, mapDispatchToProps)(withNamespaces()(JobsList));

@@ -7,8 +7,7 @@ import classnames from "classnames";
 import { withNamespaces } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Scrollbars } from "react-custom-scrollbars";
-import getPostDetails from '../Jobs/actions/getPostDetails'
-import setJobDetailData from './actions/setJobDetailData'
+import getPostDetails from "../Jobs/actions/getPostDetails";
 // Styles
 import styles from "./styles/job-detail.module.scss";
 
@@ -22,30 +21,34 @@ import JobDetailContentUser from "~components/jobs/JobDetailContentUser";
 
 // Actions
 import getJobCandidate from "./actions/getJobCandidate";
+import setJobDetailData from "./actions/setJobDetailData";
 import getCandidateDetail from "./actions/getCandidateDetail";
 import getJobsList from "./actions/getJobsList";
 import AddCustomCategory from "./AddCustomCategory";
 import getCustomCategories from "./actions/getCustomCategories";
 import createCustomCategory from "./actions/createCustomCategory";
-import stopPost from './actions/stopPost'
+import stopPost from "./actions/stopPost";
 import userMoveToCategory from "./actions/userMoveToCategory";
 
 const queryString = require("query-string");
 
 class JobDetail extends Component {
-  state = {
-    search: "",
-    data:{}
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      search: "",
+      data: {},
+    };
+  }
 
   /* handle select one candidate under a job and fetches his data */
-  handleSelecteCandidate = candidate => {
+  handleSelecteCandidate = (candidate) => {
     const { jobDetailActions, jobDetailData, match } = this.props;
 
     jobDetailActions.getCandidateDetail({
       id: candidate.id,
       user_id: candidate.User?.id,
-      job_id: match?.params?.id
+      job_id: match?.params?.id,
     });
   };
 
@@ -85,22 +88,22 @@ class JobDetail extends Component {
     if (isAllSelected) {
       jobDetailActions.setJobDetailData({
         ...jobDetailData,
-        checkedUsers: []
+        checkedUsers: [],
       });
     } else {
       jobDetailActions.setJobDetailData({
         ...jobDetailData,
-        checkedUsers: jobCandidate.map(item => item.id)
+        checkedUsers: jobCandidate.map((item) => item.id),
       });
     }
   };
 
   /* handle change user data after select another candidate */
-  handleChangeCheckdUser = user => {
+  handleChangeCheckdUser = (user) => {
     const { jobDetailData, jobDetailActions } = this.props;
 
     const data = jobDetailData.checkedUsers ? jobDetailData.checkedUsers.slice() : [];
-    const dataId = data.map(item => item.id);
+    const dataId = data.map((item) => item.id);
     const findItem = dataId.indexOf(user.id);
 
     if (findItem === -1) {
@@ -111,55 +114,68 @@ class JobDetail extends Component {
 
     jobDetailActions.setJobDetailData({
       ...jobDetailData,
-      checkedUsers: data
+      checkedUsers: data,
     });
   };
 
   /* handle move a user to a list */
   handleMoveUserToCategory = (folder = {}) => {
     const { match, jobDetailData, jobDetailActions } = this.props;
-    const userIds = jobDetailData.checkedUsers
-      ? jobDetailData.checkedUsers.map(item => item.id)
-      : [];
+    const userIds = jobDetailData.checkedUsers ? jobDetailData.checkedUsers.map((item) => item.id) : [];
     const data = {
       users_id: userIds,
       job_id: match?.params?.id,
       folder: folder.folder.toLowerCase(),
-      folder_type: folder.folder_type
+      folder_type: folder.folder_type,
     };
 
     jobDetailActions.userMoveToCategory(data, {
-      success: response => {
+      success: (response) => {
         const { message } = response;
         this.handleGetCandidate();
         jobDetailActions.setJobDetailData({
           ...jobDetailData,
-          checkedUsers: []
+          checkedUsers: [],
         });
         notify.success(message);
       },
-      fail: response => {
+      fail: (response) => {
         const { message } = response;
         notify.error(message);
-      }
+      },
     });
   };
 
   componentDidMount() {
-    const { jobsActions, jobDetailActions, match } = this.props;
+    const { jobsActions, jobDetailActions, match,postActions } = this.props;
     this.handleGetCandidate();
     jobsActions.getJobsList();
     jobDetailActions.getCustomCategories({ job_id: match?.params?.id });
-      this.setState({data: this.props.postActions.getPostDetails(match?.params?.id)})
+    this.getJobsData(match,postActions,jobDetailActions)
   }
 
   componentWillUnmount() {
     const { jobDetailActions, jobDetailData } = this.props;
     jobDetailActions.setJobDetailData({
       ...jobDetailData,
-      selectedUser: null
+      selectedUser: null,
     });
   }
+
+  getJobsData = async (match,postActions,jobDetailActions) => {
+    await postActions.getPostDetails(match?.params?.id, {
+      success: (response) => {
+        const { message, data } = response;
+        jobDetailActions.setJobDetailData({
+          data,
+        })
+      },
+      fail: (response) => {
+        const { message } = response;
+        console.log(message);
+      },
+    });
+  };
 
   render() {
     const {
@@ -172,16 +188,15 @@ class JobDetail extends Component {
       isLoadingCustomCategories,
       customCategories,
       match,
-      t
+      t,
     } = this.props;
-
     const { search } = this.state;
 
     const jobId = match?.params?.id;
 
     return (
       <div>
-        <HeaderJobDetail data={jobsList} jobId={match?.params?.id} postId={match?.params?.id} postDetails={this.state.data}/>
+        <HeaderJobDetail data={jobsList} jobId={match?.params?.id} postId={match?.params?.id} postDetails={this.state.data} />
         <LoadingWrapper isLoading={isLoadingJobCandidate}>
           <DetailHeader
             selected={jobDetailData.selectedUser}
@@ -200,14 +215,10 @@ class JobDetail extends Component {
               <div className={styles.board_content}>
                 <div className={styles.left_side}>
                   <div className={styles.search}>
-                    {!!(
-                      jobDetailData.checkedUsers && jobDetailData.checkedUsers.length
-                    ) && (
+                    {!!(jobDetailData.checkedUsers && jobDetailData.checkedUsers.length) && (
                       <div className={styles.selected_all}>
-                        <button type='button' onClick={this.handleCheckAllUser}>
-                          {!!(jobDetailData.checkedUsers.length === jobCandidate.length)
-                            ? "Deselect all"
-                            : "Select all"}
+                        <button type="button" onClick={this.handleCheckAllUser}>
+                          {!!(jobDetailData.checkedUsers.length === jobCandidate.length) ? "Deselect all" : "Select all"}
                         </button>
                       </div>
                     )}
@@ -215,12 +226,12 @@ class JobDetail extends Component {
                     {/* Search bar */}
                     <div className={styles.search_wrapper}>
                       <input
-                        type='search'
+                        type="search"
                         placeholder={t("job.search")}
                         value={search}
                         onChange={({ target }) => {
                           this.setState({
-                            search: target.value
+                            search: target.value,
                           });
                         }}
                       />
@@ -232,7 +243,7 @@ class JobDetail extends Component {
 
                   {/* filter and sort */}
                   <div className={styles.filter_sort}>
-                    <Popover trigger='click'>
+                    <Popover trigger="click">
                       <span className={styles.sort}>
                         <FontAwesomeIcon icon={["fas", "sort-alpha-down"]} />
                         Sort
@@ -251,7 +262,7 @@ class JobDetail extends Component {
                     {/* job candidates */}
                     {jobCandidate
                       .filter(({ User }) => User.name.indexOf(search) !== -1)
-                      .map(item => (
+                      .map((item) => (
                         <CandidateItem
                           key={item.id}
                           item={item}
@@ -264,11 +275,7 @@ class JobDetail extends Component {
                   </Scrollbars>
                 </div>
 
-                <JobDetailContentUser
-                  isLoading={isLoadingCandidateDetail}
-                  selected={jobDetailData.selectedUser}
-                  candidatesNumber={jobCandidate}
-                />
+                <JobDetailContentUser isLoading={isLoadingCandidateDetail} selected={jobDetailData.selectedUser} candidatesNumber={jobCandidate} />
 
                 <div>Comments</div>
               </div>
@@ -288,7 +295,7 @@ class JobDetail extends Component {
   }
 }
 
-const mapStateToProps = store => ({
+const mapStateToProps = (store) => ({
   isLoadingJobCandidate: store.jobs.isLoadingJobCandidate,
   isLoadingCandidateDetail: store.jobs.isLoadingCandidateDetail,
   jobCandidate: store.jobs.jobCandidate,
@@ -297,11 +304,9 @@ const mapStateToProps = store => ({
 
   isLoadingCustomCategories: store.jobs.isLoadingCustomCategories,
   customCategories: store.jobs.customCategories,
-  jobDetailData:store.jobs.jobDetailData
-
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   jobDetailActions: bindActionCreators(
     {
       getJobCandidate,
@@ -314,8 +319,7 @@ const mapDispatchToProps = dispatch => ({
   ),
   jobsActions: bindActionCreators({ getJobsList }, dispatch),
   modalActions: bindActionCreators({ show }, dispatch),
-  postActions:bindActionCreators({getPostDetails},dispatch),
-
+  postActions: bindActionCreators({ getPostDetails }, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withNamespaces()(JobDetail));

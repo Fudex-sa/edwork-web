@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import { message as notify } from "antd";
 import StepWizard from "react-step-wizard";
-import setJobDetailData from "./actions/setJobDetailData";
 // Styles
 import styles from "./styles/addJob.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,9 +15,6 @@ import { Nav } from "~components/wizard";
 import { Step1, Step2, Step3, Step4 } from "./addJobSteps";
 
 // Actions
-import getJobTypes from "./actions/getJobTypes";
-import createJob from "./actions/createJob";
-import getPostDetails from "./actions/getPostDetails";
 class AddJob extends Component {
   constructor() {
     super();
@@ -27,28 +23,8 @@ class AddJob extends Component {
     };
   }
 
-  async componentDidMount() {
-    const { match, postActions } = this.props;
-    console.log("xxxxxxxxxxxxxxxxxxxxx", match);
-    if (match?.params?.id) {
-      const data = await postActions.getPostDetails(match?.params?.id);
-      this.setState({ data });
-    }
-  }
-  // componentDidMount(){
-  //   if(this.props.location?.state?.id){
-  //    this.props.postActions.getPostDetails(this.props.location.state.id).then(res=>{})
-  //   //  .then(res=>this.setState({
-  //   //    data:res.data
-  //   //  })
-
-  //   //  )
-  //   //  alert('data',this.state.data)
-  //    console.log('id',this.props.location.state.id)
-  //   }
-  // }
   render() {
-    const { history, addJobData, userData } = this.props;
+    const { history, addJobData, userData,jobDetailData,match } = this.props;
     const isForApplicaiton = addJobData?.type === "easy";
     const hasUserPro = userData?.Company?.plan;
 
@@ -81,7 +57,7 @@ class AddJob extends Component {
               });
             }}> */}
           {/* <Step1 hashKey='step1' /> */}
-          <Step2 history={history} jobDetails={this.state.data} />
+          <Step2 history={history} jobDetails={jobDetailData} match={match} />
           {/* {isForApplicaiton && !hasUserPro && <Step3 hashKey='step3' />} */}
           {/* {isForApplicaiton && <Step4 hashKey='step4' history={history} />} */}
           {/* </StepWizard> */}
@@ -100,10 +76,6 @@ const mapStateToProps = (store) => ({
   jobDetailData: store.jobs.jobDetailData,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  jobActions: bindActionCreators({ getJobTypes, createJob }, dispatch),
-  postActions: bindActionCreators({ getPostDetails }, dispatch),
-  jobsDetails: bindActionCreators({ setJobDetailData }, dispatch),
-});
+const mapDispatchToProps = (dispatch) => ({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddJob);
