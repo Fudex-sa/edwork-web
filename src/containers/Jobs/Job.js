@@ -21,58 +21,55 @@ import Noavatar from "~assets/imgs/company_noavatar.svg";
 import VerifyIcon from "~assets/imgs/verify_user.svg";
 
 class Job extends Component {
-  state = {
-    page: 0,
-    search_word: ""
-  };
+  // state = {
+  //   page: 0,
+  //   search_word: ""
+  // };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      page: 0,
+      search_word: "",
+    };
+  }
 
   componentDidMount() {
-    const { jobsActions } = this.props;
-
-    jobsActions.getJobsList(this.state, {
-      success: response => {
-        const { message, data } = response;
-      },
-      fail: response => {
-        const { message } = response;
-        notifi.error(message);
-      }
-    });
+    this.getJobsList();
   }
 
   componentDidUpdate(prevProps, prevState) {
-    // Typical usage (don't forget to compare props):
-    if (
-      this.state.page !== prevState.page ||
-      this.state.search_word !== prevState.search_word
-    ) {
-      const { jobsActions } = this.props;
-
-      jobsActions.getJobsList(this.state, {
-        success: response => {
-          const { message, data } = response;
-        },
-        fail: response => {
-          const { message } = response;
-          notifi.error(message);
-        }
-      });
+    if (this.state.page !== prevState.page || this.state.search_word !== prevState.search_word) {
+      this.getJobsList();
     }
   }
 
-  getJobsNext = async page => {
+  getJobsList = async () => {
+    const { jobsActions } = this.props;
+    await jobsActions.getJobsList(this.state, {
+      success: (response) => {
+        const { message, data } = response;
+      },
+      fail: (response) => {
+        const { message } = response;
+        notifi.error(message);
+      },
+    });
+  };
+
+  getJobsNext = async (page) => {
     const { jobsActions } = this.props;
 
     await jobsActions.getJobsList(
       { page: page },
       {
-        success: response => {
+        success: (response) => {
           const { message, data } = response;
         },
-        fail: response => {
+        fail: (response) => {
           const { message } = response;
           notifi.error(message);
-        }
+        },
       }
     );
   };
@@ -82,7 +79,7 @@ class Job extends Component {
     history.push("/jobs/add");
   };
 
-  goToJobDetail = id => {
+  goToJobDetail = (id) => {
     const { history } = this.props;
     history.push(`/job/detail/${id}`);
   };
@@ -98,14 +95,10 @@ class Job extends Component {
         {/* company data and welcome user */}
         <div className={styles.company_wrapper}>
           <div className={styles.company_logo}>
-            {companyData?.logo_path ? (
-              <img src={companyData.logo_path} alt='company logo' />
-            ) : (
-              <img src={Noavatar} alt='company logo' className={styles.noavatar} />
-            )}
+            {companyData?.logo_path ? <img src={companyData.logo_path} alt="company logo" /> : <img src={Noavatar} alt="company logo" className={styles.noavatar} />}
           </div>
           <p className={styles.company_name}>
-            {companyData?.verified && <img src={VerifyIcon} alt='verify-user' />}
+            {companyData?.verified && <img src={VerifyIcon} alt="verify-user" />}
             {companyData?.name}
           </p>
           <WelcomeUser user={userData} />
@@ -115,26 +108,21 @@ class Job extends Component {
         <div className={styles.container}>
           <div className={styles.head}>
             <div className={styles.actions}>
-              <Button
-                classStyle={styles.add_post_btn}
-                text={`+ ${t("button.add_new_post")}`}
-                shape='round'
-                onClick={this.goToCreateJob}
-              />
+              <Button classStyle={styles.add_post_btn} text={`+ ${t("button.add_new_post")}`} shape="round" onClick={this.goToCreateJob} />
             </div>
 
             {/* search job */}
             <div className={styles.search}>
               <div className={styles.search_container}>
                 <input
-                  type='text'
-                  name='search'
+                  type="text"
+                  name="search"
                   placeholder={t("job.search")}
-                  onChange={e => {
+                  onChange={(e) => {
                     this.setState({ search_word: e.target.value });
                   }}
                 />
-                <button type='button'>
+                <button type="button">
                   <SearchOutlined />
                 </button>
               </div>
@@ -148,19 +136,19 @@ class Job extends Component {
                 t("job.tab_head.city"),
                 t("job.tab_head.expiresOn"),
                 t("job.tab_head.applications"),
-                t("job.tab_head.note")
+                t("job.tab_head.note"),
               ]}
               // jobId={}
               data={jobsList}
               actions={{
-                goToJobDetail: this.goToJobDetail
+                goToJobDetail: this.goToJobDetail,
               }}
             />
           </LoadingWrapper>
 
           {/* jobs list pagination */}
           <Pagination
-            size='default'
+            size="default"
             showTitle={false}
             showQuickJumper={false}
             showSizeChanger={false}
@@ -168,7 +156,7 @@ class Job extends Component {
             className={styles.pagination}
             defaultCurrent={1}
             total={jobsCount}
-            onChange={currentPage => {
+            onChange={(currentPage) => {
               this.setState({ page: currentPage });
             }}
           />
@@ -198,15 +186,15 @@ class Job extends Component {
   }
 }
 
-const mapStateToProps = store => ({
+const mapStateToProps = (store) => ({
   userData: store.auth.user,
   jobsListLoading: store.jobs.jobsListLoading,
   jobsList: store.jobs.jobsList,
-  jobsCount: store.jobs.jobsCount
+  jobsCount: store.jobs.jobsCount,
 });
 
-const mapDispatchToProps = dispatch => ({
-  jobsActions: bindActionCreators({ getJobsList }, dispatch)
+const mapDispatchToProps = (dispatch) => ({
+  jobsActions: bindActionCreators({ getJobsList }, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withNamespaces()(Job));

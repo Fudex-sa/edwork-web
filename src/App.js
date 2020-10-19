@@ -62,6 +62,8 @@ function App() {
         <PrivateRoute path='/verification' component={VerificationCompany} />
         {/* <PrivateRoute exact path='/jobs' component={Job} /> */}
         <PrivateRoute exact path='/jobs/add' component={AddJob} />
+        <PrivateRoute exact path='/jobs/edit/:id' component={AddJob} />
+        <PrivateRoute exact path='/jobs/repost/:id' component={AddJob} />
         <PrivateRoute exact path='/job/detail/:id' component={JobDetail} />
         <Route path='' component={() => <h2>not found</h2>} />
       </Switch>

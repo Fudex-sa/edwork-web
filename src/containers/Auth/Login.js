@@ -21,10 +21,8 @@ import { setLocale } from '~helpers/locale/actions';
 
 class Login extends Component {
   state = {
-    email: 'samman4@gmail.com',
-    password: '123456789',
-    // email: '',
-    // password: '',
+    email: '',
+    password: '',
   };
 
   handleChangeRoute = (routeName) => {
