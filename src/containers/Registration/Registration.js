@@ -18,6 +18,7 @@ import { Avatar, Input, Select, FormWrapper, Button } from '~components/forms';
 // Actions
 import setRegistrationData from './actions/setRegistrationData';
 import createCompany from './actions/createCompany';
+import authCompany from '../Auth/actions/authCompany';
 
 class Registration extends Component {
   state = {
@@ -28,9 +29,22 @@ class Registration extends Component {
     console.log(state);
   };
 
+
+  login = (email,password) =>{
+    const data = {email,password}
+    const { history, registrationActions } = this.props;
+    registrationActions.authCompany(data, {
+      success: (response) => {
+        history.replace('/dashboard');
+      },
+      fail: (response) => {
+        const { message } = response;
+        notifi.error(message);
+      },
+    });
+  }
   onSubmit = () => {
     const { registrationData, registrationActions } = this.props;
-    console.warn(registrationData);
     const { email = '', password = '', rePassword = '' } = registrationData;
 
     const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -66,12 +80,12 @@ class Registration extends Component {
 
     registrationActions.createCompany(data, {
       success: (response) => {
-        const { history } = this.props;
-        const { message, data } = response;
-        notifi.success(message);
-        sessionStorage.setItem('authToken', data.token);
-        history.replace('/registration/plan');
-        registrationActions.setRegistrationData(null);
+        this.login(email,password)
+        // const { message, data } = response;
+        // notifi.success(message);
+        // sessionStorage.setItem('authToken', data.token);
+        // history.replace('/registration/plan');
+        // registrationActions.setRegistrationData(null);
       },
       fail: (response) => {
         const { message } = response;
@@ -304,7 +318,7 @@ const mapStateToProps = (store) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   registrationActions: bindActionCreators(
-    { setRegistrationData, createCompany },
+    { setRegistrationData, createCompany,authCompany },
     dispatch
   ),
 });
