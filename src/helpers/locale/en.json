@@ -319,7 +319,7 @@
     },
     "number_employer": {
       "label": "Size of Company",
-      "placeholder": "How many employees working with you ?"
+      "placeholder": "Size of Company"
     },
     "about_business": {
       "label": "Tell us about your business (company profile)",

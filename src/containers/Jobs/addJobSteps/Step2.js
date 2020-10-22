@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import moment from "moment";
 import { show } from "redux-modal";
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown'
 import {
   message as notify,
   Checkbox as CheckboxAd,
@@ -14,7 +16,7 @@ import "antd/dist/antd.css";
 
 import { withNamespaces } from "react-i18next";
 import classnames from "classnames";
-import { Dropdown } from "react-bootstrap";
+// import { Dropdown } from "react-bootstrap";
 import { Button } from "~components/forms";
 import BodyImg from "../../../assets/imgs/Body.png";
 // Styles
@@ -54,8 +56,7 @@ const initialState = {
   supportHRDF: undefined,
   location: [],
   jobId: null,
-  showTextBox: false
-
+  showTextBox: false,
 };
 
 class Step2 extends Component {
@@ -117,10 +118,9 @@ class Step2 extends Component {
     });
   };
 
-
-  handleOnChange = e => {
+  handleOnChange = (e) => {
     this.setState({
-      showTextBox: e.target.value === 1
+      showTextBox: e.target.value === 1,
     });
   };
 
@@ -345,15 +345,23 @@ class Step2 extends Component {
                 }}
               />
               <Form.Item>
-                <Radio.Group onChange={this.handleOnChange} style={{marginBottom:'10px'}}>
-                  <Radio value={1}>other</Radio>
+                <Radio.Group style={{ marginBottom: "10px" }}>
+                  <Radio
+                    value={1}
+                    onChange={({ target }) => {
+                      this.handleChangeValue("jobType", target.value);
+                    }}
+                  >
+                    other
+                  </Radio>
                 </Radio.Group>
                 {this.state.showTextBox && <Input placeholder="developer" />}
               </Form.Item>
             </div>
             <div className={styles.dropdowncontainer}>
               <div className="dropdownwithspan">
-                <span className={styles.dropdownspan}>Minimum Experience</span>
+              <div className={styles.dropdownwithspan}>
+                <span>Minimum Experiencs</span>
                 <Dropdown>
                   <Dropdown.Toggle
                     id="dropdown-basic"
@@ -368,12 +376,17 @@ class Step2 extends Component {
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">0</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">from 1 to 3</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">from 3 to 5</Dropdown.Item>
+                    <Dropdown.Item href="#/action-1">
+                      Fresh Graduate
+                    </Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">1-2 years</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">3-5 years</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">6-10 years</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">+10 years</Dropdown.Item>
+
                   </Dropdown.Menu>
                 </Dropdown>
-              </div>
+              </div>              </div>
               <div className={styles.dropdownwithspan}>
                 <span>Minimum Education</span>
                 <Dropdown>

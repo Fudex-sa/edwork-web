@@ -293,27 +293,27 @@ class Landing extends Component {
             <div className={styles.copyright}>
               <div className={styles.right}>
                 <div className={styles.social}>
+                <a href='#'>
                   <div className={styles.socialItem}>
-                    <a href='#'>
                       <FontAwesomeIcon icon={["fab", "snapchat-ghost"]} />
-                    </a>
                   </div>
+                  </a>
+                  <a href='#'>
+                  <div className={styles.socialItem}>
+                      <FontAwesomeIcon icon={["fab", "twitter"]} />
+                  </div>
+                  </a>
+                  <a href='#'>
+                  <div className={styles.socialItem}>
+                      <FontAwesomeIcon icon={["fab", "instagram"]} />
+                  </div>
+                  </a>
+                  <a href='#'>
 
                   <div className={styles.socialItem}>
-                    <a href='#'>
-                      <FontAwesomeIcon icon={["fab", "twitter"]} />
-                    </a>
-                  </div>
-                  <div className={styles.socialItem}>
-                    <a href='#'>
-                      <FontAwesomeIcon icon={["fab", "instagram"]} />
-                    </a>
-                  </div>
-                  <div className={styles.socialItem}>
-                    <a href='#'>
                       <FontAwesomeIcon icon={["fab", "telegram-plane"]} />
-                    </a>
                   </div>
+                  </a>
                 </div>
               </div>
             </div>
