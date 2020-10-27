@@ -36,7 +36,7 @@ class LandingDemo extends Component {
                   alt="fursatac"
                   className={styles.fursatacimg}
                 />
-                <p className={styles.par}>! قريبا انطلاق التطبيق </p>
+                {/* <p className={styles.par}>! قريبا انطلاق التطبيق </p> */}
               </div>
               </div>
             <div className="col-md-6 col-sm-12 text-right">

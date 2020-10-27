@@ -10,6 +10,7 @@ import PublicRoute from "~hoc/PublicRoute";
 // Routes
 import Landing from "~containers/Intro/Landing";
 import LandingDemo from '~containers/Intro/LandingDemo'
+import ViewJobs from '~containers/Intro/ViewJobs'
 import Login from "~containers/Auth/Login";
 import ForgetPassword from "~containers/Auth/ForgetPassword";
 import Dashboard from "~containers/Dashboard/Dashboard";
@@ -45,6 +46,7 @@ function App() {
       <Route exact path='/demo' component={LandingDemo} />
         <PublicRoute exact path='/' component={Landing} />
         <PublicRoute exact path='/demo' component={LandingDemo} />
+        <PublicRoute exact path='/view' component={ViewJobs} />
         <PublicRoute exact path='/login' component={Login} />
         <PublicRoute exact path='/forget-password' component={ForgetPassword} />
         <Route exact path='/activate' component={ActivateUser} />

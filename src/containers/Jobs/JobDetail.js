@@ -10,6 +10,7 @@ import { withNamespaces } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Scrollbars } from "react-custom-scrollbars";
 import getPostDetails from "../Jobs/actions/getPostDetails";
+// import {} from 'semantic-ui-react'
 // Styles
 import styles from "./styles/job-detail.module.scss";
 
@@ -379,97 +380,68 @@ class JobDetail extends Component {
                             <div style={{display:'flex',flexDirection:'row',justifyContent:'space-around'}}>
                               <div style={{width:'120px',border:'1px solid #CFD3D5',padding:'3px 5px'}}>Workng Status</div>
                               <label>Is</label> 
-                            <label>
-                              <input
-                                type="radio"
-                                value="NewToOld"
-                                checked={this.state.type === "NewToOld"}
-                                onChange={this.handleChange}
-                                style={{marginRight: '6px'}}
-                              />
-                              New to Old
-                            </label>
+                              <select class="ui dropdown">
+  <option value="">Gender</option>
+  <option value="1">Male</option>
+  <option value="0">Female</option>
+</select>
                             </div>
                           </Menu.Item>
                           <Menu.Item>
                             <div style={{display:'flex',flexDirection:'row',justifyContent:'space-around'}}>
-                              <div style={{width:'120px',border:'1px solid #CFD3D5',padding:'3px 5px'}}>Workng Status</div>
-                              <label>Is</label> 
-                            <label>
-                              <input
-                                type="radio"
-                                value="NewToOld"
-                                checked={this.state.type === "NewToOld"}
-                                onChange={this.handleChange}
-                                style={{marginRight: '6px'}}
-                              />
-                              New to Old
-                            </label>
+                              <div style={{width:'120px',border:'1px solid #CFD3D5',padding:'3px 5px'}}>Age</div>
+                              <select class="ui dropdown">
+  <option value="">Gender</option>
+  <option value="1">Male</option>
+  <option value="0">Female</option>
+</select>
                             </div>
                           </Menu.Item>
                           <Menu.Item>
                             <div style={{display:'flex',flexDirection:'row',justifyContent:'space-around'}}>
-                              <div style={{width:'120px',border:'1px solid #CFD3D5',padding:'3px 5px'}}>Workng Status</div>
+                              <div style={{width:'120px',border:'1px solid #CFD3D5',padding:'3px 5px'}}>Gender</div>
                               <label>Is</label> 
-                            <label>
-                              <input
-                                type="radio"
-                                value="NewToOld"
-                                checked={this.state.type === "NewToOld"}
-                                onChange={this.handleChange}
-                                style={{marginRight: '6px'}}
-                              />
-                              New to Old
-                            </label>
+                              <select class="ui dropdown">
+  <option value="">Gender</option>
+  <option value="1">Male</option>
+  <option value="0">Female</option>
+</select>
                             </div>
                           </Menu.Item>
                           <Menu.Item>
                             <div style={{display:'flex',flexDirection:'row',justifyContent:'space-around'}}>
-                              <div style={{width:'120px',border:'1px solid #CFD3D5',padding:'3px 5px'}}>Workng Status</div>
+                              <div style={{width:'120px',border:'1px solid #CFD3D5',padding:'3px 5px'}}>Nationality</div>
                               <label>Is</label> 
-                            <label>
-                              <input
-                                type="radio"
-                                value="NewToOld"
-                                checked={this.state.type === "NewToOld"}
-                                onChange={this.handleChange}
-                                style={{marginRight: '6px'}}
-                              />
-                              New to Old
-                            </label>
+                              <select class="ui dropdown">
+  <option value="">Saudi</option>
+  <option value="1">Non-Saudi</option>
+</select>
                             </div>
                           </Menu.Item>
                           <Menu.Item>
                             <div style={{display:'flex',flexDirection:'row',justifyContent:'space-around'}}>
-                              <div style={{width:'120px',border:'1px solid #CFD3D5',padding:'3px 5px'}}>Workng Status</div>
+                              <div style={{width:'120px',border:'1px solid #CFD3D5',padding:'3px 5px'}}>Level Of Experience</div>
                               <label>Is</label> 
-                            <label>
-                              <input
-                                type="radio"
-                                value="NewToOld"
-                                checked={this.state.type === "NewToOld"}
-                                onChange={this.handleChange}
-                                style={{marginRight: '6px'}}
-                              />
-                              New to Old
-                            </label>
+                              <select class="ui dropdown">
+  <option value="">Fresh Graduate</option>
+  <option value="1">1-2 years</option>
+  <option value="0">3-5 years</option>
+  <option value="0"> 6-10 years</option>
+  <option value="0"> +10 years</option>
+
+</select>
                             </div>
                           </Menu.Item>
                           
                           <Menu.Item>
                             <div style={{display:'flex',flexDirection:'row',justifyContent:'space-around'}}>
-                              <div style={{width:'120px',border:'1px solid #CFD3D5',padding:'3px 5px'}}>Workng Status</div>
-                              <label>Is</label> 
-                            <label>
-                              <input
-                                type="radio"
-                                value="NewToOld"
-                                checked={this.state.type === "NewToOld"}
-                                onChange={this.handleChange}
-                                style={{marginRight: '6px'}}
-                              />
-                              New to Old
-                            </label>
+                              <div style={{width:'120px',border:'1px solid #CFD3D5',padding:'3px 5px'}}>Graduation Date</div>
+                              <label>Is minimum</label> 
+                              <select class="ui dropdown">
+  <option value="">Gender</option>
+  <option value="1">Male</option>
+  <option value="0">Female</option>
+</select>
                             </div>
                           </Menu.Item>
 
@@ -477,17 +449,12 @@ class JobDetail extends Component {
                           <Menu.Item>
                             <div style={{display:'flex',flexDirection:'row',justifyContent:'space-around'}}>
                               <div style={{width:'120px',border:'1px solid #CFD3D5',padding:'3px 5px'}}>Workng Status</div>
-                              <label>Is</label> 
-                            <label>
-                              <input
-                                type="radio"
-                                value="NewToOld"
-                                checked={this.state.type === "NewToOld"}
-                                onChange={this.handleChange}
-                                style={{marginRight: '6px'}}
-                              />
-                              New to Old
-                            </label>
+                              <label>Is between</label> 
+                              <select class="ui dropdown">
+  <option value="">Gender</option>
+  <option value="1">Male</option>
+  <option value="0">Female</option>
+</select>
                             </div>
                           </Menu.Item>
 
