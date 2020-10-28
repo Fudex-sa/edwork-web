@@ -188,7 +188,7 @@ class Landing extends Component {
 
               {lang === "en" && (
                 <>
-                  <Link to="/demo">
+                  <Link to="/view">
                     <button type="button" className={styles.create_account}>
                       {t("landing.header.button.view")}
                       <FontAwesomeIcon
