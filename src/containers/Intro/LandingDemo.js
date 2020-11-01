@@ -36,7 +36,7 @@ class LandingDemo extends Component {
                   alt="fursatac"
                   className={styles.fursatacimg}
                 />
-                <p className={styles.par}>! قريبا انطلاق التطبيق </p>
+                {/* <p className={styles.par}>! قريبا انطلاق التطبيق </p> */}
               </div>
               </div>
             <div className="col-md-6 col-sm-12 text-right">
@@ -50,12 +50,12 @@ class LandingDemo extends Component {
                 أعلن عن وظيفة | افرز و وفلتر | أختر الأنسب واتمم عملية التوظيف
               </p>
               <div className={styles.routes}>
-              <a href="https://sites.google.com/view/fursatak-jobs">
+              <Link to="/alljobs">
                   <button type="button" className={styles.showOpportunity}>
                     استعراض الفرص
                   </button>
-                </a>{" "}
-                <a href="https://airtable.com/shrsvOP1B9iS8EnKc">
+                </Link>{" "}
+                <Link to="/startjobs">
 
                   <button type="button" className={styles.create_account}>
                     <FontAwesomeIcon
@@ -65,7 +65,7 @@ class LandingDemo extends Component {
                     أبدأ بالتوظيف
                   </button>
 
-                </a>
+                </Link>
               </div>
             </div>
             <div className="col-md-3 col-sm-12"></div>
