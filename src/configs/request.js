@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const serverConfig = {
-  // baseURL: 'http://192.168.100.6:8888/api',
+  // baseURL: 'http://18.216.189.80:8888/api',
   //baseURL: 'https://api.fursatak.app/api',
   baseURL: "http://localhost:8888/api",
   responseType: "json",
