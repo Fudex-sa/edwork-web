@@ -35,7 +35,6 @@ import getCustomCategories from "./actions/getCustomCategories";
 import createCustomCategory from "./actions/createCustomCategory";
 import stopPost from "./actions/stopPost";
 import userMoveToCategory from "./actions/userMoveToCategory";
-import Person from "../../assets/imgs/person.png";
 const queryString = require("query-string");
 
 const content = (
@@ -768,39 +767,12 @@ class JobDetail extends Component {
                   selected={jobDetailData.selectedUser}
                   candidatesNumber={jobCandidate}
                 />
-<div style={{display:'flex',flexDirection:'column'}}>
-<div style={{diplay:'flex',flexDirection:'column'}}>
-                <div style={{ display: "flex", flexDirection: "row" }}
-                className="ml-3 mt-3 mb-3"
-                >
-                  <div>
-                    <img src={Person} />
-                  </div>
-                  <div style={{ display: "flex", flexDirection: "column" }}
-                  className="ml-2"
-                  >
-                    <span style={{fontSize:'12px',fontWeight:'bold'}}>Mahmoud Adel Mohamed</span>
-                    <span style={{fontSize:'12px'}}>12 days ago</span>
-                  </div>
-                </div>
-                <p className="ml-5">play play play play play</p>
-                </div>
-                       <div style={{ display: "flex", flexDirection: "row" }}
-                className="ml-3 mt-3"
-                >
-                  <div>
-                    <img src={Person} />
-                  </div>
-                  <div style={{ display: "flex", flexDirection: "column" }}
-                  className="ml-2"
-                  >
-                    <span style={{fontSize:'12px',fontWeight:'bold'}}>Mahmoud Adel Mohamed</span>
-                    <span style={{fontSize:'12px'}}>12 days ago</span>
-                  </div>
-                </div>
-                <p className="ml-5" >play play play play play</p>
 
-                </div>
+
+
+
+
+
                 {/* <JobDetailContentUser isLoading={isLoadingCandidateDetail} selected={jobDetailData.selectedUser} candidatesNumber={jobCandidate} /> */}
 
                 <Comments addComment={this.handAddComment} comments={jobDetailData.comments} isSelected={jobDetailData.selectedUser} />
