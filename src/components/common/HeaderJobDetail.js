@@ -12,6 +12,8 @@ import shareLink from "../../assets/imgs/Path 561.png";
 import AppGallery from "../../assets/imgs/AppGallery.png";
 import GooglePlay from "../../assets/imgs/Google Play.png";
 import AppStore from "../../assets/imgs/App Store.png";
+import Copy from "../../assets/imgs/copy.png";
+import QrCode from "../../assets/imgs/qrcode.png";
 
 import { message as notify } from "antd";
 import Popup from "reactjs-popup";
@@ -150,8 +152,7 @@ class HeaderJobDetail extends Component {
                   <a href="https://play.google.com/store/apps/details?id=io.swvl.customer" target="blank">
                     <img src={GooglePlay} alt="GooglePlay" />
                   </a>
-                  {/* <a href="https://apps.apple.com/app/id<Apple ID>"> */}
-                  <a href="https://apps.apple.com/us/app/swvl-bus-booking-app/id1214486024" target="blank">
+                  <a href="https://play.google.com/store/apps/details?id=io.swvl.customer" target="blank">
                     <img src={AppStore} alt="AppGallery" />
                   </a>
                 </div>
@@ -179,8 +180,36 @@ class HeaderJobDetail extends Component {
                   </span>
                 </div>
 
-                <div style={{ display: "flex", alignItems: "center" }}>
-                  <input placeholder="https:fursatak" style={{ width: "50%", backgroundColor: "grey", borderRadius: "5px", padding: "5px 3px", border: "none", margin: "auto" }} />
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <input
+                    placeholder="https..//fursatak.app"
+                    className={styles.fursatak}
+                    id="myInput"
+                    style={{
+                      width: "50%",
+                      backgroundColor: "#F7F8F8",
+                      borderRadius: "15px",
+                      padding: "8px 12px",
+                      border: "none",
+                      marginRight: "12%",
+                    }}
+                  />
+                  <Link>
+                    <div style={{ display: "flex" }}>
+                      <img src={Copy} alt="Copy" />
+
+                      <span style={{ textDecoration: "none", color: "#333", marginLeft: "6px", fontWeight: "bold" }}>Copy</span>
+                    </div>
+                  </Link>
+                </div>
+                <div className="text-center mt-3">
+                  <img src={QrCode} alt="QrCode" />
                 </div>
               </Popup>
 
