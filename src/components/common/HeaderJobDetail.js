@@ -19,15 +19,7 @@ import { message as notify } from "antd";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import history from "../../history";
-import {
-  AuditOutlined,
-  MailOutlined,
-  DownOutlined,
-  RedoOutlined,
-  FormOutlined,
-  UploadOutlined,
-  ShareAltOutlined,
-} from "@ant-design/icons";
+import { AuditOutlined, MailOutlined, DownOutlined, RedoOutlined, FormOutlined, UploadOutlined, ShareAltOutlined } from "@ant-design/icons";
 
 // Assets
 import Logo from "~assets/imgs/logo_white_blue.svg";
@@ -58,10 +50,7 @@ const jobList = (data, jobId) => (
       .filter((item) => item.id !== parseInt(jobId))
       .map((item) => (
         <Menu.Item key={item.id}>
-          <a
-            rel="noopener noreferrer"
-            href={window.location.origin + "/job/detail/" + item.id}
-          >
+          <a rel="noopener noreferrer" href={window.location.origin + "/job/detail/" + item.id}>
             {item.title}
           </a>
         </Menu.Item>
@@ -103,19 +92,10 @@ class HeaderJobDetail extends Component {
             </div> */}
 
             <div className={styles.job_selection}>
-              <Dropdown
-                overlay={jobList(data, jobId)}
-                placement="bottomLeft"
-                trigger={["click"]}
-              >
+              <Dropdown overlay={jobList(data, jobId)} placement="bottomLeft" trigger={["click"]}>
                 {/* <Button>bottomLeft</Button> */}
                 <div className={styles.dropdown}>
-                  <span>
-                    {
-                      data.filter((item) => item.id === parseInt(jobId))[0]
-                        ?.title
-                    }
-                  </span>
+                  <span>{data.filter((item) => item.id === parseInt(jobId))[0]?.title}</span>
                   <span className={styles.dropdown_icon}>
                     <DownOutlined />
                   </span>
@@ -126,12 +106,7 @@ class HeaderJobDetail extends Component {
               <Popup
                 trigger={
                   <button className={styles.containerOption}>
-                    <img
-                      src={shareLink}
-                      alt="shareLink"
-                      style={{ width: "16px", height: "17px" }}
-                      className={styles.iconstyle}
-                    />
+                    <img src={shareLink} alt="shareLink" style={{ width: "16px", height: "17px" }} className={styles.iconstyle} />
 
                     <span className={styles.spanoption}>Share apply link</span>
                   </button>
@@ -244,23 +219,13 @@ class HeaderJobDetail extends Component {
 
               <Link to={"/jobs/edit/" + jobId}>
                 <button className={styles.containerOption}>
-                  <img
-                    src={editImage}
-                    alt="editimage"
-                    style={{ width: "16px", height: "17px" }}
-                    className={styles.iconstyle}
-                  />
+                  <img src={editImage} alt="editimage" style={{ width: "16px", height: "17px" }} className={styles.iconstyle} />
                   <span className={styles.spanoption}>Edit post</span>
                 </button>
               </Link>
               <Link to={"/jobs/repost/" + jobId}>
                 <button className={styles.containerOption}>
-                  <img
-                    src={repostImage}
-                    alt="repostimage"
-                    style={{ width: "16px", height: "17px" }}
-                    className={styles.iconstyle}
-                  />
+                  <img src={repostImage} alt="repostimage" style={{ width: "16px", height: "17px" }} className={styles.iconstyle} />
                   <span className={styles.spanoption}>Re-post</span>
                 </button>
               </Link>
@@ -284,12 +249,7 @@ class HeaderJobDetail extends Component {
                   );
                 }}
               >
-                <img
-                  src={stopImage}
-                  alt="stopimage"
-                  style={{ width: "16px", height: "17px" }}
-                  className={styles.iconstyle}
-                />
+                <img src={stopImage} alt="stopimage" style={{ width: "16px", height: "17px" }} className={styles.iconstyle} />
                 {/* <img src={editImage} alt="stop image"/> */}
                 <span className={styles.stopspan}>Stop</span>
               </button>
