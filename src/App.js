@@ -32,6 +32,7 @@ import VerificationCompany from "~containers/Dashboard/VerificationCompany";
 import AllJobs from "../src/containers/Intro/AllJobs/AllJobs";
 import StartUpHub from "../src/containers/Intro/StartJobs/StartUpHub";
 import history from "./history";
+import StartHiring from "../src/containers/Intro/StartHiring";
 
 function App() {
   // This function to imit AOS library which creates animation in the landing page
