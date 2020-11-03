@@ -12,6 +12,8 @@ import shareLink from "../../assets/imgs/Path 561.png";
 import AppGallery from "../../assets/imgs/AppGallery.png";
 import GooglePlay from "../../assets/imgs/Google Play.png";
 import AppStore from "../../assets/imgs/App Store.png";
+import Copy from "../../assets/imgs/copy.png";
+import QrCode from "../../assets/imgs/qrcode.png";
 
 import { message as notify } from "antd";
 import Popup from "reactjs-popup";
@@ -169,13 +171,19 @@ class HeaderJobDetail extends Component {
                     justifyContent: "space-around",
                   }}
                 >
-                  <img
-                    src={AppGallery}
-                    alt="AppGallery"
-                    style={{ marginLeft: "11%" }}
-                  />
-                  <img src={GooglePlay} alt="GooglePlay" />
-                  <img src={AppStore} alt="AppGallery" />
+                  <Link>
+                    <img
+                      src={AppGallery}
+                      alt="AppGallery"
+                      style={{ marginLeft: "11%" }}
+                    />
+                  </Link>
+                  <Link>
+                    <img src={GooglePlay} alt="GooglePlay" />
+                  </Link>
+                  <Link>
+                    <img src={AppStore} alt="AppGallery" />
+                  </Link>
                 </div>
                 <div className="d-flex m-5" style={{ flexDirection: "row" }}>
                   <div
@@ -201,11 +209,37 @@ class HeaderJobDetail extends Component {
                   </span>
                 </div>
 
-              <div style={{display:'flex',alignItems:'center'}}>
-                <input placeholder="https:fursatak"  style={{width:'50%',
-                backgroundColor:'grey',borderRadius:'5px',
-                padding:'5px 3px',border:'none',margin:'auto'}}/>
-              </div>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <input
+                    placeholder="https..//fursatak.app"
+                    className={styles.fursatak}
+                    id="myInput"
+                    style={{
+                      width: "50%",
+                      backgroundColor: "#F7F8F8",
+                      borderRadius: "15px",
+                      padding: "8px 12px",
+                      border: "none",
+                      marginRight: "12%",
+                    }}
+                  />
+                  <Link>
+                    <div style={{ display: "flex" }}>
+                      <img src={Copy} alt="Copy" />
+
+                      <span style={{textDecoration:'none', color:'#333',marginLeft:'6px',fontWeight:'bold'}}>Copy</span>
+                    </div>
+                  </Link>
+                </div>
+                <div className="text-center mt-3">
+                  <img src={QrCode} alt="QrCode"/>
+                </div>
               </Popup>
 
               <Link to={"/jobs/edit/" + jobId}>

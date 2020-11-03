@@ -32,7 +32,7 @@ import getCustomCategories from "./actions/getCustomCategories";
 import createCustomCategory from "./actions/createCustomCategory";
 import stopPost from "./actions/stopPost";
 import userMoveToCategory from "./actions/userMoveToCategory";
-
+import Person from "../../assets/imgs/person.png";
 const queryString = require("query-string");
 
 const content = (
@@ -373,18 +373,26 @@ class JobDetail extends Component {
                       Filter
                     </span> */}
 
-
-
                     <Dropdown
-                    
                       overlay={
-                        
                         <Menu style={{ width: "900px" }}>
-                          <div style={{display:'flex' ,
-                          flexDirection:'row',color:'#0091FF',
-                          marginTop:'5px', justifyContent:'center'}}>
-                        <FontAwesomeIcon icon={["fas", "filter"]} className="mt-1 mr-1" />
-                          <p>Anyone doesn't match filtration requirements, will be auto-rejected</p>
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "row",
+                              color: "#0091FF",
+                              marginTop: "5px",
+                              justifyContent: "center",
+                            }}
+                          >
+                            <FontAwesomeIcon
+                              icon={["fas", "filter"]}
+                              className="mt-1 mr-1"
+                            />
+                            <p>
+                              Anyone doesn't match filtration requirements, will
+                              be auto-rejected
+                            </p>
                           </div>
                           <div className="ml-3 mb-2">
                             <div
@@ -402,14 +410,38 @@ class JobDetail extends Component {
                               >
                                 Working Status
                               </div>
-                              <label style={{width:'20%',textAlign:'center',textAlign:'center'}}>Is</label>
-                              <select class="ui dropdown ml-2" style={{width:'130px',border:'1px solid #CFD3D5'}}>
+                              <label
+                                style={{
+                                  width: "20%",
+                                  textAlign: "center",
+                                  textAlign: "center",
+                                }}
+                              >
+                                Is
+                              </label>
+                              <select
+                                class="ui dropdown ml-2"
+                                style={{
+                                  width: "130px",
+                                  border: "1px solid #CFD3D5",
+                                }}
+                              >
                                 <option value="">Gender</option>
                                 <option value="1">Male</option>
                                 <option value="0">Female</option>
                               </select>
-                              <label style={{width:'20%',textAlign:'center'}}>Is</label>
-                              <select class="ui dropdown ml-2" style={{width:'130px',border:'1px solid #CFD3D5'}}>
+                              <label
+                                style={{ width: "20%", textAlign: "center" }}
+                              >
+                                Is
+                              </label>
+                              <select
+                                class="ui dropdown ml-2"
+                                style={{
+                                  width: "130px",
+                                  border: "1px solid #CFD3D5",
+                                }}
+                              >
                                 <option value="">Gender</option>
                                 <option value="1">Male</option>
                                 <option value="0">Female</option>
@@ -432,15 +464,35 @@ class JobDetail extends Component {
                               >
                                 Age
                               </div>
-                              <label  style={{width:'20%',textAlign:'center'}}>Is between</label>
+                              <label
+                                style={{ width: "20%", textAlign: "center" }}
+                              >
+                                Is between
+                              </label>
 
-                              <select class="ui dropdown ml-2" style={{width:'130px',border:'1px solid #CFD3D5'}}>
+                              <select
+                                class="ui dropdown ml-2"
+                                style={{
+                                  width: "130px",
+                                  border: "1px solid #CFD3D5",
+                                }}
+                              >
                                 <option value="">Gender</option>
                                 <option value="1">Male</option>
                                 <option value="0">Female</option>
                               </select>
-                              <label  style={{width:'20%',textAlign:'center'}}>Is between</label>
-                              <select class="ui dropdown ml-2" style={{width:'130px',border:'1px solid #CFD3D5'}}>
+                              <label
+                                style={{ width: "20%", textAlign: "center" }}
+                              >
+                                Is between
+                              </label>
+                              <select
+                                class="ui dropdown ml-2"
+                                style={{
+                                  width: "130px",
+                                  border: "1px solid #CFD3D5",
+                                }}
+                              >
                                 <option value="">Gender</option>
                                 <option value="1">Male</option>
                                 <option value="0">Female</option>
@@ -463,14 +515,34 @@ class JobDetail extends Component {
                               >
                                 Gender
                               </div>
-                              <label  style={{width:'20%',textAlign:'center'}}>Is</label>
-                              <select class="ui dropdown ml-2" style={{width:'130px',border:'1px solid #CFD3D5'}}>
+                              <label
+                                style={{ width: "20%", textAlign: "center" }}
+                              >
+                                Is
+                              </label>
+                              <select
+                                class="ui dropdown ml-2"
+                                style={{
+                                  width: "130px",
+                                  border: "1px solid #CFD3D5",
+                                }}
+                              >
                                 <option value="">Gender</option>
                                 <option value="1">Male</option>
                                 <option value="0">Female</option>
                               </select>
-                              <label  style={{width:'20%',textAlign:'center'}}>Is between</label>
-                              <select class="ui dropdown ml-2" style={{width:'130px',border:'1px solid #CFD3D5'}}>
+                              <label
+                                style={{ width: "20%", textAlign: "center" }}
+                              >
+                                Is between
+                              </label>
+                              <select
+                                class="ui dropdown ml-2"
+                                style={{
+                                  width: "130px",
+                                  border: "1px solid #CFD3D5",
+                                }}
+                              >
                                 <option value="">Gender</option>
                                 <option value="1">Male</option>
                                 <option value="0">Female</option>
@@ -493,13 +565,33 @@ class JobDetail extends Component {
                               >
                                 Nationality
                               </div>
-                              <label  style={{width:'20%',textAlign:'center'}}>Is</label>
-                              <select class="ui dropdown ml-2" style={{width:'130px',border:'1px solid #CFD3D5'}}>
+                              <label
+                                style={{ width: "20%", textAlign: "center" }}
+                              >
+                                Is
+                              </label>
+                              <select
+                                class="ui dropdown ml-2"
+                                style={{
+                                  width: "130px",
+                                  border: "1px solid #CFD3D5",
+                                }}
+                              >
                                 <option value="">Saudi</option>
                                 <option value="1">Non-Saudi</option>
                               </select>
-                              <label  style={{width:'20%',textAlign:'center'}}>Is between</label>
-                              <select class="ui dropdown ml-2" style={{width:'130px',border:'1px solid #CFD3D5'}}>
+                              <label
+                                style={{ width: "20%", textAlign: "center" }}
+                              >
+                                Is between
+                              </label>
+                              <select
+                                class="ui dropdown ml-2"
+                                style={{
+                                  width: "130px",
+                                  border: "1px solid #CFD3D5",
+                                }}
+                              >
                                 <option value="">Saudi</option>
                                 <option value="1">Non-Saudi</option>
                               </select>
@@ -521,16 +613,36 @@ class JobDetail extends Component {
                               >
                                 Level Of Experience
                               </div>
-                              <label  style={{width:'20%',textAlign:'center'}}>Is</label>
-                              <select class="ui dropdown ml-2" style={{width:'130px',border:'1px solid #CFD3D5'}}>
+                              <label
+                                style={{ width: "20%", textAlign: "center" }}
+                              >
+                                Is
+                              </label>
+                              <select
+                                class="ui dropdown ml-2"
+                                style={{
+                                  width: "130px",
+                                  border: "1px solid #CFD3D5",
+                                }}
+                              >
                                 <option value="">Fresh Graduate</option>
                                 <option value="1">1-2 years</option>
                                 <option value="0">3-5 years</option>
                                 <option value="0"> 6-10 years</option>
                                 <option value="0"> +10 years</option>
                               </select>
-                              <label  style={{width:'20%',textAlign:'center'}}>Is between</label>
-                              <select class="ui dropdown ml-2" style={{width:'130px',border:'1px solid #CFD3D5'}}>
+                              <label
+                                style={{ width: "20%", textAlign: "center" }}
+                              >
+                                Is between
+                              </label>
+                              <select
+                                class="ui dropdown ml-2"
+                                style={{
+                                  width: "130px",
+                                  border: "1px solid #CFD3D5",
+                                }}
+                              >
                                 <option value="">Fresh Graduate</option>
                                 <option value="1">1-2 years</option>
                                 <option value="0">3-5 years</option>
@@ -552,19 +664,38 @@ class JobDetail extends Component {
                                   width: "25%",
                                   border: "1px solid #CFD3D5",
                                   padding: "1px 5px",
-                              
                                 }}
                               >
                                 Graduation Date
                               </div>
-                              <label  style={{width:'20%',textAlign:'center'}}>Is minimum</label>
-                              <select class="ui dropdown ml-2" style={{width:'130px',border:'1px solid #CFD3D5'}}>
+                              <label
+                                style={{ width: "20%", textAlign: "center" }}
+                              >
+                                Is minimum
+                              </label>
+                              <select
+                                class="ui dropdown ml-2"
+                                style={{
+                                  width: "130px",
+                                  border: "1px solid #CFD3D5",
+                                }}
+                              >
                                 <option value="">Gender</option>
                                 <option value="1">Male</option>
                                 <option value="0">Female</option>
                               </select>
-                              <label  style={{width:'20%',textAlign:'center'}}>Is between</label>
-                              <select class="ui dropdown ml-2" style={{width:'130px',border:'1px solid #CFD3D5'}}>
+                              <label
+                                style={{ width: "20%", textAlign: "center" }}
+                              >
+                                Is between
+                              </label>
+                              <select
+                                class="ui dropdown ml-2"
+                                style={{
+                                  width: "130px",
+                                  border: "1px solid #CFD3D5",
+                                }}
+                              >
                                 <option value="">Gender</option>
                                 <option value="1">Male</option>
                                 <option value="0">Female</option>
@@ -588,14 +719,34 @@ class JobDetail extends Component {
                               >
                                 Working Status
                               </div>
-                              <label  style={{width:'20%',textAlign:'center'}}>Is between</label>
-                              <select class="ui dropdown ml-2" style={{width:'130px',border:'1px solid #CFD3D5'}}>
+                              <label
+                                style={{ width: "20%", textAlign: "center" }}
+                              >
+                                Is between
+                              </label>
+                              <select
+                                class="ui dropdown ml-2"
+                                style={{
+                                  width: "130px",
+                                  border: "1px solid #CFD3D5",
+                                }}
+                              >
                                 <option value="">Gender</option>
                                 <option value="1">Male</option>
                                 <option value="0">Female</option>
                               </select>
-                              <label  style={{width:'20%',textAlign:'center'}}>Is between</label>
-                              <select class="ui dropdown ml-2" style={{width:'130px',border:'1px solid #CFD3D5'}}>
+                              <label
+                                style={{ width: "20%", textAlign: "center" }}
+                              >
+                                Is between
+                              </label>
+                              <select
+                                class="ui dropdown ml-2"
+                                style={{
+                                  width: "130px",
+                                  border: "1px solid #CFD3D5",
+                                }}
+                              >
                                 <option value="">Gender</option>
                                 <option value="1">Male</option>
                                 <option value="0">Female</option>
@@ -616,7 +767,6 @@ class JobDetail extends Component {
                       {/* <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
       Hover me <DownOutlined />
     </a> */}
-
                     </Dropdown>
 
                     <span className={styles.passed}>Passed</span>
@@ -644,8 +794,39 @@ class JobDetail extends Component {
                   selected={jobDetailData.selectedUser}
                   candidatesNumber={jobCandidate}
                 />
+<div style={{display:'flex',flexDirection:'column'}}>
+<div style={{diplay:'flex',flexDirection:'column'}}>
+                <div style={{ display: "flex", flexDirection: "row" }}
+                className="ml-3 mt-3 mb-3"
+                >
+                  <div>
+                    <img src={Person} />
+                  </div>
+                  <div style={{ display: "flex", flexDirection: "column" }}
+                  className="ml-2"
+                  >
+                    <span style={{fontSize:'12px',fontWeight:'bold'}}>Mahmoud Adel Mohamed</span>
+                    <span style={{fontSize:'12px'}}>12 days ago</span>
+                  </div>
+                </div>
+                <p className="ml-5">play play play play play</p>
+                </div>
+                       <div style={{ display: "flex", flexDirection: "row" }}
+                className="ml-3 mt-3"
+                >
+                  <div>
+                    <img src={Person} />
+                  </div>
+                  <div style={{ display: "flex", flexDirection: "column" }}
+                  className="ml-2"
+                  >
+                    <span style={{fontSize:'12px',fontWeight:'bold'}}>Mahmoud Adel Mohamed</span>
+                    <span style={{fontSize:'12px'}}>12 days ago</span>
+                  </div>
+                </div>
+                <p className="ml-5" >play play play play play</p>
 
-                <div>Comments</div>
+                </div>
               </div>
             </div>
           </div>

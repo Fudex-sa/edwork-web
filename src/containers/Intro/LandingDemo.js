@@ -25,21 +25,19 @@ class LandingDemo extends Component {
             </div>
           </div>
           <div className="row mb-5">
-            <div className="col-md-3 col-sm-12 text-center"
+            {/* <div className="col-md-3 col-sm-12 text-center"
            >
 
               <img src={iphone} alt="iphone" className={styles.iphoneimg} />
-              {/* <span className={styles.iphonespan}>قريباً إطلاق التطبيق</span> */}
               <div className={styles.imgPar}>
                 <img
                   src={fursatac}
                   alt="fursatac"
                   className={styles.fursatacimg}
                 />
-                {/* <p className={styles.par}>! قريبا انطلاق التطبيق </p> */}
               </div>
-              </div>
-            <div className="col-md-6 col-sm-12 text-right">
+              </div> */}
+            <div className="col-md-6 col-sm-12">
               <div>
                 <h1 className={styles.title}>
                 <img src={Thumblike} alt='' className={styles.thumblike}/>
@@ -55,7 +53,7 @@ class LandingDemo extends Component {
                     استعراض الفرص
                   </button>
                 </Link>{" "}
-                <a href="https://airtable.com/shrsvOP1B9iS8EnKc">
+                <Link to="/starthiring">
 
                   <button type="button" className={styles.create_account}>
                     <FontAwesomeIcon
@@ -65,10 +63,9 @@ class LandingDemo extends Component {
                     أبدأ بالتوظيف
                   </button>
 
-                </a>
+                </Link>
               </div>
             </div>
-            <div className="col-md-3 col-sm-12"></div>
           </div>
           <span className={styles.emaillink}>info@fursatak.app</span>
         </div>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "./css/a1.css";
-import myImage from "./img/PNG logo - Color.png";
-class AllJobs extends Component {
+import "./AllJobs/css/a1.css";
+import myImage from "./AllJobs/img/PNG logo - Color.png";
+class StartHiring extends Component {
   render() {
     return (
       <div>
@@ -10,7 +10,7 @@ class AllJobs extends Component {
           <div className="rectangle-C61RwL">
             <iframe
               className="airtable-embed"
-              src="https://airtable.com/embed/shr2Ha0FJ0fRgNUdZ?backgroundColor=purple&layout=card"
+              src="https://airtable.com/embed/shrsvOP1B9iS8EnKc"
               frameborder="0"
               width="100%"
               height="100%"
@@ -69,7 +69,7 @@ class AllJobs extends Component {
           <div className="rectangle-copy-3-C61RwL">
             <iframe
               className="airtable-embed"
-              src="https://airtable.com/embed/shr2Ha0FJ0fRgNUdZ?backgroundColor=purple&layout=card"
+              src="https://airtable.com/embed/shrsvOP1B9iS8EnKc"
               frameborder="0"
               onmousewheel=""
               width="100%"
@@ -142,7 +142,7 @@ class AllJobs extends Component {
           <div className="rectangle-copy-C61RwL">
             <iframe
               className="airtable-embed"
-              src="https://airtable.com/embed/shr2Ha0FJ0fRgNUdZ?backgroundColor=purple&layout=card"
+              src="https://airtable.com/embed/shrsvOP1B9iS8EnKc"
               frameborder="0"
               onmousewheel=""
               width="100%"
@@ -207,8 +207,9 @@ class AllJobs extends Component {
           </div>
         </div>
       </div>
+
     );
   }
 }
 
-export default AllJobs;
+export default StartHiring;
