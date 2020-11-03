@@ -25,13 +25,13 @@ export default class CommentItem extends PureComponent {
                       className="ml-3 mt-3 mb-3"
                       >
                         <div>
-                          <img src={Person} />
+                          ss<img src={Person} />
                         </div>
                         <div style={{ display: "flex", flexDirection: "column" }}
                         className="ml-2"
                         >
-                          <span style={{fontSize:'12px',fontWeight:'bold'}}>Mahmoud Adel Mohamed</span>
-                          <span style={{fontSize:'12px'}}>12 days ago</span>
+                          <span style={{fontSize:'12px',fontWeight:'bold'}}>ss Mahmoud Adel Mohamed</span>
+                          <span style={{fontSize:'12px'}}>ss 12 days ago </span>
                         </div>
                       </div>
     <p className="ml-5">{comment.body}</p>
