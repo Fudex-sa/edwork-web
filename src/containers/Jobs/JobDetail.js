@@ -184,11 +184,11 @@ class JobDetail extends Component {
   };
 
   componentDidMount() {
-    const { jobsActions, jobDetailActions, match, postActions } = this.props;
+    const { jobsActions, jobDetailActions, match, postActions, company, history } = this.props;
     this.handleGetCandidate();
     jobsActions.getJobsList();
     jobDetailActions.getCustomCategories({ job_id: match?.params?.id });
-    this.getJobsData(match, postActions, jobDetailActions);
+    this.getJobsData(match, postActions, jobDetailActions, company, history);
   }
 
   componentWillUnmount() {
@@ -199,10 +199,15 @@ class JobDetail extends Component {
     });
   }
 
-  getJobsData = async (match, postActions, jobDetailActions) => {
+  getJobsData = async (match, postActions, jobDetailActions, company, history) => {
     await postActions.getPostDetails(match?.params?.id, {
       success: (response) => {
         const { message, data } = response;
+        console.log("=====================================================");
+        console.log(data);
+        console.log("=====================================================");
+        console.log(company);
+        if (data && company.id !== data.CompanyId) history.push("/dashboard");
         jobDetailActions.setJobDetailData({
           data,
         });
@@ -726,6 +731,7 @@ const mapStateToProps = (store) => ({
   isLoadingCandidateDetail: store.jobs.isLoadingCandidateDetail,
   jobCandidate: store.jobs.jobCandidate,
   jobDetailData: store.jobs.jobDetailData,
+  company: store.auth.user.Company,
   jobsList: store.jobs.jobsList,
 
   isLoadingCustomCategories: store.jobs.isLoadingCustomCategories,
