@@ -97,6 +97,9 @@ class JobsList extends PureComponent {
                 </div>
               ) : (
                 <input
+                  onClick={(e) => {
+                    e.stopPropagation();
+                  }}
                   type="text"
                   placeholder="Type a note..."
                   className={styles.note1}
