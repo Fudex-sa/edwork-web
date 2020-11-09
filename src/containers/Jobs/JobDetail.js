@@ -52,6 +52,12 @@ class JobDetail extends Component {
       data: {},
       type: "",
       PostUserId: null,
+      working_status: false,
+      NationalityId: "",
+      gender: "", //male or famel
+      experience: "", //number or "" 
+      age: "", //number or ""
+      graduationDate: "" // number of year
     };
   }
 
@@ -65,7 +71,6 @@ class JobDetail extends Component {
   handAddComment = (body) => {
     const { jobDetailActions } = this.props;
     const { PostUserId } = this.state;
-    console.log(this.state);
     jobDetailActions.addComment({
       body,
       PostUserId,
@@ -107,6 +112,15 @@ class JobDetail extends Component {
     if (searchParams.category !== undefined) {
       data.folder = searchParams.category.toLowerCase();
     }
+    if (sortBy) data.sortBy = sortBy;
+    jobDetailActions.getJobCandidate(data);
+  };
+
+  /* handles pick one job and fetches its data */
+  handleFilterCandidate = () => {
+    const { jobDetailActions, match } = this.props;
+    const { working_status, NationalityId, gender, experience, age, graduationDate,sortBy } = this.state;
+    const data = { job_id: match?.params?.id,working_status, NationalityId, gender, experience, age, graduationDate };
     if (sortBy) data.sortBy = sortBy;
     jobDetailActions.getJobCandidate(data);
   };
@@ -203,10 +217,6 @@ class JobDetail extends Component {
     await postActions.getPostDetails(match?.params?.id, {
       success: (response) => {
         const { message, data } = response;
-        console.log("=====================================================");
-        console.log(data);
-        console.log("=====================================================");
-        console.log(company);
         if (data && company.id !== data.CompanyId) history.push("/dashboard");
         jobDetailActions.setJobDetailData({
           data,
@@ -400,7 +410,7 @@ class JobDetail extends Component {
                                 <option value="1">Male</option>
                                 <option value="0">Female</option>
                               </select>
-                              <label style={{ width: "20%", textAlign: "center" }}>Is</label>
+                              <label style={{ width: "20%", textAlign: "center" }}></label>
                               <select
                                 class="ui dropdown ml-2"
                                 style={{
