@@ -33,7 +33,7 @@ import AllJobs from "../src/containers/Intro/AllJobs/AllJobs";
 import StartUpHub from "../src/containers/Intro/StartJobs/StartUpHub";
 import history from "./history";
 import StartHiring from "../src/containers/Intro/StartHiring";
-
+import Career from '../src/containers/Intro/StartJobs/Career'
 function App() {
   // This function to imit AOS library which creates animation in the landing page
   useEffect(() => {
@@ -49,8 +49,9 @@ function App() {
           <Route exact path="/demo" component={Landing} />
           <Route exact path="/alljobs" component={AllJobs} />
           <Route exact path="/company/carear/:id" component={Carear} />
-          <Route exact path="/startuphub" component={StartUpHub} />
+          <Route exact path="/startuphubkhobar" component={StartUpHub} />
           <Route exact path="/starthiring" component={StartHiring} />
+          <Route exact path="/career" component={Career} />
 
           <Route exact path="/view" component={ViewJobs} />
           <PublicRoute exact path="/" component={LandingDemo} />

@@ -9918,6 +9918,11 @@ react-popper@^2.2.3:
     react-fast-compare "^3.0.1"
     warning "^4.0.2"
 
+react-pure-modal@^2.0.10:
+  version "2.0.10"
+  resolved "https://registry.yarnpkg.com/react-pure-modal/-/react-pure-modal-2.0.10.tgz#479d324d55d90211a2f21ceadc73955fce31430c"
+  integrity sha512-CgOlbOjVpItq0cQm4jZTfL9w7ONy6fTMaste+j80UVQTUwUKwV0eKuZG83oiQRR7HOy4Wmoz/hBZjKKrKlgn6g==
+
 react-qr-code@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/react-qr-code/-/react-qr-code-1.0.2.tgz#9571f04c6b563ba83bad0e7b2732e144bbd42fef"

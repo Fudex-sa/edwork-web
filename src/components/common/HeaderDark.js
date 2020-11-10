@@ -46,10 +46,12 @@ const LoginView = ({ actions, userData, t, history }) => {
         />
         <div className={styles.days_left}>{daysLeft} Days left</div>
       </div>
+      <Link to="/career" style={{color:'black'}}>
       <div>
       <img src={Career} alt="Career" style={{marginLeft:'50px'}}/> 
         <div style={{fontSize:'15px'}}>Your Career Page</div>
       </div>
+      </Link>
       <div className={styles.signOut} onClick={actions.logout }>
         <FontAwesomeIcon icon={["fas", "sign-out-alt"]} />
         <div>Logout</div>

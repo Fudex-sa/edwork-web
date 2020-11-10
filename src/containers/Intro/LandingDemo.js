@@ -45,21 +45,23 @@ class LandingDemo extends Component {
               </div>
               <p className={styles.description}>أعلن عن وظيفة | افرز و وفلتر | أختر الأنسب واتمم عملية التوظيف</p>
               <div className={styles.routes}>
-                <Link to="/alljobs">
+                <a href="https://airtable.com/shr2Ha0FJ0fRgNUdZ/tbllE97wJF2OHpkXb">
                   <button type="button" className={styles.showOpportunity}>
                     استعراض الفرص
                   </button>
-                </Link>{" "}
-                <Link to="/starthiring">
+                </a>{" "}
+                <a href="https://airtable.com/shrsvOP1B9iS8EnKc">
                   <button type="button" className={styles.create_account}>
                     <FontAwesomeIcon className={styles.arrow} icon={["fas", "arrow-left"]} />
-                    أبدأ بالتوظيف
+                    إضافه إعلان وظيفى 
                   </button>
-                </Link>
+                </a>
               </div>
             </div>
           </div>
-          <span className={styles.emaillink}>info@fursatak.app</span>
+          {/* <span className={styles.emaillink}>info@fursatak.app</span> */}
+          <a href="mailto:someone@example.com" className={styles.emaillink}>info@fursatak.app</a>
+
         </div>
       </section>
     );
