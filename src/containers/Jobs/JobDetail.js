@@ -606,25 +606,6 @@ class JobDetail extends Component {
                                   <option value="0">Female</option>
                                 </select>
                               </div>
-                              <div className="col-md-2">
-                                {" "}
-                                <label style={{ textAlign: "center" }}>
-                                  Is
-                                </label>
-                              </div>
-                              <div className="col-md-2">
-                                <select
-                                  class="ui dropdown ml-2"
-                                  style={{
-                                    width: "130px",
-                                    border: "1px solid #CFD3D5",
-                                  }}
-                                >
-                                  <option value="">Gender</option>
-                                  <option value="1">Male</option>
-                                  <option value="0">Female</option>
-                                </select>
-                              </div>
                             </div>
                           </div>
                           <div>
@@ -663,6 +644,125 @@ class JobDetail extends Component {
                                   <option value="1">Non-Saudi</option>
                                 </select>
                               </div>
+                            </div>
+                          </div>
+
+                          <div>
+                            <div
+                              className="row ml-3 mb-2"
+                              style={{
+                                display: "flex",
+                                flexDirection: "row",
+                              }}
+                            >
+                              <div
+                                className="col-md-2"
+                                style={{
+                                  width: "25%",
+                                  border: "1px solid #CFD3D5",
+                                  padding: "1px 5px",
+                                }}
+                              >
+                                Level Of Experience
+                              </div>
+                              <div className="col-md-2">
+                                <label style={{ textAlign: "center" }}>
+                                  Is
+                                </label>
+                              </div>
+                              <div className="col-md-2">
+                                <select
+                                  class="ui dropdown ml-2"
+                                  style={{
+                                    width: "130px",
+                                    border: "1px solid #CFD3D5",
+                                  }}
+                                >
+                                  <option value="">Fresh Graduate</option>
+                                  <option value="1">1-2 years</option>
+                                  <option value="0">3-5 years</option>
+                                  <option value="0"> 6-10 years</option>
+                                  <option value="0"> +10 years</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div>
+                            <div
+                              className=" row ml-3 mb-2"
+                              style={{
+                                display: "flex",
+                                flexDirection: "row",
+                              }}
+                            >
+                              <div
+                                className="col-md-2"
+                                style={{
+                                  width: "25%",
+                                  border: "1px solid #CFD3D5",
+                                  padding: "1px 5px",
+                                }}
+                              >
+                                Graduation Date
+                              </div>
+                              <div className="col-md-2">
+                                <label style={{ textAlign: "center" }}>
+                                  Is minimum
+                                </label>
+                              </div>
+                              <div className="col-md-2">
+                                <select
+                                  class="ui dropdown ml-2"
+                                  style={{
+                                    width: "130px",
+                                    border: "1px solid #CFD3D5",
+                                  }}
+                                >
+                                  <option value="">Gender</option>
+                                  <option value="1">Male</option>
+                                  <option value="0">Female</option>
+                                </select>
+                              </div>
+                              <div className="col-md-2">
+                                <label style={{ textAlign: "center" }}>
+                                  Is
+                                </label>
+                              </div>
+                              <div className="col-md-2">
+                                <select
+                                  class="ui dropdown ml-2"
+                                  style={{
+                                    width: "130px",
+                                    border: "1px solid #CFD3D5",
+                                  }}
+                                >
+                                  <option value="">Gender</option>
+                                  <option value="1">Male</option>
+                                  <option value="0">Female</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div>
+                            <div
+                              className=" row ml-3 mb-2"
+                              style={{
+                                display: "flex",
+                                flexDirection: "row",
+                              }}
+                            >
+                              <div
+                                className="col-md-2"
+                                style={{
+                                  width: "25%",
+                                  border: "1px solid #CFD3D5",
+                                  padding: "1px 5px",
+                                }}
+                              >
+                                GPA
+                              </div>
                               <div className="col-md-2">
                                 {" "}
                                 <label style={{ textAlign: "center" }}>
@@ -677,163 +777,28 @@ class JobDetail extends Component {
                                     border: "1px solid #CFD3D5",
                                   }}
                                 >
-                                  <option value="">Saudi</option>
-                                  <option value="1">Non-Saudi</option>
+                                  <option value="">Gender</option>
+                                  <option value="1">Male</option>
+                                  <option value="0">Female</option>
                                 </select>
                               </div>
-                            </div>
-                          </div>
-
-                          <div>
-                            <div
-                            className="row ml-3 mb-2"
-                              style={{
-                                display: "flex",
-                                flexDirection: "row",
-                              }}
-                            >
-                              <div
-                              className="col-md-2"
-                                style={{
-                                  width: "25%",
-                                  border: "1px solid #CFD3D5",
-                                  padding: "1px 5px",
-                                }}
-                              >
-                                Level Of Experience
-                              </div>
-                              <div className="col-md-2"><label style={{ textAlign: "center" }}>Is</label></div>
                               <div className="col-md-2">
-                              <select
-                                class="ui dropdown ml-2"
-                                style={{
-                                  width: "130px",
-                                  border: "1px solid #CFD3D5",
-                                }}
-                              >
-                                <option value="">Fresh Graduate</option>
-                                <option value="1">1-2 years</option>
-                                <option value="0">3-5 years</option>
-                                <option value="0"> 6-10 years</option>
-                                <option value="0"> +10 years</option>
-                              </select>
+                                <label style={{ textAlign: "center" }}>
+                                  Is
+                                </label>
                               </div>
                               <div className="col-md-2">
-                              <label style={{ textAlign: "center" }}>Is</label></div>
-                              <div className="col-md-2">
-                              <select
-                                class="ui dropdown ml-2"
-                                style={{
-                                  width: "130px",
-                                  border: "1px solid #CFD3D5",
-                                }}
-                              >
-                                <option value="">Fresh Graduate</option>
-                                <option value="1">1-2 years</option>
-                                <option value="0">3-5 years</option>
-                                <option value="0"> 6-10 years</option>
-                                <option value="0"> +10 years</option>
-                              </select>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div>
-                            <div
-                            className=" row ml-3 mb-2"
-                              style={{
-                                display: "flex",
-                                flexDirection: "row",
-                              }}
-                            >
-                              <div className="col-md-2"
-                                style={{
-                                  width: "25%",
-                                  border: "1px solid #CFD3D5",
-                                  padding: "1px 5px",
-                                }}
-                              >
-                                Graduation Date
-                              </div>
-                              <div className="col-md-2"><label style={{ textAlign: "center" }}>
-                                Is minimum
-                              </label>
-                              </div>
-                              <div className="col-md-2">
-                              <select
-                                class="ui dropdown ml-2"
-                                style={{
-                                  width: "130px",
-                                  border: "1px solid #CFD3D5",
-                                }}
-                              >
-                                <option value="">Gender</option>
-                                <option value="1">Male</option>
-                                <option value="0">Female</option>
-                              </select>
-                              </div>
-                              <div className="col-md-2"><label style={{ textAlign: "center" }}>Is</label></div>
-                              <div className="col-md-2">
-                              <select
-                                class="ui dropdown ml-2"
-                                style={{
-                                  width: "130px",
-                                  border: "1px solid #CFD3D5",
-                                }}
-                              >
-                                <option value="">Gender</option>
-                                <option value="1">Male</option>
-                                <option value="0">Female</option>
-                              </select>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div >
-                            <div
-                            className=" row ml-3 mb-2"
-                              style={{
-                                display: "flex",
-                                flexDirection: "row",
-                              }}
-                            >
-                              <div
-                              className="col-md-2"
-                                style={{
-                                  width: "25%",
-                                  border: "1px solid #CFD3D5",
-                                  padding: "1px 5px",
-                                }}
-                              >
-                                Working Status
-                              </div>
-                             <div className="col-md-2"> <label style={{ textAlign: "center" }}>Is</label></div>
-                              <div className="col-md-2">
-                              <select
-                                class="ui dropdown ml-2"
-                                style={{
-                                  width: "130px",
-                                  border: "1px solid #CFD3D5",
-                                }}
-                              >
-                                <option value="">Gender</option>
-                                <option value="1">Male</option>
-                                <option value="0">Female</option>
-                              </select>
-                              </div>
-                              <div className="col-md-2"><label style={{ textAlign: "center" }}>Is</label></div>
-                              <div className="col-md-2">
-                              <select
-                                class="ui dropdown ml-2"
-                                style={{
-                                  width: "130px",
-                                  border: "1px solid #CFD3D5",
-                                }}
-                              >
-                                <option value="">Gender</option>
-                                <option value="1">Male</option>
-                                <option value="0">Female</option>
-                              </select>
+                                <select
+                                  class="ui dropdown ml-2"
+                                  style={{
+                                    width: "130px",
+                                    border: "1px solid #CFD3D5",
+                                  }}
+                                >
+                                  <option value="">Gender</option>
+                                  <option value="1">Male</option>
+                                  <option value="0">Female</option>
+                                </select>
                               </div>
                             </div>
                           </div>
