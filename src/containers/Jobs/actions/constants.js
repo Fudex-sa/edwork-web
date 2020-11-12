@@ -27,3 +27,4 @@ export const STOP_POST = "STOP_POST";
 export const POST_NOTE = "POST_NOTE";
 export const POST_DETAILS = "POST_DETAILS";
 export const GET_JOB_APPLICANTS="GET_JOB_APPLICANTS"
+export const GET_YEARS="GET_YEARS"

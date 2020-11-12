@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { withNamespaces } from "react-i18next";
 import styles from "./styles/job-list.module.scss";
-
+import moment from "moment";
 import PureModal from "react-pure-modal";
 import "react-pure-modal/dist/react-pure-modal.min.css";
 // import "./css/startuphubkhobar.css";
@@ -153,11 +153,7 @@ class carearList extends PureComponent {
                       تاريخ الإعلان
                     </span>
                     <span style={{}}>
-                      {job.Addresses &&
-                      job.Addresses.length &&
-                      job.Addresses[0].Governorate > 0
-                        ? job.Addresses[0].Governorate.name.en
-                        : "Not set"}
+                    {moment(job.created_at).format('DD-MM-YYYY')}
                     </span>
                   </div>
                   <div
@@ -304,11 +300,7 @@ class carearList extends PureComponent {
                     تاريخ الإعلان
                   </span>
                   <span>
-                    {job.Addresses &&
-                    job.Addresses.length &&
-                    job.Addresses[0].Governorate > 0
-                      ? job.Addresses[0].Governorate.name.en
-                      : "Not set"}
+                    {job.created_at}
                   </span>
                 </div>
                 <div
@@ -328,17 +320,20 @@ class carearList extends PureComponent {
                   >
                     المدينه
                   </span>
-                  <input
-                    type="text"
-                    placeholder="الخبر"
-                    disabled
+                  <span
                     style={{
                       border: "1px solid #CCC",
                       backgroundColor: "#FFF",
                       padding: "5px",
                       borderRadius: "5px",
                     }}
-                  />
+                  >  {job.Addresses &&
+                    job.Addresses.length &&
+                    job.Addresses[0].Governorate > 0
+                      ? job.Addresses[0].Governorate.name.en
+                      : "Not set"}
+                    </span>
+                  
                 </div>
                 <div
                   style={{

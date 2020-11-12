@@ -21,7 +21,8 @@ import {
   CREATE_CUSTOM_CATEGORY,
   GET_CUSTOM_CATEGORIES,
   GET_JOB_CATEGORY,
-  GET_JOB_APPLICANTS
+  GET_JOB_APPLICANTS,
+  GET_YEARS
 } from "../actions/constants";
 
 const initialState = {
@@ -43,6 +44,8 @@ const initialState = {
   universityList: [],
   nationalityListLoading: 0,
   nationalityList: [],
+  years:[],
+  yearsLoading:0,
   governorateListLoading: 0,
   governorateList: [],
   degreeListLoading: 0,
@@ -206,6 +209,7 @@ const jobsReducer = (state = initialState, { payload, type }) => {
     case GET_NATIONALITY_LIST:
       return { ...state, nationalityListLoading: 1 };
     case `${GET_NATIONALITY_LIST}_SUCCESS`:
+      console.log('nationality',state.nationalityList)
       return {
         ...state,
         nationalityListLoading: 0,
@@ -213,7 +217,17 @@ const jobsReducer = (state = initialState, { payload, type }) => {
       };
     case `${GET_NATIONALITY_LIST}_FAIL`:
       return { ...state, nationalityListLoading: 0 };
-
+//get years
+case GET_YEARS:
+  return {...state,yearsLoading:1};
+  case `${GET_YEARS}_SUCCESS`:
+    return {
+      ...state,
+      yearsLoading:0,
+      years:payload
+    }
+    case `${GET_YEARS}_FAIL`:
+      return {...state,yearsLoading:0}
     // get governrate
     case GET_GOVERNORATE_LIST:
       return { ...state, governorateListLoading: 1 };
@@ -225,6 +239,17 @@ const jobsReducer = (state = initialState, { payload, type }) => {
       };
     case `${GET_GOVERNORATE_LIST}_FAIL`:
       return { ...state, governorateListLoading: 0 };
+          // get nationality list
+    case GET_NATIONALITY_LIST:
+      return { ...state, nationalityListLoading: 1 };
+    case `${GET_NATIONALITY_LIST}_SUCCESS`:
+      return {
+        ...state,
+        nationalityListLoading: 0,
+        nationalityList: payload,
+      };
+    case `${GET_NATIONALITY_LIST}_FAIL`:
+      return { ...state, nationalityListLoading: 0 };
 //job applicants
 case GET_JOB_APPLICANTS:
   return { ...state, jobApplicantsLoading: 1 };
