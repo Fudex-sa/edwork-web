@@ -21,6 +21,7 @@ import {
   CREATE_CUSTOM_CATEGORY,
   GET_CUSTOM_CATEGORIES,
   GET_JOB_CATEGORY,
+  GET_JOB_APPLICANTS
 } from "../actions/constants";
 
 const initialState = {
@@ -52,7 +53,7 @@ const initialState = {
   customCategories: [],
   isLoadingjobCategories: 0,
   jobCategories: [],
-
+jobApplicants:[],
   quizzOptions: {
     location: [],
     choose: [],
@@ -224,7 +225,17 @@ const jobsReducer = (state = initialState, { payload, type }) => {
       };
     case `${GET_GOVERNORATE_LIST}_FAIL`:
       return { ...state, governorateListLoading: 0 };
-
+//job applicants
+case GET_JOB_APPLICANTS:
+  return { ...state, jobApplicantsLoading: 1 };
+case `${GET_JOB_APPLICANTS}_SUCCESS`:
+  return {
+    ...state,
+    jobApplicantsLoading: 0,
+    jobApplicants: payload.jobApplicants,
+  };
+case `${GET_JOB_APPLICANTS}_FAIL`:
+  return { ...state, jobApplicantsLoading: 1 };
     // jobs list
     case GET_JOB_LIST:
       return { ...state, jobsListLoading: 1 };

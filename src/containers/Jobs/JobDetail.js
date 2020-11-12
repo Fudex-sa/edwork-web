@@ -10,6 +10,7 @@ import { withNamespaces } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Scrollbars } from "react-custom-scrollbars";
 import getPostDetails from "../Jobs/actions/getPostDetails";
+import getJobApplicants from "../Jobs/actions/getJobApplicants"
 // import {} from 'semantic-ui-react'
 // Styles
 import styles from "./styles/job-detail.module.scss";
@@ -220,6 +221,7 @@ class JobDetail extends Component {
 
   componentDidMount() {
     const {
+      applicantsActions,
       jobsActions,
       jobDetailActions,
       match,
@@ -227,10 +229,13 @@ class JobDetail extends Component {
       company,
       history,
     } = this.props;
+    const { id } = this.props.match.params;
+    applicantsActions.getJobApplicants(id)
     this.handleGetCandidate();
     jobsActions.getJobsList();
     jobDetailActions.getCustomCategories({ job_id: match?.params?.id });
     this.getJobsData(match, postActions, jobDetailActions, company, history);
+    console.log('jobapplicants',this.props.jobApplicants)
   }
 
   componentWillUnmount() {
@@ -262,6 +267,19 @@ class JobDetail extends Component {
       },
     });
   };
+getJobApplicants=async(id)=>{
+const {applicantsActions}=this.props
+await applicantsActions.getJobApplicants(id,{
+  success:(response)=>{
+const {message,data}=response;
+  },
+    fail:(response)=>{
+const {message}=response;
+notify.error(message)
+    }
+  
+})
+}
 
   render() {
     const {
@@ -272,6 +290,8 @@ class JobDetail extends Component {
       isLoadingCandidateDetail,
       jobsList,
       isLoadingCustomCategories,
+      jobApplicants,
+      jobApplicantsLoading,
       customCategories,
       match,
       t,
@@ -281,6 +301,7 @@ class JobDetail extends Component {
     const jobId = match?.params?.id;
 
     return (
+    
       <div>
         <HeaderJobDetail
           data={jobsList}
@@ -434,6 +455,8 @@ class JobDetail extends Component {
                       <FontAwesomeIcon icon={["fas", "filter"]} />
                       Filter
                     </span> */}
+{jobApplicants?jobApplicants.map((index)=>(
+
 
                     <Dropdown
                       overlay={
@@ -491,9 +514,9 @@ class JobDetail extends Component {
                                     border: "1px solid #CFD3D5",
                                   }}
                                 >
-                                  <option value="">Gender</option>
-                                  <option value="1">Male</option>
-                                  <option value="0">Female</option>
+                                  <option value="">status</option>
+                                  <option value="1">Yes</option>
+                                  <option value="0">No</option>
                                 </select>
                               </div>
                               <div className="col-md-2">
@@ -507,9 +530,9 @@ class JobDetail extends Component {
                                     border: "1px solid #CFD3D5",
                                   }}
                                 >
-                                  <option value="">Gender</option>
-                                  <option value="1">Male</option>
-                                  <option value="0">Female</option>
+                                  <option value="">Status</option>
+                                  <option value="1">Yes</option>
+                                  <option value="0">No</option>
                                 </select>
                               </div>
                             </div>
@@ -800,7 +823,48 @@ class JobDetail extends Component {
                                   <option value="0">Female</option>
                                 </select>
                               </div>
+                         
                             </div>
+                            <div style={{textAlign:'left'}}>
+                                <button
+                                  type="button"
+                                  style={{backgroundColor: '#fff',
+                                    color: '#0091ff',
+                                    border: 'none',
+                                    outline: 'none',
+                                    height: '30px',
+                                    padding: '0 35px',
+                                    borderRadius: '25px',
+                                    border: '1px solid #0091ff',
+                                    cursor: 'pointer',
+                                    fontSize: '1rem',
+                                    marginBottom: '20px',
+                                    transition: '0.1s ease-in',
+                                    letterSpacing: '0px',
+                                    opacity: '1'}}
+                                >
+                                  Cancel
+                                </button>
+
+                                <button
+                                  type="button"
+                                style={{border:'none' ,backgroundColor:'#0091ff',
+                                border: 'none',
+                                outline: 'none',
+                                color: '#fff',
+                                height: '30px',
+                                padding: '0 35px',
+                                borderRadius: '25px',
+                                cursor: 'pointer',
+                                fontSize: '1rem',
+                                marginBottom: '20px',
+                                transition: '0.1s ease-in'
+                              
+                              }}
+                                >
+                                  Save
+                                </button>
+                              </div>
                           </div>
                         </Menu>
                       }
@@ -817,7 +881,8 @@ class JobDetail extends Component {
       Hover me <DownOutlined />
     </a> */}
                     </Dropdown>
-
+))
+:null}
                     <span className={styles.passed}>Passed</span>
                   </div>
 
@@ -875,7 +940,8 @@ const mapStateToProps = (store) => ({
   jobDetailData: store.jobs.jobDetailData,
   company: store.auth.user.Company,
   jobsList: store.jobs.jobsList,
-
+  jobApplicants:store.jobs.jobApplicants,
+  jobApplicantsLoading:store.jobs.jobApplicantsLoading,
   isLoadingCustomCategories: store.jobs.isLoadingCustomCategories,
   customCategories: store.jobs.customCategories,
 });
@@ -890,12 +956,15 @@ const mapDispatchToProps = (dispatch) => ({
       getCustomCategories,
       userMoveToCategory,
       getCandidateComments,
+      
     },
     dispatch
   ),
   jobsActions: bindActionCreators({ getJobsList }, dispatch),
   modalActions: bindActionCreators({ show }, dispatch),
   postActions: bindActionCreators({ getPostDetails }, dispatch),
+  applicantsActions: bindActionCreators({ getJobApplicants }, dispatch),
+
 });
 
 export default connect(
