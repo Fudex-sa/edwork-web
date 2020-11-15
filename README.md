@@ -1,6 +1,6 @@
-# Furstak
+# Fursatak
 * This is a jobs Site that you can post a job as company or search for a job as user
-* This site is developed in node.js(Express), mongoDB and React 
+* This site is developed in node.js(Express) and React 
 
 # Database Schema
 
