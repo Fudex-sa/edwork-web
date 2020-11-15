@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import styles from "./styles/header.module.scss";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -21,6 +23,7 @@ import "reactjs-popup/dist/index.css";
 import history from "../../history";
 import { AuditOutlined, MailOutlined, DownOutlined, RedoOutlined, FormOutlined, UploadOutlined, ShareAltOutlined } from "@ant-design/icons";
 
+
 // Assets
 import Logo from "~assets/imgs/logo_white_blue.svg";
 
@@ -28,6 +31,7 @@ import Logo from "~assets/imgs/logo_white_blue.svg";
 import logout from "../../containers/Auth/actions/logout";
 import { Dropdown, Button, Menu, Tooltip, Switch } from "antd";
 import stopPost from "../../containers/Jobs/actions/stopPost";
+var QRCode = require('qrcode.react');
 
 const Actions = (props) => {
   const { items = [] } = props;
@@ -59,12 +63,26 @@ const jobList = (data, jobId) => (
 );
 
 class HeaderJobDetail extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      copySuccess: false
+    }
+  }
   logout = (e) => {
     const { userActions } = this.props;
     e.preventDefault();
     userActions.logout();
   };
 
+  copyCodeToClipboard = () => {
+    const el = this.input
+    el.select()
+    document.execCommand("copy")
+    this.setState({copySuccess: true})
+
+  }
   render() {
     const { data, jobId } = this.props;
     return (
@@ -188,7 +206,8 @@ class HeaderJobDetail extends Component {
                   }}
                 >
                   <input
-                    placeholder="https..//fursatak.app"
+                  ref={(input) => this.input = input}
+                    value="https..//fursatak.app"
                     className={styles.fursatak}
                     id="myInput"
                     style={{
@@ -200,16 +219,27 @@ class HeaderJobDetail extends Component {
                       marginRight: "12%",
                     }}
                   />
-                  <Link>
+                  <button onClick={() => this.copyCodeToClipboard()} style={{border:'none'}}>
                     <div style={{ display: "flex" }}>
                       <img src={Copy} alt="Copy" />
 
                       <span style={{ textDecoration: "none", color: "#333", marginLeft: "6px", fontWeight: "bold" }}>Copy</span>
+  
                     </div>
-                  </Link>
+                  
+                  </button>
+                  {
+            this.state.copySuccess ?
+            <div style={{"color": "green"}}>
+              Success!
+            </div> : null
+          }
+
                 </div>
                 <div className="text-center mt-3">
-                  <img src={QrCode} alt="QrCode" />
+                  {/* <img src={QrCode} alt="QrCode" /> */}
+                  <QRCode value="http://facebook.github.io/react/" />,
+
                 </div>
               </Popup>
 

@@ -1,68 +1,260 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Furstak
+* This is a jobs Site that you can post a job as company or search for a job as user
+* This site is developed in node.js(Express), mongoDB and React 
 
-## Available Scripts
+# Database Schema
 
-In the project directory, you can run:
+### user Model
+* active
+* phone
+* email
+* password
+* name
+* gender
+* birthday
+* gpa_score
+* avatar
+* experience
+* university_name
+* major
+* working_status
+* graduation_year
+* language
+* study_location
 
-### `yarn start`
+### University Model
+* name
+* name
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Nationality Model
+* (1) name
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Governorate Model
+* name
+* lan
+* lon
 
-### `yarn test`
+### Region Model
+* name
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Interested Model
+* name
 
-### `yarn build`
+### GraduationStatus Model
+* name
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Degree Model
+* name
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### GPA Model
+* score
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### FileCategory Model
+* name
 
-### `yarn eject`
+### File Model
+* path
+* description
+* gender
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### ActivationCodes Model
+* email
+* code
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Company Model
+* type
+* logo_path
+* name
+* website
+* business_field
+* employees
+* description
+* verified
+* plan
+* plan_started_at
+* plan_finished_at
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Company User Model
+* first_name
+* last_name
+* position
+* mobile
+* email
+* password
+* active
+* admin
+* blocked
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Address Model
+* Address
 
-## Learn More
+### Iframe Model
+* logo
+* company_name
+* description
+* background_color
+* text_color
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Notification Model
+* job
+* message
+* date
+* status
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Payment Model
+* init_payment_id
+* init_result_code
+* init_result_descriotion
+* init_build_number
+* init_ndc
+* amount
+* type
+* status
 
-### Code Splitting
+### Post Model
+* general_type
+* email
+* link
+* note
+* title
+* expected_hiring_date
+* hrdf
+* online
+* salary
+* experience
+* description
+* started_at
+* finished_at
+* active
+* hr_video_enabled
+* hr_evaluation_enabled
+* hr_selection_enabled
+* hr_nearby_enabled
+* payment_type
+* basic_filter_age
+* basic_filter_gender
+* basic_filter_natinality
+* basic_filter_education
+* basic_filter_university
+* basic_filter_student_only
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Post User Model
+* cover_letter
+* attachments
+* folder_name
+* folder_type
+* qualified
+* isCommented
+* isReaded
 
-### Analyzing the Bundle Size
+### Post Category Model
+* name
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### Comment Model
+* body
 
-### Making a Progressive Web App
+### ChoosingQuiz Model
+* question
+* allow_multiple
+* select_at_least_one
+* select_all
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### ChoosingQuizChoices Model
+* answer
+* is_correct
 
-### Advanced Configuration
+### CustomList Model
+* name
+* type
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+### DiscussionQuiz Model
+* question
 
-### Deployment
+### EvaluationQuiz Model
+* question
+* min_rate
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+### Tool Model
+* name
+* description
+* price
 
-### `yarn build` fails to minify
+### Type Model
+* name
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### UserChoosingQuizChoices Model
+* title
+
+### UserDiscussionQuiz Model
+* answer
+
+### UserEvaluationQuiz Model
+* choosed_score
+
+### UserVideoQuiz Model
+* video_path
+
+### VideoQuiz Model
+* question
+
+#ـــــــــــــــــــــــــــ 
+
+# You Can Do... 
+### As Furstak Admin
+* You can manage companies.
+* You can manage posts.
+* You can manage users.
+
+### As Company
+* Create, Edit, stop, and repost Posts.
+* You can write note on the Post.
+* Filter  and sort users on the post.
+* You can write comment on the user that applied on the post.
+* View all the currently available tables, along with the number of persons for each table.
+* Reserve/Book a table.
+* View the reservations/bookings for a specific date.
+
+### As User
+* You can create your profile
+* you can upload your documents
+* You can search for a job by (city or title)
+* you can add a job to your favorite jobs
+* you can remove the job from the favorite
+* you can show your history 
+
+
+## Install
+* you must have nodejs on your machine and you can install it [nodejs](https://nodejs.org/en/download/).
+
+## Run the Node project
+* 1 ) Download the project Node.
+* 2 ) Enter the Node project folder.
+* 3 ) Run npm install from the command line to install package.json dependencies. 
+* 4 ) Run 'npm migrate' to migrate database models
+* 5 ) Run 'npm run dev' OR 'npm run serve' to start
+* 6 ) the server will run on 8888 PORT.
+
+## Run the React project
+* 1 ) Download the project React.
+* 2 ) Enter the React project folder.
+* 3 ) Run 'yarn install' from the command line to install package.json dependencies. 
+* 4 ) Run 'yarn install' to start
+* 5 ) the server will run on 3000 PORT.
+
+
+### photo of The Site
+
+###### Home Page
+![alt text](./images/home.png)
+
+###### all Jobs Page
+![alt text](./images/listjobs.png)
+
+###### Job Details Page
+![alt text](./images/jobde.png)
+
+###### Filter Page
+![alt text](./images/filter.png)
+
+###### Sort Page
+![alt text](./images/sort.png)

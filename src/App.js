@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Route, Switch, Router } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css"; // You can also use <link> for styles
+import { ToastContainer } from 'react-toastify';
 
 // HOC
 import PrivateRoute from "~hoc/PrivateRoute";
@@ -44,6 +45,8 @@ function App() {
 
   return (
     <>
+                      <ToastContainer />
+
       <Router history={history}>
         <Switch>
           <Route exact path="/demo" component={Landing} />
