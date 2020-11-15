@@ -41,7 +41,7 @@ class StartUpHub extends Component {
       <div className="anima-container-center-horizontal">
         <img
           className="hub-logo-C61RwL"
-          src="img/startup-hub-khobar-hub-logo-768F8152-09A7-4C7F-8740-2D015F6EF042@2x.png"
+          src={require("./img/startup-hub-khobar-hub-logo-768F8152-09A7-4C7F-8740-2D015F6EF042@2x.png")}
         />
       </div>
       <div className="u0645u0631-u0627u0644-C61RwL font-class-1">
@@ -62,27 +62,27 @@ class StartUpHub extends Component {
           <a href="https://www.instagram.com/startuphubkhobar/" target="_blank"
             ><img
               className="instagram-copy-NOXmfT"
-              src="img/startup-hub-khobar-instagram-copy-DF92545F-A7C5-4A26-8261-72ADD7B5E7EA@2x.png"
+              src={require("./img/startup-hub-khobar-instagram-copy-DF92545F-A7C5-4A26-8261-72ADD7B5E7EA@2x.png")}
           /></a>
           <a href="https://www.facebook.com/Startup-Hub-Khobar-412299525997808/" target="_blank"
             ><img
               className="facebook-copy-NOXmfT"
-              src="img/startup-hub-khobar-facebook-copy-F0071E02-8558-41C5-BFFD-D19FF24158F4@2x.png"
+              src={require("./img/startup-hub-khobar-facebook-copy-F0071E02-8558-41C5-BFFD-D19FF24158F4@2x.png")}
           /></a>
           <a href="https://www.linkedin.com/company/startup-hub-khobar/about/" target="_blank"
             ><img
               className="linkedin-copy-NOXmfT"
-              src="img/startup-hub-khobar-linkedin-copy-F1981D00-3E8A-430C-88B4-267E7F904997@2x.png"
+              src={require("./img/startup-hub-khobar-linkedin-copy-F1981D00-3E8A-430C-88B4-267E7F904997@2x.png")}
           /></a>
           <a href="https://twitter.com/Startuphubkhbr" target="_blank"
             ><img
               className="twitter-copy-NOXmfT"
-              src="img/startup-hub-khobar-twitter-copy-F21D428F-6BBB-4AD8-B5F4-7386C62D3244@2x.png"
+              src={require("./img/startup-hub-khobar-twitter-copy-F21D428F-6BBB-4AD8-B5F4-7386C62D3244@2x.png")}
           /></a>
           <a href="https://startuphubkhobar.sa" target="_blank"
             ><img
               className="global-2-copy-NOXmfT"
-              src="img/startup-hub-khobar-global-2-copy-DB347675-11F6-4DF0-8BA4-4F468B7A32EC@2x.png"
+              src={require("./img/startup-hub-khobar-global-2-copy-DB347675-11F6-4DF0-8BA4-4F468B7A32EC@2x.png")}
           /></a>
         </div>
       </div>
@@ -101,7 +101,7 @@ class StartUpHub extends Component {
       <div className="anima-container-center-horizontal">
         <img
           className="hub-logo-ipad-C61RwL"
-           src="img/startup-hub-khobar-hub-logo-2-2A948A86-560D-48D2-8113-CDC15F78ACAF@2x.png"
+           src={require("./img/startup-hub-khobar-hub-logo-2-2A948A86-560D-48D2-8113-CDC15F78ACAF@2x.png")}
         />
       </div>
       <div className="anima-container-center-horizontal">
@@ -109,27 +109,27 @@ class StartUpHub extends Component {
           <a href="https://www.instagram.com/startuphubkhobar/" target="_blank"
             ><img
               className="instagram-copy-NOXmfT"
-              src="img/startup-hub-khobar-instagram-copy-A95A4098-C594-45D7-B5F4-19CDD9A5CF9E@2x.png"
+              src={require("./img/startup-hub-khobar-instagram-copy-A95A4098-C594-45D7-B5F4-19CDD9A5CF9E@2x.png")}
           /></a>
           <a href="https://www.facebook.com/Startup-Hub-Khobar-412299525997808/" target="_blank"
             ><img
               className="facebook-copy-NOXmfT"
-              src="img/startup-hub-khobar-facebook-copy-B5BF8676-042A-4A82-A329-24A2E67A7E6B@2x.png"
+              src={require("./img/startup-hub-khobar-facebook-copy-B5BF8676-042A-4A82-A329-24A2E67A7E6B@2x.png")}
           /></a>
           <a href="https://www.linkedin.com/company/startup-hub-khobar/about/" target="_blank"
             ><img
               className="linkedin-copy-NOXmfT"
-              src="img/startup-hub-khobar-linkedin-copy-80B0CB94-B517-4070-8B36-1F589041AFDA@2x.png"
+              src={require("./img/startup-hub-khobar-linkedin-copy-80B0CB94-B517-4070-8B36-1F589041AFDA@2x.png")}
           /></a>
           <a href="https://twitter.com/Startuphubkhbr" target="_blank"
             ><img
               className="twitter-copy-NOXmfT"
-              src="img/startup-hub-khobar-twitter-copy-A1B81AF4-61A0-40AA-851B-0A28659F32E1@2x.png"
+              src={require("./img/startup-hub-khobar-twitter-copy-A1B81AF4-61A0-40AA-851B-0A28659F32E1@2x.png")}
           /></a>
           <a href="https://startuphubkhobar.sa" target="_blank"
             ><img
               className="global-2-copy-NOXmfT"
-              src="img/startup-hub-khobar-global-2-copy-C7B8D52F-C771-45B7-B923-3EF29FDE4FEA@2x.png"
+              src={require("./img/startup-hub-khobar-global-2-copy-C7B8D52F-C771-45B7-B923-3EF29FDE4FEA@2x.png")}
           /></a>
         </div>
       </div>
@@ -163,7 +163,7 @@ class StartUpHub extends Component {
       <div className="anima-container-center-horizontal">
         <img
           className="hub-logo-2-C61RwL"
-          src="img/startup-hub-khobar-hub-logo-2-2A948A86-560D-48D2-8113-CDC15F78ACAF@2x.png"
+          src={require("./img/startup-hub-khobar-hub-logo-2-2A948A86-560D-48D2-8113-CDC15F78ACAF@2x.png")}
         />
       </div>
       <div className="anima-container-center-horizontal">
@@ -171,27 +171,27 @@ class StartUpHub extends Component {
           <a href="https://www.instagram.com/startuphubkhobar/" target="_blank"
             ><img
               className="instagram-copy-NOXmfT"
-              src="img/startup-hub-khobar-instagram-copy-6179E9A2-FF4E-4968-8022-3BB19B7B16D5@2x.png"
+              src={require("./img/startup-hub-khobar-instagram-copy-6179E9A2-FF4E-4968-8022-3BB19B7B16D5@2x.png")}
           /></a>
           <a href="https://www.facebook.com/Startup-Hub-Khobar-412299525997808/" target="_blank"
             ><img
               className="facebook-copy-NOXmfT"
-              src="img/startup-hub-khobar-facebook-copy-C3778DC1-B0C3-409C-8144-69E800F03891@2x.png"
+              src={require("./img/startup-hub-khobar-facebook-copy-C3778DC1-B0C3-409C-8144-69E800F03891@2x.png")}
           /></a>
           <a href="https://www.linkedin.com/company/startup-hub-khobar/about/" target="_blank"
             ><img
               className="linkedin-copy-NOXmfT"
-              src="img/startup-hub-khobar-linkedin-copy-19DA54EE-1131-49C8-9A49-49610E27CC45@2x.png"
+              src={require("./img/startup-hub-khobar-linkedin-copy-19DA54EE-1131-49C8-9A49-49610E27CC45@2x.png")}
           /></a>
           <a href="https://twitter.com/Startuphubkhbr" target="_blank"
             ><img
               className="twitter-copy-NOXmfT"
-              src="img/startup-hub-khobar-twitter-copy-60DCE7EA-588B-419E-95DA-823E0D2CDDA5@2x.png"
+              src={require("./img/startup-hub-khobar-twitter-copy-60DCE7EA-588B-419E-95DA-823E0D2CDDA5@2x.png")}
           /></a>
           <a href="https://startuphubkhobar.sa" target="_blank"
             ><img
               className="global-2-copy-NOXmfT"
-              src="img/startup-hub-khobar-global-2-copy-136BF477-B545-4F86-835E-D9375AF16D83@2x.png"
+              src={require("./img/startup-hub-khobar-global-2-copy-136BF477-B545-4F86-835E-D9375AF16D83@2x.png")}
           /></a>
         </div>
       </div>
@@ -223,7 +223,7 @@ class StartUpHub extends Component {
       <div className="anima-container-center-horizontal">
         <img
           className="hub-logo-mobile-C61RwL"
-          src="img/startup-hub-khobar-hub-logo-2-2A948A86-560D-48D2-8113-CDC15F78ACAF@2x.png"
+          src={require("./img/startup-hub-khobar-hub-logo-2-2A948A86-560D-48D2-8113-CDC15F78ACAF@2x.png")}
         />
       </div>
       <div className="anima-container-center-horizontal">
@@ -231,27 +231,27 @@ class StartUpHub extends Component {
           <a href="https://www.instagram.com/startuphubkhobar/" target="_blank"
             ><img
               className="instagram-copy-NOXmfT"
-              src="img/startup-hub-khobar-instagram-copy-ECA5643A-DD7B-46F0-BFDA-E392A67E1785@2x.png"
+              src={require("./img/startup-hub-khobar-instagram-copy-ECA5643A-DD7B-46F0-BFDA-E392A67E1785@2x.png")}
           /></a>
           <a href="https://www.facebook.com/Startup-Hub-Khobar-412299525997808/" target="_blank"
             ><img
               className="facebook-copy-NOXmfT"
-              src="img/startup-hub-khobar-facebook-copy-07359E8B-671C-4B64-9DAB-46302116E4BC@2x.png"
+              src={require("./img/startup-hub-khobar-facebook-copy-07359E8B-671C-4B64-9DAB-46302116E4BC@2x.png")}
           /></a>
           <a href="https://www.linkedin.com/company/startup-hub-khobar/about/" target="_blank"
             ><img
               className="linkedin-copy-NOXmfT"
-              src="img/startup-hub-khobar-linkedin-copy-58DBE257-F243-4CA8-80F5-1E393B1DA5A0@2x.png"
+              src={require("./img/startup-hub-khobar-linkedin-copy-58DBE257-F243-4CA8-80F5-1E393B1DA5A0@2x.png")}
           /></a>
           <a href="https://twitter.com/Startuphubkhbr" target="_blank"
             ><img
               className="twitter-copy-NOXmfT"
-              src="img/startup-hub-khobar-twitter-copy-6D5CC1E6-B8E1-400D-9507-325A0C3C3D44@2x.png"
+              src={require("./img/startup-hub-khobar-twitter-copy-6D5CC1E6-B8E1-400D-9507-325A0C3C3D44@2x.png")}
           /></a>
           <a href="https://startuphubkhobar.sa" target="_blank"
             ><img
               className="global-2-copy-NOXmfT"
-              src="img/startup-hub-khobar-global-2-copy-9A607E48-E6C2-44FA-8B27-1DFFB49D4BA9@2x.png"
+              src={require("./img/startup-hub-khobar-global-2-copy-9A607E48-E6C2-44FA-8B27-1DFFB49D4BA9@2x.png")}
           /></a>
         </div>
       </div>
