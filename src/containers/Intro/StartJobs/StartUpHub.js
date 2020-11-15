@@ -41,7 +41,7 @@ class StartUpHub extends Component {
       <div className="anima-container-center-horizontal">
         <img
           className="hub-logo-C61RwL"
-          src="img/startup-hub-khobar-hub-logo-768F8152-09A7-4C7F-8740-2D015F6EF042@2x.png"
+          src="./img/startup-hub-khobar-hub-logo-768F8152-09A7-4C7F-8740-2D015F6EF042@2x.png"
         />
       </div>
       <div className="u0645u0631-u0627u0644-C61RwL font-class-1">
