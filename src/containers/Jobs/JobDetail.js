@@ -12,7 +12,10 @@ import { Scrollbars } from "react-custom-scrollbars";
 import getPostDetails from "../Jobs/actions/getPostDetails";
 import getNationalityList from "../Jobs/actions/getNationalityList";
 import getJobApplicants from "../Jobs/actions/getJobApplicants";
-import getYears from '../Jobs/actions/getYears'
+import getYears from "../Jobs/actions/getYears";
+import FilterTitle from "../../components/jobs/filterTitle";
+import FilterLabel from "../../components/jobs/fiterLabel";
+import FilterDropDown from "../../components/jobs/FilterDropDown"
 // import {} from 'semantic-ui-react'
 // Styles
 import styles from "./styles/job-detail.module.scss";
@@ -51,6 +54,7 @@ class JobDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      showDropdown: false,
       search: "",
       data: {},
       type: "",
@@ -70,6 +74,16 @@ class JobDetail extends Component {
     });
     this.handleGetCandidate(target.value);
   };
+
+  toggleDropdown = () => {
+    if (this.state.showDropdown) {
+        this.setState({ showDropdown: false });
+    } else {
+        this.setState({ showDropdown: true });
+    }
+}
+
+
 
   handAddComment = (body) => {
     const { jobDetailActions } = this.props;
@@ -241,7 +255,6 @@ class JobDetail extends Component {
     this.getJobsData(match, postActions, jobDetailActions, company, history);
     console.log("jobapplicants", this.props.jobApplicants);
     console.log("nationalities", this.props.nationalityList);
-
   }
 
   componentWillUnmount() {
@@ -288,10 +301,10 @@ class JobDetail extends Component {
 
   getNationalityList = async () => {
     const { jobDetailActions } = this.props;
-    await jobDetailActions.getNationalityList( {
+    await jobDetailActions.getNationalityList({
       success: (response) => {
         const { message, data } = response;
-        console.log('response',response)
+        console.log("response", response);
       },
       fail: (response) => {
         const { message } = response;
@@ -302,10 +315,10 @@ class JobDetail extends Component {
 
   getYears = async () => {
     const { jobDetailActions } = this.props;
-    await jobDetailActions.getYears( {
+    await jobDetailActions.getYears({
       success: (response) => {
         const { message, data } = response;
-        console.log('response',response)
+        console.log("response", response);
       },
       fail: (response) => {
         const { message } = response;
@@ -349,11 +362,6 @@ class JobDetail extends Component {
             jobCandidate={jobCandidate}
           />
           <div className={styles.container}>
-            {/* <Categories
-              isLoading={isLoadingCustomCategories}
-              data={customCategories}
-              onAddCategory={this.handleAddcategory}
-            /> */}
             <div className={styles.board}>
               <div className={styles.board_content}>
                 <div className={styles.left_side}>
@@ -394,12 +402,6 @@ class JobDetail extends Component {
 
                   {/* filter and sort */}
                   <div className={styles.filter_sort}>
-                    {/* <Popover trigger="click" content={content}>
-                      <span className="">
-                        <FontAwesomeIcon icon={["fas", "sort-alpha-down"]} />
-                        Sort
-                      </span>
-                    </Popover> */}
                     <Dropdown
                       overlay={
                         <Menu>
@@ -476,440 +478,339 @@ class JobDetail extends Component {
                         <FontAwesomeIcon icon={["fas", "sort-alpha-down"]} />
                         Sort
                       </span>
-                      {/* <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-      Hover me <DownOutlined />
-    </a> */}
                     </Dropdown>
-                    {/* ,
-                    <span className={styles.filter}>
-                      {" "}
-                      <FontAwesomeIcon icon={["fas", "filter"]} />
-                      Filter
-                    </span> */}
-                  
-                          <Dropdown
-                            overlay={
-                              <Menu style={{ width: "900px" }}>
-                                <div
+                    <Dropdown
+                      overlay={
+                        <Menu style={{ width: "900px" }}>
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "row",
+                              color: "#0091FF",
+                              marginTop: "5px",
+                              justifyContent: "center",
+                            }}
+                          >
+                            <FontAwesomeIcon
+                              icon={["fas", "filter"]}
+                              className="mt-1 mr-1"
+                            />
+                            <p>
+                              Anyone doesn't match filtration requirements, will
+                              be auto-rejected
+                            </p>
+                          </div>
+                          <div>
+                            <div
+                              className="row ml-3 mb-2"
+                              style={{
+                                display: "flex",
+                                flexDirection: "row",
+                              }}
+                            >
+                              <FilterTitle title="Working Status" />
+                              <FilterLabel label="Is" />
+                              <div className="col-md-2">
+                                <select
+                                  class="ui dropdown ml-2"
                                   style={{
-                                    display: "flex",
-                                    flexDirection: "row",
-                                    color: "#0091FF",
-                                    marginTop: "5px",
-                                    justifyContent: "center",
+                                    width: "130px",
+                                    border: "1px solid #CFD3D5",
+                                  }}
+                                  onChange={(e) =>
+                                    this.setState({
+                                      working_status: e.target.value,
+                                    })
+                                  }
+                                >
+                                  <option value="1">Yes</option>
+                                  <option value="0">No</option>
+                                </select>
+                              </div>
+                              <div className="col-md-2">
+                                <label style={{ textAlign: "center" }}></label>
+                              </div>
+                            </div>
+                          </div>
+                          <div>
+                            <div
+                              className="row ml-3 mb-2"
+                              style={{
+                                display: "flex",
+                                flexDirection: "row",
+                              }}
+                            >
+                              <FilterTitle title="Age" />
+                              <FilterLabel label="Is between" />
+
+                              <div className="col-md-2">
+                                <select
+                                  class="ui dropdown ml-2"
+                                  style={{
+                                    width: "130px",
+                                    border: "1px solid #CFD3D5",
+                                  }}
+                                  onChange={(e) =>
+                                    this.setState({
+                                      age: e.target.value,
+                                    })
+                                  }                                >
+                                  <option value="">Age</option>
+                                  <option value="0">20</option>
+                                </select>
+                              </div>
+                              <FilterLabel label="And" />
+
+                              <div className="col-md-2">
+                                <select
+                                  class="ui dropdown ml-2"
+                                  style={{
+                                    width: "130px",
+                                    border: "1px solid #CFD3D5",
+                                  }}
+                                  onChange={(e) =>
+                                    this.setState({
+                                      age: e.target.value,
+                                    })
+                                  }  
+                                >
+                                  <option value="">Age</option>
+                                  <option value="10">30</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div>
+                            <div
+                              className="row ml-3 mb-2"
+                              style={{
+                                display: "flex",
+                                flexDirection: "row",
+                              }}
+                            >
+                              <FilterTitle title="Gender" />
+                              <FilterLabel label="Is" />
+
+                              <div className="col-md-2">
+                                <select
+                                  class="ui dropdown ml-2"
+                                  style={{
+                                    width: "130px",
+                                    border: "1px solid #CFD3D5",
+                                  }}
+                                  onChange={(e) =>
+                                    this.setState({
+                                      age: e.target.value,
+                                    })
+                                  }  
+                                >
+                                  <option value="">Gender</option>
+                                  <option value="1">Male</option>
+                                  <option value="0">Female</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div>
+                            <div
+                              className="row ml-3 mb-2"
+                              style={{
+                                display: "flex",
+                                flexDirection: "row",
+                              }}
+                            >
+                              <FilterTitle title="Nationality" />
+                              <FilterLabel label="Is" />
+                              {/* <div className="col-md-2">
+                                <select
+                                  class="ui dropdown ml-2"
+                                  style={{
+                                    width: "130px",
+                                    border: "1px solid #CFD3D5",
+                                  }}
+                                  onChange={(e) =>
+                                    this.setState({
+                                      NationalityId: e.target.value,
+                                    })
+                                  }  
+                                >
+                                  {this.props?.nationalityList?.map((item) => (
+                                    <option value="">{item.name.en}</option>
+                                  ))}
+                                </select>
+                              </div> */}
+
+                              <FilterDropDown
+                              data={this.props.nationalityList}
+                              placeholder="Nationality"
+                              onChange={this.handleChange}
+                              />
+                            </div>
+                          </div>
+
+                          <div>
+                            <div
+                              className="row ml-3 mb-2"
+                              style={{
+                                display: "flex",
+                                flexDirection: "row",
+                              }}
+                            >
+                              <FilterTitle title="Level of education" />
+                              <FilterLabel label="Is minimum" />
+                              <div className="col-md-2">
+                                <select
+                                  class="ui dropdown ml-2"
+                                  style={{
+                                    width: "130px",
+                                    border: "1px solid #CFD3D5",
+                                  }}
+                                  onChange={(e) =>
+                                    this.setState({
+                                      experience: e.target.value,
+                                    })
+                                  }  
+                                >
+                                  <option value="">Fresh Graduate</option>
+                                  <option value="1">1-2 years</option>
+                                  <option value="0">3-5 years</option>
+                                  <option value="0"> 6-10 years</option>
+                                  <option value="0"> +10 years</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div>
+                            <div
+                              className=" row ml-3 mb-2"
+                              style={{
+                                display: "flex",
+                                flexDirection: "row",
+                              }}
+                            >
+                              <FilterTitle title="Graduation Date" />
+
+                              <FilterLabel label="Is Between" />
+
+                              <div className="col-md-2">
+                                <select
+                                  class="ui dropdown ml-2"
+                                  style={{
+                                    width: "130px",
+                                    border: "1px solid #CFD3D5",
+                                  }}
+                                  onChange={(e) =>
+                                    this.setState({
+                                      graduationDate: e.target.value,
+                                    })
+                                  }  
+                                >
+                                  {this.props?.years.map((year) => (
+                                    <option value="">{year}</option>
+                                  ))}
+                                </select> 
+                         
+                              </div>
+                              <FilterLabel label="And" />
+                              <div className="col-md-2">
+                                <select
+                                  class="ui dropdown ml-2"
+                                  style={{
+                                    width: "130px",
+                                    border: "1px solid #CFD3D5",
                                   }}
                                 >
-                                  <FontAwesomeIcon
-                                    icon={["fas", "filter"]}
-                                    className="mt-1 mr-1"
-                                  />
-                                  <p>
-                                    Anyone doesn't match filtration
-                                    requirements, will be auto-rejected
-                                  </p>
-                                </div>
-                                <div>
-                                  <div
-                                    className="row ml-3 mb-2"
-                                    style={{
-                                      display: "flex",
-                                      flexDirection: "row",
-                                    }}
-                                  >
-                                    <div
-                                      className="col-md-2"
-                                      style={{
-                                        width: "25%",
-                                        border: "1px solid #CFD3D5",
-                                        padding: "1px 5px",
-                                      }}
-                                    >
-                                      Working Status
-                                    </div>
-                                    <div className="col-md-2">
-                                      <label
-                                        style={{
-                                          textAlign: "center",
-                                        }}
-                                      >
-                                        Is
-                                      </label>
-                                    </div>
-                                    <div className="col-md-2">
-                                      <select
-                                        class="ui dropdown ml-2"
-                                        style={{
-                                          width: "130px",
-                                          border: "1px solid #CFD3D5",
-                                        }}
-                                      >
-                                        <option value="">status</option>
-                                        <option value="1">Yes</option>
-                                        <option value="0">No</option>
-                                      </select>
-                                    </div>
-                                    <div className="col-md-2">
-                                      <label
-                                        style={{ textAlign: "center" }}
-                                      ></label>
-                                    </div>
-                          
-                                  </div>
-                                </div>
-                                <div>
-                                  <div
-                                    className="row ml-3 mb-2"
-                                    style={{
-                                      display: "flex",
-                                      flexDirection: "row",
-                                    }}
-                                  >
-                                    <div
-                                      className="col-md-2"
-                                      style={{
-                                        width: "25%",
-                                        border: "1px solid #CFD3D5",
-                                        padding: "1px 5px",
-                                      }}
-                                    >
-                                      Age
-                                    </div>
-                                    <div className="col-md-2">
-                                      <label style={{ textAlign: "center" }}>
-                                        Is between
-                                      </label>
-                                    </div>
-                                    <div className="col-md-2">
-                                      <select
-                                        class="ui dropdown ml-2"
-                                        style={{
-                                          width: "130px",
-                                          border: "1px solid #CFD3D5",
-                                        }}
-                                      >
-                                        <option value="">Gender</option>
-                                        <option value="1">Male</option>
-                                        <option value="0">Female</option>
-                                      </select>
-                                    </div>
-                                    <div className="col-md-2">
-                                      <label style={{ textAlign: "center" }}>
-                                        And
-                                      </label>
-                                    </div>
-                                    <div className="col-md-2">
-                                      <select
-                                        class="ui dropdown ml-2"
-                                        style={{
-                                          width: "130px",
-                                          border: "1px solid #CFD3D5",
-                                        }}
-                                      >
-                                        <option value="">Gender</option>
-                                        <option value="1">Male</option>
-                                        <option value="0">Female</option>
-                                      </select>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div>
-                                  <div
-                                    className="row ml-3 mb-2"
-                                    style={{
-                                      display: "flex",
-                                      flexDirection: "row",
-                                    }}
-                                  >
-                                    <div
-                                      className="col-md-2"
-                                      style={{
-                                        width: "25%",
-                                        border: "1px solid #CFD3D5",
-                                        padding: "1px 5px",
-                                      }}
-                                    >
-                                      Gender
-                                    </div>
-                                    <div className="col-md-2">
-                                      <label style={{ textAlign: "center" }}>
-                                        Is
-                                      </label>
-                                    </div>
-                                    <div className="col-md-2">
-                                      <select
-                                        class="ui dropdown ml-2"
-                                        style={{
-                                          width: "130px",
-                                          border: "1px solid #CFD3D5",
-                                        }}
-                                      >
-                                        <option value="">Gender</option>
-                                        <option value="1">Male</option>
-                                        <option value="0">Female</option>
-                                      </select>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div>
-                                  <div
-                                    className="row ml-3 mb-2"
-                                    style={{
-                                      display: "flex",
-                                      flexDirection: "row",
-                                    }}
-                                  >
-                                    <div
-                                      className="col-md-2"
-                                      style={{
-                                        width: "25%",
-                                        border: "1px solid #CFD3D5",
-                                        padding: "1px 5px",
-                                      }}
-                                    >
-                                      Nationality
-                                    </div>
-                                    <div className="col-md-2">
-                                      {" "}
-                                      <label style={{ textAlign: "center" }}>
-                                        Is
-                                      </label>
-                                    </div>
-                                    <div className="col-md-2">
-                                    <select
-                                        class="ui dropdown ml-2"
-                                        style={{
-                                          width: "130px",
-                                          border: "1px solid #CFD3D5",
-                                        }}
-                                      >
-                                      
-                                      {this.props?.nationalityList?.map((item)=>(
-                                       <option value="">{item.name.en}</option>
-                                      ))}
-                                 
-                                       
-                                      </select>
-                                    </div>
-                                  </div>
-                                </div>
+                                  {this.props?.years.map((year) => (
+                                    <option value="">{year}</option>
+                                  ))}
+                                </select>
+                              </div>
+                            </div>
+                          </div>
 
-                                <div>
-                                  <div
-                                    className="row ml-3 mb-2"
-                                    style={{
-                                      display: "flex",
-                                      flexDirection: "row",
-                                    }}
-                                  >
-                                    <div
-                                      className="col-md-2"
-                                      style={{
-                                        width: "25%",
-                                        border: "1px solid #CFD3D5",
-                                        padding: "1px 5px",
-                                      }}
-                                    >
-                                      Level Of Experience
-                                    </div>
-                                    <div className="col-md-2">
-                                      <label style={{ textAlign: "center" }}>
-                                        Is
-                                      </label>
-                                    </div>
-                                    <div className="col-md-2">
-                                      <select
-                                        class="ui dropdown ml-2"
-                                        style={{
-                                          width: "130px",
-                                          border: "1px solid #CFD3D5",
-                                        }}
-                                      >
-                                        <option value="">Fresh Graduate</option>
-                                        <option value="1">1-2 years</option>
-                                        <option value="0">3-5 years</option>
-                                        <option value="0"> 6-10 years</option>
-                                        <option value="0"> +10 years</option>
-                                      </select>
-                                    </div>
-                                  </div>
-                                </div>
-
-                                <div>
-                                  <div
-                                    className=" row ml-3 mb-2"
-                                    style={{
-                                      display: "flex",
-                                      flexDirection: "row",
-                                    }}
-                                  >
-                                    <div
-                                      className="col-md-2"
-                                      style={{
-                                        width: "25%",
-                                        border: "1px solid #CFD3D5",
-                                        padding: "1px 5px",
-                                      }}
-                                    >
-                                      Graduation Date
-                                    </div>
-                                    <div className="col-md-2">
-                                      <label style={{ textAlign: "center" }}>
-                                        Is between
-                                      </label>
-                                    </div>
-                                    <div className="col-md-2">
-                                      <select
-                                        class="ui dropdown ml-2"
-                                        style={{
-                                          width: "130px",
-                                          border: "1px solid #CFD3D5",
-                                        }}
-                                      >
-                                        {this.props?.years.map((year)=>(
-                                        <option value="">{year}</option>
-
-                                        ))}
-                                     
-                                      </select>
-                                    </div>
-                                    <div className="col-md-2">
-                                      <label style={{ textAlign: "center" }}>
-                                        And
-                                      </label>
-                                    </div>
-                                    <div className="col-md-2">
-                                      <select
-                                        class="ui dropdown ml-2"
-                                        style={{
-                                          width: "130px",
-                                          border: "1px solid #CFD3D5",
-                                        }}
-                                      >
-                                           {this.props?.years.map((year)=>(
-                                        <option value="">{year}</option>
-
-                                        ))}
-                                      </select>
-                                    </div>
-                                  </div>
-                                </div>
-
-                                <div>
-                                  <div
-                                    className=" row ml-3 mb-2"
-                                    style={{
-                                      display: "flex",
-                                      flexDirection: "row",
-                                    }}
-                                  >
-                                    <div
-                                      className="col-md-2"
-                                      style={{
-                                        width: "25%",
-                                        border: "1px solid #CFD3D5",
-                                        padding: "1px 5px",
-                                      }}
-                                    >
-                                      GPA
-                                    </div>
-                                    <div className="col-md-2">
-                                      {" "}
-                                      <label style={{ textAlign: "center" }}>
-                                        Is
-                                      </label>
-                                    </div>
-                                    <div className="col-md-2">
-                                      <select
-                                        class="ui dropdown ml-2"
-                                        style={{
-                                          width: "130px",
-                                          border: "1px solid #CFD3D5",
-                                        }}
-                                      >
-                                        <option value="">Gender</option>
-                                        <option value="1">Male</option>
-                                        <option value="0">Female</option>
-                                      </select>
-                                    </div>
-                                    <div className="col-md-2">
-                                      <label style={{ textAlign: "center" }}>
-                                        Is
-                                      </label>
-                                    </div>
-                                    <div className="col-md-2">
-                                      <select
-                                        class="ui dropdown ml-2"
-                                        style={{
-                                          width: "130px",
-                                          border: "1px solid #CFD3D5",
-                                        }}
-                                      >
-                                        <option value="">Gender</option>
-                                        <option value="1">Male</option>
-                                        <option value="0">Female</option>
-                                      </select>
-                                    </div>
-                                  </div>
-                                  <div style={{ textAlign: "left" }}>
-                                    <button
-                                      type="button"
-                                      style={{
-                                        backgroundColor: "#fff",
-                                        color: "#0091ff",
-                                        border: "none",
-                                        outline: "none",
-                                        height: "30px",
-                                        padding: "0 35px",
-                                        borderRadius: "25px",
-                                        border: "1px solid #0091ff",
-                                        cursor: "pointer",
-                                        fontSize: "1rem",
-                                        marginBottom: "20px",
-                                        transition: "0.1s ease-in",
-                                        letterSpacing: "0px",
-                                        opacity: "1",
-                                      }}
-                                    >
-                                      Cancel
-                                    </button>
-
-                                    <button
-                                      type="button"
-                                      style={{
-                                        border: "none",
-                                        backgroundColor: "#0091ff",
-                                        border: "none",
-                                        outline: "none",
-                                        color: "#fff",
-                                        height: "30px",
-                                        padding: "0 35px",
-                                        borderRadius: "25px",
-                                        cursor: "pointer",
-                                        fontSize: "1rem",
-                                        marginBottom: "20px",
-                                        transition: "0.1s ease-in",
-                                      }}
-                                    >
-                                      Save
-                                    </button>
-                                  </div>
-                                </div>
-                              </Menu>
-                            }
-                            trigger={["click"]}
-                          >
-                            <span
-                              className="ant-dropdown-link"
-                              onClick={(e) => e.preventDefault()}
+                          <div>
+                            <div
+                              className=" row ml-3 mb-2"
+                              style={{
+                                display: "flex",
+                                flexDirection: "row",
+                              }}
                             >
-                              <FontAwesomeIcon icon={["fas", "filter"]} />
-                              Filter
-                            </span>
-                            {/* <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-      Hover me <DownOutlined />
-    </a> */}
-                          </Dropdown>
-                    
+                              <FilterTitle title="Gpa" />
+                              <FilterLabel label="Is" />
+                              <div className="col-md-2">
+                                <select
+                                  class="ui dropdown ml-2"
+                                  style={{
+                                    width: "130px",
+                                    border: "1px solid #CFD3D5",
+                                  }}
+                                >
+                                  <option value="">Gpa</option>
+                                  <option value="1">80%</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div style={{ textAlign: "right" }}>
+                              <button
+                                type="button"
+                                style={{
+                                  backgroundColor: "#fff",
+                                  color: "#0091ff",
+                                  border: "none",
+                                  outline: "none",
+                                  height: "30px",
+                                  padding: "0 35px",
+                                  borderRadius: "25px",
+                                  border: "1px solid #0091ff",
+                                  cursor: "pointer",
+                                  fontSize: "1rem",
+                                  marginBottom: "20px",
+                                  transition: "0.1s ease-in",
+                                  letterSpacing: "0px",
+                                  opacity: "1",
+                                  marginRight:'25px'
+                                }}
+                              >
+                                Cancel
+                              </button>
+
+                              <button
+                                type="button"
+                                style={{
+                                  border: "none",
+                                  backgroundColor: "#0091ff",
+                                  border: "none",
+                                  outline: "none",
+                                  color: "#fff",
+                                  height: "30px",
+                                  padding: "0 35px",
+                                  borderRadius: "25px",
+                                  cursor: "pointer",
+                                  fontSize: "1rem",
+                                  marginBottom: "20px",
+                                  transition: "0.1s ease-in",
+                                  marginRight:'25px'
+
+                                }}
+                              >
+                                Save
+                              </button>
+                            </div>
+                          </div>
+                        </Menu>
+                      }
+                      trigger={["click"]}
+                    >
+                      <span
+                        className="ant-dropdown-link"
+                        onClick={(e) => e.preventDefault()}
+                      >
+                        <FontAwesomeIcon icon={["fas", "filter"]} />
+                        Filter
+                      </span>
+                    </Dropdown>
                     <span className={styles.passed}>Passed</span>
                   </div>
 
@@ -947,14 +848,6 @@ class JobDetail extends Component {
             </div>
           </div>
         </LoadingWrapper>
-        {/* <AddCustomCategory
-          jobId={jobId}
-          submitCb={() => {
-            // TODO: categories call
-            // this.handleGetCandidate();
-            jobDetailActions.getCustomCategories({ job_id: jobId });
-          }}
-        /> */}
       </div>
     );
   }
@@ -988,7 +881,7 @@ const mapDispatchToProps = (dispatch) => ({
       userMoveToCategory,
       getCandidateComments,
       getNationalityList,
-      getYears
+      getYears,
     },
     dispatch
   ),
@@ -996,7 +889,6 @@ const mapDispatchToProps = (dispatch) => ({
   modalActions: bindActionCreators({ show }, dispatch),
   postActions: bindActionCreators({ getPostDetails }, dispatch),
   applicantsActions: bindActionCreators({ getJobApplicants }, dispatch),
-
 });
 
 export default connect(

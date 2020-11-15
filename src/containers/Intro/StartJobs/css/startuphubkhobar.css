@@ -1,8 +1,22 @@
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 767px) {
+  .startuphubkhobar { 
+    display: none;
+   }
+  .startuphubkhobar2 { 
+    display: none;
+   }
+  .startuphubkhobar1 { 
+    display: none;
+   }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
   .startuphubkhobar { 
     display: none;
    }
   .startuphubkhobar1 { 
+    display: none;
+   }
+  .startuphubkhobar22 { 
     display: none;
    }
 }
@@ -13,55 +27,58 @@
   .startuphubkhobar2 { 
     display: none;
    }
+  .startuphubkhobar22 { 
+    display: none;
+   }
 }
 @media screen and (min-width: 1440px) {
+  .startuphubkhobar2 { 
+    display: none;
+   }
   .startuphubkhobar1 { 
     display: none;
    }
-  .startuphubkhobar2 { 
+  .startuphubkhobar22 { 
     display: none;
    }
 }
 /* screen - startuphubkhobar */
 
 .font-class-1 {
-  color: var(--quick-silver);
-  font-family: "FrutigerLTArabic-55Roman", Helvetica, Arial, serif;
+  color: var(--black);
+  font-family: "FrutigerLTArabic-75Black", Helvetica, Arial, serif;
 }
 .startuphubkhobar {
   background-color: var(--white);
   height: 100vh;
   margin: 0px;
-  min-height: 1024px;
+  min-height: 1597px;
   min-width: 1440px;
-  overflow: hidden;
   position: relative;
   width: 100%;
 }
-.startuphubkhobar .facebook-NOXmfT {
+.startuphubkhobar .facebook-copy-NOXmfT {
   background-color: transparent;
-  background-image: url(../img/startup-hub-khobar-oval-6A7DE0B1-D514-4819-8D4B-E0C47A8C1204@2x.png);
-  background-size: 100% 100%;
-  height: 30px;
-  left: 119px;
+  height: 33px;
+  left: 270px;
   position: absolute;
   top: 0px;
-  width: 30px;
+  width: 33px;
 }
-.startuphubkhobar .global-2-NOXmfT {
+.startuphubkhobar .global-2-copy-NOXmfT {
   background-color: transparent;
-  height: 30px;
+  height: 33px;
   left: 0px;
   position: absolute;
   top: 0px;
-  width: 30px;
+  width: 33px;
 }
 .startuphubkhobar .group-C61RwL {
   background-color: transparent;
-  height: 30px;
+  height: 33px;
   position: absolute;
-  top: 204px;
-  width: 261px;
+  top: 337px;
+  width: 393px;
 }
 .startuphubkhobar .hub-logo-C61RwL {
   background-color: transparent;
@@ -70,169 +87,21 @@
   top: 62px;
   width: 262px;
 }
-.startuphubkhobar .instagram-NOXmfT {
+.startuphubkhobar .instagram-copy-NOXmfT {
   background-color: transparent;
-  background-image: url(../img/startup-hub-khobar-shape-BF9CC965-62DA-4AFA-84E8-0993BCFD9028@2x.png);
-  background-size: 100% 100%;
-  height: 30px;
-  left: 175px;
+  height: 33px;
+  left: 90px;
   position: absolute;
   top: 0px;
-  width: 30px;
+  width: 33px;
 }
-.startuphubkhobar .linkedin-NOXmfT {
+.startuphubkhobar .linkedin-copy-NOXmfT {
   background-color: transparent;
-  background-image: url(../img/startup-hub-khobar-shape-06D18D4E-50B2-48B3-9733-CBA7AAD6871B@2x.png);
-  background-size: 100% 100%;
-  height: 30px;
-  left: 231px;
+  height: 33px;
+  left: 360px;
   position: absolute;
   top: 0px;
-  width: 30px;
-}
-.startuphubkhobar .oval-aqZ4Sd {
-  background-color: transparent;
-  height: 4px;
-  left: 21px;
-  position: absolute;
-  top: 5px;
-  width: 4px;
-}
-.startuphubkhobar .path-026VEG {
-  background-color: transparent;
-  height: 6px;
-  left: 19px;
-  position: absolute;
-  top: 0px;
-  width: 7px;
-}
-.startuphubkhobar .path-0wixww {
-  background-color: transparent;
-  height: 6px;
-  left: 4px;
-  position: absolute;
-  top: 0px;
-  width: 7px;
-}
-.startuphubkhobar .path-1og7zh {
-  background-color: transparent;
-  height: 7px;
-  left: 16px;
-  position: absolute;
-  top: 16px;
-  width: 7px;
-}
-.startuphubkhobar .path-7Bgfnb {
-  background-color: transparent;
-  height: 6px;
-  left: 4px;
-  position: absolute;
-  top: 24px;
-  width: 7px;
-}
-.startuphubkhobar .path-92pbm4 {
-  background-color: transparent;
-  height: 7px;
-  left: 9px;
-  position: absolute;
-  top: 23px;
-  width: 6px;
-}
-.startuphubkhobar .path-AfCyfb {
-  background-color: transparent;
-  height: 9px;
-  left: 22px;
-  position: absolute;
-  top: 5px;
-  width: 8px;
-}
-.startuphubkhobar .path-LLxRjN {
-  background-color: transparent;
-  height: 6px;
-  left: 19px;
-  position: absolute;
-  top: 24px;
-  width: 7px;
-}
-.startuphubkhobar .path-LvSRBQ {
-  background-color: transparent;
-  height: 9px;
-  left: 0px;
-  position: absolute;
-  top: 16px;
-  width: 8px;
-}
-.startuphubkhobar .path-SW9xrz {
-  background-color: transparent;
-  height: 7px;
-  left: 8px;
-  position: absolute;
-  top: 7px;
-  width: 7px;
-}
-.startuphubkhobar .path-VDFvcu {
-  background-color: transparent;
-  height: 7px;
-  left: 9px;
-  position: absolute;
-  top: 0px;
-  width: 6px;
-}
-.startuphubkhobar .path-VQst24 {
-  background-color: transparent;
-  height: 7px;
-  left: 16px;
-  position: absolute;
-  top: 0px;
-  width: 6px;
-}
-.startuphubkhobar .path-VhcBLE {
-  background-color: transparent;
-  height: 9px;
-  left: 22px;
-  position: absolute;
-  top: 16px;
-  width: 8px;
-}
-.startuphubkhobar .path-apxJo5 {
-  background-color: transparent;
-  height: 9px;
-  left: 0px;
-  position: absolute;
-  top: 5px;
-  width: 8px;
-}
-.startuphubkhobar .path-brSqjp {
-  background-color: transparent;
-  height: 7px;
-  left: 16px;
-  position: absolute;
-  top: 7px;
-  width: 7px;
-}
-.startuphubkhobar .path-e5GK5c {
-  background-color: transparent;
-  height: 19px;
-  left: 10px;
-  position: absolute;
-  top: 6px;
-  width: 9px;
-}
-.startuphubkhobar .path-k5KRVh {
-  background-color: transparent;
-  height: 7px;
-  left: 8px;
-  position: absolute;
-  top: 16px;
-  width: 7px;
-}
-.startuphubkhobar .path-ttmW0C {
-  background-color: transparent;
-  height: 7px;
-  left: 16px;
-  position: absolute;
-  top: 23px;
-  width: 6px;
+  width: 33px;
 }
 .startuphubkhobar .rectangle-C61RwL {
   align-items: center;
@@ -241,87 +110,97 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  height: 761px;
+  height: 1201px;
   justify-content: center;
   left: 95px;
   position: absolute;
   width: calc(100.00% - 190px);
 }
-.startuphubkhobar .shape-aqZ4Sd {
-  background-color: transparent;
-  height: 15px;
-  left: 7px;
-  position: absolute;
-  top: 7px;
-  width: 15px;
+.startuphubkhobar .span1-xuncO9 {
+  letter-spacing: 0.00px;
+  line-height: 46px;
 }
-.startuphubkhobar .twitter-NOXmfT {
-  background-color: transparent;
-  background-image: url(../img/startup-hub-khobar-path-4BE684D7-E3AD-47B2-A7CE-9C78205CF3E6@2x.png);
-  background-size: 100% 100%;
-  height: 30px;
-  left: 56px;
-  position: absolute;
-  top: 0px;
-  width: 37px;
-}
-.startuphubkhobar .u0645u062c-0644-u0628-C61RwL {
-  background-color: transparent;
+.startuphubkhobar .span2-xuncO9 {
+  font-family: "FrutigerLTArabic-55Roman", Helvetica, Arial, serif;
   font-size: 16px;
+  letter-spacing: 0.00px;
+  line-height: 31px;
+}
+.startuphubkhobar .span3-xuncO9 {
+  font-family: "FrutigerLTArabic-65Bold", Helvetica, Arial, serif;
+  font-size: 16px;
+  letter-spacing: 0.00px;
+  line-height: 31px;
+}
+.startuphubkhobar .span4-xuncO9 {
+  color: rgba(142,142,142,1.0);
+  font-family: "FrutigerLTArabic-55Roman", Helvetica, Arial, serif;
+  font-size: 16px;
+  letter-spacing: 0.00px;
+  line-height: 31px;
+}
+.startuphubkhobar .twitter-copy-NOXmfT {
+  background-color: transparent;
+  height: 27px;
+  left: 180px;
+  position: absolute;
+  top: 3px;
+  width: 33px;
+}
+.startuphubkhobar .u0645u0631-u0627u0644-C61RwL {
+  background-color: transparent;
+  font-size: 24px;
   height: auto;
   left: 95px;
-  line-height: 31px;
+  line-height: 16px;
   position: absolute;
   text-align: center;
-  top: 140px;
+  top: 145px;
   width: calc(100.00% - 190px);
 }
 :root {
-  --quick-silver: rgba(165,165,165,1.0);
+  --black: rgba(0,0,0,1.0);
   --white: rgba(255,255,255,1.0);
 }
 /* screen - startuphubkhobar1 */
 
 .font-class-1 {
-  color: var(--quick-silver);
-  font-family: "FrutigerLTArabic-55Roman", Helvetica, Arial, serif;
+  color: var(--black);
+  font-family: "FrutigerLTArabic-75Black", Helvetica, Arial, serif;
 }
 .startuphubkhobar1 {
   background-color: var(--white);
   height: 100vh;
   margin: 0px;
-  min-height: 1024px;
+  min-height: 1597px;
   min-width: 1024px;
-  overflow: hidden;
   position: relative;
   width: 100%;
 }
-.startuphubkhobar1 .facebook-NOXmfT {
+.startuphubkhobar1 .facebook-copy-NOXmfT {
   background-color: transparent;
-  background-image: url(../img/startup-hub-khobar-oval-9197F911-E9A7-44BF-9054-F71070D479A7@2x.png);
-  background-size: 100% 100%;
-  height: 23px;
-  left: 99px;
+  height: 27px;
+  left: 176px;
   position: absolute;
   top: 0px;
-  width: 23px;
+  width: 27px;
 }
-.startuphubkhobar1 .global-2-NOXmfT {
+.startuphubkhobar1 .global-2-copy-NOXmfT {
   background-color: transparent;
-  height: 23px;
+  height: 27px;
   left: 0px;
   position: absolute;
   top: 0px;
-  width: 23px;
+  width: 27px;
 }
 .startuphubkhobar1 .group-C61RwL {
   background-color: transparent;
-  height: 23px;
+  height: 27px;
   position: absolute;
-  top: 139px;
-  width: 216px;
+  top: 340px;
+  width: 263px;
 }
-.startuphubkhobar1 .hub-logo-C61RwL {
+.startuphubkhobar1 .hub-logo-2-C61RwL {
   background-color: transparent;
   height: 52px;
   margin-left: -0px;
@@ -330,169 +209,21 @@
   top: 36px;
   width: 231px;
 }
-.startuphubkhobar1 .instagram-NOXmfT {
+.startuphubkhobar1 .instagram-copy-NOXmfT {
   background-color: transparent;
-  background-image: url(../img/startup-hub-khobar-shape-4AC5AFDF-C4CD-4A4F-98EF-96A36C604F85@2x.png);
-  background-size: 100% 100%;
-  height: 23px;
-  left: 146px;
+  height: 27px;
+  left: 58px;
   position: absolute;
   top: 0px;
-  width: 23px;
+  width: 27px;
 }
-.startuphubkhobar1 .linkedin-NOXmfT {
+.startuphubkhobar1 .linkedin-copy-NOXmfT {
   background-color: transparent;
-  background-image: url(../img/startup-hub-khobar-shape-4FEB048A-2EAC-4917-AC96-6E0D22E9F582@2x.png);
-  background-size: 100% 100%;
-  height: 23px;
-  left: 193px;
+  height: 27px;
+  left: 236px;
   position: absolute;
   top: 0px;
-  width: 23px;
-}
-.startuphubkhobar1 .oval-aqZ4Sd {
-  background-color: transparent;
-  height: 3px;
-  left: 16px;
-  position: absolute;
-  top: 4px;
-  width: 3px;
-}
-.startuphubkhobar1 .path-026VEG {
-  background-color: transparent;
-  height: 4px;
-  left: 15px;
-  position: absolute;
-  top: 0px;
-  width: 5px;
-}
-.startuphubkhobar1 .path-0wixww {
-  background-color: transparent;
-  height: 4px;
-  left: 3px;
-  position: absolute;
-  top: 0px;
-  width: 5px;
-}
-.startuphubkhobar1 .path-1og7zh {
-  background-color: transparent;
-  height: 5px;
-  left: 12px;
-  position: absolute;
-  top: 12px;
-  width: 5px;
-}
-.startuphubkhobar1 .path-7Bgfnb {
-  background-color: transparent;
-  height: 4px;
-  left: 3px;
-  position: absolute;
-  top: 19px;
-  width: 5px;
-}
-.startuphubkhobar1 .path-92pbm4 {
-  background-color: transparent;
-  height: 5px;
-  left: 7px;
-  position: absolute;
-  top: 18px;
-  width: 4px;
-}
-.startuphubkhobar1 .path-AfCyfb {
-  background-color: transparent;
-  height: 7px;
-  left: 17px;
-  position: absolute;
-  top: 4px;
-  width: 6px;
-}
-.startuphubkhobar1 .path-LLxRjN {
-  background-color: transparent;
-  height: 4px;
-  left: 15px;
-  position: absolute;
-  top: 19px;
-  width: 5px;
-}
-.startuphubkhobar1 .path-LvSRBQ {
-  background-color: transparent;
-  height: 7px;
-  left: 0px;
-  position: absolute;
-  top: 12px;
-  width: 6px;
-}
-.startuphubkhobar1 .path-SW9xrz {
-  background-color: transparent;
-  height: 5px;
-  left: 6px;
-  position: absolute;
-  top: 6px;
-  width: 5px;
-}
-.startuphubkhobar1 .path-VDFvcu {
-  background-color: transparent;
-  height: 5px;
-  left: 7px;
-  position: absolute;
-  top: 0px;
-  width: 4px;
-}
-.startuphubkhobar1 .path-VQst24 {
-  background-color: transparent;
-  height: 5px;
-  left: 12px;
-  position: absolute;
-  top: 0px;
-  width: 4px;
-}
-.startuphubkhobar1 .path-VhcBLE {
-  background-color: transparent;
-  height: 7px;
-  left: 17px;
-  position: absolute;
-  top: 12px;
-  width: 6px;
-}
-.startuphubkhobar1 .path-apxJo5 {
-  background-color: transparent;
-  height: 7px;
-  left: 0px;
-  position: absolute;
-  top: 4px;
-  width: 6px;
-}
-.startuphubkhobar1 .path-brSqjp {
-  background-color: transparent;
-  height: 5px;
-  left: 12px;
-  position: absolute;
-  top: 6px;
-  width: 5px;
-}
-.startuphubkhobar1 .path-e5GK5c {
-  background-color: transparent;
-  height: 15px;
-  left: 8px;
-  position: absolute;
-  top: 4px;
-  width: 7px;
-}
-.startuphubkhobar1 .path-k5KRVh {
-  background-color: transparent;
-  height: 5px;
-  left: 6px;
-  position: absolute;
-  top: 12px;
-  width: 5px;
-}
-.startuphubkhobar1 .path-ttmW0C {
-  background-color: transparent;
-  height: 5px;
-  left: 12px;
-  position: absolute;
-  top: 18px;
-  width: 4px;
+  width: 27px;
 }
 .startuphubkhobar1 .rectangle-copy-C61RwL {
   align-items: center;
@@ -501,87 +232,97 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  height: 850px;
+  height: 1212px;
   justify-content: center;
   left: 37px;
   position: absolute;
   width: calc(100.00% - 74px);
 }
-.startuphubkhobar1 .shape-aqZ4Sd {
-  background-color: transparent;
-  height: 12px;
-  left: 5px;
-  position: absolute;
-  top: 5px;
-  width: 12px;
+.startuphubkhobar1 .span1-xuncO9 {
+  letter-spacing: 0.00px;
+  line-height: 46px;
 }
-.startuphubkhobar1 .twitter-NOXmfT {
-  background-color: transparent;
-  background-image: url(../img/startup-hub-khobar-path-A03E7465-EE58-4F49-BD5A-102E230F1EAA@2x.png);
-  background-size: 100% 100%;
-  height: 23px;
-  left: 47px;
-  position: absolute;
-  top: 0px;
-  width: 28px;
+.startuphubkhobar1 .span2-xuncO9 {
+  font-family: "FrutigerLTArabic-55Roman", Helvetica, Arial, serif;
+  font-size: 16px;
+  letter-spacing: 0.00px;
+  line-height: 31px;
 }
-.startuphubkhobar1 .u0645u062c-0644-u0628-C61RwL {
+.startuphubkhobar1 .span3-xuncO9 {
+  font-family: "FrutigerLTArabic-65Bold", Helvetica, Arial, serif;
+  font-size: 16px;
+  letter-spacing: 0.00px;
+  line-height: 31px;
+}
+.startuphubkhobar1 .span4-xuncO9 {
+  color: rgba(142,142,142,1.0);
+  font-family: "FrutigerLTArabic-55Roman", Helvetica, Arial, serif;
+  font-size: 16px;
+  letter-spacing: 0.00px;
+  line-height: 31px;
+}
+.startuphubkhobar1 .twitter-copy-NOXmfT {
   background-color: transparent;
-  font-size: 13px;
+  height: 22px;
+  left: 118px;
+  position: absolute;
+  top: 3px;
+  width: 27px;
+}
+.startuphubkhobar1 .u0645u0631-u0627u0644-C61RwL {
+  background-color: transparent;
+  font-size: 24px;
   height: auto;
   left: 37px;
-  line-height: 25px;
+  line-height: 16px;
   position: absolute;
   text-align: center;
-  top: 100px;
+  top: 131px;
   width: calc(100.00% - 74px);
 }
 :root {
-  --quick-silver: rgba(165,165,165,1.0);
+  --black: rgba(0,0,0,1.0);
   --white: rgba(255,255,255,1.0);
 }
 /* screen - startuphubkhobar2 */
 
 .font-class-1 {
-  color: var(--quick-silver);
-  font-family: "FrutigerLTArabic-55Roman", Helvetica, Arial, serif;
+  color: var(--black);
+  font-family: "FrutigerLTArabic-75Black", Helvetica, Arial, serif;
 }
 .startuphubkhobar2 {
   background-color: var(--white);
   height: 100vh;
   margin: 0px;
-  min-height: 1024px;
+  min-height: 1597px;
   min-width: 768px;
-  overflow: hidden;
   position: relative;
   width: 100%;
 }
 .startuphubkhobar2 .facebook-copy-NOXmfT {
   background-color: transparent;
-  background-image: url(../img/startup-hub-khobar-oval-4414035C-E835-4AF8-91BB-6A430AD32DC9@2x.png);
-  background-size: 100% 100%;
-  height: 21px;
-  left: 114px;
+  height: 24px;
+  left: 156px;
   position: absolute;
   top: 0px;
-  width: 21px;
+  width: 24px;
 }
 .startuphubkhobar2 .global-2-copy-NOXmfT {
   background-color: transparent;
-  height: 21px;
+  height: 24px;
   left: 0px;
   position: absolute;
   top: 0px;
-  width: 21px;
+  width: 24px;
 }
 .startuphubkhobar2 .group-C61RwL {
   background-color: transparent;
-  height: 21px;
+  height: 24px;
   position: absolute;
-  top: 138px;
-  width: 245px;
+  top: 307px;
+  width: 234px;
 }
-.startuphubkhobar2 .hub-logo-copy-C61RwL {
+.startuphubkhobar2 .hub-logo-ipad-C61RwL {
   background-color: transparent;
   height: 52px;
   position: absolute;
@@ -590,167 +331,19 @@
 }
 .startuphubkhobar2 .instagram-copy-NOXmfT {
   background-color: transparent;
-  background-image: url(../img/startup-hub-khobar-shape-332FFC9B-BD90-4C66-9CC5-7FFE9172B05C@2x.png);
-  background-size: 100% 100%;
-  height: 21px;
-  left: 169px;
+  height: 24px;
+  left: 52px;
   position: absolute;
   top: 0px;
-  width: 21px;
+  width: 24px;
 }
 .startuphubkhobar2 .linkedin-copy-NOXmfT {
   background-color: transparent;
-  background-image: url(../img/startup-hub-khobar-shape-4D5F2D75-F608-4545-8BCB-5838D2AD4DD5@2x.png);
-  background-size: 100% 100%;
-  height: 21px;
-  left: 224px;
+  height: 24px;
+  left: 210px;
   position: absolute;
   top: 0px;
-  width: 21px;
-}
-.startuphubkhobar2 .oval-6JI463 {
-  background-color: transparent;
-  height: 3px;
-  left: 14px;
-  position: absolute;
-  top: 4px;
-  width: 3px;
-}
-.startuphubkhobar2 .path-1dtQ0G {
-  background-color: transparent;
-  height: 5px;
-  left: 11px;
-  position: absolute;
-  top: 11px;
-  width: 5px;
-}
-.startuphubkhobar2 .path-3cs6Qa {
-  background-color: transparent;
-  height: 5px;
-  left: 6px;
-  position: absolute;
-  top: 16px;
-  width: 4px;
-}
-.startuphubkhobar2 .path-4XFKrU {
-  background-color: transparent;
-  height: 6px;
-  left: 16px;
-  position: absolute;
-  top: 11px;
-  width: 5px;
-}
-.startuphubkhobar2 .path-4YvjEr {
-  background-color: transparent;
-  height: 4px;
-  left: 13px;
-  position: absolute;
-  top: 17px;
-  width: 5px;
-}
-.startuphubkhobar2 .path-6Esp4X {
-  background-color: transparent;
-  height: 5px;
-  left: 11px;
-  position: absolute;
-  top: 5px;
-  width: 5px;
-}
-.startuphubkhobar2 .path-7OwWJG {
-  background-color: transparent;
-  height: 14px;
-  left: 8px;
-  position: absolute;
-  top: 3px;
-  width: 6px;
-}
-.startuphubkhobar2 .path-9X3bDU {
-  background-color: transparent;
-  height: 5px;
-  left: 6px;
-  position: absolute;
-  top: 0px;
-  width: 4px;
-}
-.startuphubkhobar2 .path-FMuStw {
-  background-color: transparent;
-  height: 6px;
-  left: 0px;
-  position: absolute;
-  top: 11px;
-  width: 5px;
-}
-.startuphubkhobar2 .path-IkIRv3 {
-  background-color: transparent;
-  height: 5px;
-  left: 5px;
-  position: absolute;
-  top: 5px;
-  width: 5px;
-}
-.startuphubkhobar2 .path-KxxUfV {
-  background-color: transparent;
-  height: 5px;
-  left: 5px;
-  position: absolute;
-  top: 11px;
-  width: 5px;
-}
-.startuphubkhobar2 .path-Nh7ZDB {
-  background-color: transparent;
-  height: 6px;
-  left: 16px;
-  position: absolute;
-  top: 4px;
-  width: 5px;
-}
-.startuphubkhobar2 .path-OKBERD {
-  background-color: transparent;
-  height: 6px;
-  left: 0px;
-  position: absolute;
-  top: 4px;
-  width: 5px;
-}
-.startuphubkhobar2 .path-XSRxC7 {
-  background-color: transparent;
-  height: 4px;
-  left: 3px;
-  position: absolute;
-  top: 17px;
-  width: 5px;
-}
-.startuphubkhobar2 .path-hZvAuv {
-  background-color: transparent;
-  height: 4px;
-  left: 13px;
-  position: absolute;
-  top: 0px;
-  width: 5px;
-}
-.startuphubkhobar2 .path-tkbSAM {
-  background-color: transparent;
-  height: 5px;
-  left: 11px;
-  position: absolute;
-  top: 16px;
-  width: 4px;
-}
-.startuphubkhobar2 .path-xfkBbV {
-  background-color: transparent;
-  height: 5px;
-  left: 11px;
-  position: absolute;
-  top: 0px;
-  width: 4px;
-}
-.startuphubkhobar2 .path-z71s0a {
-  background-color: transparent;
-  height: 4px;
-  left: 3px;
-  position: absolute;
-  top: 0px;
-  width: 5px;
+  width: 24px;
 }
 .startuphubkhobar2 .rectangle-copy-2-C61RwL {
   align-items: center;
@@ -759,50 +352,214 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  height: 850px;
+  height: 1252px;
   justify-content: center;
   left: 24px;
   position: absolute;
   width: calc(100.00% - 48px);
 }
-.startuphubkhobar2 .shape-6JI463 {
-  background-color: transparent;
-  height: 11px;
-  left: 5px;
-  position: absolute;
-  top: 5px;
-  width: 11px;
+.startuphubkhobar2 .span1-xuncO9 {
+  letter-spacing: 0.00px;
+  line-height: 42px;
+}
+.startuphubkhobar2 .span2-xuncO9 {
+  font-size: 24px;
+  letter-spacing: 0.00px;
+  line-height: 46px;
+}
+.startuphubkhobar2 .span3-xuncO9 {
+  font-family: "FrutigerLTArabic-55Roman", Helvetica, Arial, serif;
+  font-size: 12px;
+  letter-spacing: 0.00px;
+  line-height: 23px;
+}
+.startuphubkhobar2 .span4-xuncO9 {
+  font-family: "FrutigerLTArabic-65Bold", Helvetica, Arial, serif;
+  font-size: 12px;
+  letter-spacing: 0.00px;
+  line-height: 23px;
+}
+.startuphubkhobar2 .span5-xuncO9 {
+  color: rgba(142,142,142,1.0);
+  font-family: "FrutigerLTArabic-55Roman", Helvetica, Arial, serif;
+  font-size: 12px;
+  letter-spacing: 0.00px;
+  line-height: 23px;
+}
+.startuphubkhobar2 .span6-xuncO9 {
+  color: rgba(142,142,142,1.0);
+  font-family: "FrutigerLTArabic-55Roman", Helvetica, Arial, serif;
+  font-size: 16px;
+  letter-spacing: 0.00px;
+  line-height: 31px;
 }
 .startuphubkhobar2 .twitter-copy-NOXmfT {
   background-color: transparent;
-  background-image: url(../img/startup-hub-khobar-path-46481156-547C-467E-B096-3CCE734A7EC1@2x.png);
-  background-size: 100% 100%;
-  height: 21px;
-  left: 55px;
+  height: 19px;
+  left: 105px;
   position: absolute;
-  top: 0px;
-  width: 25px;
+  top: 3px;
+  width: 24px;
 }
-.startuphubkhobar2 .u0645u062c-u0628-copy-C61RwL {
+.startuphubkhobar2 .u0645u0631-u0627u0644-C61RwL {
   background-color: transparent;
-  font-size: 13px;
+  font-size: 22px;
   height: auto;
   left: 24px;
-  line-height: 20px;
+  line-height: 12px;
   position: absolute;
   text-align: center;
-  top: 89px;
+  top: 102px;
   width: calc(100.00% - 48px);
 }
 :root {
-  --quick-silver: rgba(165,165,165,1.0);
+  --black: rgba(0,0,0,1.0);
+  --white: rgba(255,255,255,1.0);
+}
+/* screen - startuphubkhobar22 */
+
+.font-class-1 {
+  color: var(--black);
+  font-family: "FrutigerLTArabic-75Black", Helvetica, Arial, serif;
+}
+.startuphubkhobar22 {
+  background-color: var(--white);
+  height: 100vh;
+  margin: 0px;
+  min-height: 1597px;
+  min-width: 320px;
+  position: relative;
+  width: 100%;
+}
+.startuphubkhobar22 .facebook-copy-NOXmfT {
+  background-color: transparent;
+  height: 21px;
+  left: 137px;
+  position: absolute;
+  top: 0px;
+  width: 21px;
+}
+.startuphubkhobar22 .global-2-copy-NOXmfT {
+  background-color: transparent;
+  height: 21px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 21px;
+}
+.startuphubkhobar22 .group-C61RwL {
+  background-color: transparent;
+  height: 21px;
+  margin-left: -0px;
+  margin-right: 0px;
+  position: absolute;
+  top: 411px;
+  width: 205px;
+}
+.startuphubkhobar22 .hub-logo-mobile-C61RwL {
+  background-color: transparent;
+  height: 52px;
+  position: absolute;
+  top: 35px;
+  width: 231px;
+}
+.startuphubkhobar22 .instagram-copy-NOXmfT {
+  background-color: transparent;
+  height: 21px;
+  left: 45px;
+  position: absolute;
+  top: 0px;
+  width: 21px;
+}
+.startuphubkhobar22 .linkedin-copy-NOXmfT {
+  background-color: transparent;
+  height: 21px;
+  left: 184px;
+  position: absolute;
+  top: 0px;
+  width: 21px;
+}
+.startuphubkhobar22 .rectangle-copy-3-C61RwL {
+  align-items: center;
+  background-color: transparent;
+  bottom: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 1147px;
+  justify-content: center;
+  left: 11px;
+  position: absolute;
+  width: calc(100.00% - 20px);
+}
+.startuphubkhobar22 .span1-xuncO9 {
+  letter-spacing: 0.00px;
+  line-height: 29px;
+}
+.startuphubkhobar22 .span2-xuncO9 {
+  font-size: 24px;
+  letter-spacing: 0.00px;
+  line-height: 46px;
+}
+.startuphubkhobar22 .span3-xuncO9 {
+  font-family: "FrutigerLTArabic-55Roman", Helvetica, Arial, serif;
+  font-size: 12px;
+  letter-spacing: 0.00px;
+  line-height: 23px;
+}
+.startuphubkhobar22 .span4-xuncO9 {
+  font-family: "FrutigerLTArabic-65Bold", Helvetica, Arial, serif;
+  font-size: 12px;
+  letter-spacing: 0.00px;
+  line-height: 23px;
+}
+.startuphubkhobar22 .span5-xuncO9 {
+  color: rgba(142,142,142,1.0);
+  font-family: "FrutigerLTArabic-55Roman", Helvetica, Arial, serif;
+  font-size: 12px;
+  letter-spacing: 0.00px;
+  line-height: 23px;
+}
+.startuphubkhobar22 .twitter-copy-NOXmfT {
+  background-color: transparent;
+  height: 17px;
+  left: 92px;
+  position: absolute;
+  top: 2px;
+  width: 21px;
+}
+.startuphubkhobar22 .u0645u0631-u0627u0644-C61RwL {
+  background-color: transparent;
+  font-size: 15px;
+  height: auto;
+  left: 10px;
+  line-height: 12px;
+  position: absolute;
+  text-align: center;
+  top: 105px;
+  width: calc(100.00% - 20px);
+}
+:root {
+  --black: rgba(0,0,0,1.0);
   --white: rgba(255,255,255,1.0);
 }
 
 
-@font-face {
+  @font-face {
+        font-family: "FrutigerLTArabic-75Black";
+        src: url("https://anima-uploads.s3.amazonaws.com/5d1deaed550db87b3a65c461/FrutigerLTArabic-75Black.ttf")
+          format("truetype");
+      }
+
+      @font-face {
         font-family: "FrutigerLTArabic-55Roman";
         src: url("https://anima-uploads.s3.amazonaws.com/5c5174b816943b000ac488e0/FrutigerLTArabic-55Roman.ttf")
+          format("truetype");
+      }
+
+      @font-face {
+        font-family: "FrutigerLTArabic-65Bold";
+        src: url("https://anima-uploads.s3.amazonaws.com/5c5174b816943b000ac488e0/FrutigerLTArabic-65Bold.ttf")
           format("truetype");
       }
       .anima-component-wrapper a,
@@ -966,3 +723,5 @@
       .anima-listeners-active-click * {
         cursor: pointer;
       }
+
+
