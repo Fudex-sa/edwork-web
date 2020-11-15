@@ -15,7 +15,7 @@ import getJobApplicants from "../Jobs/actions/getJobApplicants";
 import getYears from "../Jobs/actions/getYears";
 import FilterTitle from "../../components/jobs/filterTitle";
 import FilterLabel from "../../components/jobs/fiterLabel";
-import FilterDropDown from "../../components/jobs/FilterDropDown"
+import FilterDropDown from "../../components/jobs/FilterDropDown";
 // import {} from 'semantic-ui-react'
 // Styles
 import styles from "./styles/job-detail.module.scss";
@@ -63,27 +63,29 @@ class JobDetail extends Component {
       NationalityId: "",
       gender: "", //male or famel
       experience: "", //number or ""
-      age: {}, //number or ""
-      graduationDate: "", // number of year
+      between: "", //number or ""
+      and: "", //number or ""
+      graduationBetween: "", // number of year
+      graduationAnd: "", // number of year
+      education:"",
     };
   }
 
-  handleChange = ({ target }) => {
+  handleChange = ({ target }, isFilter) => {
+    console.log(target.name);
     this.setState({
-      type: target.value,
+      [target.name]: target.value,
     });
-    this.handleGetCandidate(target.value);
+    if (!isFilter) this.handleGetCandidate(target.value);
   };
 
   toggleDropdown = () => {
     if (this.state.showDropdown) {
-        this.setState({ showDropdown: false });
+      this.setState({ showDropdown: false });
     } else {
-        this.setState({ showDropdown: true });
+      this.setState({ showDropdown: true });
     }
-}
-
-
+  };
 
   handAddComment = (body) => {
     const { jobDetailActions } = this.props;
@@ -141,8 +143,10 @@ class JobDetail extends Component {
       NationalityId,
       gender,
       experience,
-      age,
-      graduationDate,
+      between,
+      and,
+      graduationBetween,
+      graduationAnd,
       sortBy,
     } = this.state;
     const data = {
@@ -151,8 +155,8 @@ class JobDetail extends Component {
       NationalityId,
       gender,
       experience,
-      age,
-      graduationDate,
+      age: { between, and },
+      GraduationDate: { between: graduationBetween, and: graduationAnd },
     };
     if (sortBy) data.sortBy = sortBy;
     jobDetailActions.getJobCandidate(data);
@@ -340,6 +344,7 @@ class JobDetail extends Component {
       customCategories,
       match,
       t,
+      nationalityList,
     } = this.props;
     const { search } = this.state;
 
@@ -517,11 +522,8 @@ class JobDetail extends Component {
                                     width: "130px",
                                     border: "1px solid #CFD3D5",
                                   }}
-                                  onChange={(e) =>
-                                    this.setState({
-                                      working_status: e.target.value,
-                                    })
-                                  }
+                                  onChange={(e) => this.handleChange(e, true)}
+                                  name="working_status"
                                 >
                                   <option value="1">Yes</option>
                                   <option value="0">No</option>
@@ -544,39 +546,31 @@ class JobDetail extends Component {
                               <FilterLabel label="Is between" />
 
                               <div className="col-md-2">
-                                <select
+                                <input
                                   class="ui dropdown ml-2"
                                   style={{
                                     width: "130px",
                                     border: "1px solid #CFD3D5",
                                   }}
-                                  onChange={(e) =>
-                                    this.setState({
-                                      age: e.target.value,
-                                    })
-                                  }                                >
-                                  <option value="">Age</option>
+                                  name="between"
+                                  onChange={(e) => this.handleChange(e, true)}
+                                />
+                                {/* <option value="">Age</option>
                                   <option value="0">20</option>
-                                </select>
+                                </select> */}
                               </div>
                               <FilterLabel label="And" />
 
                               <div className="col-md-2">
-                                <select
+                                <input
                                   class="ui dropdown ml-2"
                                   style={{
                                     width: "130px",
                                     border: "1px solid #CFD3D5",
                                   }}
-                                  onChange={(e) =>
-                                    this.setState({
-                                      age: e.target.value,
-                                    })
-                                  }  
-                                >
-                                  <option value="">Age</option>
-                                  <option value="10">30</option>
-                                </select>
+                                  name="and"
+                                  onChange={(e) => this.handleChange(e, true)}
+                                />
                               </div>
                             </div>
                           </div>
@@ -598,11 +592,8 @@ class JobDetail extends Component {
                                     width: "130px",
                                     border: "1px solid #CFD3D5",
                                   }}
-                                  onChange={(e) =>
-                                    this.setState({
-                                      age: e.target.value,
-                                    })
-                                  }  
+                                  onChange={(e) => this.handleChange(e, true)}
+                                  name="gender"
                                 >
                                   <option value="">Gender</option>
                                   <option value="1">Male</option>
@@ -641,9 +632,9 @@ class JobDetail extends Component {
                               </div> */}
 
                               <FilterDropDown
-                              data={this.props.nationalityList}
-                              placeholder="Nationality"
-                              onChange={this.handleChange}
+                                data={nationalityList}
+                                placeholder="Nationality"
+                                changeSelected={this.handleChange}
                               />
                             </div>
                           </div>
@@ -665,11 +656,8 @@ class JobDetail extends Component {
                                     width: "130px",
                                     border: "1px solid #CFD3D5",
                                   }}
-                                  onChange={(e) =>
-                                    this.setState({
-                                      experience: e.target.value,
-                                    })
-                                  }  
+                                  onChange={(e) => this.handleChange(e, true)}
+                                  name="education"
                                 >
                                   <option value="">Fresh Graduate</option>
                                   <option value="1">1-2 years</option>
@@ -700,17 +688,14 @@ class JobDetail extends Component {
                                     width: "130px",
                                     border: "1px solid #CFD3D5",
                                   }}
-                                  onChange={(e) =>
-                                    this.setState({
-                                      graduationDate: e.target.value,
-                                    })
-                                  }  
+                                  onChange={(e) => this.handleChange(e, true)}
+                                  name="graduationBetween"
                                 >
+                                  <option value="0">year</option>
                                   {this.props?.years.map((year) => (
-                                    <option value="">{year}</option>
+                                    <option value={year}>{year}</option>
                                   ))}
-                                </select> 
-                         
+                                </select>
                               </div>
                               <FilterLabel label="And" />
                               <div className="col-md-2">
@@ -720,9 +705,12 @@ class JobDetail extends Component {
                                     width: "130px",
                                     border: "1px solid #CFD3D5",
                                   }}
+                                  onChange={(e) => this.handleChange(e, true)}
+                                  name="graduationAnd"
                                 >
+                                  <option value="0">year</option>
                                   {this.props?.years.map((year) => (
-                                    <option value="">{year}</option>
+                                    <option value={year}>{year}</option>
                                   ))}
                                 </select>
                               </div>
@@ -746,9 +734,15 @@ class JobDetail extends Component {
                                     width: "130px",
                                     border: "1px solid #CFD3D5",
                                   }}
+                                  onChange={(e) => this.handleChange(e, true)}
+                                  name="gpa_score"
                                 >
                                   <option value="">Gpa</option>
-                                  <option value="1">80%</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
                                 </select>
                               </div>
                             </div>
@@ -770,7 +764,7 @@ class JobDetail extends Component {
                                   transition: "0.1s ease-in",
                                   letterSpacing: "0px",
                                   opacity: "1",
-                                  marginRight:'25px'
+                                  marginRight: "25px",
                                 }}
                               >
                                 Cancel
@@ -791,9 +785,9 @@ class JobDetail extends Component {
                                   fontSize: "1rem",
                                   marginBottom: "20px",
                                   transition: "0.1s ease-in",
-                                  marginRight:'25px'
-
+                                  marginRight: "25px",
                                 }}
+                                onClick={this.handleFilterCandidate}
                               >
                                 Save
                               </button>

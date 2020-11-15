@@ -1,13 +1,13 @@
 import React from "react";
 
 const filterDropDown = ({
+
   data,
   getTitle,
   getValue,
   placeholder,
   changeSelected,
 }) => {
-
   return (
     <div className="col-md-2">
       <select
@@ -16,7 +16,8 @@ const filterDropDown = ({
           width: "130px",
           border: "1px solid #CFD3D5",
         }}
-        onChange={(e) => changeSelected(e.target.value)}
+        name="NationalityId"
+        onChange={(e) => changeSelected(e,true)}
       >
         {placeholder ? <option value="">{placeholder}</option> : null}
         {data.map((e) => (
