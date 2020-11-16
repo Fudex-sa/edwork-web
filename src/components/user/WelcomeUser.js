@@ -38,6 +38,7 @@ const getGreating = (t) => {
 class WelcomeUser extends PureComponent {
   render() {
     const { user = {}, t } = this.props;
+    // console.log('user',user)
     const { greating, icon } = getGreating(t);
     return (
       <div className={styles.container}>

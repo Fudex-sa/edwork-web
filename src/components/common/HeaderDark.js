@@ -18,7 +18,7 @@ import GiftIcon from "~assets/imgs/gift.svg";
 // Actions
 import logout from "../../containers/Auth/actions/logout";
 
-const LoginView = ({ actions, userData, t, history }) => {
+const LoginView = ({ actions, userData, t, history}) => {
   const isProUser = userData.Company?.plan;
   const startPlan = moment(userData.Company?.plan_started_at);
   const endPlan = moment(userData.Company?.plan_finished_at);
@@ -28,7 +28,10 @@ const LoginView = ({ actions, userData, t, history }) => {
   const goToPay = () => {
     history.push("/registration/plan");
   };
-
+const handleCarear=()=>{
+  console.log('user',userData?userData.CompanyId:null)
+history.push(`/company/carear/${userData?userData.CompanyId:null}`)
+}
   return (
     <div className={styles.actions}>
       <div
@@ -46,12 +49,12 @@ const LoginView = ({ actions, userData, t, history }) => {
         />
         <div className={styles.days_left}>{daysLeft} Days left</div>
       </div>
-      <Link to="/career" style={{color:'black'}}>
+      <a onClick={handleCarear} style={{color:'black'}}>
       <div>
-      <img src={Career} alt="Career" style={{marginLeft:'50px'}}/> 
-        <div style={{fontSize:'15px'}}>Your Career Page</div>
+      <img src={Career} alt="Career" style={{marginLeft:'30px'}}/> 
+        <div style={{fontSize:'14px',color: '#5C5C5C'}}>Carear Page</div>
       </div>
-      </Link>
+      </a>
       <div className={styles.signOut} onClick={actions.logout }>
         <FontAwesomeIcon icon={["fas", "sign-out-alt"]} />
         <div>Logout</div>
@@ -74,7 +77,6 @@ class HeaderDark extends Component {
     history.push("/login");
     userActions.logout();
   };
-
   render() {
     const { userData, t, history } = this.props;
     const hasRegistration = window.location.pathname.indexOf("/registration") !== -1;

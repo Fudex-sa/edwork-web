@@ -61,7 +61,7 @@ class Job extends Component {
             {companyData?.verified && <img src={VerifyIcon} alt="verify-user" />}
             {companyData?.name}
           </p>
-          <WelcomeUser user={userData} />
+          {/* <WelcomeUser user={userData} /> */}
         </div>
 
         {/* jobs list */}
@@ -75,7 +75,7 @@ class Job extends Component {
           <div className={styles.left}>
             <span className={styles.youtube}>
               <FontAwesomeIcon className={styles.arrow} icon={["fab", "youtube"]} />
-              <span>Larn how to use the website</span>
+              <span>Learn how to use the website</span>
             </span>
           </div>
           <div className={styles.right}>
