@@ -54,7 +54,7 @@ function App() {
           <Route exact path="/company/carear/:id" component={Carear} />
           <Route exact path="/startuphubkhobar" component={StartUpHub} />
           <Route exact path="/starthiring" component={StartHiring} />
-          <Route exact path="/career" component={Career} />
+          {/* <Route exact path="/career" component={Career} /> */}
 
           <Route exact path="/view" component={ViewJobs} />
           <PublicRoute exact path="/" component={LandingDemo} />

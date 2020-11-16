@@ -90,7 +90,7 @@ class Job extends Component {
     return (
       <div className={styles.jobsListPage}>
         {/* header */}
-        <HeaderDark />
+        <HeaderDark userinfo={userData}/>
 
         {/* company data and welcome user */}
         <div className={styles.company_wrapper}>
