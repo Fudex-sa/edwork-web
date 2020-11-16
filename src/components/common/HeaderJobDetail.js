@@ -185,7 +185,7 @@ class HeaderJobDetail extends Component {
                       borderRadius: "8px",
                     }}
                   >
-                    <h3 style={{ color: "#fff" }}>1</h3>
+                    <h3 style={{ color: "#fff" }}>2</h3>
                   </div>
                   <span
                     style={{
