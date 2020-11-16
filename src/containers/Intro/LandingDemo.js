@@ -45,12 +45,12 @@ class LandingDemo extends Component {
               </div>
               <p className={styles.description}>أعلن عن وظيفة | افرز و وفلتر | أختر الأنسب واتمم عملية التوظيف</p>
               <div className={styles.routes}>
-                <a href="https://airtable.com/shr2Ha0FJ0fRgNUdZ/tbllE97wJF2OHpkXb">
+                <a href="https://airtable.com/embed/shrvqGKJrOWuqrb26/tblO63RuZewqXQqLS?backgroundColor=purple&layout=card">
                   <button type="button" className={styles.showOpportunity}>
                     استعراض الفرص
                   </button>
                 </a>{" "}
-                <a href="https://airtable.com/shrsvOP1B9iS8EnKc">
+                <a href="https://airtable.com/embed/shr6L7E3H69RvwqcC">
                   <button type="button" className={styles.create_account}>
                     <FontAwesomeIcon className={styles.arrow} icon={["fas", "arrow-left"]} />
                     إضافه إعلان وظيفى 

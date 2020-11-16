@@ -147,6 +147,7 @@ class JobDetail extends Component {
       and,
       graduationBetween,
       graduationAnd,
+      education,
       sortBy,
     } = this.state;
     const data = {
@@ -155,6 +156,7 @@ class JobDetail extends Component {
       NationalityId,
       gender,
       experience,
+      education,
       age: { between, and },
       GraduationDate: { between: graduationBetween, and: graduationAnd },
     };
@@ -638,7 +640,35 @@ class JobDetail extends Component {
                               />
                             </div>
                           </div>
-
+<div>
+                            <div
+                              className="row ml-3 mb-2"
+                              style={{
+                                display: "flex",
+                                flexDirection: "row",
+                              }}
+                            >
+                              <FilterTitle title="Level of Experience" />
+                              <FilterLabel label="Is" />
+                              <div className="col-md-2">
+                                <select
+                                  class="ui dropdown ml-2"
+                                  style={{
+                                    width: "130px",
+                                    border: "1px solid #CFD3D5",
+                                  }}
+                                  onChange={(e) => this.handleChange(e, true)}
+                                  name="experience"
+                                >
+                                  <option value="">Fresh Graduate</option>
+                                  <option value="0">1-2 years</option>
+                                  <option value="1">3-5 years</option>
+                                  <option value="2"> 6-10 years</option>
+                                  <option value="3"> +10 years</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
                           <div>
                             <div
                               className="row ml-3 mb-2"
@@ -659,11 +689,10 @@ class JobDetail extends Component {
                                   onChange={(e) => this.handleChange(e, true)}
                                   name="education"
                                 >
-                                  <option value="">Fresh Graduate</option>
-                                  <option value="1">1-2 years</option>
-                                  <option value="0">3-5 years</option>
-                                  <option value="0"> 6-10 years</option>
-                                  <option value="0"> +10 years</option>
+                                  <option value="">education</option>
+                                  <option value="0">Bachelor of</option>
+                                  <option value="1">M.A.</option>
+                                  <option value="2">PhD</option>
                                 </select>
                               </div>
                             </div>
