@@ -1,21 +1,22 @@
-import React, { Component } from 'react';
-import { Input as InputAd } from 'antd';
-import styles from './styles/input.module.scss';
-import classnames from 'classnames';
+import React, { Component } from "react";
+import { Input as InputAd } from "antd";
+import styles from "./styles/input.module.scss";
+import classnames from "classnames";
 
 const { TextArea } = InputAd;
 
 export default class Input extends Component {
   render() {
     const {
-      placeholder = 'Placeholder',
-      label = '',
+      placeholder = "Placeholder",
+      label = "",
       afterLabel,
       onChange,
-      value = '',
-      type = 'text',
+      value = "",
+      type = "text",
       textarea,
       disabled,
+      name,
       pre,
     } = this.props;
     return (
@@ -33,6 +34,7 @@ export default class Input extends Component {
         )} */}
         {textarea ? (
           <TextArea
+            name={name}
             value={value}
             disabled={disabled}
             className={styles.input}
@@ -42,6 +44,7 @@ export default class Input extends Component {
           />
         ) : (
           <InputAd
+            name={name}
             type={type}
             addonBefore={pre}
             disabled={disabled}

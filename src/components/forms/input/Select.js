@@ -23,6 +23,7 @@ export default class Select extends Component {
       customWrapperStyle = {},
       disabled,
       multiple,
+      name,
     } = this.props;
     // console.warn(value);
     let additionalProps = {};
@@ -48,6 +49,7 @@ export default class Select extends Component {
         <SelectAd
           disabled={!!disabled}
           value={value}
+          name={name}
           className={styles.select}
           // defaultValue="1"
           placeholder={placeholder}

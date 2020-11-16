@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Route, Switch, Router } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css"; // You can also use <link> for styles
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
 
 // HOC
 import PrivateRoute from "~hoc/PrivateRoute";
@@ -34,7 +34,8 @@ import AllJobs from "../src/containers/Intro/AllJobs/AllJobs";
 import StartUpHub from "../src/containers/Intro/StartJobs/StartUpHub";
 import history from "./history";
 import StartHiring from "../src/containers/Intro/StartHiring";
-import Career from '../src/containers/Intro/StartJobs/Career'
+import SponserdCompany from "~components/sponserd";
+import CreateSponserd from "~components/sponserd/createSponserd";
 function App() {
   // This function to imit AOS library which creates animation in the landing page
   useEffect(() => {
@@ -45,7 +46,7 @@ function App() {
 
   return (
     <>
-                      <ToastContainer />
+      <ToastContainer />
 
       <Router history={history}>
         <Switch>
@@ -54,19 +55,27 @@ function App() {
           <Route exact path="/company/carear/:id" component={Carear} />
           <Route exact path="/startuphubkhobar" component={StartUpHub} />
           <Route exact path="/starthiring" component={StartHiring} />
-          {/* <Route exact path="/career" component={Career} /> */}
-
           <Route exact path="/view" component={ViewJobs} />
           <PublicRoute exact path="/" component={LandingDemo} />
           <PublicRoute exact path="/login" component={Login} />
-          <PublicRoute exact path="/forget-password" component={ForgetPassword} />
+          <PublicRoute
+            exact
+            path="/forget-password"
+            component={ForgetPassword}
+          />
           <Route exact path="/activate" component={ActivateUser} />
           <Route exact path="/update-password" component={UpdatePassword} />
           <PublicRoute exact path="/registration" component={Registration} />
-          <PublicRoute exact path="/registration/plan" component={RegistrationChoosePlan} />
+          <PublicRoute
+            exact
+            path="/registration/plan"
+            component={RegistrationChoosePlan}
+          />
           <Route exact path="/pay" component={Pay} />
           <Route exact path="/check-status" component={CheckPayment} />
           <PrivateRoute path="/dashboard" component={Job} />
+          <PrivateRoute path="/sponserd/create" component={CreateSponserd} />
+          <PrivateRoute path="/sponserd" component={SponserdCompany} />
           <PrivateRoute path="/membership" component={Membership} />
           <PrivateRoute path="/coworkers" component={CoWorkers} />
           <PrivateRoute path="/settings" component={Settings} />

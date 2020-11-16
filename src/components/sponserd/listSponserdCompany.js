@@ -1,53 +1,53 @@
-import React, { PureComponent } from "react";
-import PropTypes from 'prop-types'
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import moment from "moment";
-import "react-pure-modal/dist/react-pure-modal.min.css";
-// import "./css/startuphubkhobar.css";
+import PropTypes from "prop-types";
+import classnames from "classnames";
 
 class listSponserdCompany extends Component {
-
-  componentDidMount() {
-      this.props.getPosts()
-      this.props.getSuggestionProfiles()
-  }
-
   render() {
-      const {posts, loading} = this.props.post;
-      const {profiles} = this.props.profile;
-      let postContent;
-      let youmayInteristedIn;
-
-      return (
-          <div className="feed">
-              <div>
-                  <div className="row">
-                      <div className="col-md-3 sidenav d-none d-md-block">
-                          <h3 className='mb-3'>Discover....</h3>
-                          {youmayInteristedIn}
-                      </div>
-                      <div className="col-md-12">
-                      </div>
-                  </div>
-              </div>
-          </div>
+    const { companies } = this.props;
+    let listOfCompanies = [];
+    if (companies.length) {
+      listOfCompanies = (
+        <table className="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Business Field</th>
+              <th scope="col">Employees</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {companies.map((company, index) => (
+              <tr key={company.id}>
+                <th scope="row">{index + 1}</th>
+                <td>{company.name}</td>
+                <td>{company.business_field}</td>
+                <td>{company.employees}</td>
+                <td>{company.employees}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       );
+    }
+    return (
+      <div className="card card-body mb-3">
+        <Link to="/sponserd/create" className="mb-2">
+          <button type="button" class="btn btn-primary">
+            New Company
+          </button>
+        </Link>
+        {listOfCompanies}
+      </div>
+    );
   }
 }
 
-listSponserdCompany.propTypes = {
-  post: PropTypes.object.isRequired,
-  getPosts: PropTypes.func.isRequired,
-  getSuggestionProfiles: PropTypes.func.isRequired,
-};
-
-const mapStateToProps = state => ({
-  post: state.post,
-  profile: state.profile,
-})
-
 listSponserdCompany.propTypes = {};
-export default connect(
-  mapStateToProps,
-  {getPosts, getSuggestionProfiles}
-)(listSponserdCompany);
+const mapStateToProps = (state) => ({});
+listSponserdCompany.defaultProps = {};
+export default connect(mapStateToProps, {})(listSponserdCompany);
