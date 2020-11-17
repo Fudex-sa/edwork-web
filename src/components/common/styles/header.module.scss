@@ -1,3 +1,5 @@
+@import "../../../assets//styles//mixins/responsive";
+
 .header {
   $heightHeader: 80px;
   height: $heightHeader;
@@ -150,6 +152,11 @@ flex: 0.5;
           width: auto;
         }
       }
+
+      @media (max-width: 768px)
+    {
+          margin-top: 200px;
+      }
     }
 
     .nav_container {
@@ -214,9 +221,24 @@ flex: 0.5;
 
           .profile_status {
             .status {
+
               margin-bottom: 10px;
             }
           }
+     
+          @include tablet {
+            margin-top: 160px;
+            margin-right: 0px;
+            }
+          
+            @include mobile {
+              margin-top: 160px;
+              margin-right: 0px;
+
+            }
+
+
+
         }
 
         .balance {
@@ -244,6 +266,15 @@ flex: 0.5;
             }
           }
         }
+
+        @include tablet {
+          flex-direction: column;
+          }
+        
+          @include mobile {
+            flex-direction: column;
+          }
+
       }
 
       .signOut {
