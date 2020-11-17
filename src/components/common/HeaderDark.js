@@ -10,7 +10,7 @@ import { withRouter } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Progress } from "antd";
 import "./styles/header.module.scss";
-import Career from '../../assets/imgs/carreer.png'
+import Career from "../../assets/imgs/carreer.png";
 // Assets
 import LogoWhiteBlue from "~assets/imgs/logo_white_blue.svg";
 import GiftIcon from "~assets/imgs/gift.svg";
@@ -18,50 +18,61 @@ import GiftIcon from "~assets/imgs/gift.svg";
 // Actions
 import logout from "../../containers/Auth/actions/logout";
 
-const LoginView = ({ actions, userData, t, history}) => {
+const LoginView = ({ actions, userData, t, history }) => {
   const isProUser = userData.Company?.plan;
   const startPlan = moment(userData.Company?.plan_started_at);
   const endPlan = moment(userData.Company?.plan_finished_at);
 
-  const daysLeft = endPlan.diff(moment(), "days")+1;
-
+  const daysLeft = endPlan.diff(moment(), "days") + 1;
+  console.log(
+    "------------------------------===========================================-------------------------"
+  );
+  console.log(userData);
   const goToPay = () => {
     history.push("/registration/plan");
   };
-const handleCarear=()=>{
-  console.log('user',userData?userData.CompanyId:null)
-history.push(`/company/carear/${userData?userData.CompanyId:null}`)
-}
+  const handleCarear = () => {
+    console.log("user", userData ? userData.CompanyId : null);
+    history.push(`/company/carear/${userData ? userData.CompanyId : null}`);
+  };
   return (
     <div className={styles.actions}>
       <div
         className={styles.plan_wrapper}
         onClick={() => {
           if (!isProUser) goToPay();
-        }}>
-        <FontAwesomeIcon icon={["fas", "infinity"]} /> <span>Unlimited Posts</span>
-
+        }}
+      >
+        <FontAwesomeIcon icon={["fas", "infinity"]} />{" "}
+        <span>Unlimited Posts</span>
         <Progress
           className={styles.progressBar}
           percent={(100 / 14) * daysLeft}
-          status='normal'
+          status="normal"
           showInfo={false}
         />
         <div className={styles.days_left}>{daysLeft} Days left</div>
       </div>
-      <a onClick={handleCarear} style={{color:'black'}}>
-      <div>
-      <img src={Career} alt="Career" style={{marginLeft:'30px'}}/> 
-        <div style={{fontSize:'14px',color: '#5C5C5C'}}>Carear Page</div>
-      </div>
+      <a onClick={handleCarear} style={{ color: "black" }}>
+        <div>
+          <img src={Career} alt="Career" style={{ marginLeft: "30px" }} />
+          <div style={{ fontSize: "14px", color: "#5C5C5C" }}>Carear Page</div>
+        </div>
       </a>
-      <div className={styles.signOut} onClick={actions.logout }>
+      <div className={styles.signOut} onClick={actions.logout}>
         <FontAwesomeIcon icon={["fas", "sign-out-alt"]} />
         <div>Logout</div>
       </div>
-
+      {userData?.Company?.type === "accelerator" && (
+        <div className={styles.settings + " pr-2"}>
+          <Link to="/sponserd">
+            <FontAwesomeIcon icon={["fas", "building"]} />
+            <div>Sponserd</div>
+          </Link>
+        </div>
+      )}
       <div className={styles.settings}>
-        <Link to='/settings'>
+        <Link to="/settings">
           <FontAwesomeIcon icon={["fas", "cog"]} />
           <div>Settings</div>
         </Link>
@@ -71,35 +82,36 @@ history.push(`/company/carear/${userData?userData.CompanyId:null}`)
 };
 
 class HeaderDark extends Component {
-  logout = e => {
-    const { userActions,history } = this.props;
+  logout = (e) => {
+    const { userActions, history } = this.props;
     e.preventDefault();
     history.push("/login");
     userActions.logout();
   };
   render() {
     const { userData, t, history } = this.props;
-    const hasRegistration = window.location.pathname.indexOf("/registration") !== -1;
+    const hasRegistration =
+      window.location.pathname.indexOf("/registration") !== -1;
 
     return (
       <div className={styles.header}>
         <div className={styles.container}>
           <div className={styles.logo_container}>
-            <Link to={userData?'/dashboard':"/"} className={styles.logo}>
-              <img src={LogoWhiteBlue} alt='logo' />
+            <Link to={userData ? "/dashboard" : "/"} className={styles.logo}>
+              <img src={LogoWhiteBlue} alt="logo" />
             </Link>
           </div>
           <div className={styles.nav_container}>
             {userData ? (
               <div>
-              <LoginView
-                userData={userData}
-                actions={{
-                  logout: this.logout
-                }}
-                t={t}
-                history={history}
-              />
+                <LoginView
+                  userData={userData}
+                  actions={{
+                    logout: this.logout,
+                  }}
+                  t={t}
+                  history={history}
+                />
               </div>
             ) : (
               <div>
@@ -113,8 +125,11 @@ class HeaderDark extends Component {
                 )}
                 <NavLink
                   className={styles.button_nav}
-                  to={hasRegistration ? "/login" : "/registration"}>
-                  {hasRegistration ? t("header.login") : t("header.registration")}
+                  to={hasRegistration ? "/login" : "/registration"}
+                >
+                  {hasRegistration
+                    ? t("header.login")
+                    : t("header.registration")}
                 </NavLink>
               </div>
             )}
@@ -125,12 +140,12 @@ class HeaderDark extends Component {
   }
 }
 
-const mapStateToProps = store => ({
-  userData: store.auth.user
+const mapStateToProps = (store) => ({
+  userData: store.auth.user,
 });
 
-const mapDispatchToProps = dispatch => ({
-  userActions: bindActionCreators({ logout }, dispatch)
+const mapDispatchToProps = (dispatch) => ({
+  userActions: bindActionCreators({ logout }, dispatch),
 });
 
 export default connect(
