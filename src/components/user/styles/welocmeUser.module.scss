@@ -1,3 +1,5 @@
+@import "../../../assets//styles//mixins/responsive";
+
 .container {
   margin: 10px;
   font-size: 18px;
@@ -17,3 +19,15 @@
     }
   }
 }
+
+.greetingStyle{
+
+}       @include tablet {
+ width: 162px;
+  }
+
+  @include mobile {
+    width: 162px;
+  }
+
+

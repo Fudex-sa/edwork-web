@@ -45,7 +45,7 @@ class WelcomeUser extends PureComponent {
         <div className={styles.icon}>
           <img src={icon} alt="day status icon" />
         </div>
-        <span>
+        <span className={styles.greetingStyle}>
           {greating}, {user?user.first_name:''}
         </span>
       </div>
