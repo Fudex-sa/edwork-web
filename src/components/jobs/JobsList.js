@@ -39,6 +39,7 @@ class JobsList extends PureComponent {
   render() {
     const { headTitles, data, actions, jobId } = this.props;
     console.warn(data);
+    console.log('data',data)
     return (
       <div className={styles.job_list}>
         {headTitles && (
@@ -73,6 +74,8 @@ class JobsList extends PureComponent {
               job.note ? (
                 <div>
                   <Popup
+                  inverted on="hover"
+                  wide="very"
                     trigger={<span className={styles.note}>{job.note}</span>}
                     position="top left"
                     data-variation="huge"
@@ -82,13 +85,14 @@ class JobsList extends PureComponent {
                       marginBottom: "8px",
                       border: "none",
                       color: "white",
-                      padding: "15px 15px",
+                      padding: "15px",
                       textAlign: "left",
                       textDecoration: "none",
                       display: "inline-block",
                       fontSize: "14px",
                       cursor: "pointer",
                       borderRadius: "6px",
+                      maxWidth:'280px'
                     }}
                   >
                     {" "}

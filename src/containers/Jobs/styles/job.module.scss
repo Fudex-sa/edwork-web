@@ -1,3 +1,5 @@
+@import "../../../assets/styles/mixins/responsive";
+
 .jobsListPage {
   background-color: #f4f6f7;
 
@@ -28,6 +30,14 @@
         display: block;
       }
     }
+      @include tablet {
+  margin-top: 160px;
+  }
+
+  @include mobile {
+    margin-top: 200px;
+
+  }
   }
 
   .company_name {
