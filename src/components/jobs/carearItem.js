@@ -17,7 +17,7 @@ class carearItem extends PureComponent {
     this.state = {
       modal: false,
       job: {},
-      jobLinlk:""
+      jobLinlk: "",
     };
   }
   copyCodeToClipboard = () => {
@@ -27,11 +27,8 @@ class carearItem extends PureComponent {
     this.setState({ copySuccess: true });
   };
   generateLink = (id) => {
-    let jobLinlk = document.location.href + "/jobId=" + id 
-    this.setState({jobLinlk})
-    console.log(this.state);
-    // console.log(document.location.href);
-    // this.input = document.location.href + "/jobId=" + 12;
+    let jobLinlk = document.location.href + "?jobId=" + id;
+    this.setState({ jobLinlk });
   };
 
   setModal = (modal, job = {}) => {
@@ -107,7 +104,7 @@ class carearItem extends PureComponent {
                   <button className="btn btn-secondary btn-sm">الخبر</button>
                 </div>
               </div>
-              <div className="col-2" onClick={()=>this.generateLink(job.id)}>
+              <div className="col-2" onClick={() => this.generateLink(job.id)}>
                 <div className="card-title">Share</div>
                 <div className="pt-2">
                   <Popup
