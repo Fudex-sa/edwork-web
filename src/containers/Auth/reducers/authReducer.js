@@ -1,4 +1,10 @@
-import { AUTH_COMPANY, TOKEN_VALIDATE, LOGOUT } from '../actions/constants';
+import {
+  AUTH_COMPANY,
+  TOKEN_VALIDATE,
+  LOGOUT,
+  GET_SPONSERD,
+  CREATE_SPONSER,
+} from "../actions/constants";
 
 const initialState = {
   authLoading: 0,
@@ -6,6 +12,7 @@ const initialState = {
   authenticating: 0,
   token: null,
   user: null,
+  sponserd: [],
 };
 
 const authReducer = (state = initialState, { payload, type, token }) => {
@@ -22,6 +29,10 @@ const authReducer = (state = initialState, { payload, type, token }) => {
     case AUTH_COMPANY:
       return { ...state, authLoading: 1 };
     case `${AUTH_COMPANY}_SUCCESS`:
+
+    case `${CREATE_SPONSER}_SUCCESS`:
+      return { ...state, sponserd: [...state.sponserd, payload.company] };
+    case `${AUTH_COMPANY}_SUCCESS`:
       return {
         ...state,
         authLoading: 0,
@@ -32,6 +43,8 @@ const authReducer = (state = initialState, { payload, type, token }) => {
     case `${AUTH_COMPANY}_FAIL`:
       return { ...state, authLoading: 0, authenticated: 0 };
 
+    case `${GET_SPONSERD}_SUCCESS`:
+      return { ...state, sponserd: payload.companies || [] };
     case TOKEN_VALIDATE:
       return { ...state, authenticated: 0, authenticating: 1 };
     case `${TOKEN_VALIDATE}_SUCCESS`:
