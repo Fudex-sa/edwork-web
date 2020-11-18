@@ -56,7 +56,7 @@ const LoginView = ({ actions, userData, t, history }) => {
       </a>
       <div className={styles.signOut} onClick={actions.logout}>
         <FontAwesomeIcon icon={["fas", "sign-out-alt"]} />
-        <div style={styles.logOutSpan}>Logout</div>
+        <div className={styles.logOutSpan}>Logout</div>
       </div>
       {userData?.Company?.type === "accelerator" && (
         <div className={styles.settings + " pr-2"}>
