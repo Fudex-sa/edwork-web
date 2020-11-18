@@ -293,9 +293,7 @@ class JobDetail extends Component {
   getJobApplicants = async (id) => {
     const { applicantsActions } = this.props;
     await applicantsActions.getJobApplicants(id, {
-      success: (response) => {
-        const { message, data } = response;
-      },
+      success: () => {},
       fail: (response) => {
         const { message } = response;
         notify.error(message);
@@ -306,9 +304,7 @@ class JobDetail extends Component {
   getNationalityList = async () => {
     const { jobDetailActions } = this.props;
     await jobDetailActions.getNationalityList({
-      success: (response) => {
-        const { message, data } = response;
-      },
+      success: () => {},
       fail: (response) => {
         const { message } = response;
         notify.error(message);
@@ -319,26 +315,19 @@ class JobDetail extends Component {
   getYears = async () => {
     const { jobDetailActions } = this.props;
     await jobDetailActions.getYears({
-      success: (response) => {
-        const { message, data } = response;
-      },
-      fail: (response) => {
-        const { message } = response;
+      success: () => {},
+      fail: ({ message }) => {
         notify.error(message);
       },
     });
   };
   render() {
     const {
-      jobDetailActions,
       isLoadingJobCandidate,
       jobCandidate = [],
       jobDetailData,
       isLoadingCandidateDetail,
       jobsList,
-      isLoadingCustomCategories,
-      jobApplicants,
-      jobApplicantsLoading,
       customCategories,
       match,
       t,
@@ -352,8 +341,8 @@ class JobDetail extends Component {
       <div>
         <HeaderJobDetail
           data={jobsList}
-          jobId={match?.params?.id}
-          postId={match?.params?.id}
+          jobId={jobId}
+          postId={jobId}
           postDetails={this.state.data}
         />
         <LoadingWrapper isLoading={isLoadingJobCandidate}>
@@ -718,7 +707,9 @@ class JobDetail extends Component {
                                 >
                                   <option value="0">year</option>
                                   {this.props?.years.map((year) => (
-                                    <option value={year}>{year}</option>
+                                    <option value={year} key={year}>
+                                      {year}
+                                    </option>
                                   ))}
                                 </select>
                               </div>
@@ -735,7 +726,9 @@ class JobDetail extends Component {
                                 >
                                   <option value="0">year</option>
                                   {this.props?.years.map((year) => (
-                                    <option value={year}>{year}</option>
+                                    <option value={year} key={year}>
+                                      {year}
+                                    </option>
                                   ))}
                                 </select>
                               </div>
