@@ -22,7 +22,7 @@ import {
   GET_CUSTOM_CATEGORIES,
   GET_JOB_CATEGORY,
   GET_JOB_APPLICANTS,
-  GET_YEARS
+  GET_YEARS,
 } from "../actions/constants";
 
 const initialState = {
@@ -44,8 +44,8 @@ const initialState = {
   universityList: [],
   nationalityListLoading: 0,
   nationalityList: [],
-  years:[],
-  yearsLoading:0,
+  years: [],
+  yearsLoading: 0,
   governorateListLoading: 0,
   governorateList: [],
   degreeListLoading: 0,
@@ -56,7 +56,7 @@ const initialState = {
   customCategories: [],
   isLoadingjobCategories: 0,
   jobCategories: [],
-jobApplicants:[],
+  jobApplicants: [],
   quizzOptions: {
     location: [],
     choose: [],
@@ -140,7 +140,10 @@ const jobsReducer = (state = initialState, { payload, type }) => {
       return {
         ...state,
         isLoadingCandidateComments: 0,
-        jobDetailData: { ...state.jobDetailData, comments: [...state.jobDetailData.comments, payload] },
+        jobDetailData: {
+          ...state.jobDetailData,
+          comments: [...state.jobDetailData.comments, payload],
+        },
       };
     case `${ADD_COMMENT}_FAIL`:
       return { ...state, isLoadingCandidateComments: 0 };
@@ -209,7 +212,7 @@ const jobsReducer = (state = initialState, { payload, type }) => {
     case GET_NATIONALITY_LIST:
       return { ...state, nationalityListLoading: 1 };
     case `${GET_NATIONALITY_LIST}_SUCCESS`:
-      console.log('nationality',state.nationalityList)
+      console.log("nationality", state.nationalityList);
       return {
         ...state,
         nationalityListLoading: 0,
@@ -217,17 +220,17 @@ const jobsReducer = (state = initialState, { payload, type }) => {
       };
     case `${GET_NATIONALITY_LIST}_FAIL`:
       return { ...state, nationalityListLoading: 0 };
-//get years
-case GET_YEARS:
-  return {...state,yearsLoading:1};
-  case `${GET_YEARS}_SUCCESS`:
-    return {
-      ...state,
-      yearsLoading:0,
-      years:payload
-    }
+    //get years
+    case GET_YEARS:
+      return { ...state, yearsLoading: 1 };
+    case `${GET_YEARS}_SUCCESS`:
+      return {
+        ...state,
+        yearsLoading: 0,
+        years: payload,
+      };
     case `${GET_YEARS}_FAIL`:
-      return {...state,yearsLoading:0}
+      return { ...state, yearsLoading: 0 };
     // get governrate
     case GET_GOVERNORATE_LIST:
       return { ...state, governorateListLoading: 1 };
@@ -239,7 +242,7 @@ case GET_YEARS:
       };
     case `${GET_GOVERNORATE_LIST}_FAIL`:
       return { ...state, governorateListLoading: 0 };
-          // get nationality list
+    // get nationality list
     case GET_NATIONALITY_LIST:
       return { ...state, nationalityListLoading: 1 };
     case `${GET_NATIONALITY_LIST}_SUCCESS`:
@@ -250,27 +253,33 @@ case GET_YEARS:
       };
     case `${GET_NATIONALITY_LIST}_FAIL`:
       return { ...state, nationalityListLoading: 0 };
-//job applicants
-case GET_JOB_APPLICANTS:
-  return { ...state, jobApplicantsLoading: 1 };
-case `${GET_JOB_APPLICANTS}_SUCCESS`:
-  return {
-    ...state,
-    jobApplicantsLoading: 0,
-    jobApplicants: payload.jobApplicants,
-  };
-case `${GET_JOB_APPLICANTS}_FAIL`:
-  return { ...state, jobApplicantsLoading: 1 };
+    //job applicants
+    case GET_JOB_APPLICANTS:
+      return { ...state, jobApplicantsLoading: 1 };
+    case `${GET_JOB_APPLICANTS}_SUCCESS`:
+      return {
+        ...state,
+        jobApplicantsLoading: 0,
+        jobApplicants: payload.jobApplicants,
+      };
+    case `${GET_JOB_APPLICANTS}_FAIL`:
+      return { ...state, jobApplicantsLoading: 1 };
     // jobs list
     case GET_JOB_LIST:
       return { ...state, jobsListLoading: 1 };
     case `${GET_JOB_LIST}_SUCCESS`:
-    case `${GET_CAREAR_LIST}_SUCCESS`:
       return {
         ...state,
         jobsListLoading: 0,
         jobsList: payload.jobsList,
         jobsCount: payload.jobsCount,
+      };
+    case `${GET_CAREAR_LIST}_SUCCESS`:
+      return {
+        ...state,
+        jobsListLoading: 0,
+        jobsList: payload.jobsList,
+        company: payload.company,
       };
     case `${GET_JOB_LIST}_FAIL`:
     case `${GET_CAREAR_LIST}_FAIL`:

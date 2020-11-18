@@ -67,7 +67,7 @@ class JobDetail extends Component {
       and: "", //number or ""
       graduationBetween: "", // number of year
       graduationAnd: "", // number of year
-      education:"",
+      education: "",
     };
   }
 
@@ -259,8 +259,6 @@ class JobDetail extends Component {
     jobDetailActions.getYears();
     jobDetailActions.getCustomCategories({ job_id: match?.params?.id });
     this.getJobsData(match, postActions, jobDetailActions, company, history);
-    console.log("jobapplicants", this.props.jobApplicants);
-    console.log("nationalities", this.props.nationalityList);
   }
 
   componentWillUnmount() {
@@ -640,7 +638,7 @@ class JobDetail extends Component {
                               />
                             </div>
                           </div>
-<div>
+                          <div>
                             <div
                               className="row ml-3 mb-2"
                               style={{
