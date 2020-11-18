@@ -86,7 +86,7 @@ class Registration extends Component {
         const { message, data } = response;
         notifi.success(message);
         sessionStorage.setItem("authToken", data.token);
-        history.replace("/registration/plan");
+        history.replace("/login");
         registrationActions.setRegistrationData(null);
       },
       fail: (response) => {
@@ -302,9 +302,10 @@ class Registration extends Component {
                 *
               </span>
               <Input
-              showCount
+              // showCount
                 value={mobile}
-                type="number"
+                type="text"
+                // pattern="[0-9]*"
                 label={t("input.mobile.label")}
                 placeholder={t("input.mobile.placeholder")}
                 onChange={(el) => {

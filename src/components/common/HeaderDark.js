@@ -48,15 +48,15 @@ const LoginView = ({ actions, userData, t, history }) => {
         />
         <div className={styles.days_left}>{daysLeft} Days left</div>
       </div>
-      <a onClick={handleCarear} style={{ color: "black" }}>
-        <div>
-          <img src={Career} alt="Career" style={{ marginLeft: "30px" }} />
-          <div style={{ fontSize: "14px", color: "#5C5C5C" }}>Carear Page</div>
-        </div>
+      <a onClick={handleCarear} style={{color:'black'}}>
+      <div>
+      <img src={Career} alt="Career" style={{marginLeft:'30px'}}/> 
+        <div className={styles.carearSpan}>Carear Page</div>
+      </div>
       </a>
       <div className={styles.signOut} onClick={actions.logout}>
         <FontAwesomeIcon icon={["fas", "sign-out-alt"]} />
-        <div>Logout</div>
+        <div style={styles.logOutSpan}>Logout</div>
       </div>
       {userData?.Company?.type === "accelerator" && (
         <div className={styles.settings + " pr-2"}>
@@ -109,7 +109,7 @@ class HeaderDark extends Component {
                 />
               </div>
             ) : (
-              <div>
+              <div className={styles.formLogin}>
                 {!userData && (
                   <span className={styles.spec_text}>
                     {/* Registration is coming soon */}
