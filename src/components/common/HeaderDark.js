@@ -22,12 +22,7 @@ const LoginView = ({ actions, userData, t, history }) => {
   const isProUser = userData.Company?.plan;
   const startPlan = moment(userData.Company?.plan_started_at);
   const endPlan = moment(userData.Company?.plan_finished_at);
-
   const daysLeft = endPlan.diff(moment(), "days") + 1;
-  console.log(
-    "------------------------------===========================================-------------------------"
-  );
-  console.log(userData);
   const goToPay = () => {
     history.push("/registration/plan");
   };

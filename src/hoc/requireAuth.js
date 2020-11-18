@@ -1,9 +1,8 @@
-import React from 'react';
-import classnames from 'classnames';
-import { connect } from 'react-redux';
-import { replace } from 'react-router-redux';
-import { clearSession } from '~helpers/session';
-import LoadingWrapper from '~components/common/LoadingWrapper';
+import React from "react";
+import { connect } from "react-redux";
+import { replace } from "react-router-redux";
+import { clearSession } from "~helpers/session";
+import LoadingWrapper from "~components/common/LoadingWrapper";
 
 export default function requireAuth(Component, LayoutComponent) {
   class PremimumComponent extends React.Component {
@@ -18,8 +17,8 @@ export default function requireAuth(Component, LayoutComponent) {
     checkAuth = (props) => {
       const { authenticated, authenticating } = props;
       if (!authenticating && !authenticated) {
-        props.replace('/login');
-        // clearSession();
+        props.history.push("/login");
+        clearSession();
       }
     };
 
@@ -27,7 +26,6 @@ export default function requireAuth(Component, LayoutComponent) {
       const { authenticating, authenticated, ...otherProps } = this.props;
       return authenticating ? (
         <div className="loading-container">
-          {/* <div className={classnames("loading", {})} /> */}
           <LoadingWrapper isLoading />
         </div>
       ) : (
