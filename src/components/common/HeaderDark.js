@@ -52,12 +52,12 @@ history.push(`/company/carear/${userData?userData.CompanyId:null}`)
       <a onClick={handleCarear} style={{color:'black'}}>
       <div>
       <img src={Career} alt="Career" style={{marginLeft:'30px'}}/> 
-        <div style={{fontSize:'14px',color: '#5C5C5C'}}>Carear Page</div>
+        <div className={styles.carearSpan}>Carear Page</div>
       </div>
       </a>
       <div className={styles.signOut} onClick={actions.logout }>
         <FontAwesomeIcon icon={["fas", "sign-out-alt"]} />
-        <div>Logout</div>
+        <div style={styles.logOutSpan}>Logout</div>
       </div>
 
       <div className={styles.settings}>
@@ -102,7 +102,7 @@ class HeaderDark extends Component {
               />
               </div>
             ) : (
-              <div>
+              <div className={styles.formLogin}>
                 {!userData && (
                   <span className={styles.spec_text}>
                     {/* Registration is coming soon */}
