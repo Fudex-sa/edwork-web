@@ -16,37 +16,18 @@ import { Step1, Step2 } from "./steps";
 import { Avatar, Input, Select, FormWrapper, Button } from "~components/forms";
 
 // Actions
-import setRegistrationData from './actions/setRegistrationData';
-import createCompany from './actions/createCompany';
-import authCompany from '../Auth/actions/authCompany';
+import setRegistrationData from "./actions/setRegistrationData";
+import createCompany from "./actions/createCompany";
+import authCompany from "../Auth/actions/authCompany";
 import TextArea from "antd/lib/input/TextArea";
 
 class Registration extends Component {
   state = {
     wizardRef: null,
   };
-
-  onStepChange = (state) => {
-    console.log(state);
-  };
-
-
-  login = (email,password) =>{
-    const data = {email,password}
-    const { history, registrationActions } = this.props;
-    registrationActions.authCompany(data, {
-      success: (response) => {
-        history.replace('/dashboard');
-      },
-      fail: (response) => {
-        const { message } = response;
-        notifi.error(message);
-      },
-    });
-  }
   onSubmit = () => {
     const { registrationData, registrationActions } = this.props;
-    const { email = '', password = '', rePassword = '' } = registrationData;
+    const { email = "", password = "", rePassword = "" } = registrationData;
 
     const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (!email.match(mailformat)) {
@@ -80,17 +61,12 @@ class Registration extends Component {
     data.append("password", password);
 
     registrationActions.createCompany(data, {
-      success: (response) => {
-        this.login(email,password)
+      success: ({ message }) => {
         const { history } = this.props;
-        const { message, data } = response;
+        history.replace("/dashboard");
         notifi.success(message);
-        sessionStorage.setItem("authToken", data.token);
-        history.replace("/login");
-        registrationActions.setRegistrationData(null);
       },
-      fail: (response) => {
-        const { message } = response;
+      fail: ({ message }) => {
         notifi.error(message);
       },
     });
@@ -123,7 +99,7 @@ class Registration extends Component {
         <HeaderDark />
 
         <div className={styles.container}>
-          <FormWrapper title={t("Company information")} >
+          <FormWrapper title={t("Company information")}>
             <div
               className={classnames(
                 inputStyles.input_container,
@@ -222,7 +198,7 @@ class Registration extends Component {
                 *
               </span>
               <TextArea
-              style={{marginTop:'20px'}}
+                style={{ marginTop: "20px" }}
                 value={aboutBusines}
                 label={t("input.about_business.label")}
                 placeholder={t("input.about_business.placeholder")}
@@ -302,7 +278,7 @@ class Registration extends Component {
                 *
               </span>
               <Input
-              // showCount
+                // showCount
                 value={mobile}
                 type="text"
                 // pattern="[0-9]*"
@@ -398,7 +374,7 @@ const mapStateToProps = (store) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   registrationActions: bindActionCreators(
-    { setRegistrationData, createCompany,authCompany },
+    { setRegistrationData, createCompany, authCompany },
     dispatch
   ),
 });

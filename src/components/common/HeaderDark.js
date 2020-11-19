@@ -6,7 +6,7 @@ import { withNamespaces } from "react-i18next";
 import { Link, NavLink } from "react-router-dom";
 import UserPlanText from "./UserPlanText";
 import moment from "moment";
-import { Collapse, Button, CardBody, Card } from 'reactstrap';
+import { Collapse, Button, CardBody, Card } from "reactstrap";
 
 import { withRouter } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -48,13 +48,15 @@ const LoginView = ({ actions, userData, t, history }) => {
           status="normal"
           showInfo={false}
         />
-        <div className={styles.days_left}>{daysLeft} Days left</div>
+        <div className={styles.days_left}>
+          {daysLeft > 0 ? daysLeft : 0} Days left
+        </div>
       </div>
-      <a onClick={handleCarear} style={{color:'black'}}>
-      <div>
-      <img src={Career} alt="Career" style={{marginLeft:'30px'}}/> 
-        <div className={styles.carearSpan}>Carear Page</div>
-      </div>
+      <a onClick={handleCarear} style={{ color: "black" }}>
+        <div>
+          <img src={Career} alt="Career" style={{ marginLeft: "30px" }} />
+          <div className={styles.carearSpan}>Carear Page</div>
+        </div>
       </a>
       <div className={styles.signOut} onClick={actions.logout}>
         <FontAwesomeIcon icon={["fas", "sign-out-alt"]} />
