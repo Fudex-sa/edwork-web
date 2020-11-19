@@ -137,7 +137,6 @@
       max-width: 50%;
       align-self: center;
 
-
       .logo {
         display: inline-block;
         // width: 200px;
@@ -148,19 +147,16 @@
           width: auto;
         }
         @include tablet {
-          margin-left: 130px;
-          margin-bottom:40px;
-            }
-      
-            @include mobile {
-              margin-left: 150px;
-              margin-bottom: 40px;
-      
-            }
+          margin-bottom: 280px;
+        }
+
+        @include mobile {
+          margin-bottom: 280px;
+        }
       }
 
       @media (max-width: 768px) {
-        margin-top: 200px;
+        margin-top: 290px;
       }
     }
 
@@ -169,24 +165,29 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
-.formLogin{
-  @include tablet {
-    display: flex;
-    flex-direction: row;
-  }
+      .formLogin {
+        @include tablet {
+          display: flex;
+          flex-direction: row;
+        }
 
-  @include mobile {
-display: flex; 
-flex-direction: row;
-
-}
-}
-
+        @include mobile {
+          display: flex;
+          flex-direction: row;
+        }
+      }
 
       .spec_text {
         font-size: 16px;
         color: #000;
         font-family: "SF Pro Display Light";
+        @include tablet {
+          width: 84px;
+        }
+
+        @include mobile {
+          width: 84px;
+        }
       }
 
       .button_nav {
@@ -231,14 +232,13 @@ flex-direction: row;
             color: #606f76;
             text-align: center;
             @include tablet {
-            margin-bottom: 15px;
+              margin-bottom: 15px;
             }
-  
+
             @include mobile {
               margin-bottom: 15px;
             }
           }
-
 
           &:lang(ar) {
             margin-left: 50px;
@@ -252,12 +252,12 @@ flex-direction: row;
           }
 
           @include tablet {
-            margin-top: 200px;
+            margin-top: 230px;
             margin-right: 0px;
           }
 
           @include mobile {
-            margin-top: 200px;
+            margin-top: 230px;
             margin-right: 0px;
           }
         }
@@ -359,7 +359,6 @@ a:hover {
   text-decoration: none;
 }
 
-
 .carearSpan {
   font-size: 14px;
   color: #5c5c5c;
@@ -371,7 +370,7 @@ a:hover {
     margin-bottom: 15px;
   }
 }
-.logOutSpan{
+.logOutSpan {
   @include tablet {
     margin-bottom: 15px;
   }
@@ -381,4 +380,12 @@ a:hover {
   }
 }
 
+.sponserdSpan {
+  @include tablet {
+    margin-bottom: 15px;
+  }
 
+  @include mobile {
+    margin-bottom: 15px;
+  }
+}

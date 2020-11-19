@@ -123,7 +123,7 @@ class Registration extends Component {
         <HeaderDark />
 
         <div className={styles.container}>
-          <FormWrapper title={t("Company information")}>
+          <FormWrapper title={t("Company information")} >
             <div
               className={classnames(
                 inputStyles.input_container,

@@ -1,8 +1,18 @@
+@import "../../../assets//styles//mixins/responsive";
+
 .container {
   max-width: 1400px;
   width: 30%;
   min-width: 450px;
   margin: 50px auto 0 auto;
+  @include tablet {
+    margin-top: 204px;
+  }
+
+  @include mobile {
+    margin-top: 204px;
+  }
+
 
   .sections_title {
     font-size: 26px;

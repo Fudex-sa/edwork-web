@@ -7,6 +7,17 @@
   font-weight: bold;
   display: flex;
   align-items: end;
+.greetingStyle{
+  @include tablet {
+    width: 180px;
+     }
+   
+     @include mobile {
+       width: 180px;
+     }
+}      
+
+
 
   .icon {
     width: 25px;
@@ -20,14 +31,5 @@
   }
 }
 
-.greetingStyle{
-
-}       @include tablet {
- width: 162px;
-  }
-
-  @include mobile {
-    width: 162px;
-  }
 
 

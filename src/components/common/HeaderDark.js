@@ -6,6 +6,8 @@ import { withNamespaces } from "react-i18next";
 import { Link, NavLink } from "react-router-dom";
 import UserPlanText from "./UserPlanText";
 import moment from "moment";
+import { Collapse, Button, CardBody, Card } from 'reactstrap';
+
 import { withRouter } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Progress } from "antd";
@@ -61,13 +63,13 @@ const LoginView = ({ actions, userData, t, history }) => {
       </a>
       <div className={styles.signOut} onClick={actions.logout}>
         <FontAwesomeIcon icon={["fas", "sign-out-alt"]} />
-        <div style={styles.logOutSpan}>Logout</div>
+        <div className={styles.logOutSpan}>Logout</div>
       </div>
       {userData?.Company?.type === "accelerator" && (
         <div className={styles.settings + " pr-2"}>
           <Link to="/sponserd">
             <FontAwesomeIcon icon={["fas", "building"]} />
-            <div>Sponserd</div>
+            <div className={styles.sponserdSpan}>Sponserd</div>
           </Link>
         </div>
       )}
