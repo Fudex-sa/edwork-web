@@ -17,6 +17,7 @@ import AppStore from "../../assets/imgs/App Store.png";
 import Copy from "../../assets/imgs/copy.png";
 import QrCode from "../../assets/imgs/qrcode.png";
 import getJobsList from "../../containers/Jobs/actions/getJobsList";
+import { Select } from "../forms";
 
 import { message as notify } from "antd";
 import Popup from "reactjs-popup";
@@ -87,23 +88,19 @@ class HeaderJobDetail extends Component {
     // console.log("myData", this.props.jobsData);
   }
   getJobsList = async () => {
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
     const { jobsActions } = this.props;
     await jobsActions.getJobsList({
       success: (response) => {
         const { message, data } = response;
-        console.log("-------------------------------------");
         console.log(response);
       },
       fail: (response) => {
-        console.log("---------21321312----------------------------");
         console.log(response);
         const { message } = response;
         notify.error(message);
       },
     });
   };
-
 
   logout = (e) => {
     const { userActions } = this.props;
@@ -117,11 +114,13 @@ class HeaderJobDetail extends Component {
     document.execCommand("copy");
     this.setState({ copySuccess: true });
   };
+  goToJob = ({ target }) => {
+    let jobPath = `${window.location.origin}/job/detail/${target.value}`;
+    window.location.replace(jobPath)
+    console.log(jobPath);
+  };
   render() {
     const { jobsList, jobId } = this.props;
-    console.log("===================");
-    console.log(this.props);
-    // console.log('my data',data)
     return (
       <div className={classnames(styles.header, styles.white)}>
         <div className={styles.container}>
@@ -158,9 +157,20 @@ class HeaderJobDetail extends Component {
               </Dropdown>
             </div> */}
             <div className="form-group">
-              <select className="form-control" id="exampleFormControlSelect1">
+              {/* <Select
+            options={jobsList}
+            placeholder={t('input.add_job.basic_filter.placeholder')}
+            onChange={this.goToJob}
+          /> */}
+              <select
+                className="form-control"
+                id="exampleFormControlSelect1"
+                onChange={this.goToJob}
+              >
                 {jobsList.map((job, index) => (
-                  <option key={job.id}>{job.title}</option>
+                  <option key={job.id} value={job.id}>
+                    {job.title}
+                  </option>
                 ))}
               </select>
             </div>
