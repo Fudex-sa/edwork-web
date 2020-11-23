@@ -7,7 +7,6 @@ import { Link} from "react-router-dom";
 import UserPlanText from "./UserPlanText";
 import moment from "moment";
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
-
 import { withRouter } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Progress } from "antd";
@@ -60,15 +59,15 @@ const LoginView = ({ actions, userData, t, history,toggleNavbar,collapsed}) => {
           status="normal"
           showInfo={false}
         />
-        <div className={styles.days_left}>{daysLeft} Days left</div>
+        <div className={styles.days_left}>
+          {daysLeft > 0 ? daysLeft : 0} Days left
+        </div>
       </div>
-      </NavItem>
-      <NavItem>
-      <a onClick={handleCarear} style={{color:'black'}}>
-      <div>
-      <img src={Career} alt="Career"/> 
-        <div className={styles.carearSpan}>Carear Page</div>
-      </div>
+      <a onClick={handleCarear} style={{ color: "black" }}>
+        <div>
+          <img src={Career} alt="Career" style={{ marginLeft: "30px" }} />
+          <div className={styles.carearSpan}>Carear Page</div>
+        </div>
       </a>
       </NavItem>
       <NavItem>

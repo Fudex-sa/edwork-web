@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import moment from "moment";
 import { show } from "redux-modal";
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import Dropdown from 'react-bootstrap/Dropdown'
+import DropdownButton from "react-bootstrap/DropdownButton";
+import Dropdown from "react-bootstrap/Dropdown";
 import {
   message as notify,
   Checkbox as CheckboxAd,
@@ -360,33 +360,33 @@ class Step2 extends Component {
             </div>
             <div className={styles.dropdowncontainer}>
               <div className="dropdownwithspan">
-              <div className={styles.dropdownwithspan}>
-                <span>Minimum Experiencs</span>
-                <Dropdown>
-                  <Dropdown.Toggle
-                    id="dropdown-basic"
-                    style={{
-                      backgroundColor: "#fff",
-                      borderColor: "#fff",
-                      color: "#333",
-                      width: "195px",
-                    }}
-                  >
-                    pick from the list
-                  </Dropdown.Toggle>
+                <div className={styles.dropdownwithspan}>
+                  <span>Minimum Experiencs</span>
+                  <Dropdown>
+                    <Dropdown.Toggle
+                      id="dropdown-basic"
+                      style={{
+                        backgroundColor: "#fff",
+                        borderColor: "#fff",
+                        color: "#333",
+                        width: "195px",
+                      }}
+                    >
+                      pick from the list
+                    </Dropdown.Toggle>
 
-                  <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">
-                      Fresh Graduate
-                    </Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">1-2 years</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">3-5 years</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">6-10 years</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">+10 years</Dropdown.Item>
-
-                  </Dropdown.Menu>
-                </Dropdown>
-              </div>              </div>
+                    <Dropdown.Menu>
+                      <Dropdown.Item href="#/action-1">
+                        Fresh Graduate
+                      </Dropdown.Item>
+                      <Dropdown.Item>1-2 years</Dropdown.Item>
+                      <Dropdown.Item>3-5 years</Dropdown.Item>
+                      <Dropdown.Item>6-10 years</Dropdown.Item>
+                      <Dropdown.Item>+10 years</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </div>{" "}
+              </div>
               <div className={styles.dropdownwithspan}>
                 <span>Minimum Education</span>
                 <Dropdown>
@@ -403,11 +403,8 @@ class Step2 extends Component {
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">
-                      high education
-                    </Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">M.A.</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">PhD</Dropdown.Item>
+                    <Dropdown.Item>M.A.</Dropdown.Item>
+                    <Dropdown.Item>PhD</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
               </div>
