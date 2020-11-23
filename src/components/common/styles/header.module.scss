@@ -1,4 +1,35 @@
-@import "../../../assets//styles//mixins/responsive";
+@import "../../../assets/styles/mixins/responsive";
+// @media (min-width: 992px) and (max-width: 1199.98px) { 
+//  }
+@include desktop{
+  .sideDrawer{
+    display: none;
+  }
+}
+ .sideDrawer{
+   margin-top: 20px;
+   margin-left: 20px;
+   flex-wrap: nowrap;
+   @include tablet {
+margin-left: 30px;
+  }
+  
+  @include mobile {
+
+ }
+ }
+ @include tablet {
+  .headerwihoutside{
+    display: none;
+  }
+}
+
+@include mobile {
+  .headerwihoutside{
+    display: none;
+  }
+}
+
 
 .header {
   $heightHeader: 80px;
@@ -14,8 +45,8 @@
 
       .nav_container {
         align-self: stretch;
-        flex: 2 1 auto;
-        justify-content: space-between;
+        flex: 11;
+        justify-content: space-around;
 
         & > div {
           align-self: center;
@@ -74,7 +105,7 @@
 
         .alloptions {
           display: flex;
-          flex: 0.5;
+          // flex: 0.5;
           .containerOption {
             display: flex;
             justify-content: space-around;
@@ -232,11 +263,11 @@
             color: #606f76;
             text-align: center;
             @include tablet {
-              margin-bottom: 15px;
+            margin-bottom: 10px;
             }
-
+  
             @include mobile {
-              margin-bottom: 15px;
+              margin-bottom: 10px;
             }
           }
 
