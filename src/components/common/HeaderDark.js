@@ -37,9 +37,9 @@ const LoginView = ({ actions, userData, t, history,toggleNavbar,collapsed}) => {
     history.push(`/company/carear/${userData ? userData.CompanyId : null}`);
   };
   return (
-    <div>
+    <div style={{position:'relative'}}>
      <Navbar color="faded" light className={styles.sideDrawer}>
-    <NavbarToggler onClick={toggleNavbar} />
+    <NavbarToggler onClick={toggleNavbar} style={{position:'absolute',right:50}}/>
 
     <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
@@ -65,7 +65,7 @@ const LoginView = ({ actions, userData, t, history,toggleNavbar,collapsed}) => {
       </div>
       <a onClick={handleCarear} style={{ color: "black" }}>
         <div>
-          <img src={Career} alt="Career" style={{ marginLeft: "30px" }} />
+          <img src={Career} alt="Career" />
           <div className={styles.carearSpan}>Carear Page</div>
         </div>
       </a>

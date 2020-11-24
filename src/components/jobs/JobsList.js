@@ -6,6 +6,7 @@ import { Tooltip } from "antd";
 import { ArrowsAltOutlined, RedoOutlined, FormOutlined, DeleteOutlined } from "@ant-design/icons";
 import classnames from "classnames";
 import { Button, Popup } from "semantic-ui-react";
+import {Scrollbar} from"react-scrollbars-custom"
 import moment from "moment";
 import postNote from "../../containers/Jobs/actions/postNote";
 import styles from "./styles/job-list.module.scss";
@@ -41,6 +42,9 @@ class JobsList extends PureComponent {
     console.warn(data);
     console.log('data',data)
     return (
+      <div className={styles.main}>
+      <div style={{ width: '1120px'}} >
+
       <div className={styles.job_list}>
         {headTitles && (
           <div className={classnames(styles.row, styles.row_head)}>
@@ -148,6 +152,8 @@ class JobsList extends PureComponent {
                 </button>
               </div>
             </div> */}
+      </div>
+      </div>
       </div>
     );
   }

@@ -339,7 +339,7 @@ class JobDetail extends Component {
 
     return (
       <div>
-        <HeaderJobDetail
+        <HeaderJobDetail 
           data={jobsList}
           jobId={jobId}
           postId={jobId}

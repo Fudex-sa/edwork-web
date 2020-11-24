@@ -22,7 +22,7 @@ class Settings extends Component {
         <div className={styles.head}>{/* <h1>Settings</h1> */}</div>
 
         <div className={styles.container}>
-          <Tabs tabPosition={'left'}>
+          <Tabs tabPosition={'left'} className={styles.allTabs}>
             <TabPane tab={t('settings.menu.membership')} key="1">
               <MembershipForm />
             </TabPane>
