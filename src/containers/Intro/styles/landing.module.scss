@@ -49,7 +49,10 @@
     background-repeat: no-repeat;
 
     @include mobile {
-      height: 110%;
+      height: 190%;
+    }
+    @include tablet {
+      height: 100%;
     }
   }
 
@@ -88,7 +91,7 @@
     .log_in {
       @include mobile {
         margin-right: auto;
-
+        margin-left: 15px;
         &:lang(ar) {
           margin-left: auto;
         }
@@ -148,7 +151,7 @@
         height: 20%;
         left: 0;
         right: 0;
-        bottom: 50px;
+        bottom: 45px;
         margin: 0 auto;
         display: flex;
         justify-content: center;
@@ -212,6 +215,8 @@
           left: -40%;
           transform: translateX(50%);
           width: 50%;
+        
+          top: -100px;
         }
 
         @include mobile {
@@ -220,6 +225,7 @@
           transform: translateX(50%);
           width: 50%;
           height: 320px;
+          // top:20%
         }
 
         .card {
@@ -266,7 +272,7 @@
           display: flex;
           flex-direction: column;
           align-items: flex-end;
-          margin-top: 45vh;
+          margin-top: 39vh;
           padding-right: 80px;
 
           &:lang(ar) {
@@ -280,7 +286,7 @@
           display: flex;
           flex-direction: column;
           align-items: flex-end;
-          margin-top: 45vh;
+          margin-top: 52vh;
           padding-bottom: 50px;
           margin-left: 50px;
 
@@ -354,6 +360,8 @@
           @include tablet {
             width: 50%;
             flex-wrap: wrap;
+            margin-right: 190px;
+
           }
 
           @include mobile {
@@ -518,22 +526,27 @@ margin-right: 8px;
       }
 
       @include tablet {
-        bottom: 55vh;
+        right: -19%;
+      bottom: 100vh;
         &:lang(ar) {
           right: 0;
         }
       }
 
       @include mobile {
-        bottom: 45vh;
+        bottom: 49vh;
         right: -19%;
+        // bottom: 67vh;
+        // right: -18%;
         font-size: 12px;
 
         &:lang(ar) {
           right: -15%;
         }
       }
-
+      @include tablet {
+        right: 0;
+      }
       p {
         margin: 0;
 

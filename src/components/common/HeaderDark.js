@@ -37,9 +37,9 @@ const LoginView = ({ actions, userData, t, history,toggleNavbar,collapsed}) => {
     history.push(`/company/carear/${userData ? userData.CompanyId : null}`);
   };
   return (
-    <div style={{position:'relative'}}>
+    <div style={{position:'relative'}} >
      <Navbar color="faded" light className={styles.sideDrawer}>
-    <NavbarToggler onClick={toggleNavbar} style={{position:'absolute',right:50}}/>
+    <NavbarToggler onClick={toggleNavbar} style={{position:'absolute',right:50,zIndex:9999,marginBottom:'15px'}}/>
 
     <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
@@ -71,16 +71,10 @@ const LoginView = ({ actions, userData, t, history,toggleNavbar,collapsed}) => {
       </a>
       </NavItem>
       <NavItem>
-      <div className={styles.signOut} onClick={actions.logout}>
-        <FontAwesomeIcon icon={["fas", "sign-out-alt"]} />
-        <div className={styles.logOutSpan}>Logout</div>
-      </div>
-      </NavItem>
-      <NavItem>
       {userData?.Company?.type === "accelerator" && (
         <div className={styles.settings + " pr-2"}>
           <Link to="/sponserd">
-            <FontAwesomeIcon icon={["fas", "building"]} />
+            <FontAwesomeIcon icon={["fas", "building"]} style={{marginLeft:'23px'}} />
             <div className={styles.sponserdSpan}>Sponserd</div>
           </Link>
         </div>
@@ -92,6 +86,12 @@ const LoginView = ({ actions, userData, t, history,toggleNavbar,collapsed}) => {
           <FontAwesomeIcon icon={["fas", "cog"]} />
           <div>Settings</div>
         </Link>
+      </div>
+      </NavItem>
+      <NavItem>
+      <div className={styles.signOut} onClick={actions.logout}>
+        <FontAwesomeIcon icon={["fas", "sign-out-alt"]} />
+        <div className={styles.logOutSpan}>Logout</div>
       </div>
       </NavItem>
     </div>
@@ -123,24 +123,26 @@ const LoginView = ({ actions, userData, t, history,toggleNavbar,collapsed}) => {
         <div className={styles.carearSpan}>Carear Page</div>
       </div>
       </a>
-      <div className={styles.signOut} onClick={actions.logout}>
-        <FontAwesomeIcon icon={["fas", "sign-out-alt"]} />
-        <div className={styles.logOutSpan}>Logout</div>
-      </div>
+
       {userData?.Company?.type === "accelerator" && (
-        <div className={styles.settings + " pr-2"}>
+        <div className={styles.settings + " pr-2 pl-4"}>
           <Link to="/sponserd">
             <FontAwesomeIcon icon={["fas", "building"]} />
             <div className={styles.sponserdSpan}>Sponserd</div>
           </Link>
         </div>
       )}
-      <div className={styles.settings}>
+      <div className={styles.settings+ " pr-2 pl-3"}>
         <Link to="/settings">
           <FontAwesomeIcon icon={["fas", "cog"]} />
           <div>Settings</div>
         </Link>
-      </div>    </div>
+      </div>    
+      <div className={styles.signOut + " pr-2 pl-3"} onClick={actions.logout}>
+        <FontAwesomeIcon icon={["fas", "sign-out-alt"]} />
+        <div className={styles.logOutSpan}>Logout</div>
+      </div>
+      </div>
     </div>
 
 

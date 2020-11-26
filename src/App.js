@@ -65,8 +65,8 @@ function App() {
           />
           <Route exact path="/activate" component={ActivateUser} />
           <Route exact path="/update-password" component={UpdatePassword} />
-          <PublicRoute exact path="/registration" component={Registration} />
-          <PublicRoute
+          <Route exact path="/registration" component={Registration} />
+          <Route
             exact
             path="/registration/plan"
             component={RegistrationChoosePlan}

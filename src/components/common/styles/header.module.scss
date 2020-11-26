@@ -259,11 +259,13 @@ margin-left: -81px;
           background-color:  #fff;
           padding: 7px;
           margin-left: 30px;
+          z-index: 1000;
           }
           @include mobile {
             background-color:  #fff;
             padding: 7px;
             margin-left: 30px;
+            z-index: 1000;
           }
         .plan_wrapper {
           margin-right: 50px;
@@ -350,7 +352,7 @@ margin-left: -81px;
       .signOut {
         color: #f82b60;
         font-size: 19px;
-        margin: 0 25px;
+        // margin: 0 25px;
         cursor: pointer;
 
         svg {
@@ -367,7 +369,13 @@ margin-left: -81px;
         color: #5c5c5c;
         font-size: 19px;
         cursor: pointer;
-
+        @include tablet {
+          margin-bottom: 15px;
+        }
+      
+        @include mobile {
+          margin-bottom: 15px;
+        }
         a {
           color: #5c5c5c;
         }

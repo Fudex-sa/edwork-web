@@ -40,14 +40,14 @@
         display: block;
       }
     }
-      @include tablet {
-  margin-top: 235px;
-  }
+  //     @include tablet {
+  // margin-top: 235px;
+  // }
 
-  @include mobile {
-    margin-top: 235px;
+  // @include mobile {
+  //   margin-top: 235px;
 
-  }
+  // }
   }
 
   .company_name {
@@ -155,10 +155,13 @@
 
       @include tablet {
         padding: 0 300px;
+        margin-top: 15px;
       }
 
       @include mobile {
         padding: 0 30px;
+        margin-top: 15px;
+
       }  
     }
 
@@ -168,11 +171,13 @@
       @include tablet {
         justify-content: flex-start;
         margin-left: 12px;
+        margin-top: 15px;
       }
 
       @include mobile {
         justify-content: flex-start;
         margin-left: 12px;
+        margin-top: 15px;
 
       }  
       $container-height: 40px;
