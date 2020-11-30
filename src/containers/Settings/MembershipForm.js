@@ -31,7 +31,7 @@ class MembershipForm extends Component {
         <div className={styles.membership_content}>
           <p className={styles.title}>
             {t('settings.current_membership_text')}:
-            <span>
+            <br/><span>
               {isProUser
                 ? t('settings.membership.pro')
                 : t('settings.membership.free')}
@@ -42,7 +42,7 @@ class MembershipForm extends Component {
               <>
                 <Button
                   text="Extend subsicription"
-                  size="large"
+                  // size="large"
                   onClick={() => {
                     this.showPayment();
                   }}

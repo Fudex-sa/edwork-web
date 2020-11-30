@@ -39,7 +39,7 @@ const LoginView = ({ actions, userData, t, history,toggleNavbar,collapsed}) => {
   return (
     <div style={{position:'relative'}} >
      <Navbar color="faded" light className={styles.sideDrawer}>
-    <NavbarToggler onClick={toggleNavbar} style={{position:'absolute',right:50,zIndex:9999,marginBottom:'15px'}}/>
+    <NavbarToggler onClick={toggleNavbar} style={{position:'absolute',right:50,zIndex:9999,marginBottom:'15px',backgroundColor:'#f4f6f7'}}/>
 
     <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
@@ -118,8 +118,8 @@ const LoginView = ({ actions, userData, t, history,toggleNavbar,collapsed}) => {
         <div className={styles.days_left}>{daysLeft} Days left</div>
       </div>
       <a onClick={handleCarear} style={{color:'black'}}>
-      <div>
-      <img src={Career} alt="Career" style={{marginLeft:'30px'}}/> 
+      <div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}}>
+      <img src={Career} alt="Career"/> 
         <div className={styles.carearSpan}>Carear Page</div>
       </div>
       </a>

@@ -22,17 +22,17 @@ class Settings extends Component {
         <div className={styles.head}>{/* <h1>Settings</h1> */}</div>
 
         <div className={styles.container}>
-          <Tabs tabPosition={'left'} className={styles.allTabs}>
-            <TabPane tab={t('settings.menu.membership')} key="1">
+          <Tabs tabPosition={'left'}>
+            <TabPane tab={t('settings.menu.membership')} key="1" style={{backgroundColor:'#fff'}} >
               <MembershipForm />
             </TabPane>
-            <TabPane tab={t('settings.menu.company_profile')} key="2">
+            <TabPane tab={t('settings.menu.company_profile')} key="2"  style={{backgroundColor:'#fff'}}>
               <CompanyForm />
             </TabPane>
-            <TabPane tab={t('settings.menu.user_profile')} key="3">
+            <TabPane tab={t('settings.menu.user_profile')} key="3" style={{backgroundColor:'#fff'}}>
               <UserFrom />
             </TabPane>
-            <TabPane tab={t('settings.menu.password')} key="4">
+            <TabPane tab={t('settings.menu.password')} key="4" style={{backgroundColor:'#fff'}}>
               <PasswordForm />
             </TabPane>
             {/* <TabPane tab="Payment method" key="6">

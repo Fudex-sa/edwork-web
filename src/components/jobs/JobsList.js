@@ -6,7 +6,7 @@ import { Tooltip } from "antd";
 import { ArrowsAltOutlined, RedoOutlined, FormOutlined, DeleteOutlined } from "@ant-design/icons";
 import classnames from "classnames";
 import { Button, Popup } from "semantic-ui-react";
-import {Scrollbar} from"react-scrollbars-custom"
+// import {Scrollbar} from"react-scrollbars-custom"
 import moment from "moment";
 import postNote from "../../containers/Jobs/actions/postNote";
 import styles from "./styles/job-list.module.scss";
