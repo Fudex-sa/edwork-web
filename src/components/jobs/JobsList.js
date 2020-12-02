@@ -72,7 +72,7 @@ class JobsList extends PureComponent {
             {[
               <span className={styles.job_title}>{job.title}</span>,
               job.active ? "Open" : "Close",
-              job.Addresses && job.Addresses.length && job.Addresses[0].Governorate > 0 ? job.Addresses[0].Governorate.name.en : "Not set",
+             job?.Address?.Governorate ? job.Address.Governorate.name.en : "Not set",
               moment(job.expected_hiring_date).format("ll"),
               job.PostUsers.length,
               job.note ? (

@@ -30,17 +30,15 @@
 
   @include tablet {
     [class*='ant-tabs-tab'] {
-      margin-bottom: 0px;
-      margin-top: 0px;
       background-color: #ccc;
+      margin: 0px 0px 6px;
     }
   }
 
 
 @include mobile {
     [class*='ant-tabs-tab'] {
-      margin-bottom: 0px;
-      margin-top: 0px;
+      margin: 0px 0px 6px;
      background-color: #ccc;
     }
 }
@@ -106,6 +104,9 @@ flex-direction: column;
   display: flex;  
   flex-direction: column;}
 }
+
+
+
 
 .head {
   margin: 40px 0;

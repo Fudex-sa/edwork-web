@@ -179,7 +179,8 @@ console.log('myprops',this.props);
               <div className="row">
                 <div className="col-md-3 col-sm-9 m-auto">
                   <div className={styles.jobpost}>
-                    <h5 className="text-center mb-5">1 job post</h5>
+                             <h5 className={styles.jobpostheader1}>ongoing posts</h5>
+                    <span className={styles.SARspan}>1 job post</span>
                     <span className={styles.SAR}>300 SAR</span>
                   </div>
                   <div className={styles.items}>
@@ -310,7 +311,7 @@ console.log('myprops',this.props);
                 backgroundColor: "#1BCBFF",
                 display: "flex",
                 // width:'500px',
-                height: "625px",
+                height: "680px",
               }}
             >
               <div className={styles.leftcontainer}>

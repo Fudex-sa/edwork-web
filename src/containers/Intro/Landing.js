@@ -50,13 +50,16 @@ class Landing extends Component {
       <div>
         <div className={styles.header}>
           {/* landing page head */}
+          {lang === "en" && (
+
           <div className={classnames(styles.head, styles.container)}>
+
             <a className={styles.log_in} href="/login">
               <img src={Signin} alt="signin-icon" /> {t("landing.header.login")}
             </a>
 
             {/* switch between langaues */}
-            <span
+            <span className={styles.languagespan}
               onClick={() => {
                 if (lang === languageOptions[0].value) {
                   // if lang = eng
@@ -76,7 +79,35 @@ class Landing extends Component {
               <img src={Logo} alt="logo" />
             </a>
           </div>
+          )
+            }
+              {lang === "ar" && (
+          <div className={classnames(styles.head, styles.container)}>
+                {/* head logo */}
+                <a href="/" className={styles.logo}>
+              <img src={Logo} alt="logo" />
+            </a>
+            <span  className={styles.languagespan}
+              onClick={() => {
+                if (lang === languageOptions[0].value) {
+                  // if lang = eng
+                  this.changeLang(languageOptions[1].value); // change to arabic
+                } else {
+                  this.changeLang(languageOptions[0].value); // else change to english
+                }
+              }}
+            >
+              {lang === "en"
+                ? languageOptions[1].label
+                : languageOptions[0].label}
+            </span>
+            <a className={styles.log_in} href="/login">
+              <img src={Signin} alt="signin-icon" /> {t("landing.header.login")}
+            </a>
 
+</div>
+
+              )}
           {/* landing page presentation */}
           <div className={styles.presentation}>
             {/* left side */}
@@ -123,7 +154,7 @@ class Landing extends Component {
                 <div className={styles.our_app_text}>
                   <span>
                     {t("landing.header.jobs_available")}{" "}
-                    <img src={ArrowJobAvailable} alt="" />
+                    <img src={ArrowJobAvailable} alt="" className={styles.ArrowJobAvailable} />
                   </span>
                 </div>
 
@@ -205,6 +236,15 @@ class Landing extends Component {
 
               {lang === "ar" && (
                 <>
+                      <Link to="/view">
+                    <button type="button" className={styles.create_account}>
+                      {t("landing.header.button.view")}
+                      <FontAwesomeIcon
+                        className={styles.arrow}
+                        icon={["fas", "arrow-left"]}
+                      />
+                    </button>
+                  </Link>
                   <Link to="/registration">
                     <button type="button" className={styles.create_account}>
                       {t("landing.header.button.create")}
@@ -225,10 +265,20 @@ class Landing extends Component {
             {/* made with love in SA */}
             <div className={styles.made_with}>
               <img src={Flag} alt="hearth" />
+              {lang === "en" && (
+
+<div className={styles.text}>
+  <p>{t("landing.header.made_with")}</p>
+  <p>{t("landing.header.made_from")}</p>
+</div>
+)}
+              {lang === "ar" && (
+
               <div className={styles.text}>
-                <p>{t("landing.header.made_with")}</p>
+                <p className="ml-2">{t("landing.header.made_with")}</p>
                 <p>{t("landing.header.made_from")}</p>
               </div>
+              )}
             </div>
           </div>
         </div>
