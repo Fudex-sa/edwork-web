@@ -29,8 +29,9 @@ class AddJob extends Component {
     const hasUserPro = userData?.Company?.plan;
 
     return (
-      <div>
+      <div className={styles.container}>
         <HeaderDark />
+        <div>
         <div className={styles.jobpostingcontent}>
           <Link to="/dashboard" className={styles.backlink}>
             <div className={styles.jobpostingiconcontain}>
@@ -42,7 +43,7 @@ class AddJob extends Component {
             <h1>Job posting</h1>
           </div>
         </div>
-
+        </div>
         <div className={styles.step_container}>
           {/* <StepWizard
             isHashEnabled={true}

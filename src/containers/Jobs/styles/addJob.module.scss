@@ -1,5 +1,12 @@
 @import "../../../assets/styles/mixins/responsive";
-
+.container{
+  @include tablet{
+    background-color:#f7f8f8
+  }
+  @include mobile{
+    background-color:#f7f8f8
+  }
+}
 .head {
   margin: 40px 0;
   text-align: center;
@@ -11,10 +18,10 @@
   margin: 0 auto 50px auto;
   overflow: hidden;
   @include tablet {
-    width: 94%;
+    width: 100%;
   }
   @include mobile {
-    width: 94%;
+    width: 100%;
   }
 }
 
@@ -212,6 +219,12 @@
               display: flex;
               justify-content: center;
               width: 100%;
+              @include tablet{
+               flex-direction: column;
+              }
+              @include mobile{
+                flex-direction: column;
+              }
             }
 
             .button {
@@ -246,7 +259,12 @@
   .content_small_center {
     width: 50%;
     margin: 0 auto;
-
+    @include tablet {
+      width: 80%;
+    }
+    @include mobile {
+      width: 80%;
+    }
     .input_container {
       margin-right: 0;
     }
@@ -389,8 +407,25 @@
   margin-top: 5px;
   font-size: 16px;
   color: "#00000";
+  @include tablet{
+    margin-right: 0px;
+  }
+  @include mobile{
+    margin-right: 0px;
+  }
 }
-
+.publishImage{
+  position: absolute;
+  bottom: 5px;
+  left: 340px;
+  height: 60px;
+  @include tablet{
+    left:50px;
+  }
+  @include mobile{
+    left:50px;
+  }
+}
 .termsCheckbox {
   margin-right: 5px;
   margin-top: 5px;
@@ -403,9 +438,11 @@
   margin: 40px 0px;
   @include tablet {
     justify-content: space-around;
+    flex-direction: column;
   }
   @include mobile {
     justify-content: space-around;
+    flex-direction: column;
   }
 }
 .jobpostingiconcontain {
@@ -482,4 +519,12 @@
 
 .input_jobadd_input_wrapper__2nNl2 {
   margin-bottom: 0px;
+  @include tablet{
+    display: flex;
+    flex-direction: column;
+  }
+  @include mobile{
+    display: flex;
+    flex-direction: column;
+  }
 }

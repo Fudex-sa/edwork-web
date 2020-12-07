@@ -23,6 +23,7 @@ import {
   GET_JOB_CATEGORY,
   GET_JOB_APPLICANTS,
   GET_YEARS,
+  GET_DEGREE,
 } from "../actions/constants";
 
 const initialState = {
@@ -37,6 +38,8 @@ const initialState = {
   jobsCount: 0,
   jobTypesLoading: 0,
   jobTypesList: [],
+  degreesLoading: 0,
+  degreesList: [],
   createJobLoading: 0,
   companyAddressLoading: 0,
   companyAddressList: [],
@@ -97,6 +100,13 @@ const jobsReducer = (state = initialState, { payload, type }) => {
     case `${GET_JOB_TYPES}_FAIL`:
       return { ...state, jobTypesLoading: 0 };
 
+    // job Degrees list
+    case GET_DEGREE:
+      return { ...state, degreesLoading: 1 };
+    case `${GET_DEGREE}_SUCCESS`:
+      return { ...state,degreesList: payload,degreesLoading: 0};
+      case `${GET_DEGREE}_FAIL`:
+        return {...state,degreesLoading:0}
     // get job category
     case GET_JOB_CATEGORY:
       return { ...state, isLoadingjobCategories: 1 };

@@ -4,9 +4,9 @@ import { GET_JOB_TYPES } from './constants';
 const getJobTypes = (data, options = {}) =>
   createApiActions({
     type: GET_JOB_TYPES,
-    url: '/company/post/types',
+    url: '/company/post/contract/types',
     requestOption: {
-      method: 'post',
+      method: 'get',
     },
     success: options.success,
     fail: options.fail,
