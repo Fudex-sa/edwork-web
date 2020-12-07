@@ -69,7 +69,7 @@ class MembershipForm extends Component {
                   ghost
                   onClick={() => {
                     const { history } = this.props;
-                    history.push('/pricing');
+                    history.push('/plans');
                   }}
                 />
               </>

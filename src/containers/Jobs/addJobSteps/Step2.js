@@ -361,7 +361,7 @@ class Step2 extends Component {
             <div className={styles.dropdowncontainer}>
               <div className="dropdownwithspan">
                 <div className={styles.dropdownwithspan}>
-                  <span>Minimum Experiencs</span>
+                  <span className={styles.experiencspan}>Minimum Experiencs</span>
                   <Dropdown>
                     <Dropdown.Toggle
                       id="dropdown-basic"
@@ -388,7 +388,7 @@ class Step2 extends Component {
                 </div>{" "}
               </div>
               <div className={styles.dropdownwithspan}>
-                <span>Minimum Education</span>
+                <span className={styles.educationspan}>Minimum Education</span>
                 <Dropdown>
                   <Dropdown.Toggle
                     id="dropdown-basic"

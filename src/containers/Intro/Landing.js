@@ -228,7 +228,7 @@ class Landing extends Component {
                       />
                     </button>
                   </Link>
-                  <Link to="/plans" className={styles.price}>
+                  <Link to="/pricing" className={styles.price}>
                     {t("landing.header.button.sub_text")}
                   </Link>
                 </>

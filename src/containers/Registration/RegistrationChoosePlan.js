@@ -159,11 +159,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { withNamespaces } from "react-i18next";
 import Group from "../../assets/imgs/Group 2633.svg";
-import RegistrationPlaneCard from './Cards/RegistrationPlaneCard'
+import RegistrationPlaneCard from "./Cards/RegistrationPlaneCard";
 class RegistrationChoosePlan extends Component {
+ 
   render() {
+    const items=[
+      "Valid for unlimited posts",
+      "Data access on anytime",
+      "Manage candidates applications",
+      "Sorting options",
+      "Filtration options"
+    ]
     // const { lang, t } = this.props;
-console.log('myprops',this.props);
+    console.log("myprops", this.props);
     return (
       <section className={styles.section}>
         <div className="container-fluid">
@@ -172,37 +180,47 @@ console.log('myprops',this.props);
               <div className={styles.headerimg}>
                 <img src={Group} alt="group" />
               </div>
-              <div
-                className="row"
-                style={{ marginBottom: "24px"}}
-              >
+              <div className="row" style={{ marginBottom: "24px" }}>
                 <div className={styles.back}>
-    <Link to="/demo">
-                      <FontAwesomeIcon
-                        icon={["fas", "arrow-left"]}
-                      />  Back
+                  <Link to="/settings">
+                    <FontAwesomeIcon icon={["fas", "arrow-left"]} /> Back
                   </Link>
-                  </div>
+                </div>
                 <h1 className={styles.price}>Pick One Option</h1>
               </div>
               <div className="row">
-              <div className="col-md-1 col-sm-9 m-auto">
-</div>
+                <div className="col-md-1 col-sm-9 m-auto"></div>
                 <div className="col-md-3 col-sm-9 m-auto">
-              <RegistrationPlaneCard header="1 Jop Post" color="#000000" 
-              backgroundColor="#000000"/>
+                  <RegistrationPlaneCard
+                    header="1 Jop Post"
+                    color="#000000"
+                    backgroundColor="#000000"
+                    salaryNum="3000"
+                    items={items}
+                  />
                 </div>
                 <div className="col-md-3 col-sm-9 m-auto">
-                <RegistrationPlaneCard  header="Unlimited posts" time="For 3 months" color="#0091FF"
-                 backgroundColor="#0091FF"/>
+                  <RegistrationPlaneCard
+                    header="Unlimited posts"
+                    time="For 3 months"
+                    color="#0091FF"
+                    backgroundColor="#0091FF"
+                    salaryNum="1999"
+                    items={items}
+                  />
                 </div>
                 <div className="col-md-3 col-sm-9 m-auto">
-                <RegistrationPlaneCard header="Unlimited posts" time="For 12 months" color="#9538FF"
-                 backgroundColor="#9538FF"/>
+                  <RegistrationPlaneCard
+                    header="Unlimited posts"
+                    time="For 12 months"
+                    color="#9538FF"
+                    backgroundColor="#9538FF"
+                    salaryNum="7000"
+                    items={items}
+                  />
                 </div>
               </div>
             </div>
- 
           </div>
         </div>
       </section>
