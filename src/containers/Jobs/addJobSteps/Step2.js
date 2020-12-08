@@ -4,14 +4,15 @@ import { bindActionCreators } from "redux";
 import moment from "moment";
 import { show } from "redux-modal";
 import DropdownButton from "react-bootstrap/DropdownButton";
-import Dropdown from "react-bootstrap/Dropdown";
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem,Input } from 'reactstrap';
+// import { Button, FormGroup, Label,  FormText } from 'reactstrap';
+// import Dropdown from "react-bootstrap/Dropdown";
 import { Row, Col, message as notifi } from "antd";
 import {
   message as notify,
   Checkbox as CheckboxAd,
   Form,
   Radio,
-  Input,
 } from "antd";
 import "antd/dist/antd.css";
 
@@ -59,8 +60,14 @@ const initialState = {
   location: [],
   jobId: null,
   showTextBox: false,
+  toggelExperience:false,
+  toggelEducation:false,
+  education:"",
+  experience:"",
+  isResumRequierd:false,
 };
 
+const experienceTypes = ["Fresh Graduate", "1-2 years", "3-5 years", "6-10 years", "+10 years"]
 class Step2 extends Component {
   // state = {
   //   isChecked: false
@@ -87,8 +94,6 @@ class Step2 extends Component {
 
   async componentDidMount() {
     const { jobActions, jobDetails, match } = this.props;
-    console.log("matchmatchmatchmatchmatchmatchmatchmatchmatchmatchmatch");
-    console.log(match);
     jobActions.getJobTypes();
     jobActions.getDegree();
     jobActions.getCompanyAddress();
@@ -134,29 +139,27 @@ class Step2 extends Component {
   //   });
   // };
 
-//  getJobTypes = async () => {
-//     const { jobsActions } = this.props;
-//     await jobsActions.getJobTypes(this.state, {
-//       success: (response) => {
-//         const { message, data } = response;
-//       },
-//       fail: (response) => {
-//         const { message } = response;
-//         notifi.error(message);
-//       },
-//     });
-//   };
+  //  getJobTypes = async () => {
+  //     const { jobsActions } = this.props;
+  //     await jobsActions.getJobTypes(this.state, {
+  //       success: (response) => {
+  //         const { message, data } = response;
+  //       },
+  //       fail: (response) => {
+  //         const { message } = response;
+  //         notifi.error(message);
+  //       },
+  //     });
+  //   };
 
 
-  handleOnChange = (e) => {
-    this.setState({
-      showTextBox: e.target.value === 1,
-    });
-  };
+  handleOnChange = async ({target})=> {
+    await this.setState({ [target.name]: target.value });
+  }
 
   onSubmit = () => {
     const { quizzOptions, jobActions, addJobData, history, t } = this.props;
-    // const {jobType, email, link, title, salary, hiringDate, supportHRDF, location} = this.state
+    const {education, experience, isResumRequierd} = this.state
     const {
       category,
       description,
@@ -187,6 +190,14 @@ class Step2 extends Component {
       notify.error("Please fill the location field");
       return;
     }
+    if (!education) {
+      notify.error("Please fill the education field");
+      return;
+    }
+    if (!experience) {
+      notify.error("Please fill the education field");
+      return;
+    }
 
     // if (supportHRDF === undefined) {
     //   notify.error('Please fill all field');
@@ -208,6 +219,7 @@ class Step2 extends Component {
       address: location.map((item) => item.id),
       // questions,
       type: jobType,
+      education, experience, isResumRequierd
     };
 
     jobActions.createJob(data, {
@@ -232,9 +244,8 @@ class Step2 extends Component {
 
   editJob = () => {
     const { quizzOptions, jobActions, addJobData, history, t } = this.props;
-    const { jobId } = this.state;
+    const { jobId, education, experience, isResumRequierd } = this.state;
     // const {jobType, email, link, title, salary, hiringDate, supportHRDF, location} = this.state
-    console.log(addJobData);
     const { description, jobType, title, salary, location } = addJobData;
     const data = {
       title,
@@ -242,6 +253,9 @@ class Step2 extends Component {
       description,
       jobType,
       id: jobId,
+      education,
+      experience,
+      isResumRequierd,
     };
     if (location) data.location = location.map((item) => item.id);
 
@@ -259,6 +273,19 @@ class Step2 extends Component {
     });
   };
 
+  handelToggleEdcation = ()=>{
+    const toggelEducation = !this.state.toggelEducation;    
+    this.setState({toggelEducation})
+  }
+
+  handelToggleExperience = ()=>{
+    const toggelExperience = !this.state.toggelExperience;    
+    this.setState({toggelExperience})
+  }
+  handelSelectEdcation = ({target}) =>{
+    console.log("12313123");
+  }
+
   render() {
     const {
       location,
@@ -269,6 +296,11 @@ class Step2 extends Component {
       salary,
       hiringDate,
       supportHRDF,
+      toggelEducation,
+      toggelExperience,
+      isResumRequierd,
+      education,
+      experience,
     } = this.state;
     const {
       addJobData = {},
@@ -310,7 +342,6 @@ class Step2 extends Component {
       name: item.name[lang],
       value: item.id,
     }));
-
     return (
       <div className={styles.container}>
         <LoadingWrapper
@@ -386,52 +417,39 @@ class Step2 extends Component {
               <div className="dropdownwithspan">
                 <div className={styles.dropdownwithspan}>
                   <span className={styles.experiencspan}>Minimum Experiencs</span>
-                  <Dropdown>
-                    <Dropdown.Toggle
-                      id="dropdown-basic"
-                      style={{
-                        backgroundColor: "#fff",
-                        borderColor: "#fff",
-                        color: "#333",
-                        width: "195px",
-                      }}
-                    >
-                      pick from the list
-                    </Dropdown.Toggle>
-
-                    <Dropdown.Menu>
-                      <Dropdown.Item href="#/action-1">
-                        Fresh Graduate
-                      </Dropdown.Item>
-                      <Dropdown.Item>1-2 years</Dropdown.Item>
-                      <Dropdown.Item>3-5 years</Dropdown.Item>
-                      <Dropdown.Item>6-10 years</Dropdown.Item>
-                      <Dropdown.Item>+10 years</Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown>
+                
+                  <Input 
+                   style={{
+                    backgroundColor: "#fff",
+                    borderColor: "#fff",
+                    width: "195px",
+                  }}
+                  type="select"
+                  name="experience"
+                  value={experience}
+                  onChange={this.handleOnChange}
+                  >
+                { experienceTypes.map((experience,index) => <option value={experience} key={index}  >{experience}</option>) }
+                </Input>
                 </div>{" "}
               </div>
               <div className={styles.dropdownwithspan}>
                 <span className={styles.educationspan}>Minimum Education</span>
-                <Dropdown>
-                  <Dropdown.Toggle
-                    id="dropdown-basic"
-                    style={{
-                      backgroundColor: "#fff",
-                      borderColor: "#fff",
-                      color: "#333",
-                      width: "195px",
-                    }}
+                <Input 
+                style={{
+                    backgroundColor: "#fff",
+                    borderColor: "#fff",
+                    width: "195px",
+                  }}
+                  type="select"
+                  name="education"
+                  value={education}
+                  onChange={this.handleOnChange}
                   >
-                    pick from the list
-                  </Dropdown.Toggle>
 
-                  <Dropdown.Menu>
-                    {
-                      degreesList?.map((degree)=><Dropdown.Item>{degree.name[lang]}</Dropdown.Item>)
-                    }
-                  </Dropdown.Menu>
-                </Dropdown>
+                 <option  value={null} >Select education</option>
+                { degreesList?.map(({id,name}) => <option value={id} key={id} >{name[lang]}</option>) }
+                </Input>
               </div>
             </div>
 
@@ -501,10 +519,13 @@ class Step2 extends Component {
           <div className={styles.terms}>
             <input
               id="field_terms"
+              name='isResumRequierd'
               type="checkbox"
               required={true}
               name="terms"
+              value={isResumRequierd}
               className={styles.termsCheckbox}
+              onChange={this.handleOnChange}
             />
             <span> Applicants must submit a cover letter </span>
           </div>
@@ -528,12 +549,12 @@ class Step2 extends Component {
                 onSubmit={this.onSubmit}
               />
             ) : (
-              <WizardNavigation
-                finishBtnText={t("button.add_job")}
-                options={this.props}
-                onSubmit={this.onSubmit}
-              />
-            )}
+                  <WizardNavigation
+                    finishBtnText={t("button.add_job")}
+                    options={this.props}
+                    onSubmit={this.onSubmit}
+                  />
+                )}
           </div>
         </LoadingWrapper>
         <img
@@ -551,14 +572,13 @@ const mapStateToProps = (store) => ({
   createJobLoading: store.jobs.createJobLoading,
   jobTypesLoading: store.jobs.jobTypesLoading,
   jobTypesList: store.jobs.jobTypesList,
-  degreesList:store.jobs.degreesList,
+  degreesList: store.jobs.degreesList,
   addJobData: store.jobs.addJobData,
   jobDetailData: store.jobs.jobDetailData,
   companyAddressLoading: store.jobs.companyAddressLoading,
   companyAddressList: store.jobs.companyAddressList,
   isLoadingjobCategories: store.jobs.isLoadingjobCategories,
   jobCategories: store.jobs.jobCategories,
-
   lang: store.locale.lang,
 });
 

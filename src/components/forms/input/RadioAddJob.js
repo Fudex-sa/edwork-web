@@ -26,8 +26,8 @@ export default class RadioAddJob extends Component {
           onChange={onChange}
           // value={value}
         >
-          {options.map((item) => (
-            <RadioAd className={styles.item} value={item.value}>
+          {options.map((item,index) => (
+            <RadioAd key={index} className={styles.item} value={item.value}>
               {item.label}
             </RadioAd>
           ))}
