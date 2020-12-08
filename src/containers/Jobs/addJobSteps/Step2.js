@@ -5,6 +5,7 @@ import moment from "moment";
 import { show } from "redux-modal";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
+import { Row, Col, message as notifi } from "antd";
 import {
   message as notify,
   Checkbox as CheckboxAd,
@@ -40,6 +41,7 @@ import getJobTypes from "../actions/getJobTypes";
 import createJob from "../actions/createJob";
 import editJob from "../actions/editJob";
 import getPostDetails from "../actions/getPostDetails";
+import getDegree from "../actions/getDegree";
 import WizardNavigation from "~components/wizard/WizardNavigation";
 import AddAddressModal from "../../Registration/AddAddressModal";
 import getCompanyAddress from "../actions/getCompanyAddress";
@@ -88,6 +90,7 @@ class Step2 extends Component {
     console.log("matchmatchmatchmatchmatchmatchmatchmatchmatchmatchmatch");
     console.log(match);
     jobActions.getJobTypes();
+    jobActions.getDegree();
     jobActions.getCompanyAddress();
     jobActions.getJobCategory();
     if (match?.params?.id) {
@@ -117,6 +120,33 @@ class Step2 extends Component {
       },
     });
   };
+
+  // getJobTypes = async () => {
+  //   const { jobsActions } = this.props;
+  //   await jobsActions.getJobTypes(this.state, {
+  //     success: (response) => {
+  //       const { message, data } = response;
+  //     },
+  //     fail: (response) => {
+  //       const { message } = response;
+  //       notifi.error(message);
+  //     },
+  //   });
+  // };
+
+//  getJobTypes = async () => {
+//     const { jobsActions } = this.props;
+//     await jobsActions.getJobTypes(this.state, {
+//       success: (response) => {
+//         const { message, data } = response;
+//       },
+//       fail: (response) => {
+//         const { message } = response;
+//         notifi.error(message);
+//       },
+//     });
+//   };
+
 
   handleOnChange = (e) => {
     this.setState({
@@ -243,6 +273,7 @@ class Step2 extends Component {
     const {
       addJobData = {},
       jobTypesList,
+      degreesList,
       companyAddressLoading,
       companyAddressList,
       isLoadingjobCategories,
@@ -257,6 +288,12 @@ class Step2 extends Component {
       label: item.name[lang],
       value: item.id,
     }));
+    // const  degreesOptions = DegreesList.map((item) => ({
+    //   label: item.name[lang],
+    //   value: item.id,
+    // }));
+
+
 
     const supportHRDFOptions = ["Yes", "No"].map((item, index) => ({
       label: item,
@@ -344,24 +381,11 @@ class Step2 extends Component {
                   this.handleChangeValue("jobType", target.value);
                 }}
               />
-              <Form.Item>
-                <Radio.Group style={{ marginBottom: "10px" }}>
-                  <Radio
-                    value={1}
-                    onChange={({ target }) => {
-                      this.handleChangeValue("jobType", target.value);
-                    }}
-                  >
-                    other
-                  </Radio>
-                </Radio.Group>
-                {this.state.showTextBox && <Input placeholder="developer" />}
-              </Form.Item>
             </div>
             <div className={styles.dropdowncontainer}>
               <div className="dropdownwithspan">
                 <div className={styles.dropdownwithspan}>
-                  <span>Minimum Experiencs</span>
+                  <span className={styles.experiencspan}>Minimum Experiencs</span>
                   <Dropdown>
                     <Dropdown.Toggle
                       id="dropdown-basic"
@@ -388,7 +412,7 @@ class Step2 extends Component {
                 </div>{" "}
               </div>
               <div className={styles.dropdownwithspan}>
-                <span>Minimum Education</span>
+                <span className={styles.educationspan}>Minimum Education</span>
                 <Dropdown>
                   <Dropdown.Toggle
                     id="dropdown-basic"
@@ -403,8 +427,9 @@ class Step2 extends Component {
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu>
-                    <Dropdown.Item>M.A.</Dropdown.Item>
-                    <Dropdown.Item>PhD</Dropdown.Item>
+                    {
+                      degreesList?.map((degree)=><Dropdown.Item>{degree.name[lang]}</Dropdown.Item>)
+                    }
                   </Dropdown.Menu>
                 </Dropdown>
               </div>
@@ -514,12 +539,7 @@ class Step2 extends Component {
         <img
           src={BodyImg}
           alt="body"
-          style={{
-            position: "absolute",
-            bottom: "5px",
-            left: "340px",
-            height: "60px",
-          }}
+          className={styles.publishImage}
         />
       </div>
     );
@@ -531,6 +551,7 @@ const mapStateToProps = (store) => ({
   createJobLoading: store.jobs.createJobLoading,
   jobTypesLoading: store.jobs.jobTypesLoading,
   jobTypesList: store.jobs.jobTypesList,
+  degreesList:store.jobs.degreesList,
   addJobData: store.jobs.addJobData,
   jobDetailData: store.jobs.jobDetailData,
   companyAddressLoading: store.jobs.companyAddressLoading,
@@ -550,6 +571,7 @@ const mapDispatchToProps = (dispatch) => ({
       setJobAddData,
       getJobCategory,
       editJob,
+      getDegree
     },
     dispatch
   ),

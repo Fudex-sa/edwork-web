@@ -39,6 +39,7 @@
 
   &::before {
     content: "";
+    left: 0px;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -49,7 +50,10 @@
     background-repeat: no-repeat;
 
     @include mobile {
-      height: 110%;
+      height: 190%;
+    }
+    @include tablet {
+      height: 100%;
     }
   }
 
@@ -78,19 +82,29 @@
     align-items: center;
     // padding: 0 80px;
     position: relative;
-
     @include mobile {
       height: 250px;
       align-items: flex-start;
       padding-top: 50px;
     }
+&:lang(ar){
+  justify-content: flex-start;
+}
+
+
 
     .log_in {
       @include mobile {
         margin-right: auto;
-
+        margin-left: 15px;
         &:lang(ar) {
           margin-left: auto;
+          @include mobile {
+            margin-right: 80px;
+          }
+          @include tablet {
+            margin-right: 80px;
+          }
         }
       }
     }
@@ -133,14 +147,27 @@
       }
     }
 
+&:lang(ar){
+  @include mobile{
+    .languagespan{
+      margin-right: 70px;
+    }
+  }
+  @include tablet{
+    .languagespan{
+      margin-right: 70px;
+    }
+  }
+}
+
     .logo {
       width: auto;
       height: 40%;
       margin-left: 30px;
 
       &:lang(ar) {
-        margin-right: 30px;
-        margin-left: 0;
+        margin-right: 20px;
+        margin-left: 30;
       }
 
       @include mobile {
@@ -148,7 +175,7 @@
         height: 20%;
         left: 0;
         right: 0;
-        bottom: 50px;
+        bottom: 45px;
         margin: 0 auto;
         display: flex;
         justify-content: center;
@@ -200,6 +227,15 @@
         display: flex;
         align-items: flex-start;
       }
+      &:lang(ar) {
+        @include tablet {
+          margin-top: 160px;
+        }
+
+        @include mobile {
+          margin-top: 160px;
+        }
+      }
 
       .mobile_wrapper {
         height: 68vh;
@@ -212,6 +248,8 @@
           left: -40%;
           transform: translateX(50%);
           width: 50%;
+
+          top: -100px;
         }
 
         @include mobile {
@@ -220,6 +258,7 @@
           transform: translateX(50%);
           width: 50%;
           height: 320px;
+          // top:20%
         }
 
         .card {
@@ -266,7 +305,7 @@
           display: flex;
           flex-direction: column;
           align-items: flex-end;
-          margin-top: 45vh;
+          margin-top: 39vh;
           padding-right: 80px;
 
           &:lang(ar) {
@@ -280,7 +319,7 @@
           display: flex;
           flex-direction: column;
           align-items: flex-end;
-          margin-top: 45vh;
+          margin-top: 52vh;
           padding-bottom: 50px;
           margin-left: 50px;
 
@@ -329,6 +368,13 @@
               width: 20%;
               transform: translate(100%, -100%);
 
+              &:lang(ar){
+                // transform: rotate(360deg);
+                margin-right:250px;
+                margin-bottom: 20px;
+              }
+
+
               @include tablet {
                 right: auto;
                 left: 0;
@@ -354,6 +400,7 @@
           @include tablet {
             width: 50%;
             flex-wrap: wrap;
+            margin-right: 190px;
           }
 
           @include mobile {
@@ -397,7 +444,9 @@
     .right {
       width: 60%;
       padding-top: 50px;
-
+&:lang(ar){
+  text-align: right;
+}
       @include tablet {
         text-align: center;
         display: flex;
@@ -423,7 +472,11 @@
           font-family: "SF Pro Rounded";
           font-size: 2.5rem;
           margin-bottom: 0;
-
+&:lang(ar){
+  @include mobile{
+    text-align: center;
+  }
+}
           @include mobile {
             font-size: 41px;
           }
@@ -476,7 +529,7 @@
         font-size: 1rem;
         margin-bottom: 20px;
         transition: 0.1s ease-in;
-margin-right: 8px;
+        margin-right: 8px;
         &:hover {
           background: lighten($color: #0091ff, $amount: 8%);
         }
@@ -511,6 +564,7 @@ margin-right: 8px;
       &:lang(ar) {
         right: auto;
         left: 0;
+      
       }
 
       @include desktop {
@@ -518,22 +572,27 @@ margin-right: 8px;
       }
 
       @include tablet {
-        bottom: 55vh;
+        right: -19%;
+        bottom: 100vh;
         &:lang(ar) {
           right: 0;
         }
       }
 
       @include mobile {
-        bottom: 45vh;
+        bottom: 49vh;
         right: -19%;
+        // bottom: 67vh;
+        // right: -18%;
         font-size: 12px;
 
         &:lang(ar) {
           right: -15%;
         }
       }
-
+      @include tablet {
+        right: 0;
+      }
       p {
         margin: 0;
 
@@ -895,7 +954,6 @@ margin-right: 8px;
     .right {
       margin: 0 auto;
       display: flex;
-
       @include tablet {
         display: block;
         text-align: center;

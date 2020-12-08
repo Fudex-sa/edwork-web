@@ -1,3 +1,5 @@
+@import "../../../assets/styles/mixins/responsive";
+
 .job_list {
   .pagination {
     background: #9e9e9e;
@@ -168,8 +170,25 @@ text-overflow: ellipsis;
       }
     }
   }
-  // .purblenote{
-  //   color:#C392FC;
-  // }
+
 }
 
+// .scrollStyle{
+//  width: 1000; 
+//  height: 250 ;
+// }
+.main{
+  width:85vw;
+  
+  @include tablet {
+    overflow: scroll
+  }
+  
+    @include mobile {
+      overflow: scroll  
+    }
+}
+
+#root{
+  overflow: hidden;
+}

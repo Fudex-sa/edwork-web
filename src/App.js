@@ -25,6 +25,7 @@ import ActivateUser from "~containers/Auth/ActivateUser";
 import UpdatePassword from "~containers/Auth/UpdatePassword";
 import JobDetail from "~containers/Jobs/JobDetail";
 import RegistrationChoosePlan from "~containers/Registration/RegistrationChoosePlan";
+import Pricing from "~containers/Registration/Pricing";
 import CoWorkers from "~containers/Dashboard/CoWorkers";
 import Pay from "~containers/Pay/Pay";
 import CheckPayment from "~containers/Pay/CheckPayment";
@@ -65,11 +66,16 @@ function App() {
           />
           <Route exact path="/activate" component={ActivateUser} />
           <Route exact path="/update-password" component={UpdatePassword} />
-          <PublicRoute exact path="/registration" component={Registration} />
-          <PublicRoute
+          <Route exact path="/registration" component={Registration} />
+          <Route
             exact
-            path="/registration/plan"
+            path="/plans"
             component={RegistrationChoosePlan}
+          />
+          <Route
+            exact
+            path="/pricing"
+            component={Pricing}
           />
           <Route exact path="/pay" component={Pay} />
           <Route exact path="/check-status" component={CheckPayment} />

@@ -1,4 +1,5 @@
 export const GET_JOB_TYPES = "job/GET_JOB_TYPES";
+export const GET_DEGREE="job/GET_DEGREE"
 export const CREATE_JOB = "job/CREATE_JOB";
 export const CREATE_CUSTOM_CATEGORY = "job/CREATE_CUSTOM_CATEGORY";
 export const USER_MOVE_CATEGORY = "job/USER_MOVE_CATEGORY";

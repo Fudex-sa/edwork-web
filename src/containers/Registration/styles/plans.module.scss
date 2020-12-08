@@ -8,40 +8,52 @@
   @media (max-width:400px){
     margin-left: 100px;
   }
-  
+
+}
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+@include tablet{
+  .row{
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
+@include mobile{
+  .row{
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
+@include tablet{
+  .planCard{
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+  }
+}
+@include mobile{
+  .planCard{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
 }
 .price {
   color: #c6c6c6;
   margin:35px auto;
-  font-family:"SF Pro Display Ultralight";
-  
-}
-@include tablet{
-  .registerationCard{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-}
-@include mobile{
-  .registerationCard{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  font-size: 70px;
+  font-weight: lighter;
 }
 .back{
   position: absolute;
   left:18%;
-  top:19%;
-}
-@include tablet{
-  position: static;
-margin-left:6%;
-}
-@include mobile{
-  position: static;
-  margin-left:6%;
+  top:16%;
 }
 a{
   color:#333;
@@ -51,7 +63,7 @@ a{
   justify-content:center;
   align-items:center;
   flex-direction:column;
-  width: 58%;
+  width: 80%;
   margin-bottom: 6px;
   .jobpostheader1{
     color:#54C8C8;
@@ -59,6 +71,13 @@ a{
     margin-bottom: 0px;
     font-weight: bold;
   }
+   @include tablet{
+   width: 59%;
+   }
+   @include mobile{
+      width: 59%;
+    }
+
 }
 .jobpost {
   display: flex;
@@ -67,26 +86,32 @@ a{
   align-items: center;
   border-radius: 10px;
   background-color: #f7f7f7;
-  width:58%;
+  width:100%;
   padding:12px 4px;
-  .salary{
-    display: flex;
-   //  flex-direction: row;
+  @include tablet{
+    width: 59%;
+    }
+    @include mobile{
+       width: 59%;
+     }
+     .salary{
+       display: flex;
+      //  flex-direction: row;
+     }
+  .SAR {
+    color: #9e9e9e;
+    font-size: 16px;
+    margin-top: 4px;
+    margin-left: 3px;
+    font-family:"SF Pro Display Light";
+    font-weight: bold;
   }
-.SAR {
- color: #9e9e9e;
- font-size: 16px;
- margin-top: 4px;
- margin-left: 3px;
- font-family:"SF Pro Display Light";
- font-weight: bold;
-}
-.salarynum{
- color: #9e9e9e;
- font-size: 18px;
- font-family:"SF Pro Display Light";
- font-weight: bold;
-}
+  .salarynum{
+    color: #9e9e9e;
+    font-size: 18px;
+    font-family:"SF Pro Display Light";
+    font-weight: bold;
+  }
   .pay{
 width: 140px;
 height: 28px;
@@ -198,3 +223,10 @@ border:none;
 outline: none;
 }
 }
+
+
+// .planTypes span {
+//   &:first-child{
+//     color:red;
+//   }
+// }

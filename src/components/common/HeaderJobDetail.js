@@ -156,16 +156,17 @@ class HeaderJobDetail extends Component {
                 </div>
               </Dropdown>
             </div> */}
-            <div className="form-group">
+            < div className="form-group">
               {/* <Select
             options={jobsList}
             placeholder={t('input.add_job.basic_filter.placeholder')}
             onChange={this.goToJob}
           /> */}
               <select
-                className="form-control"
+                className="form-control mt-3"
                 id="exampleFormControlSelect1"
                 onChange={this.goToJob}
+                
               >
                 {jobsList.map((job, index) => (
                   <option key={job.id} value={job.id}>
@@ -173,6 +174,7 @@ class HeaderJobDetail extends Component {
                   </option>
                 ))}
               </select>
+            
             </div>
 
             <div className={styles.alloptions}>
@@ -407,7 +409,8 @@ class HeaderJobDetail extends Component {
             </div> */}
           </div>
         </div>
-      </div>
+        </div>
+    
     );
   }
 }

@@ -1,7 +1,21 @@
+@import "../../../assets//styles//mixins/responsive";
+
 .container {
   width: 80%;
   margin: 40px auto;
+  @include tablet {
+      width: 100%;
+      margin: -26px auto;
+      background-color: #fff;
+  }
+  
+  @include mobile {
+    width: 100%;
+    margin: -26px auto;
+    background-color: #fff;
 
+    }
+    
   [class*='ant-tabs-ink-bar'] {
     background: #0091ff;
   }
@@ -11,8 +25,58 @@
     }
   }
 
+
+
+
+  @include tablet {
+    [class*='ant-tabs-tab'] {
+      background-color: #ccc;
+      margin: 0px 0px 6px;
+    }
+  }
+
+
+@include mobile {
+    [class*='ant-tabs-tab'] {
+      margin: 0px 0px 6px;
+     background-color: #ccc;
+    }
+}
+
+@include tablet {
+  [class*='ant-tabs-nav-list'] {
+    margin-top: -10;
+  }
+}
+
+@include mobile {
+  [class*='ant-tabs-nav-list'] {
+    margin-top: -10;
+
+  }
+}
+
+
+
+
+
+
+
+
+
   [class*='ant-tabs-left-bar'] {
     width: 20%;
+      @include tablet {
+        width: 10%;
+        display: flex;
+        flex-direction: column;
+      }
+
+  @include mobile {
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+  }
   }
   [class*='wpwl-form'] {
     color: #000;
@@ -30,19 +94,56 @@
   border-bottom-right-radius: 5px;
 }
 
+[class*='ant-tabs'] {
+  @include tablet {
+display: flex;  
+flex-direction: column;
+}
+
+@include mobile {
+  display: flex;  
+  flex-direction: column;}
+}
+
+
+
+
 .head {
   margin: 40px 0;
   text-align: center;
 }
+@include desktop{
+  .toggleButton{
+    display: none;
+     }
+} 
 
+@include tablet {
+ .hideTabs{
+display: none;
+ }
+  }
+  
+  @include mobile {
+    .hideTabs{
+      display: none;
+       }
+  }
 .button_wrapper {
   display: flex;
   justify-content: center;
+  
 }
 
 .membership_content {
+  @include tablet {
+    text-align: center;
+  }
+
+@include mobile {
+  text-align: center;
+}
   color: #000;
-  margin: 50px;
 
   .title {
     font-size: 24px;
@@ -57,6 +158,18 @@
     justify-content: flex-start;
     flex-direction: row;
     align-items: center;
+    @include tablet {
+      flex-direction: row;
+      align-items: center;   
+    justify-content: center;
+    }
+  
+  @include mobile {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+  }
   }
 
   .extend_time {
@@ -64,4 +177,18 @@
     font-size: 16px;
     margin: 0 10px;
   }
+}
+
+
+@include tablet {
+  .membership_content{
+    margin-left: -23px;
+  }
+}
+
+@include mobile {
+.membership_contents{
+  margin-left: -23px;
+
+}
 }

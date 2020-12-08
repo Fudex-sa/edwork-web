@@ -6,6 +6,7 @@ import { Tooltip } from "antd";
 import { ArrowsAltOutlined, RedoOutlined, FormOutlined, DeleteOutlined } from "@ant-design/icons";
 import classnames from "classnames";
 import { Button, Popup } from "semantic-ui-react";
+// import {Scrollbar} from"react-scrollbars-custom"
 import moment from "moment";
 import postNote from "../../containers/Jobs/actions/postNote";
 import styles from "./styles/job-list.module.scss";
@@ -41,6 +42,9 @@ class JobsList extends PureComponent {
     console.warn(data);
     console.log('data',data)
     return (
+      <div className={styles.main}>
+      <div style={{ width: '1120px'}} >
+
       <div className={styles.job_list}>
         {headTitles && (
           <div className={classnames(styles.row, styles.row_head)}>
@@ -68,7 +72,7 @@ class JobsList extends PureComponent {
             {[
               <span className={styles.job_title}>{job.title}</span>,
               job.active ? "Open" : "Close",
-              job.Addresses && job.Addresses.length && job.Addresses[0].Governorate > 0 ? job.Addresses[0].Governorate.name.en : "Not set",
+             job?.Address?.Governorate ? job.Address.Governorate.name.en : "Not set",
               moment(job.expected_hiring_date).format("ll"),
               job.PostUsers.length,
               job.note ? (
@@ -148,6 +152,8 @@ class JobsList extends PureComponent {
                 </button>
               </div>
             </div> */}
+      </div>
+      </div>
       </div>
     );
   }
