@@ -130,43 +130,12 @@ class HeaderJobDetail extends Component {
             </a>
           </div>
           <div className={styles.nav_container}>
-            {/* <div className={styles.section_toggle}>
-              <div className={classnames(styles.section_item, styles.active)}>
-                <span className={styles.icon}>
-                  <AuditOutlined />
-                </span>
-                <span>Applications</span>
-              </div>
-              <div className={styles.section_item}>
-                <span className={styles.icon}>
-                  <MailOutlined />
-                </span>
-                Mail (3)
-              </div>
-            </div> */}
 
-            {/* <div className={styles.job_selection}>
-              <Dropdown overlay={jobList(data, jobId)} placement="bottomLeft" trigger={["click"]}>
-                <Button>bottomLeft</Button>
-                <div className={styles.dropdown}>
-                  <span>{data.filter((item) => item.id === parseInt(jobId))[0]?.title}</span>
-                  <span className={styles.dropdown_icon}>
-                    <DownOutlined />
-                  </span>
-                </div>
-              </Dropdown>
-            </div> */}
-            < div className="form-group">
-              {/* <Select
-            options={jobsList}
-            placeholder={t('input.add_job.basic_filter.placeholder')}
-            onChange={this.goToJob}
-          /> */}
+            < div className="form-group mt-2">
               <select
-                className="form-control mt-3"
+                className="form-control"
                 id="exampleFormControlSelect1"
                 onChange={this.goToJob}
-                
               >
                 {jobsList.map((job, index) => (
                   <option key={job.id} value={job.id}>
@@ -174,9 +143,7 @@ class HeaderJobDetail extends Component {
                   </option>
                 ))}
               </select>
-            
             </div>
-
             <div className={styles.alloptions}>
               <Popup
                 trigger={
@@ -184,7 +151,7 @@ class HeaderJobDetail extends Component {
                     <img
                       src={shareLink}
                       alt="shareLink"
-                      style={{ width: "16px", height: "17px" }}
+                      style={{ width: "16px", height: "17px",marginLeft:'35px' }}
                       className={styles.iconstyle}
                     />
 
@@ -220,11 +187,8 @@ class HeaderJobDetail extends Component {
                 </div>
 
                 <div
-                  className="d-flex mb-5 mt-5"
-                  style={{
-                    flexDirection: "row",
-                    justifyContent: "space-around",
-                  }}
+               
+                  className={styles.publishways}
                 >
                   <a
                     href="https://play.google.com/store/apps/details?id=io.swvl.customer"
@@ -233,7 +197,7 @@ class HeaderJobDetail extends Component {
                     <img
                       src={AppGallery}
                       alt="AppGallery"
-                      style={{ marginLeft: "11%" }}
+                      className={styles.appgallery}
                     />
                   </a>
                   <a
@@ -344,7 +308,7 @@ class HeaderJobDetail extends Component {
                   />
                   <span className={styles.spanoption}>Re-post</span>
                 </button>
-              </Link>
+              </Link> 
               <button
                 className={styles.containerOption}
                 onClick={() => {
@@ -371,46 +335,13 @@ class HeaderJobDetail extends Component {
                   style={{ width: "16px", height: "17px" }}
                   className={styles.iconstyle}
                 />
-                {/* <img src={editImage} alt="stop image"/> */}
                 <span className={styles.stopspan}>Stop</span>
               </button>
-            </div>
 
-            {/* <div className={styles.actions}>
-              <Actions
-                items={[
-                  {
-                    title: 'Re-post',
-                    Icon: RedoOutlined,
-                    action: () => {},
-                  },
-                  {
-                    title: 'Edit',
-                    Icon: FormOutlined,
-                    action: () => {},
-                  },
-                  {
-                    title: 'Share',
-                    Icon: ShareAltOutlined,
-                    action: () => {},
-                  },
-                ]}
-              />
-            </div> */}
-            {/* <div className={styles.post_status}>
-              <span>Post status</span>
-              <div>
-                <Switch
-                  checkedChildren="On"
-                  unCheckedChildren="Off"
-                  defaultChecked
-                />
-              </div>
-            </div> */}
+            </div>
           </div>
         </div>
         </div>
-    
     );
   }
 }
