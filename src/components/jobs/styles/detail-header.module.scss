@@ -1,3 +1,5 @@
+@import "../../../assets/styles/mixins/responsive";
+
 .head {
   height: 28px;
   background: #9538FF;
@@ -9,6 +11,14 @@
   padding: 10px 60px;
   display: flex;
   justify-content: space-between;
+@include tablet{
+  margin-top: 220px;
+  height: 80px;
+}
+@include mobile{
+  margin-top: 220px;
+  height: 80px;
+}
 
   .rigth_side {
     display: flex;

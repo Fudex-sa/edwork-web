@@ -8,6 +8,9 @@ import Group from "../../assets/imgs/Group 2633.svg";
 import PricingCard from "./Cards/PricingCard";
 
 class Pricing extends Component {
+  componentDidMount() {
+    window.scrollTo(0,0) 
+  }
   render() {
     const items=[
       "Valid for unlimited posts",
@@ -71,7 +74,8 @@ class Pricing extends Component {
                 backgroundColor: "#1BCBFF",
                 display: "flex",
                 // width:'500px',
-                height: "680px",
+                height: "821px",
+                overflowY: "hidden"
               }}
             >
               <div className={styles.leftcontainer}>
