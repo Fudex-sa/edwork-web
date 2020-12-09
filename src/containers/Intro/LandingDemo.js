@@ -60,8 +60,12 @@ class LandingDemo extends Component {
             </div>
           </div>
           {/* <span className={styles.emaillink}>info@fursatak.app</span> */}
-          <a href="mailto:someone@example.com" className={styles.emaillink}>info@fursatak.app</a>
-
+          
+          <div>
+            <span>
+              <a href="mailto:someone@example.com" className={styles.emaillink}>info@fursatak.app</a>
+            </span>
+          </div>
         </div>
       </section>
     );

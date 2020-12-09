@@ -17,35 +17,29 @@ class Pay extends Component {
       amount: 10,
       type: 'plan',
     };
-    getInitalPayment(
-      data,
-      {
-        success: (response) => {
-          console.warn('success', response);
-
-          sessionStorage.setItem('paymentId', response.data.id);
-
-          this.setState(
-            {
-              availabelToken: true,
-              token: response.data.id,
-            },
-            () => {
-              // make script element
-              const script = document.createElement('script');
-              script.src = `https://test.oppwa.com/v1/paymentWidgets.js?checkoutId=${response.data.id}`;
-              script.async = true;
-              document.body.appendChild(script);
-            }
-          );
-        },
-        fail: (response) => {
-          console.warn('error', response);
-          this.setState({
-            error: true,
-          });
-        },
+    getInitalPayment(data, {
+      success: (response) => {
+        sessionStorage.setItem('paymentId', response.data.id);
+        this.setState(
+          {
+            availabelToken: true,
+            token: response.data.id,
+          },
+          () => {
+            // make script element
+            const script = document.createElement('script');
+            script.src = `https://test.oppwa.com/v1/paymentWidgets.js?checkoutId=${response.data.id}`;
+            script.async = true;
+            document.body.appendChild(script);
+          }
+        );
       },
+      fail: (response) => {
+        this.setState({
+          error: true,
+        });
+      },
+    },
       token
     );
   }

@@ -23,8 +23,6 @@ class MembershipForm extends Component {
     const startPlan = userData.Company?.plan_started_at;
     const endPlan = userData.Company?.plan_finished_at;
 
-    // console.warn(startPlan, endPlan);
-
     if (showPay) return <Pay />;
     return (
       <div>

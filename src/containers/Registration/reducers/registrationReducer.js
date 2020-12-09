@@ -5,6 +5,7 @@ import {
   CLEAR_REGISTRATION_DATA,
   CREATE_ADDRESS,
   CREATE_COMPANY,
+  GET_PLANS
 } from '../actions/constants';
 
 const initialState = {
@@ -15,6 +16,7 @@ const initialState = {
   isLoadingRegion: 1,
   regions: [],
   governorates: [],
+  plans:[],
 };
 
 const registrationReducer = (state = initialState, { type, payload }) => {
@@ -65,6 +67,11 @@ const registrationReducer = (state = initialState, { type, payload }) => {
     case `${CREATE_COMPANY}_FAIL`:
       return { ...state, createCompanyLoading: 0 };
 
+    case `${GET_PLANS}_SUCCESS`:
+      return { ...state, plans: payload };
+    case `${GET_PLANS}_FAIL`:
+      return { ...state, plans: [] };
+      
     default:
       return state;
   }
