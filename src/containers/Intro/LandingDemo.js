@@ -7,6 +7,7 @@ import iphone from "~assets/imgs/iphone.svg";
 import Thumblike from "~assets/imgs/Path 808.svg";
 import fursatac from "~assets/imgs/fursatac.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Logo1 from "../../assets/imgs/landing/Color.svg"
 
 class LandingDemo extends Component {
   render() {
@@ -17,7 +18,7 @@ class LandingDemo extends Component {
             <div className="col-md-9 col-sm-12"></div>
             <div className="col-md-3 col-sm-12 mt-5 logodiv">
               <div className={styles.logocontainer}>
-                <img src={Logo} alt="logo" className="text-center" />
+                <img src={Logo1} alt="logo1" className="text-center" style={{   width: '112px',height:'40px'}} />
 
                 <div className={styles.logospan}>إطلاق تجريبى</div>
               </div>
@@ -63,7 +64,7 @@ class LandingDemo extends Component {
           
           <div>
             <span>
-              <a href="mailto:someone@example.com" className={styles.emaillink}>info@fursatak.app</a>
+              <a href="mailto:someone@example.com" className={styles.emaillink}>info@Joobly.co</a>
             </span>
           </div>
         </div>

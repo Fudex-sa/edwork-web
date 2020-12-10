@@ -11,7 +11,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
 // Assets
-import Logo from "~assets/imgs/logo_landing.svg";
+// import Logo from "~assets/imgs/logo_landing.svg";
+import Logo1 from "../../assets/imgs/landing/Color.svg"
 import Signin from "~assets/imgs/landing/sign-in.svg";
 import ArrowJobAvailable from "~assets/imgs/landing/arrow-jobavailable.svg";
 import Mobile from "~assets/imgs/landing/iphone.svg";
@@ -76,7 +77,7 @@ class Landing extends Component {
 
               {/* head logo */}
               <a href="/" className={styles.logo}>
-                <img src={Logo} alt="logo" />
+                <img src={Logo1} alt="logo" />
               </a>
             </div>
           )}
@@ -84,7 +85,7 @@ class Landing extends Component {
             <div className={classnames(styles.head, styles.container)}>
               {/* head logo */}
               <a href="/" className={styles.logo}>
-                <img src={Logo} alt="logo" />
+                <img src={Logo1} alt="logo" />
               </a>
               <span
                 className={styles.languagespan}
@@ -412,7 +413,7 @@ class Landing extends Component {
 
             {/* logo */}
             <div className={styles.logo}>
-              <img src={Logo} alt="logo" />
+              <img src={Logo1} alt="logo1" />
             </div>
 
             {/* about */}
