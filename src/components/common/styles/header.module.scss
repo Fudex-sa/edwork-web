@@ -118,14 +118,14 @@
           @include tablet {
             display: flex;
             flex-direction: column;
-            margin-right: 239px;
+            margin-right: 180px;
             top: 120px;
             position: absolute;
           }
           @include mobile {
             display: flex;
             flex-direction: column;
-            right: 60px;
+            right: 115px;
             top: 120px;
             position: absolute;
           }
@@ -138,27 +138,36 @@
             padding: 6px;
             background-color: #f7f8f8;
             @include tablet {
-              width: 260px;
+              width: 172px;
               margin-bottom: 5px;
+              padding: 6px 0px;
+              display: flex;
+              justify-content: center;
             }
             @include mobile {
-              width: 260px;
+              width: 169px;
               margin-bottom: 5px;
+              padding: 6px 0px;
+              display: flex;
+              justify-content: center;
             }
             .iconstyle {
               margin-right: 5px;
               margin-top: 2px;
-              @include tablet {
-                margin-left: 20px;
-              }
-              @include mobile {
-                margin-left: 20px;
-              }
+              width: 16px;
+             height: 17px;
+
+              // @include tablet {
+              //   margin-left: 20px;
+              // }
+              // @include mobile {
+              //   margin-left: 20px;
+              // }
             }
             .spanoption {
               color: black;
               font-weight: bold;
-              font-size: 16px;
+              font-size: 14px;
               font-family: "SF Compact Rounded medium";
             }
             .publishways{
@@ -234,6 +243,9 @@
       flex: 1;
       max-width: 50%;
       align-self: center;
+      &:lang(ar){
+        flex: none;
+      }
       @include tablet {
         max-width: 0%;
       }
@@ -249,7 +261,7 @@
           height: 100%;
           width: auto;
           @include tablet {
-            margin-left: 210px;
+            margin-left: 266px;
           }
           @include mobile {
             margin-left: 116px;
@@ -257,9 +269,18 @@
         }
         @include tablet {
           margin-bottom: 280px;
+          margin-top: 0px;
+          &:lang(ar){
+            margin-bottom: 0px;
+          }
         }
+        
         @include mobile {
           margin-bottom: 280px;
+          margin-top: 0px;
+          &:lang(ar){
+            margin-bottom: 0px;
+          }
         }
       }
 

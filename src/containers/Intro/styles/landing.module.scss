@@ -305,7 +305,7 @@
           display: flex;
           flex-direction: column;
           align-items: flex-end;
-          margin-top: 39vh;
+          margin-top: 54vh;
           padding-right: 80px;
 
           &:lang(ar) {
@@ -319,7 +319,7 @@
           display: flex;
           flex-direction: column;
           align-items: flex-end;
-          margin-top: 52vh;
+          margin-top: 54vh;
           padding-bottom: 50px;
           margin-left: 50px;
 
@@ -613,6 +613,18 @@
         &:lang(ar) {
           margin-right: 0;
           margin-left: 15px;
+        }
+      }
+      .madeWith{
+        margin-left: 22px !important;   
+        &:lang(ar) {
+          margin-left: 22px !important;   
+        }
+        @include tablet{
+          margin-left: 22px !important;   
+        }
+        @include mobile{
+          margin-left: 22px !important;   
         }
       }
     }
