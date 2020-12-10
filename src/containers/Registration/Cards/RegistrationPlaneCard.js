@@ -14,18 +14,18 @@ class RegistrationPlaneCard extends Component {
     this.setState({ showPay: true });
   };
   render() {
-    const { header, color, backgroundColor, time, salaryNum ,items} = this.props;
+    const { color, backgroundColor,  plan} = this.props;
     return (
       <div className={styles.registerationCard}>
         <div className={styles.planTypes}>
           <h5 className={styles.jobpostheader1} style={{ color }}>
-            {header}
+            {plan.title}
           </h5>
-          <span>{time}</span>
+          <span>{plan.sub_title}</span>
         </div>
         <div className={styles.jobpost}>
           <div className={styles.salary}>
-            <span className={styles.salarynum}>{salaryNum}</span>
+            <span className={styles.salarynum}>{plan.price}</span>
             <span className={styles.SAR}>SAR</span>
           </div>{" "}
           <button
@@ -36,13 +36,13 @@ class RegistrationPlaneCard extends Component {
             pay
           </button>
         </div>
-        {items.map((item) => (
-          <div className={styles.items}>
+        {plan.Features.map(({name,id}) => (
+          <div className={styles.items} key={id}>
             <FontAwesomeIcon
               icon={["fa", "check"]}
               className={styles.truemark}
             />
-            <span>{item}</span>
+            <span>{name}</span>
           </div>
         ))}
       </div>

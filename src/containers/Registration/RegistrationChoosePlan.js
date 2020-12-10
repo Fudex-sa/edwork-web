@@ -152,26 +152,32 @@
 // )(withNamespaces()(RegistrationChoosePlan));
 
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import styles from "./styles/registrationChoosePlan.module.scss";
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import getPlans from "./actions/getPlans";
 
 import { withNamespaces } from "react-i18next";
 import Group from "../../assets/imgs/Group 2633.svg";
 import RegistrationPlaneCard from "./Cards/RegistrationPlaneCard";
+
 class RegistrationChoosePlan extends Component {
- 
+  async componentDidMount() {
+    await this.props.getPlans();
+
+  }
   render() {
-    const items=[
+    const items = [
       "Valid for unlimited posts",
       "Data access on anytime",
       "Manage candidates applications",
       "Sorting options",
       "Filtration options"
     ]
-    // const { lang, t } = this.props;
-    console.log("myprops", this.props);
+    const { plans = [] } = this.props
     return (
       <section className={styles.section}>
         <div className="container-fluid">
@@ -190,15 +196,21 @@ class RegistrationChoosePlan extends Component {
               </div>
               <div className="row">
                 <div className="col-md-1 col-sm-9 m-auto"></div>
-                <div className="col-md-3 col-sm-9 m-auto">
-                  <RegistrationPlaneCard
-                    header="1 Jop Post"
-                    color="#000000"
-                    backgroundColor="#000000"
-                    salaryNum="3000"
-                    items={items}
-                  />
-                </div>
+                {plans.map(plan => (
+                  <div key={plan.id} className="col-md-3 col-sm-9 m-auto">
+                    <RegistrationPlaneCard plan={plan} color="#000000" backgroundColor="#000000" />
+                  </div>
+                ))}
+                {/* <div key={plan.id} className="col-md-3 col-sm-9 m-auto">
+                    <RegistrationPlaneCard
+                      plan={plan}
+                      header="1 Jop Post"
+                      color="#000000"
+                      backgroundColor="#000000"
+                      salaryNum="3000"
+                      items={items}
+                    />
+                  </div>
                 <div className="col-md-3 col-sm-9 m-auto">
                   <RegistrationPlaneCard
                     header="Unlimited posts"
@@ -218,7 +230,7 @@ class RegistrationChoosePlan extends Component {
                     salaryNum="7000"
                     items={items}
                   />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -227,4 +239,16 @@ class RegistrationChoosePlan extends Component {
     );
   }
 }
-export default RegistrationChoosePlan;
+
+
+RegistrationChoosePlan.propTypes = {
+  plans: PropTypes.object.isRequired,
+  getPlans: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = ({ registration }) => ({
+  plans: registration.plans,
+});
+
+export default connect(mapStateToProps, { getPlans })(RegistrationChoosePlan);
+
