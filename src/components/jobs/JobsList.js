@@ -4,6 +4,9 @@ import { bindActionCreators } from "redux";
 import { withNamespaces } from "react-i18next";
 import { Tooltip } from "antd";
 import { ArrowsAltOutlined, RedoOutlined, FormOutlined, DeleteOutlined } from "@ant-design/icons";
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+
 import classnames from "classnames";
 import { Button, Popup } from "semantic-ui-react";
 // import {Scrollbar} from"react-scrollbars-custom"
@@ -36,7 +39,19 @@ const Actions = (props) => {
   );
 };
 
+const toggle  = () =>{
+ this.setState({isNavCollapsed:!this.state.isNavCollapsed});
+
+}
+
+
 class JobsList extends PureComponent {
+  constructor(){
+    super();
+    this.state={
+      isOpen:false
+    }
+  }
   render() {
     const { headTitles, data, actions, jobId } = this.props;
     console.warn(data);
@@ -119,6 +134,27 @@ class JobsList extends PureComponent {
                   }}
                 />
               ),
+              
+
+              <Dropdown isOpen={this.state.isNavCollapsed} toggle={this.toggle}>
+              <DropdownToggle caret>
+                ShareLink
+                </DropdownToggle>
+              <DropdownMenu>
+                <DropdownItem header>Edit Post </DropdownItem>
+                <DropdownItem>Re-post</DropdownItem>
+                <DropdownItem text>Stop</DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+
+
+
+
+
+
+
+
+              
             ].map((item, index) => (
               <div
                 key={index}
@@ -135,6 +171,8 @@ class JobsList extends PureComponent {
             ))}
           </div>
         ))}
+                  <div>Play</div>
+
         {/* <div className={styles.pagination}>
               <div>
                 <button>

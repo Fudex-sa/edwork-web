@@ -12,10 +12,16 @@
   flex-wrap: nowrap;
   @include tablet {
     margin-left: -81px;
+    &:lang(ar) {
+      margin-left: 65px;
+    }
   }
 
   @include mobile {
     margin-left: -81px;
+    &:lang(ar) {
+      margin-left: 65px;
+    }
   }
 }
 @include tablet {
@@ -33,7 +39,7 @@
 .header {
   $heightHeader: 80px;
   height: $heightHeader;
-  background: #f4f6f7;
+  background: #f7f8f8;
 
   &.white {
     background: #fff;
@@ -51,12 +57,12 @@
         align-self: stretch;
         flex: 11;
         justify-content: space-around;
-@include tablet{
-  margin-right: -9px;
-}
-@include mobile{
-  margin-right: -9px;
-}
+        @include tablet {
+          margin-right: -9px;
+        }
+        @include mobile {
+          margin-right: -9px;
+        }
         & > div {
           align-self: center;
         }
@@ -118,14 +124,14 @@
           @include tablet {
             display: flex;
             flex-direction: column;
-            margin-right: 239px;
+            margin-right: 180px;
             top: 120px;
             position: absolute;
           }
           @include mobile {
             display: flex;
             flex-direction: column;
-            right: 60px;
+            right: 115px;
             top: 120px;
             position: absolute;
           }
@@ -138,50 +144,59 @@
             padding: 6px;
             background-color: #f7f8f8;
             @include tablet {
-              width: 260px;
+              width: 172px;
               margin-bottom: 5px;
+              padding: 6px 0px;
+              display: flex;
+              justify-content: center;
             }
             @include mobile {
-              width: 260px;
+              width: 169px;
               margin-bottom: 5px;
+              padding: 6px 0px;
+              display: flex;
+              justify-content: center;
             }
             .iconstyle {
               margin-right: 5px;
               margin-top: 2px;
-              @include tablet {
-                margin-left: 20px;
-              }
-              @include mobile {
-                margin-left: 20px;
-              }
+              width: 16px;
+              height: 17px;
+
+              // @include tablet {
+              //   margin-left: 20px;
+              // }
+              // @include mobile {
+              //   margin-left: 20px;
+              // }
             }
             .spanoption {
               color: black;
               font-weight: bold;
-              font-size: 16px;
+              font-size: 14px;
               font-family: "SF Compact Rounded medium";
             }
-            .publishways{
+            .publishways {
               display: flex;
               margin-top: 30px;
               margin-bottom: 30px;
-                flex-direction: row;
-                justify-content: space-between;
-                @include tablet{
-                  justify-content: center;
-                  align-items: center;
-                }
-                @include tablet{
-                  justify-content: center;
-                  align-items: center;
-                }
+              flex-direction: row;
+              justify-content: space-between;
+              @include tablet {
+                justify-content: center;
+                align-items: center;
+              }
+              @include tablet {
+                justify-content: center;
+                align-items: center;
+              }
             }
-            appgallery{
+            appgallery {
               margin-left: 11%;
-              @include tablet{
+              @include tablet {
                 margin-left: 0;
               }
-              @include tablet{
+              @include tablet {
                 margin-left: 0;
               }
             }
@@ -234,6 +249,9 @@
       flex: 1;
       max-width: 50%;
       align-self: center;
+      &:lang(ar) {
+        flex: none;
+      }
       @include tablet {
         max-width: 0%;
       }
@@ -249,7 +267,7 @@
           height: 100%;
           width: auto;
           @include tablet {
-            margin-left: 210px;
+            margin-left: 266px;
           }
           @include mobile {
             margin-left: 116px;
@@ -257,15 +275,25 @@
         }
         @include tablet {
           margin-bottom: 280px;
+          margin-top: 0px;
+          &:lang(ar) {
+            margin-bottom: 0px;
+          }
         }
+
         @include mobile {
           margin-bottom: 280px;
+          margin-top: 0px;
+          &:lang(ar) {
+            margin-bottom: 0px;
+          }
         }
       }
 
-      @media (max-width: 768px) {
-        margin-top: 290px;
-      }
+      // @media (max-width: 768px) {
+      //   margin-top: 290px;
+
+      // }
     }
 
     .nav_container {
@@ -280,7 +308,6 @@
       // @include mobile {
       //   margin-right: 22px;
       // }
-
 
       .formLogin {
         @include tablet {
@@ -338,12 +365,18 @@
           padding: 7px;
           margin-left: 30px;
           z-index: 1000;
+          &:lang(ar) {
+            margin-left: -158px;
+          }
         }
         @include mobile {
           background-color: #f4f6f7;
           padding: 7px;
           margin-left: 30px;
           z-index: 1000;
+          &:lang(ar) {
+            margin-left: -158px;
+          }
         }
         .plan_wrapper {
           margin-right: 50px;
@@ -440,8 +473,29 @@
         div {
           font-size: 13px;
         }
+        @include tablet {
+          &:lang(ar) {
+            margin-left: 39px;
+          }
+        }
+        @include mobile {
+          &:lang(ar) {
+            margin-left: 39px;
+          }
+        }
       }
-
+.carear{
+  @include tablet {
+    &:lang(ar) {
+      margin-left: 24px;
+    }
+  }
+  @include mobile {
+    &:lang(ar) {
+      margin-left: 24px;
+    }
+  }
+}
       .settings {
         color: #5c5c5c;
         font-size: 19px;
@@ -449,9 +503,16 @@
         @include tablet {
           margin-bottom: 15px;
         }
-
+        @include tablet {
+          &:lang(ar) {
+            margin-left: 33px;
+          }
+        }
         @include mobile {
           margin-bottom: 15px;
+          &:lang(ar) {
+            margin-left: 33px;
+          }
         }
         a {
           color: #5c5c5c;
@@ -548,7 +609,3 @@ select {
     margin-top: 120px !important;
   }
 }
-
-
-
-

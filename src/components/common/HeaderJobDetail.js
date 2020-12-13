@@ -151,11 +151,11 @@ class HeaderJobDetail extends Component {
                     <img
                       src={shareLink}
                       alt="shareLink"
-                      style={{ width: "16px", height: "17px",marginLeft:'35px' }}
-                      className={styles.iconstyle}
+                      className={styles.iconstyle+'mr-3'+'mr-2'}
+                      style={{marginLeft:'40px'}}
                     />
 
-                    <span className={styles.spanoption}>Share apply link</span>
+                    <span className={styles.spanoption} style={{marginLeft:'12px'}}>Share apply link</span>
                   </button>
                 }
                 position="right center"
@@ -292,8 +292,9 @@ class HeaderJobDetail extends Component {
                   <img
                     src={editImage}
                     alt="editimage"
-                    style={{ width: "16px", height: "17px" }}
                     className={styles.iconstyle}
+                    style={{marginRight:'10px'}}
+
                   />
                   <span className={styles.spanoption}>Edit post</span>
                 </button>
@@ -303,8 +304,8 @@ class HeaderJobDetail extends Component {
                   <img
                     src={repostImage}
                     alt="repostimage"
-                    style={{ width: "16px", height: "17px" }}
                     className={styles.iconstyle}
+                    style={{marginRight:'17px'}}
                   />
                   <span className={styles.spanoption}>Re-post</span>
                 </button>
@@ -332,10 +333,10 @@ class HeaderJobDetail extends Component {
                 <img
                   src={stopImage}
                   alt="stopimage"
-                  style={{ width: "16px", height: "17px" }}
                   className={styles.iconstyle}
+                  style={{marginRight:'27px'}}
                 />
-                <span className={styles.stopspan}>Stop</span>
+                <span className={styles.stopspan} style={{marginRight:'6px'}}>Stop</span>
               </button>
 
             </div>
