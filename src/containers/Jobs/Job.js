@@ -165,6 +165,8 @@ class Job extends Component {
                 t("job.tab_head.expiresOn"),
                 t("job.tab_head.applications"),
                 t("job.tab_head.note"),
+                t("job.tab_head.drop"),
+
               ]}
               // jobId={}
               data={jobsList}

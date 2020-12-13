@@ -343,7 +343,8 @@ class Step2 extends Component {
       value: item.id,
     }));
     return (
-      <div className={styles.container}>
+      <div>
+              <div className={styles.container}>
         <LoadingWrapper
           isLoading={companyAddressLoading || isLoadingjobCategories}
         >
@@ -535,7 +536,15 @@ class Step2 extends Component {
               jobActions.getCompanyAddress();
             }}
           />
-          <div className={styles.add_job}>
+      
+        </LoadingWrapper>
+        {/* <img
+          src={BodyImg}
+          alt="body"
+          className={styles.publishImage}
+        /> */}
+      </div>
+      <div className={styles.add_job}>
             {match?.params?.id && match.path.includes("edit") ? (
               <WizardNavigation
                 finishBtnText={t("button.edit_job")}
@@ -556,12 +565,6 @@ class Step2 extends Component {
                   />
                 )}
           </div>
-        </LoadingWrapper>
-        <img
-          src={BodyImg}
-          alt="body"
-          className={styles.publishImage}
-        />
       </div>
     );
   }

@@ -128,6 +128,7 @@
       "applications": "Applications",
       "action": "Take action",
       "note": "Note (Only seen by you)",
+      "drop":"features",
       "city": "City",
       "expiresOn": "Expires on"
     },
@@ -411,7 +412,7 @@
     "remove": "Remove",
     "add_more": "Add more",
     "add_other_options": "Add other options",
-    "add_job": "Publish on fursatak app",
+    "add_job": "Publish on Joobly app",
     "edit_job": "Edit Job",
     "repost_job": "Repost Job on fursatak app",
     "select_all": "Select All",
