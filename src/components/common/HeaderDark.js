@@ -25,7 +25,7 @@ const LoginView = ({ actions, userData, t, history,toggleNavbar,collapsed}) => {
   const endPlan = moment(userData.Company?.plan_finished_at);
   const daysLeft = endPlan.diff(moment(), "days") + 1;
   const goToPay = () => {
-    history.push("/registration/plan");
+    history.push("/plans");
   };
 
   // const  toggleNavbar = () => {

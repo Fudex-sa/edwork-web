@@ -20,12 +20,10 @@ class Pay extends Component {
     getInitalPayment(data, {
       success: (response) => {
         sessionStorage.setItem('paymentId', response.data.id);
-        this.setState(
-          {
+        this.setState({
             availabelToken: true,
             token: response.data.id,
-          },
-          () => {
+          },() => {
             // make script element
             const script = document.createElement('script');
             script.src = `https://test.oppwa.com/v1/paymentWidgets.js?checkoutId=${response.data.id}`;
